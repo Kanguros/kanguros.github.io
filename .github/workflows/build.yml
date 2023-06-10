@@ -17,16 +17,28 @@ jobs:
       - name: Checkout master branch
         id: checkout-master
         uses: actions/checkout@v2
-      - name: Cache dependencies
+#      - name: Cache dependencies
+#        uses: actions/cache@v2
+#        with:
+#          path: ~/.cache/pip
+##          path: ~/.cache/pypoetry/virtualenvs
+#          key: pelican-4.8.0-${{ hashFiles('poetry.lock') }}
+#          restore-keys: |
+#            pelican-4.8.0-
+      - name: Install poetry
+#        if: ${{ failure() }}
+        run: |
+          pip install -vv poetry
+      - name: Cache site dependencies
         uses: actions/cache@v2
         with:
-          path: ~/.cache/pip
-          key: pelican-4.8.0-${{ hashFiles('poetry.lock') }}
+          path: ~/.cache/pypoetry/virtualenvs
+          key: website-${{ hashFiles('poetry.lock') }}
           restore-keys: |
-            pelican-4.8.0-
-      - name: Install Pelican
+            website-
+      - name: Install site dependencies
+        if: ${{ failure() }}
         run: |
-          pip install poetry
           poetry install -vv
       - name: Generate site
         id: run-pelican
@@ -42,6 +54,11 @@ jobs:
           user_name: 'deploy-bot'
           user_email: 'deploy-bot@noreply.github.io'
       - name: Notice
+        if: ${{ success() }}
         run: |
           echo '::notice:: Site deployed.'
+      - name: Failed
+        if: ${{ failure() }}
+        run: |
+          echo '::error:: Deploy failed.'
 
