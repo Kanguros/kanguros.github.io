@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block meta_tags %}
+<meta property="og:title" content="{{ page.title }}"/>
+<meta property="og:url" content="{{ page.url }}"/>
+<meta property="og:description" content=" {{ page.meta_description }}"/>
+<meta property="og:type" content="article"/>
+<meta property="og:author" content="{{ page.author }}"/>
+{% endblock %}
+
+
+{% block head %}
+<h1>{{ page.title }}</h1>
+{% if page.subtitle %}
+<h3>{{ page.subtitle }}</h3>
+{% endif %}
+{% if page.author and page.date %}
+<span class="article-meta">by {{ page.author }} on {{ page.date.strftime('%d %B %Y')}}</span>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="ui text container tall segment">
+    {{ page.content }}
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script type="text/javascript" src="https://cdn.jsdelivr.net/sharer.js/0.2.4/sharer.min.js"></script>
+{% endblock %}
