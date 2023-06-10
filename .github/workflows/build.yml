@@ -30,7 +30,7 @@ jobs:
         run: |
           pip install -v poetry
       - name: Cache site dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         continue-on-error: true
         with:
           fail-on-cache-miss: true
