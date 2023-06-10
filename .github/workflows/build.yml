@@ -21,25 +21,23 @@ jobs:
 #        uses: actions/cache@v2
 #        with:
 #          path: ~/.cache/pip
-##          path: ~/.cache/pypoetry/virtualenvs
-#          key: pelican-4.8.0-${{ hashFiles('poetry.lock') }}
+#          key: poetry-${{ hashFiles('poetry.lock') }}
 #          restore-keys: |
-#            pelican-4.8.0-
+#            poetry-
       - name: Install poetry
 #        if: ${{ failure() }}
         run: |
           pip install -v poetry
       - name: Cache site dependencies
         uses: actions/cache@v3
-        continue-on-error: true
+        id: cache-site
         with:
-          fail-on-cache-miss: true
           path: ~/.cache/pypoetry/virtualenvs
           key: website-${{ hashFiles('poetry.lock') }}
           restore-keys: |
             website-
       - name: Install site dependencies
-        if: ${{ failure() }}
+        if: steps.cache-site.outputs.cache-hit != 'true'
         run: |
           poetry install -vv
       - name: Generate site
