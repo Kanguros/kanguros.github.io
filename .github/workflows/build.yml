@@ -26,7 +26,7 @@ jobs:
             pelican-4.8.0-
       - name: Install Pelican
         run: |
-          pip install -r poetry
+          pip install poetry
           poetry install -vv
       - name: Generate site
         id: run-pelican

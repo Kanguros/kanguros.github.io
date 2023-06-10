@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "kanguros-blog"
-version = "kanguros.github.io"
+name = "kanguros.github.io"
+version = "0.1.0"
 description = ""
 authors = ["Kamil Urbanek <urbanek.kamil@gmail.com>"]
 
