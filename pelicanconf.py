@@ -15,17 +15,17 @@ CACHE_CONTENT = False
 LOAD_CONTENT_CACHE = False
 DELETE_OUTPUT_DIRECTORY = True
 
-SITENAME = 'Kangur Blog'
+SITENAME = 'DevNet Notes'
 TIMEZONE = 'Europe/Warsaw'
-AUTHORS = 'Kamil Urbanek'
+AUTHOR = 'Kamil Urbanek'
 DEFAULT_LANG = 'en'
 DEFAULT_CATEGORY = "General"
 
-THEME = 'theme'
+THEME = 'wilson_theme'
 TYPOGRIFY = True
-HEADER_COVER = 'images/header.png'
+# HEADER_COVER = 'images/header.png'
 DIRECT_TEMPLATES = ['index',
-                    'authors',
+                    # 'authors',
                     'tags',
                     'archives']
 
@@ -56,7 +56,7 @@ TAG_URL = 'tags/{slug}/'
 TAG_SAVE_AS = 'tags/{slug}/index.html'
 TAGS_SAVE_AS = 'tags/index.html'
 
-MENU_LINKS = (
+MENUITEMS = (
     ('Tags', f'/{TAGS_SAVE_AS}'),
     ('Archive', f'/{ARCHIVES_SAVE_AS}'),
     ('About', f'/about/index.html')

@@ -1,7 +1,7 @@
 Title: Markdown in Pelican 
 Date: 10.03.2022   
 Author: Kamil Urbanek   
-Category: General
+Category: markdown
 Summary: How to write articles   
 
 ## Possibilities of Markdown implementation in Pelican

@@ -1,0 +1,166 @@
+.my-list-style {
+    margin-left: 0;
+}
+
+.aw-bottom {
+    margin-top: 2em;
+    border-top: 1px solid #dddddd;
+        padding-top: 2em;
+    padding-bottom: 2em;
+
+    }
+
+.bottom-foot {
+      position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.aw-footer {
+    margin-top: 2em;
+    border-top: 2px solid lightgrey;
+    border-bottom: 2px solid lightgrey;
+    /* height: 250px; */
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+.aw-footer li {
+    line-height: 150%;
+}
+
+.summary {
+    margin-bottom: 2em;
+    margin-top: 2em;
+    color: black;
+}
+
+.summary pre {
+    display: none;
+}
+
+.article-body {
+    margin-top: 2em;
+    color: black;
+}
+
+.article-title {
+    margin-bottom: 0.1em;
+    font-size: 42px;
+}
+
+.article-header {
+    margin-bottom: 1em;
+}
+
+/**
+ * Overrides of notebook CSS for static HTML export
+**/
+div.entry-content {
+    overflow: visible;
+    padding: 8px;
+}
+
+.inner_cell {
+    width: 100%;
+}
+
+.input_area {
+    padding: 0.2em;
+}
+
+a {
+    color: #444444; /* Charcoal Gray */
+}
+
+a:hover,
+a:focus {
+    color: #2C2C2C; /* Darker shade of gray on hover */
+    text-decoration: underline;
+}
+
+a.heading-anchor {
+    white-space: normal;
+}
+
+.rendered_html code {
+    font-size: 0.8em;
+}
+
+pre.ipynb {
+    color: black;
+    background: #f7f7f7;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 0;
+    padding: 0;
+    margin: 0px;
+    font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+.prompt {
+    display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+    padding: 0.5em 0em;
+}
+
+img.anim_icon {
+    padding: 0;
+    border: 0;
+    vertical-align: middle;
+    -webkit-box-shadow: none;
+    -box-shadow: none;
+}
+
+div.collapseheader {
+    width: 100%;
+    background-color: #d3d3d3;
+    padding: 2px;
+    cursor: pointer;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.nav-pills>li {
+    float: none;
+}
+
+.nav>li {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-pills>ul {
+    font-size: 1rem;
+}
+
+.page-header {
+    margin: 30px 0px 10px;
+}
+
+.badge-tag {
+    background-color: #ebe8e8;
+}
+
+.badge-tag > a {
+        color: #939191;
+    text-shadow: none;
+}
+
+.article-meta {
+
+padding: 10px 0px;
+}
+
+code {
+color: #4d4d4d;
+}
+
+.pagination {
+display: block;
+margin-top: 3em;
+}
