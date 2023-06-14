@@ -1,55 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!-- Standard Meta -->
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <!-- Site Properities -->
-    <title>Markdown in&nbsp;Pelican</title>
-
-    <meta name="description" content="">
-
-    <meta property="og:site_name" content="Kangur Blog"/>
-    <meta property="og:locale" content="en"/>
-
-<meta property="og:title" content="Markdown in&nbsp;Pelican"/>
-<meta property="og:url" content="posts/markdown-in-pelican.html"/>
-<meta property="og:description" content=" "/>
-<meta property="og:type" content="article"/>
-<meta property="og:author" content="Kamil Urbanek"/>
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Kangur Blog">
-    <meta name="twitter:description" content="">
-    <!--meta name="twitter:image" content=""-->
-
-    <link rel="stylesheet" type="text/css" href="https://kanguros.github.io/theme/css/semantic.min.css">
-    <link rel="stylesheet" type="text/css" href="https://kanguros.github.io/theme/css/custom.css">
+    <meta charset="utf-8">
+    <title>
+Markdown in&nbsp;Pelican — DevNet Notes    </title>
+    <meta name="description"
+          content="Title: Markdown in&nbsp;Pelican; Date: 2022-10-03; Author: Kamil Urbanek">
+    <meta name="author" content="Kamil Urbanek">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="https://kanguros.github.io/theme/html5.js"></script>
+    <![endif]-->
+    <link href="https://kanguros.github.io/theme/css/ipython.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme//css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/simplex.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/local.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/pygments.css" rel="stylesheet">
 </head>
 <body>
-<div class="ui borderless fixed stackable main menu">
-    <div class="ui text container">
-        <a href="/" class="header item">
-            <img class="logo" src="https://kanguros.github.io/theme/images/logo.png">
-            Kangur Blog
-        </a>
-        <a href="/tags/index.html" class="item">Tags</a>
-        <a href="/archive.html" class="item">Archive</a>
-        <a href="/about/index.html" class="item">About</a>
-    </div>
-</div>
-<div class="ui grid intro">
-    <div class="row">
-        <div class="column center aligned head-title">
-<h1>Markdown in&nbsp;Pelican</h1>
-<span class="article-meta">by Kamil Urbanek on 03 October 2022</span>
+<div class="container">
+    <div class="text-center page-header">
+        <h1>
+            <a href="https://kanguros.github.io/">
+                DevNet Notes
+            </a>
+            <br>
+        </h1>
+        <div class="row text-center">
+            <ul class="nav nav-pills text-center">
+                <li class="nav-item">
+                    <a href="https://kanguros.github.io" class="nav-link ">
+                        Index
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://kanguros.github.io//tags/index.html">
+                        <i class="nav-link fa fa-Tags "></i>
+                        Tags
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://kanguros.github.io//archive.html">
+                        <i class="nav-link fa fa-Archive "></i>
+                        Archive
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://kanguros.github.io//about/index.html">
+                        <i class="nav-link fa fa-About "></i>
+                        About
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
-</div>
 
-<div class="ui text container tall segment article-content">
-    <h2 id="possibilities-of-markdown-implementation-in-pelican">Possibilities of Markdown implementation in&nbsp;Pelican</h2>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+<div class="article" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="text-center article-header">
+        <h1 itemprop="name headline" class="article-title">Markdown in&nbsp;Pelican</h1>
+        <time datetime="2022-10-03T00:00:00+02:00" itemprop="datePublished">
+            Mon 03 October 2022
+        </time>
+    </div>
+    <!--	-->
+    <!--	<div>-->
+    <!--		Category:-->
+    <!--		<span itemprop="articleSection">-->
+    <!--			<a href="https://kanguros.github.io/category/markdown.html" rel="category">markdown</a>-->
+    <!--		</span>-->
+    <!--	</div>-->
+    <!--	-->
+
+    <div itemprop="articleBody" class="article-body"><h2 id="possibilities-of-markdown-implementation-in-pelican">Possibilities of Markdown implementation in&nbsp;Pelican</h2>
 <hr>
 <h2 id="filename">Filename</h2>
 <p>In folder <code>content/articles/</code> create new file according to <a href="#template">template</a> with *.md&nbsp;extension.</p>
@@ -129,19 +156,95 @@ Article&#8217;s content written in&nbsp;Markdown.</p>
 <p class="progress-label"></p>
 </div>
 </div>
-</p>
+</p></div>
+    <hr>
+    <!--	<h2>Comments</h2>-->
+    <!--	-->
+    <!--	-->
 </div>
-
-<div class="ui inverted vertical footer segment">
-    <div class="ui center aligned container">
-        <img class="ui centered mini image" src="https://kanguros.github.io/theme/images/logo.png">
-        <div>
-            A footer placeholder.
+        </div>
+    </div>
+    <!-- <hr> -->
+</div> <!-- /container -->
+<!--<footer class="aw-footer bg-danger">-->
+<!--    <div class="container"> &lt;!&ndash; footer &ndash;&gt;-->
+<!--        <div class="row">-->
+<!--            <div class="col-md-10 col-md-offset-1">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-md-3">-->
+<!--                        <h4>Navigation</h4>-->
+<!--                        <ul class="list-unstyled my-list-style">-->
+<!--                            <li><a href="https://kanguros.github.io">Index</a></li>-->
+<!--                            -->
+<!--                            <li><a href="https://kanguros.github.io//tags/index.html"><i class="fa fa-Tags "></i> Tags</a></li>-->
+<!--                            -->
+<!--                            <li><a href="https://kanguros.github.io//archive.html"><i class="fa fa-Archive "></i> Archive</a></li>-->
+<!--                            -->
+<!--                            <li><a href="https://kanguros.github.io//about/index.html"><i class="fa fa-About "></i> About</a></li>-->
+<!--                            -->
+<!--                            &lt;!&ndash;                            &ndash;&gt;-->
+<!--                            &lt;!&ndash;                            &ndash;&gt;-->
+<!--                            &lt;!&ndash;                            <li><a href="https://kanguros.github.io/about/"><i class="fa fa-About "></i>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                About</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                            &ndash;&gt;-->
+<!--                            &lt;!&ndash;                            <li><a href="https://kanguros.github.io/404/"><i class="fa fa-404 "></i>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                                404</a></li>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                            &ndash;&gt;-->
+<!--                            &lt;!&ndash;                            &ndash;&gt;-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash;					<div class="col-md-3">&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<h4>Author</h4>&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<ul class="list-unstyled my-list-style">&ndash;&gt;-->
+<!--                    &lt;!&ndash;						&ndash;&gt;-->
+<!--                    &lt;!&ndash;						</ul>&ndash;&gt;-->
+<!--                    &lt;!&ndash;					</div>&ndash;&gt;-->
+<!--                    &lt;!&ndash;					<div class="col-md-3">&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<h4>Categories</h4>&ndash;&gt;-->
+<!--                    &lt;!&ndash;						<ul class="list-unstyled my-list-style">&ndash;&gt;-->
+<!--                    &lt;!&ndash;							&ndash;&gt;-->
+<!--                    &lt;!&ndash;							<li><a href="https://kanguros.github.io/category/markdown.html">markdown (1)</a></li>&ndash;&gt;-->
+<!--                    &lt;!&ndash;							&ndash;&gt;-->
+<!--                    &lt;!&ndash;							<li><a href="https://kanguros.github.io/category/posts.html">posts (2)</a></li>&ndash;&gt;-->
+<!--                    &lt;!&ndash;							&ndash;&gt;-->
+<!--                    &lt;!&ndash;						</ul>&ndash;&gt;-->
+<!--                    &lt;!&ndash;					</div>&ndash;&gt;-->
+<!--                    &lt;!&ndash;				&ndash;&gt;-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</footer>-->
+<div class="container bottom-foot">
+    <div class="row">
+        <div class="col-md-12 text-center center-block aw-bottom">
+            <p>&copy; By Kamil Urbanek, with Pelican</p>
         </div>
     </div>
 </div>
-<script type="text/javascript" src="https://kanguros.github.io/theme/js/jquery.min.js"></script>
-<script type="text/javascript" src="https://kanguros.github.io/theme/js/semantic.min.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/sharer.js/0.2.4/sharer.min.js"></script>
+<!-- JavaScript -->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+	$("div.collapseheader").click(function () {
+		$header = $(this).children("span").first();
+		$codearea = $(this).children(".input_area");
+		$codearea.slideToggle(500, function () {
+			$header.text(function () {
+				return $codearea.is(":visible") ? "Collapse Code" : "Expand Code";
+			});
+		});
+	});
+});
+
+
+
+
+
+
+
+</script>
+<!---->
 </body>
 </html>
