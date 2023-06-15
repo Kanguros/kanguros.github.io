@@ -16,7 +16,7 @@
     <script src="{{ SITEURL }}/theme/html5.js"></script>
     <![endif]-->
     <link href="{{ SITEURL }}/theme/css/ipython.css" rel="stylesheet">
-    <link href="{{ SITEURL }}/theme//css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/css/simplex.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/css/local.css" rel="stylesheet">
@@ -24,16 +24,15 @@
     {% block head %}{% endblock %}
 </head>
 <body>
-<div class="container">
-    {% include "header.html" %}
-
+<div class="container-fluid">
+    <div class="row">
+        {% include "header.html" %}
+    </div>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             {% block content %}{% endblock %}
         </div>
     </div>
-    {# End row #}
-    <!-- <hr> -->
 
     <div class="row">
         <footer class="footer">
@@ -61,6 +60,7 @@ jQuery(document).ready(function($) {
 		});
 	});
 });
+
 
 
 

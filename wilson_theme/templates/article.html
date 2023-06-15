@@ -9,32 +9,26 @@
                 {{ article.title }}
             </a>
         </h1>
-        <time datetime="{{ article.date.isoformat() }}" itemprop="datePublished">
-            {{ article.locale_date }}
-        </time>
-        {% if article.tags %}
-        <div>
-            {% for tag in article.tags %}
-            <span itemprop="keywords" class="badge badge-tag">
-			<a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">{{ tag }}</a>
-		</span>
-            {% endfor %}
-        </div>
-        {% endif %}
+        <small class="article-meta">
+            <time datetime="{{ article.date | strftime('%Y-%m-%d') }}" itemprop="datePublished">
+                {{ article.locale_date }}
+            </time>
+            {% if article.tags %}
+                {% for tag in article.tags %}
+                    <span itemprop="keywords">
+                    <a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">
+                        <i class="fa fa-tag">
+
+                        </i>{{ tag }}
+                    </a>
+                    </span>
+                {% endfor %}
+            {% endif %}
+        </small>
     </div>
-    <!--	{% if article.category %}-->
-    <!--	<div>-->
-    <!--		Category:-->
-    <!--		<span itemprop="articleSection">-->
-    <!--			<a href="{{ SITEURL }}/{{ article.category.url }}" rel="category">{{ article.category }}</a>-->
-    <!--		</span>-->
-    <!--	</div>-->
-    <!--	{% endif %}-->
 
     <div itemprop="articleBody" class="article-body">{{ article.content }}</div>
     <hr>
-    <!--	<h2>Comments</h2>-->
-    <!--	{% include "twitter.html" %}-->
-    <!--	{% include 'disqus.html' %}-->
+
 </div>
 {% endblock %}
