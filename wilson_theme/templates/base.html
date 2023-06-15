@@ -25,35 +25,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="text-center page-header">
-        <h1>
-            <a href="{{ SITEURL }}/">
-                {{ SITENAME }}
-            </a>
-            <br>
-            {% if SITESUBTITLE %}
-            <small>{{ SITESUBTITLE }}</small>
-            {% endif %}
-        </h1>
-        <div class="row text-center">
-            <ul class="nav nav-pills text-center">
-                <li class="nav-item">
-                    <a href="{{SITEURL}}" class="nav-link ">
-                        Index
-                    </a>
-                </li>
-                {% for title, link in MENUITEMS %}
-                <li class="nav-item">
-                    <a href="{{ SITEURL }}/{{ link }}">
-                        <i class="nav-link fa fa-{{ title }} "></i>
-                        {{title}}
-                    </a>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-
+    {% include "header.html" %}
 
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -62,65 +34,18 @@
     </div>
     {# End row #}
     <!-- <hr> -->
-</div> <!-- /container -->
-<!--<footer class="aw-footer bg-danger">-->
-<!--    <div class="container"> &lt;!&ndash; footer &ndash;&gt;-->
-<!--        <div class="row">-->
-<!--            <div class="col-md-10 col-md-offset-1">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-md-3">-->
-<!--                        <h4>Navigation</h4>-->
-<!--                        <ul class="list-unstyled my-list-style">-->
-<!--                            <li><a href="{{SITEURL}}">Index</a></li>-->
-<!--                            {% for title, link in MENUITEMS %}-->
-<!--                            <li><a href="{{ SITEURL }}/{{ link }}"><i class="fa fa-{{ title }} "></i> {{title}}</a></li>-->
-<!--                            {% endfor %}-->
-<!--                            &lt;!&ndash;                            {% if DISPLAY_PAGES_ON_MENU %}&ndash;&gt;-->
-<!--                            &lt;!&ndash;                            {% for page in pages %}&ndash;&gt;-->
-<!--                            &lt;!&ndash;                            <li><a href="{{ SITEURL }}/{{ page.url }}"><i class="fa fa-{{ page.title }} "></i>&ndash;&gt;-->
-<!--                            &lt;!&ndash;                                {{page.title}}</a></li>&ndash;&gt;-->
-<!--                            &lt;!&ndash;                            {% endfor %}&ndash;&gt;-->
-<!--                            &lt;!&ndash;                            {% endif %}&ndash;&gt;-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                    &lt;!&ndash;					<div class="col-md-3">&ndash;&gt;-->
-<!--                    &lt;!&ndash;						<h4>Author</h4>&ndash;&gt;-->
-<!--                    &lt;!&ndash;						<ul class="list-unstyled my-list-style">&ndash;&gt;-->
-<!--                    &lt;!&ndash;						{% for name, link in SOCIAL %}&ndash;&gt;-->
-<!--                    &lt;!&ndash;							<li><a href="{{ link }}">{{ name }}</a></li>&ndash;&gt;-->
-<!--                    &lt;!&ndash;						{% endfor %}&ndash;&gt;-->
-<!--                    &lt;!&ndash;						</ul>&ndash;&gt;-->
-<!--                    &lt;!&ndash;					</div>&ndash;&gt;-->
-<!--                    &lt;!&ndash;					<div class="col-md-3">&ndash;&gt;-->
-<!--                    &lt;!&ndash;						<h4>Categories</h4>&ndash;&gt;-->
-<!--                    &lt;!&ndash;						<ul class="list-unstyled my-list-style">&ndash;&gt;-->
-<!--                    &lt;!&ndash;							{% for cat, art in categories %}&ndash;&gt;-->
-<!--                    &lt;!&ndash;							<li><a href="{{SITEURL}}/category/{{cat | replace(" ", "-") | lower }}.html">{{cat}} ({{art | count}})</a></li>&ndash;&gt;-->
-<!--                    &lt;!&ndash;							{% endfor %}&ndash;&gt;-->
-<!--                    &lt;!&ndash;						</ul>&ndash;&gt;-->
-<!--                    &lt;!&ndash;					</div>&ndash;&gt;-->
-<!--                    &lt;!&ndash;				{% if LINKS %}&ndash;&gt;-->
-<!--                    &lt;!&ndash;					<div class="col-md-3">&ndash;&gt;-->
-<!--                    &lt;!&ndash;						<h4>Links</h4>&ndash;&gt;-->
-<!--                    &lt;!&ndash;						<ul class="list-unstyled my-list-style">&ndash;&gt;-->
-<!--                    &lt;!&ndash;						{% for name, link in LINKS %}&ndash;&gt;-->
-<!--                    &lt;!&ndash;							<li><a href="{{ link }}">{{ name }}</a></li>&ndash;&gt;-->
-<!--                    &lt;!&ndash;						{% endfor %}&ndash;&gt;-->
-<!--                    &lt;!&ndash;						</ul>&ndash;&gt;-->
-<!--                    &lt;!&ndash;					</div>&ndash;&gt;-->
-<!--                    &lt;!&ndash;				{% endif %}&ndash;&gt;-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</footer>-->
-<div class="container bottom-foot">
+
     <div class="row">
-        <div class="col-md-12 text-center center-block aw-bottom">
-            <p>&copy; By Kamil Urbanek, with Pelican</p>
-        </div>
+        <footer class="footer">
+            <hr>
+            <!--        <div class="container">-->
+            <span class="text-muted">&copy; By Kamil Urbanek, with Pelican</span>
+            <!--        </div>-->
+        </footer>
     </div>
-</div>
+</div> <!-- /container -->
+
+
 <!-- JavaScript -->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -139,12 +64,6 @@ jQuery(document).ready(function($) {
 
 
 
-
-
-
-
 </script>
-<!--{% include "analytics.html" %}-->
-{% include "github.html" %}
 </body>
 </html>
