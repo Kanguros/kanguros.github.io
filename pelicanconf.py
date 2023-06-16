@@ -24,7 +24,6 @@ DEFAULT_CATEGORY = "General"
 THEME = 'theme'
 TYPOGRIFY = True
 DIRECT_TEMPLATES = ['index',
-                    # 'authors',
                     'tags',
                     'archives']
 
@@ -56,9 +55,9 @@ TAG_SAVE_AS = 'tags/{slug}/index.html'
 TAGS_SAVE_AS = 'tags/index.html'
 
 MENUITEMS = (
-    ('Tags', f'/{TAGS_SAVE_AS}'),
-    ('Archive', f'/{ARCHIVES_SAVE_AS}'),
-    ('About', f'/about/index.html')
+    ('Tags', f'{TAGS_SAVE_AS}'),
+    ('Archive', f'{ARCHIVES_SAVE_AS}'),
+    ('About', f'about/index.html')
 )
 
 AUTHORS_BIO = "Short bio about the site and the author."
@@ -75,7 +74,3 @@ MARKDOWN = {
         'pymdownx.progressbar': {},
     },
     'output_format': 'html5'}
-
-WELCOME_TITLE = "Notes Blog"
-WELCOME_SUBTITLE = "Dev and net."
-FOOTER_TEXT = "A footer placeholder."
