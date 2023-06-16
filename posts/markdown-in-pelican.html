@@ -31,19 +31,19 @@ Markdown in&nbsp;Pelican — DevNet Notes    </title>
         <div class="row text-center">
             <ul class="nav nav-pills text-center">
                 <li class="nav-item">
-                    <a href="https://kanguros.github.io//tags/index.html">
+                    <a href="https://kanguros.github.io/tags/index.html">
                         <i class="nav-link fa fa-Tags "></i>
                         Tags
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://kanguros.github.io//archive.html">
+                    <a href="https://kanguros.github.io/archive.html">
                         <i class="nav-link fa fa-Archive "></i>
                         Archive
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://kanguros.github.io//about/index.html">
+                    <a href="https://kanguros.github.io/about/index.html">
                         <i class="nav-link fa fa-About "></i>
                         About
                     </a>
@@ -67,47 +67,47 @@ Markdown in&nbsp;Pelican — DevNet Notes    </title>
         </small>
     </div>
 
-    <div itemprop="articleBody" class="article-body"><h2 id="possibilities-of-markdown-implementation-in-pelican">Possibilities of Markdown implementation in&nbsp;Pelican</h2>
-<hr>
-<h2 id="filename">Filename</h2>
-<p>In folder <code>content/articles/</code> create new file according to <a href="#template">template</a> with *.md&nbsp;extension.</p>
-<h2 id="template">Template</h2>
-<blockquote>
-<p><strong>Title</strong>: Required. Main header of the article.<br>
-<strong>Date</strong>: Required. Data of a posting.<br>
-<strong>Author</strong>: Required. One of the <code>Name Surname</code> defined authors.<br>
-<strong>Category</strong>: Optional. By default, it gets an <code>General</code> Category.<br>
-<strong>Cover</strong>: Optional. Path to header image. If not provided, default one will be used.<br>
-<strong>Summary</strong>: Optional. Short description of the article.  <br>
-<strong>Save_as</strong>: Optional. File name of article.<br>
-<strong>Slug</strong>: Optional, article <span class="caps">ID</span>/<span class="caps">REF</span> (?). Used in <span class="caps">URL</span> creation. If not provided, it takes normalized title.  <br>
-<strong>Template</strong>: Optional, filepath to <code>Jinja2</code> template used for generating html representation.<br>
-<strong>Tags</strong>:&nbsp;Optional  </p>
-<p>[<span class="caps">MAIN</span> <span class="caps">CONTENT</span>] 
-Article&#8217;s content written in&nbsp;Markdown.</p>
-</blockquote>
-<h1 id="markdown-syntax">Markdown&nbsp;syntax</h1>
-<hr>
-<p>Usage examples of a Markdown&nbsp;features. </p>
-<h3 id="admonitions">Admonitions</h3>
-<p>Syntax: </p>
-<div class="highlight"><pre><span></span><code>!!! danger 
-    This is admonition type: <span class="sb">`danger`</span> without title.
+    <div itemprop="articleBody" class="article-body"><h1 id="headers-and-texts">Headers and&nbsp;texts</h1>
+<h2 id="second-level">Second&nbsp;level</h2>
+<h3 id="third-level">Third&nbsp;level</h3>
+<h4 id="forth-level">Forth&nbsp;level</h4>
+<p><strong>Bold text</strong>
+<em>Italic text</em>
+Underline&nbsp;text</p>
+<h1 id="code-block">Code&nbsp;block</h1>
+<p>Inline <code>code text</code>.</p>
+<p>Block&nbsp;code</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Remove generated files&quot;&quot;&quot;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">CONFIG</span><span class="p">[</span><span class="s1">&#39;deploy_path&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Removing directory: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creating a empty folder: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No directory as: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h1 id="admonitions">Admonitions</h1>
+<p>Syntax:</p>
+<div class="highlight"><pre><span></span><code>!!! danger
+This is admonition type: <span class="sb">`danger`</span> without title.
 
 !!! tip &quot;Custom tip title&quot;
-    This is admonition type: <span class="sb">`tip`</span> with custom title.
+This is admonition type: <span class="sb">`tip`</span> with custom title.
 </code></pre></div>
 
 <p>Available types: <code>danger</code>, <code>error</code>, <code>warning</code>, <code>caution</code>, <code>attention</code>, <code>important</code>, <code>note</code>, <code>hint</code>, <code>tip</code></p>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>This is admonition type: <code>danger</code> without&nbsp;title.</p>
 </div>
+<p>This is admonition type: <code>danger</code> without&nbsp;title.</p>
 <div class="admonition tip">
 <p class="admonition-title">Custom tip&nbsp;title</p>
-<p>This is admonition type: <code>tip</code> with custom&nbsp;title.</p>
 </div>
-<h3 id="progress-bars">Progress&nbsp;Bars</h3>
+<p>This is admonition type: <code>tip</code> with custom&nbsp;title.</p>
+<h1 id="progress-bars">Progress&nbsp;Bars</h1>
 <div class="highlight"><pre><span></span><code>[=0% &quot;0%&quot;]
 [=50% &quot;50%&quot;]
 [=100% &quot;100%&quot;]
@@ -147,7 +147,44 @@ Article&#8217;s content written in&nbsp;Markdown.</p>
 <p class="progress-label"></p>
 </div>
 </div>
-</p></div>
+</p>
+<h1 id="article">Article</h1>
+<p>How to create new&nbsp;article.</p>
+<h2 id="filename">Filename</h2>
+<p>In folder <code>content/posts/</code> create new file according to <a href="#template">template</a> with *.md&nbsp;extension.</p>
+<h2 id="template">Template</h2>
+<blockquote>
+<p><strong>Title</strong>: Required. Main header of the article.<br>
+<strong>Date</strong>: Required. Data of a posting.<br>
+<strong>Author</strong>: Required. One of the <code>Name Surname</code> defined authors.<br>
+<strong>Category</strong>: Optional. By default, it gets an <code>General</code> Category.<br>
+<strong>Cover</strong>: Optional. Path to header image. If not provided, default one will be used.<br>
+<strong>Summary</strong>: Optional. Short description of the article.  <br>
+<strong>Save_as</strong>: Optional. File name of article.<br>
+<strong>Slug</strong>: Optional, article <span class="caps">ID</span>/<span class="caps">REF</span> (?). Used in <span class="caps">URL</span> creation. If not provided, it takes normalized title.  <br>
+<strong>Template</strong>: Optional, filepath to <code>Jinja2</code> template used for generating html representation.<br>
+<strong>Tags</strong>:&nbsp;Optional</p>
+<p>[<span class="caps">MAIN</span> <span class="caps">CONTENT</span>]
+Article&#8217;s content written in&nbsp;Markdown.</p>
+</blockquote></div>
+    <small class="article-meta">
+
+        <span itemprop="keywords">
+                    <a href="https://kanguros.github.io/tags/markdown/" rel="tag">
+                        <i class="fa fa-tag">
+
+                        </i>markdown
+                    </a>
+                    </span>
+        <span itemprop="keywords">
+                    <a href="https://kanguros.github.io/tags/pelican/" rel="tag">
+                        <i class="fa fa-tag">
+
+                        </i>pelican
+                    </a>
+                    </span>
+    </small>
+
     <hr>
 
 </div>
