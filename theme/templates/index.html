@@ -4,7 +4,7 @@
 {% if articles %}
 {% for article in articles_page.object_list %}
 <div class="article" itemscope itemtype="http://schema.org/BlogPosting">
-    <div class="text-center article-header">
+    <div class="article-header">
         <h1 itemprop="name headline" class="article-title">
             <a href="{{ SITEURL }}/{{ article.url }}">
                 {{ article.title }}
@@ -14,6 +14,7 @@
         <time datetime="{{ article.date.isoformat() }}" itemprop="datePublished">
             {{ article.locale_date }}
         </time>
+        <div class="summary">{{ article.summary }}</div>
         {% if article.tags %}
         <div>
             {% for tag in article.tags %}
@@ -23,7 +24,6 @@
             {% endfor %}
         </div>
         {% endif %}
-        <div class="summary">{{ article.summary }}</div>
     </div>
 </div>
 <hr>

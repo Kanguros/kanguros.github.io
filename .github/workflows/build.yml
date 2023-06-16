@@ -20,16 +20,7 @@ jobs:
       - name: Install poetry
         run: |
           pip install -v poetry
-#      - name: Cache site dependencies
-#        uses: actions/cache@v3
-#        id: cache-site
-#        with:
-#          path: ~/.cache/pypoetry/virtualenvs
-#          key: website-${{ hashFiles('poetry.lock') }}
-#          restore-keys: |
-#            website-
       - name: Install site dependencies
-#        if: steps.cache-site.outputs.cache-hit != 'true'
         run: |
           poetry install -vv
       - name: Generate site

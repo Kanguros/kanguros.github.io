@@ -43,7 +43,7 @@ testing = ["flake8 (<5)", "flufl.flake8", "importlib-resources (>=1.3)", "packag
 
 [[package]]
 name = "invoke"
-version = "2.1.0"
+version = "2.1.3"
 description = "Pythonic task execution"
 category = "main"
 optional = false
@@ -281,7 +281,7 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "d04c91f53d5670b56f1d8f69aa13e2150affec49997354c11054526a411773c5"
+content-hash = "383a61a25477a102886173e8662124c761d37cd4963848a7d1aab815382328b9"
 
 [metadata.files]
 blinker = [
@@ -301,8 +301,8 @@ importlib-metadata = [
     {file = "importlib_metadata-6.6.0.tar.gz", hash = "sha256:92501cdf9cc66ebd3e612f1b4f0c0765dfa42f0fa38ffb319b6bd84dd675d705"},
 ]
 invoke = [
-    {file = "invoke-2.1.0-py3-none-any.whl", hash = "sha256:409c9cff8325d697f44308fda3026a97691972adc4ab81575d655a2100b50abc"},
-    {file = "invoke-2.1.0.tar.gz", hash = "sha256:277894c57fa2b77f22ed3c7726fb8689773301e4497ccb2a59f19bc7bbbe5b4a"},
+    {file = "invoke-2.1.3-py3-none-any.whl", hash = "sha256:51e86a08d964160e01c44eccd22f50b25842bd96a9c63c11177032594cb86740"},
+    {file = "invoke-2.1.3.tar.gz", hash = "sha256:a3b15d52d50bbabd851b8a39582c772180b614000fa1612b4d92484d54d38c6b"},
 ]
 Jinja2 = [
     {file = "Jinja2-3.1.2-py3-none-any.whl", hash = "sha256:6088930bfe239f0e6710546ab9c19c9ef35e29792895fed6e6e31a023a182a61"},

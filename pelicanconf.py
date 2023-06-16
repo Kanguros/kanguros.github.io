@@ -21,9 +21,8 @@ AUTHOR = 'Kamil Urbanek'
 DEFAULT_LANG = 'en'
 DEFAULT_CATEGORY = "General"
 
-THEME = 'wilson_theme'
+THEME = 'theme'
 TYPOGRIFY = True
-# HEADER_COVER = 'images/header.png'
 DIRECT_TEMPLATES = ['index',
                     # 'authors',
                     'tags',
