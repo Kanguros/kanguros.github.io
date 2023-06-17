@@ -1,16 +1,22 @@
-{% extends "base.html" %}
-{% block description %}All posts which refer to tag {{ tag }}{% endblock %}
-{% block title %}{{ tag }} — {{ SITENAME }}{% endblock %}
-{% block content %}
-<h1>Tag <small>{{tag}}</small></h1>
-<table class="table">
-    <tbody>
-    {% for article in articles %}
-        <tr>
-        <td>{{ article.date.strftime("%d %b %Y") }}</td>
-        <td><a href='{{ SITEURL }}/{{ article.url }}'>{{ article.title }}</a></td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-{% endblock %}
+{% extends "index.html" %}
+{% block title %}{{ SITENAME }} - Tag {{ tag }}{% endblock %}
+{% block header %}
+    {% if HEADER_COVER %}
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}')">
+    {% elif HEADER_COLOR %}
+        <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
+    {% else %}
+        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.jpg')">
+    {% endif %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>Tag {{ tag }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock header %}
+

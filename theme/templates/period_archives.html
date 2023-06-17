@@ -1,12 +1,10 @@
-{% extends "index.html" %}
+{% extends "base.html" %}
 
-{% block title %}{{ page.title }}{% endblock title %}
+{% block title %}{{ SITENAME }} - Archives for {{ period | reverse | join (' ') }}{% endblock %}
 
 {% block header %}
     <!-- Page Header -->
-    {% if page.header_cover %}
-        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ page.header_cover }}')">
-    {% elif HEADER_COVER %}
+    {% if HEADER_COVER %}
         <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}')">
     {% elif HEADER_COLOR %}
         <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
@@ -17,7 +15,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>{{ page.title }}</h1>
+                        <h1>Archives for {{ period | reverse | join (' ') }}</h1>
                     </div>
                 </div>
             </div>
@@ -26,7 +24,11 @@
 {% endblock header %}
 
 {% block content %}
-    <article>
-        {{ page.content }}
-    </article>
+    <dl>
+        {% for article in dates %}
+            <dt>{{ article.locale_date }}</dt>
+            <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+        {% endfor %}
+        <hr>
+    </dl>
 {% endblock content %}

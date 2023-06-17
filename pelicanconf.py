@@ -74,3 +74,7 @@ MARKDOWN = {
         'pymdownx.progressbar': {},
     },
     'output_format': 'html5'}
+
+COLOR_SCHEME_CSS = "darkly.css"
+
+DISPLAY_PAGES_ON_MENU = False
