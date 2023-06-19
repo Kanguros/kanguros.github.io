@@ -71,7 +71,7 @@ hr.small {
 }
 @media only screen and (min-width: 768px) {
   .navbar-custom {
-    background: transparent;
+    background: rgb(121 121 121 / 21%);
     border-bottom: 1px solid transparent;
   }
   .navbar-custom .navbar-brand {
@@ -146,7 +146,7 @@ hr.small {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 .intro-header .site-heading,
 .intro-header .post-heading,
@@ -236,7 +236,7 @@ hr.small {
 }
 .post-preview > .post-meta {
   color: #808080;
-  font-size: 18px;
+  font-size: 1.5rem;
   font-style: italic;
   margin-top: 0;
 }
