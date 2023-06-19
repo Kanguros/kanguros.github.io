@@ -55,7 +55,7 @@ TAG_SAVE_AS = 'tags/{slug}/index.html'
 TAGS_SAVE_AS = 'tags/index.html'
 
 MENUITEMS = (
-    ('Tags', f'{TAGS_SAVE_AS}'),
+    # ('Tags', f'{TAGS_SAVE_AS}'),
     ('Archive', f'{ARCHIVES_SAVE_AS}'),
     ('About', f'about/index.html')
 )
