@@ -54,6 +54,9 @@
                     {{ article.title }}
                 </h2>
             </a>
+            <p class="post-meta">
+                Posted on {{ article.locale_date }}
+            </p>
             {% if SHOW_FULL_ARTICLE %}
                 {{ article.content }}
             {% else %}
@@ -65,11 +68,10 @@
                 {% endif %}
                 </p>
             {% endif %}
-            <p class="post-meta">
-                Posted on {{ article.locale_date }}
-            </p>
+
 <!--            {% include 'comments.html' %}-->
         </div>
+            <hr>
     {% endfor %}
 
     {% include "pagination.html" %}
