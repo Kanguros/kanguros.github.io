@@ -19,13 +19,16 @@ SITENAME = 'DevNet Notes'
 TIMEZONE = 'Europe/Warsaw'
 AUTHOR = 'Kamil Urbanek'
 DEFAULT_LANG = 'en'
-DEFAULT_CATEGORY = "General"
+DEFAULT_CATEGORY = "Any"
 
 THEME = 'theme'
 TYPOGRIFY = True
-DIRECT_TEMPLATES = ['index',
-                    'tags',
-                    'archives']
+DIRECT_TEMPLATES = [
+    'index',
+    'tags',
+    'categories',
+    'archives'
+]
 
 DEFAULT_PAGINATION = 7
 
@@ -35,8 +38,10 @@ OUTPUT_PATH = 'local_output/'
 ARTICLE_PATHS = ['posts']
 PAGE_PATHS = ['pages']
 
-STATIC_PATHS = ['images',
-                'extra/.nojekyll']
+STATIC_PATHS = [
+    'images',
+    'extra/.nojekyll'
+]
 
 EXTRA_PATH_METADATA = {
     'extra/.nojekyll': {'path': '.nojekyll'}
@@ -52,10 +57,15 @@ PAGE_SAVE_AS = '{slug}/index.html'
 
 TAG_URL = 'tags/{slug}/'
 TAG_SAVE_AS = 'tags/{slug}/index.html'
-TAGS_SAVE_AS = 'tags/index.html'
+TAGS_SAVE_AS = 'tags.html'
+
+CATEGORY_URL = 'category/{slug}/'
+CATEGORY_SAVE_AS = 'category/{slug}/index.html'
+CATEGORIES_SAVE_AS = 'categories.html'
 
 MENUITEMS = (
     # ('Tags', f'{TAGS_SAVE_AS}'),
+    ('Categories', f'{CATEGORIES_SAVE_AS}'),
     ('Archive', f'{ARCHIVES_SAVE_AS}'),
     ('About', f'about/index.html')
 )
