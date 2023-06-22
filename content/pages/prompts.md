@@ -11,3 +11,4 @@ Given website under URL https://kanguros.github.io/ needs to be corrected and ad
 - Propose 5 corrections to do in HTML, CSS or site design. Include examples.
 
 ```
+
