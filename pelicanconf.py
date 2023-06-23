@@ -70,6 +70,10 @@ MENUITEMS = (
     ('About', f'about/index.html')
 )
 
+FOOTER_LINKS = (
+    ('github', "https://github.com/Kanguros/")
+)
+
 AUTHORS_BIO = "Short bio about the site and the author."
 
 MARKDOWN = {
@@ -89,4 +93,3 @@ COLOR_SCHEME_CSS = "darkly.css"
 
 DISPLAY_PAGES_ON_MENU = False
 THEME_STATIC_DIR = "theme"
-# HEADER_COVER = "theme/static/images/home-bg.png"

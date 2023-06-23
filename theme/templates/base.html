@@ -13,11 +13,10 @@
         <!-- Bootstrap and Clean Blog CSS -->
         <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" rel="stylesheet">
         <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/clean-blog.css" rel="stylesheet">
-        <!-- Code highlight color scheme -->
         <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/{{ COLOR_SCHEME_CSS }}" rel="stylesheet">
+        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/font-awesome.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -69,26 +68,13 @@
     <hr>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    {% include 'footer.html' %}
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <!-- jQuery -->
+    {% include 'footer.html' %}
+
+
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>
-
-    {% if not DISABLE_CUSTOM_THEME_JAVASCRIPT %}
-        <!-- Custom Theme JavaScript -->
-        <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.min.js"></script>
-    {% endif %}
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.min.js"></script>
 
     {% include 'analytics.html' %}
 </body>

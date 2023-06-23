@@ -57,17 +57,13 @@
             <p class="post-meta">
                 Posted on {{ article.locale_date }}
             </p>
-            {% if SHOW_FULL_ARTICLE %}
-                {{ article.content }}
-            {% else %}
-                <p class="article-summary">
-                {% if article.has_summary %}
-                    {{ article.summary }}
-                {% elif article.summary %}
-                    {{ article.summary|striptags|truncate(140) }}
-                {% endif %}
-                </p>
+            <p class="article-summary">
+            {% if article.has_summary %}
+                {{ article.summary }}
+            {% elif article.summary %}
+                {{ article.summary|striptags|truncate(200) }}
             {% endif %}
+            </p>
 
 <!--            {% include 'comments.html' %}-->
         </div>
