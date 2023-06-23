@@ -71,7 +71,7 @@ MENUITEMS = (
 )
 
 FOOTER_LINKS = (
-    ('github', "https://github.com/Kanguros/")
+    ('github', "https://github.com/Kanguros/"),
 )
 
 AUTHORS_BIO = "Short bio about the site and the author."
