@@ -56,9 +56,12 @@
             </a>
             <p class="post-meta">
                 <a href="{{ SITEURL }}/category/{{ article.category }}" rel="bookmark" title="Permalink to {{ article.category|striptags }}">
+                   <i class="fa fa-tag" aria-hidden="true"></i>
                     {{ article.category }}
                 </a>
-                 | {{ article.locale_date }}
+                 |
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                {{ article.locale_date }}
             </p>
 
             <p class="article-summary">

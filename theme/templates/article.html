@@ -25,35 +25,7 @@
     {% endfor %}
 {% endblock %}
 
-{% block twitter_card %}
-    {% for name,link in SOCIAL if name in ['twitter'] %}
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:site" content="@{{ link|replace('http://', 'https://')|replace('https://twitter.com/', '') }}">
-        <meta name="twitter:title" content="{{ article.title|striptags }}">
 
-        {% if article.twitter_image %}
-            {% if article.twitter_image|lower|truncate(4, True, '') == "http" %}
-                <meta property="twitter:image" content="{{ article.twitter_image }}">
-            {% else %}
-                <meta property="twitter:image" content="{{ SITEURL }}/{{ article.twitter_image }}">
-            {% endif %}
-        {% elif article.header_cover %}
-            <meta name="twitter:image" content="{{ SITEURL }}{{ article.header_cover }}">
-        {% elif HEADER_COVER %}
-            <meta name="twitter:image" content="{{ SITEURL }}/{{ HEADER_COVER }}">
-        {% else %}
-            <meta name="twitter:image" content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/post-bg.jpg">
-        {% endif %}
-
-        {% if description %}
-            <meta name="twitter:description" content="{{ description }}">
-        {% elif article.headline %}
-            <meta name="twitter:description" content="{{ article.headline }}">
-        {% else %}
-            <meta name="twitter:description" content="{{ article.summary|striptags|truncate(140) }}">
-        {% endif %}
-    {% endfor %}
-{% endblock %}
 {% block opengraph %}
 	{{ super() }}
 	<meta property="og:type" content="article">
@@ -106,13 +78,15 @@
                             <h3 class="subheading">{{ article.headline }}</h3>
                         {% endif %}
                         <span class="meta">
-                            Posted on {{ article.locale_date }}
+                            <a href="{{ SITEURL }}/category/{{ article.category }}" rel="bookmark" title="Permalink to {{ article.category|striptags }}">
+                               <i class="fa fa-tag" aria-hidden="true"></i>
+                                {{ article.category }}
+                            </a>
+                             |
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                            {{ article.locale_date }}
                         </span>
-                        {% if article.modified %}
-                            <span class="meta">Updated on {{ article.locale_modified }}</span>
-                        {% endif %}
-                        {% import 'translations.html' as translations with context %}
-                        {{ translations.translations_for(article) }}
+
                     </div>
                 </div>
             </div>
@@ -125,12 +99,6 @@
     <article>
         {{ article.content }}
     </article>
-
-    {% if article.tags %}
-        <div class="tags">
-            <p>tags: {% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag | escape }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
-        </div>
-    {% endif %}
 
     {% include 'sharing.html' %}
     <hr>

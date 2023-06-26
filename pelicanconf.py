@@ -26,7 +26,6 @@ THEME = 'theme'
 TYPOGRIFY = True
 DIRECT_TEMPLATES = [
     'index',
-    'tags',
     'categories',
     'archives'
 ]

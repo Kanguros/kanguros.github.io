@@ -1,4 +1,4 @@
-# kanguros.github.io
+# [kanguros.github.io](https://kanguros.github.io)
 
 My personal blog with all of its content. Build and deployed using `pelican` library. With modified theme `svbtle`.
 
@@ -6,7 +6,6 @@ My personal blog with all of its content. Build and deployed using `pelican` lib
 
 - Python
 - poetry
-
 
 ## Installation
 
@@ -35,12 +34,6 @@ Website generated locally is saved to `./local_output` folder
 Currently used theme is [Semantic UI](). Many modifications
 have been made. In templates and css files.
 
-It is added as submodule. Command used for that:
-
-```shell
-git submodule add URL theme 
-```
-
 ## Workflow
 
 Generating website, deployment to desire branch and sending to host server is done through GitHub Actions.
@@ -55,11 +48,9 @@ file `.github/workflows/build.yml`
 Once generated content has been pushed to `deploy` branch, GitHub Pages default action is executed. It loads the file to
 a GitHub Pages _server_ under address provided in a Repository settings.
 
-The `CNAME` file tells GHP to make site available under custom DNS.
-
 ## Articles
 
-Each article has to be placed in `content/articles/` directory as an `*.md` file type.  
+Each article has to be placed in `content/posts/` directory as an `*.md` file type.  
 Push changes with a Pull Request to the `main` branch.
 Once approved, it will execute `build.yml` Action.
 
