@@ -1,6 +1,7 @@
 Title: Welcome
-Date: 13.01.2022  
+Date: 01/06/2023
 Authors: Kamil Urbanek
+Category: Personal
 
-You are on a blog dedicated loosely joined development, automation and network.
+You are on my blog dedicated loosely joined development, automation and network.
 

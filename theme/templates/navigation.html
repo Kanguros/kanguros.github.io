@@ -21,26 +21,22 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                {% for title, link in MENUITEMS %}
-                <li><a href="{{ SITEURL }}/{{ link }}">{{ title }}</a></li>
+
+                {% for cat, null in categories %}
+                <li {% if cat== category %} class="active" {% endif %}>
+                    <a href="{{ SITEURL }}/{{ cat.url }}">
+                        {{ cat }}
+                    </a>
+                </li>
                 {% endfor %}
 
-                {% if DISPLAY_PAGES_ON_MENU %}
-                {# FIXME: Simplify to 'for p in pages' when we are ready to drop support for Pelican < 3.7 #}
-                {% for p in PAGES or pages %}
-                <li
-                        {% if p== page %} class="active" {% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title
-                    }}</a></li>
+                {% for title, link in MENUITEMS %}
+                <li>
+                    <a href="{{ SITEURL }}/{{ link }}">
+                        {{ title }}
+                    </a>
+                </li>
                 {% endfor %}
-                {% else %}
-                {% if DISPLAY_CATEGORIES_ON_MENU %}
-                {% for cat, null in categories %}
-                <li
-                        {% if cat== category %} class="active" {% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat
-                    }}</a></li>
-                {% endfor %}
-                {% endif %}
-                {% endif %}
             </ul>
         </div>
         <!-- /.navbar-collapse -->

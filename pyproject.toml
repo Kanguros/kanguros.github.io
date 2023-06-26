@@ -10,10 +10,8 @@ pelican = { extras = ["markdown"], version = "^4.8.0" }
 typogrify = "^2.0.7"
 pymdown-extensions = "^10"
 invoke = "^2.1"
-livereload = "2.6.3"
-
-[tool.poetry.dev-dependencies]
-
+livereload = "^2.6.0"
+pymarkdownlnt = "^0.9.11"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

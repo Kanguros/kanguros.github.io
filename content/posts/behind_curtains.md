@@ -1,7 +1,7 @@
 Title: Behind curtains
-Date: 10.03.2022
+Date: 06/10/2023
 Author: Kamil Urbanek
-Tags: python, pelican 
+Category: Webdev
 
 I've still remember, how complicated was the process of creating *my own website* 10 years ago. Starting from finding
 free or cheap server which would host my website too tremendous amount of technologies required to be used (HTML, CSS

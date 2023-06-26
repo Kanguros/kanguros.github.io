@@ -15,11 +15,12 @@ CACHE_CONTENT = False
 LOAD_CONTENT_CACHE = False
 DELETE_OUTPUT_DIRECTORY = True
 
-SITENAME = 'DevNet Notes'
+SITENAME = "Kamil's Notes"
 TIMEZONE = 'Europe/Warsaw'
 AUTHOR = 'Kamil Urbanek'
 DEFAULT_LANG = 'en'
-DEFAULT_CATEGORY = "Any"
+DEFAULT_CATEGORY = "Personal"
+DEFAULT_DATE_FORMAT = "%d/%m/%Y"
 
 THEME = 'theme'
 TYPOGRIFY = True
@@ -65,7 +66,7 @@ CATEGORIES_SAVE_AS = 'categories.html'
 
 MENUITEMS = (
     # ('Tags', f'{TAGS_SAVE_AS}'),
-    ('Categories', f'{CATEGORIES_SAVE_AS}'),
+    # ('Categories', f'{CATEGORIES_SAVE_AS}'),
     ('Archive', f'{ARCHIVES_SAVE_AS}'),
     ('About', f'about/index.html')
 )

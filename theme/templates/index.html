@@ -55,8 +55,12 @@
                 </h2>
             </a>
             <p class="post-meta">
-                Posted on {{ article.locale_date }}
+                <a href="{{ SITEURL }}/category/{{ article.category }}" rel="bookmark" title="Permalink to {{ article.category|striptags }}">
+                    {{ article.category }}
+                </a>
+                 | {{ article.locale_date }}
             </p>
+
             <p class="article-summary">
             {% if article.has_summary %}
                 {{ article.summary }}

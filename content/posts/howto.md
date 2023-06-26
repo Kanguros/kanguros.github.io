@@ -1,7 +1,7 @@
 Title: Markdown in Pelican
-Date: 10.03.2022   
+Date: 15/06/2023
 Author: Kamil Urbanek   
-Tags: markdown, pelican
+Category: Webdev
 Summary: Examples of Markdown formatting available in Pelican.
 
 # Headers and texts
@@ -16,7 +16,16 @@ Summary: Examples of Markdown formatting available in Pelican.
 _Italic text_
 Underline text
 
-# Code block
+## Quote
+
+> This is single line quote
+
+Another quote
+
+> This is multiline quote.
+> It spans on few lines
+
+## Code block
 
 Inline `code text`.
 
@@ -35,7 +44,7 @@ def clean(c):
     print(f"No directory as: {path}")
 ```
 
-# Admonitions
+## Admonitions
 
 Syntax:
 
