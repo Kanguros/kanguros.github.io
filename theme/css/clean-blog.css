@@ -4,6 +4,10 @@
  * Licensed under Apache 2.0 (https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE)
  */
 
+:root {
+    --orange-color: #e98c13;
+}
+
 body {
   font-family: 'Open Sans', 'Lora','Times New Roman',serif;
   font-size: 18px;
@@ -15,9 +19,7 @@ p {
   line-height: 1.5;
   margin: 30px 0;
 }
-p a {
-  text-decoration: underline;
-}
+
 h1,
 h2,
 h3,
@@ -28,11 +30,13 @@ h6 {
   font-weight: 800;
 }
 a {
-  color: #0085a1;
+  color: var(--orange-color);
+  text-decoration: none;
 }
 a:hover,
 a:focus {
   color: RGB(255, 87, 34);
+  text-decoration: underline;
 }
 a img:hover,
 a img:focus {
@@ -151,14 +155,14 @@ hr.small {
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
-  padding: 100px 0 50px;
+  padding: 50px 0 10px;
   color: white;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
   .intro-header .post-heading,
   .intro-header .page-heading {
-    padding: 100px 0;
+    padding: 50px 0;
   }
 }
 .intro-header .site-heading,
@@ -222,7 +226,7 @@ hr.small {
 .post-preview > a:hover,
 .post-preview > a:focus {
   text-decoration: none;
-    color: #fe6601;
+    color: var(--orange-color);
 }
 
 .post-preview > a > .post-title {
@@ -271,7 +275,7 @@ hr.small {
   border-bottom-left-radius: 5px;
 }
 footer {
-  padding: 50px 0 65px;
+  padding: 50px 0 30px;
 }
 footer .list-inline {
   margin: 0;
