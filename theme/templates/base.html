@@ -50,6 +50,8 @@
 <body class="tag-{{ tag.slug }}">
 {% endif %}
 
+
+
     <!-- Navigation -->
     {% include 'navigation.html' %}
 
@@ -57,7 +59,7 @@
     {% endblock header %}
 
     <!-- Main Content -->
-    <div class="container main-content">
+    <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 {% block content %}{% endblock content %}
@@ -65,12 +67,10 @@
         </div>
     </div>
 
-    <hr>
 
     <!-- Footer -->
 
     {% include 'footer.html' %}
-
 
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>

@@ -8,6 +8,7 @@
     --orange-color: #e98c13;
     --blue-color: #046cc7;
     --fading-color: #b5b2b2;
+    --hr-color: #eee;
     --code-background: #f9f2f4;
     --main-font: 'Roboto', 'Open Sans', 'Lora','Times New Roman',serif;
 }
@@ -61,15 +62,26 @@ blockquote {
 blockquote p {
     margin: 0px;
 }
+
 pre {
   background-color: transparent;
-  font-size: 16px;
+  font-size: 14px;
+  padding: 10px !important;
 }
+
+@media only screen and (min-width: 768px) {
+pre {
+  font-size: 16px;
+  padding: 15px;
+}
+
+}
+
 hr.small {
   max-width: 100px;
-  margin: 15px auto;
-  border-width: 4px;
-  border-color: white;
+  margin: 5px auto;
+  border-width: 1px;
+  border-color: var(--hr-color);
 }
 .navbar-custom {
   position: absolute;
@@ -182,14 +194,14 @@ hr.small {
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
-  padding: 60px 0 10px;
+  padding: 60px 0 0px;
   color: white;
 }
 @media only screen and (min-width: 768px) {
   .intro-header .site-heading,
   .intro-header .post-heading,
   .intro-header .page-heading {
-    padding: 60px 0;
+    padding: 5em 0 20px;
   }
 }
 .intro-header .site-heading,
@@ -238,6 +250,7 @@ hr.small {
   margin-bottom: 0.3em;
 }
 .intro-header .post-heading .meta a {
+    margin-right: 10px;
   color: white;
 }
 @media only screen and (min-width: 768px) {
@@ -304,10 +317,12 @@ hr.small {
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+
 footer {
-   height: 60px;
-  padding: 50px 0 30px;
+padding-top: 50px;
+padding-bottom: 10px;
 }
+
 footer .list-inline {
   margin: 0;
   padding: 0;
@@ -316,6 +331,7 @@ footer .copyright {
   font-size: 14px;
   text-align: center;
   margin-bottom: 0;
+  margin-top: 10px;
 }
 .floating-label-form-group {
   font-size: 14px;
@@ -444,8 +460,13 @@ body {
   margin-top: 0.6em;
   margin-bottom: 10px;
 }
+
+article {
+margin-bottom: 1.5em;
+
+}
+
 hr {
     margin-bottom: 0;
     margin-top: 5px;
 }
-

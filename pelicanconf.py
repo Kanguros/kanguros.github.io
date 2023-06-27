@@ -59,6 +59,7 @@ CATEGORY_URL = 'category/{slug}/'
 CATEGORY_SAVE_AS = 'category/{slug}/index.html'
 CATEGORIES_SAVE_AS = 'categories.html'
 
+EXCLUDED_CATEGORIES = []
 MENUITEMS = (
     # ('Tags', f'{TAGS_SAVE_AS}'),
     # ('Categories', f'{CATEGORIES_SAVE_AS}'),

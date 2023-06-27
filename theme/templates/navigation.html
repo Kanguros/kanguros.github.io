@@ -23,13 +23,14 @@
             <ul class="nav navbar-nav navbar-right">
 
                 {% for cat, null in categories %}
+                {% if cat not in EXCLUDED_CATEGORIES %}
                 <li {% if cat== category %} class="active" {% endif %}>
                     <a href="{{ SITEURL }}/{{ cat.url }}">
                         {{ cat }}
                     </a>
                 </li>
+                {% endif %}
                 {% endfor %}
-                <li class="separator"><a>|</a></li>
                 {% for title, link in MENUITEMS %}
                 <li>
                     <a href="{{ SITEURL }}/{{ link }}">
