@@ -1030,3 +1030,16 @@ jQuery(document).ready(function($) {
             });
     }
 });
+
+
+let copyText = document.querySelector(".copy-link");
+copyText.querySelector("a").addEventListener("click", function () {
+	let url = copyText.querySelector("a.data-url");
+	url.select();
+	document.execCommand("copy");
+	copyText.classList.add("active");
+	window.getSelection().removeAllRanges();
+	setTimeout(function () {
+		copyText.classList.remove("active");
+	}, 2500);
+});

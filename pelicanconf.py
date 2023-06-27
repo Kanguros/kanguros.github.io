@@ -49,16 +49,12 @@ EXTRA_PATH_METADATA = {
 
 ARTICLE_URL = 'posts/{slug}.html'
 ARTICLE_SAVE_AS = 'posts/{slug}.html'
-
 ARCHIVES_SAVE_AS = 'archive.html'
-
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
-
 TAG_URL = 'tags/{slug}/'
 TAG_SAVE_AS = 'tags/{slug}/index.html'
 TAGS_SAVE_AS = 'tags.html'
-
 CATEGORY_URL = 'category/{slug}/'
 CATEGORY_SAVE_AS = 'category/{slug}/index.html'
 CATEGORIES_SAVE_AS = 'categories.html'
@@ -71,7 +67,7 @@ MENUITEMS = (
 )
 
 FOOTER_LINKS = (
-    ('github', "https://github.com/Kanguros/"),
+    # ('github', "https://github.com/Kanguros/"),
 )
 
 AUTHORS_BIO = "Short bio about the site and the author."
@@ -87,7 +83,8 @@ MARKDOWN = {
             'permalink': 'false'},
         'pymdownx.progressbar': {},
     },
-    'output_format': 'html5'}
+    'output_format': 'html5'
+}
 
 COLOR_SCHEME_CSS = "darkly.css"
 

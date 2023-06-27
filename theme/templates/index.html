@@ -1,27 +1,28 @@
 {% extends "base.html" %}
 
 {% block header %}
-    <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-    {% if HEADER_COVER %}
-        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}')">
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+{% if HEADER_COVER %}
+<header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}')">
     {% elif HEADER_COLOR %}
-        <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
-    {% else %}
-        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.png')">
-    {% endif %}
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="page-heading">
-                        <h1>{{ SITENAME }}</h1>
-                        {% if SITESUBTITLE %}
+    <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
+        {% else %}
+        <header class="intro-header"
+                style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.png')">
+            {% endif %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="page-heading">
+                            <h1>{{ SITENAME }}</h1>
+                            {% if SITESUBTITLE %}
                             <hr class="small">
                             <span class="subheading">{{ SITESUBTITLE }}</span>
-                        {% endif %}
-                        {% if SOCIAL and SHOW_SOCIAL_ON_INDEX_PAGE_HEADER %}
+                            {% endif %}
+                            {% if SOCIAL and SHOW_SOCIAL_ON_INDEX_PAGE_HEADER %}
                             <ul class="list-inline text-center">
-                            {% for name,link in SOCIAL %}
+                                {% for name,link in SOCIAL %}
                                 <li>
                                     <a href="{{ link }}">
                                         <span class="fa-stack fa-lg">
@@ -29,25 +30,25 @@
                                         </span>
                                     </a>
                                 </li>
-                            {% endfor %}
+                                {% endfor %}
                             </ul>
-                        {% endif %}
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
-{% endblock header %}
+        </header>
+        {% endblock header %}
 
-{% block content %}
-    {% if INTRO_CONTENT %}
+        {% block content %}
+        {% if INTRO_CONTENT %}
         <div class="row intro-content">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 {{ INTRO_CONTENT }}
             </div>
         </div>
-    {% endif %}
-    {% for article in articles_page.object_list %}
+        {% endif %}
+        {% for article in articles_page.object_list %}
         <div class="post-preview">
             <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
                 <h2 class="post-title">
@@ -55,27 +56,29 @@
                 </h2>
             </a>
             <p class="post-meta">
-                <a href="{{ SITEURL }}/category/{{ article.category }}" rel="bookmark" title="Permalink to {{ article.category|striptags }}">
-                   <i class="fa fa-tag" aria-hidden="true"></i>
+                <a href="{{ SITEURL }}/category/{{ article.category }}" rel="bookmark"
+                   title="Permalink to {{ article.category|striptags }}">
+                    <i class="fa fa-tag" aria-hidden="true"></i>
                     {{ article.category }}
                 </a>
-                 |
-                <i class="fa fa-calendar" aria-hidden="true"></i>
-                {{ article.locale_date }}
+                <a>
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    {{ article.locale_date }}
+                </a>
             </p>
 
             <p class="article-summary">
-            {% if article.has_summary %}
+                {% if article.has_summary %}
                 {{ article.summary }}
-            {% elif article.summary %}
+                {% elif article.summary %}
                 {{ article.summary|striptags|truncate(200) }}
-            {% endif %}
+                {% endif %}
             </p>
 
-<!--            {% include 'comments.html' %}-->
+            <!--            {% include 'comments.html' %}-->
         </div>
-            <hr>
-    {% endfor %}
+        <hr>
+        {% endfor %}
 
-    {% include "pagination.html" %}
-{% endblock content %}
+        {% include "pagination.html" %}
+        {% endblock content %}

@@ -47,7 +47,7 @@ def build(c, d=False):
 
 
 @task
-def rebuild(c,d=False):
+def rebuild(c, d=False):
     """`build` with the delete switch"""
     debug = "--verbose --debug" if d else ""
     pelican_run('{debug} -d -s {settings_base}'.format(**CONFIG, debug=debug))
@@ -95,7 +95,6 @@ def reg(c, d=False, o=False):
     pelican_run('{debug} -r -s {settings_base}'.format(**CONFIG, debug=debug))
 
 
-
 @task
 def live(c):
     """Automatically reload browser tab upon file modification."""
@@ -111,6 +110,7 @@ def live(c):
     watched_globs = [
         CONFIG['settings_base'],
         '{}/templates/**/*.html'.format(theme_path),
+        '{}/templates/static/*.html'.format(theme_path),
     ]
 
     content_file_extensions = ['.md', '.rst']
