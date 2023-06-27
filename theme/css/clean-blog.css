@@ -6,13 +6,25 @@
 
 :root {
     --orange-color: #e98c13;
+    --blue-color: #046cc7;
+    --fading-color: #b5b2b2;
+    --code-background: #f9f2f4;
+    --main-font: 'Roboto', 'Open Sans', 'Lora','Times New Roman',serif;
 }
 
 body {
-  font-family: 'Open Sans', 'Lora','Times New Roman',serif;
+  font-family: var(--main-font);
   font-size: 18px;
   font-weight: 500;
   color: #404040;
+}
+
+
+code {
+
+color: var(--blue-color);
+background-color: var(--code-background);
+
 }
 
 p {
@@ -26,7 +38,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family:'Roboto', 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 800;
 }
 a {
@@ -45,6 +57,9 @@ a img:focus {
 blockquote {
   color: #808080;
   font-style: italic;
+}
+blockquote p {
+    margin: 0px;
 }
 pre {
   background-color: transparent;
@@ -253,15 +268,17 @@ hr.small {
   margin-bottom: 10px;
 }
 .post-preview > .post-meta {
-  color: #808080;
-  font-size: 1.4rem;
   margin-top: 0;
-  margin-bottom: 0.3em;
+  margin-bottom: 0;
 }
+
 .post-preview > .post-meta > a {
+  color: var(--fading-color);
+  font-size: 1.4rem;
   text-decoration: none;
-  color: #404040;
+  margin-right: 10px;
 }
+
 .post-preview > .post-meta > a:hover,
 .post-preview > .post-meta > a:focus {
   color: #0085a1;
@@ -288,6 +305,7 @@ hr.small {
   border-bottom-left-radius: 5px;
 }
 footer {
+   height: 60px;
   padding: 50px 0 30px;
 }
 footer .list-inline {
@@ -423,11 +441,11 @@ body {
   webkit-tap-highlight-color: #0085a1;
 }
 .article-summary {
-  padding-bottom: 10px;
   margin-top: 0.6em;
+  margin-bottom: 10px;
 }
 hr {
     margin-bottom: 0;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
