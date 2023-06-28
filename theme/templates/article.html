@@ -78,19 +78,7 @@
                                 {% if article.headline %}
                                 <h3 class="subheading">{{ article.headline }}</h3>
                                 {% endif %}
-                                <span class="meta">
-                            <a href="{{ SITEURL }}/category/{{ article.category }}" rel="bookmark"
-                               title="Permalink to {{ article.category|striptags }}">
-                               <i class="fa fa-tag" aria-hidden="true"></i>
-                                {{ article.category }}
-                            </a>
-                             |
-                            <a>
-                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                {{ article.locale_date }}
-                            </a>
-                        </span>
-
+                                {% include "article_meta.html" %}
                             </div>
                         </div>
                     </div>
@@ -121,6 +109,8 @@
                     dsq.src = '//{{ DISQUS_SITENAME }}.disqus.com/embed.js';
                     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
                 })();
+
+
 
                 </script>
                 <noscript>Please enable JavaScript to view the comments.</noscript>

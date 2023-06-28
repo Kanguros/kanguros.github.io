@@ -1,0 +1,11 @@
+<span class="meta">
+    <a>
+    <i class="fa fa-calendar" aria-hidden="true"></i>
+    {{ article.locale_date }}
+</a>
+<a href="{{ SITEURL }}/category/{{ article.category }}" rel="bookmark"
+   title="Category {{ article.category|striptags }}">
+   <i class="fa fa-tag" aria-hidden="true"></i>
+    {{ article.category }}
+</a>
+</span>

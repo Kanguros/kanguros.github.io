@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>My presentation</title>
+
+		<!--<link rel="stylesheet" href="reveal.js/css/reset.css">-->
+		<link rel="stylesheet" href="reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/blood.css">
+		<link rel="stylesheet" href="reveal.js/css/simplemenu.css">
+		<link rel="stylesheet" href="reveal.js/css/verticator.css">
+		<link rel="stylesheet" href="reveal.js/css/typicons/typicons.min.css">
+        <link rel="stylesheet" href="reveal.js/css/fontawesome/css/fontawesome.min.css">
+		<link rel="stylesheet" href="reveal.js/css/fontawesome/css/brands.min.css">
+		<link rel="stylesheet" href="reveal.js/css/fontawesome/css/solid.min.css">
+
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="reveal.js/css/zenburn.css">
+
+		<!-- Printing and PDF exports --><!--
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>-->
+        
+		<link rel="stylesheet" href="reveal.js/plugin/title-footer/title-footer.css">
+        
+        <!-- Custom stylesheet, it must be in the same directory as the html file -->
+        <link rel="stylesheet" href="custom.css">
+	</head>
+	<body>
+		<div class="reveal">
+			
+			<ul class="verticator">
+			</ul>
+			<div class="slides">
+                <section>
+<p><a href="slides.slides.html">slides.html</a></p>
+<h2>Welcome to NetWebProSite</h2>
+<p>Hi everyone, today we're diving into NetWebProSite, our one-stop resource for all things technical.</p>
+</section>
+ <section>
+<h2>What's NetWebProSite?</h2>
+<p>NetWebProSite is our internal website, a treasure trove of guides, tips, and documentation. </p>
+<p>It's designed to help you with Python, automation, and understanding our processes.</p>
+</section>
+ <section>
+<h2>Why Use NetWebProSite?</h2>
+<p>Ever felt stuck on a Python problem or an automation task? NetWebProSite is here to help. It's our shared knowledge
+base, designed to make our lives easier and our work more efficient.</p>
+</section>
+ <section>
+<h2>Python on NetWebProSite</h2>
+<p>Whether you're a Python newbie or a seasoned pro, NetWebProSite has something for you. We've got guides, tips, and even
+some code snippets that can help you with your tasks.</p>
+</section>
+ <section>
+<h2>Examples from NetWebProSite</h2>
+<p>Let's look at some examples of what you can find on NetWebProSite. </p>
+<p>We'll go through a Python guide, show you a handy
+automation tip, and even walk through a real-life problem that was solved using resources from NetWebProSite.</p>
+</section>
+ <section>
+<h2>NetWebProSite for Teams</h2>
+<p>No matter what team you're on, NetWebProSite has something to help you. </p>
+<p>It's not just a resource, it's a tool that can make your team more efficient and effective.</p>
+</section>
+ <section>
+<h2>Wrap Up</h2>
+<p>So that's NetWebProSite in a nutshell. Start exploring today, and see how it can make a difference in your work.</p>
+</section>
+ <section>
+<h2>Q&amp;A</h2>
+<p>Now, let's open the floor for any questions you might have about NetWebProSite.</p>
+</section>
+
+			</div>
+			
+		</div>
+
+		<!--<script src="reveal.js/lib/js/head.min.js"></script>-->
+		<script src="reveal.js/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+                transition: Reveal.getQueryHash().transition || 'slide', // default/cube/page/concave/zoom/linear/none
+                verticator: { color: '#acc2d9' }, 
+				slideNumber: true,
+				slideNumber: 'h.v', 
+				showSlideNumber: 'all',
+                pdfExportShortcut: 'E',
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'reveal.js/plugin/markdown/marked.js' },
+					{ src: 'reveal.js/plugin/markdown/markdown.js' },
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }, 
+                    { src: 'reveal.js/plugin/pdfexport/pdfexport.js', async: true },
+					{ src: 'reveal.js/plugin/verticator/verticator.js' }, 
+                    { src: 'reveal.js/plugin/title-footer/title-footer.js', async: true,callback: function() {title_footer.initialize(title='""',background='rgba(205,205,205,0.0)');}},   
+				]
+			});
+		</script>
+	</body>
+</html>
+ 
