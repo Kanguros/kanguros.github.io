@@ -1,3 +1,6 @@
+Date: 01/06/2023
+Authors: Kamil Urbanek
+Category: Personal
 title: My presentation
 theme: blood
 transition: slide

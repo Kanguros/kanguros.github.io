@@ -29,6 +29,10 @@ DIRECT_TEMPLATES = [
     'categories',
     'archives'
 ]
+TEMPLATE_PAGES = {
+    'posts/slides.slides.html': 'posts/slides.slides.html',
+    # 'pyreveal': 'posts/pyreveal',
+}
 
 DEFAULT_PAGINATION = 7
 
@@ -40,11 +44,16 @@ PAGE_PATHS = ['pages']
 
 STATIC_PATHS = [
     'images',
-    'extra/.nojekyll'
+    'extra/.nojekyll',
+    'posts/slides.slides.html',
+    'pyreveal',
+
 ]
 
 EXTRA_PATH_METADATA = {
-    'extra/.nojekyll': {'path': '.nojekyll'}
+    'extra/.nojekyll': {'path': '.nojekyll'},
+    'posts/slides.slides.html': {'path': 'posts/slides.slides.html'},
+    'pyreveal': {'path': 'posts/pyreveal'}
 }
 
 ARTICLE_URL = 'posts/{slug}.html'
