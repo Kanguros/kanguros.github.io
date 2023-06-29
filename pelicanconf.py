@@ -46,7 +46,7 @@ STATIC_PATHS = [
     'images',
     'extra/.nojekyll',
     'posts/slides.slides.html',
-    'pyreveal',
+    'posts/pyreveal',
 
 ]
 
