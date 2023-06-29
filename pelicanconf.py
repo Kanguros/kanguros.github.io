@@ -27,14 +27,15 @@ TYPOGRIFY = True
 DIRECT_TEMPLATES = [
     'index',
     'categories',
-    'archives'
+    'archives',
+    'resume'
 ]
 TEMPLATE_PAGES = {
     'posts/slides.slides.html': 'posts/slides.slides.html',
     # 'pyreveal': 'posts/pyreveal',
 }
 
-DEFAULT_PAGINATION = 7
+DEFAULT_PAGINATION = 3
 
 # Paths and other files
 PATH = 'content'
@@ -45,14 +46,14 @@ PAGE_PATHS = ['pages']
 STATIC_PATHS = [
     'images',
     'extra/.nojekyll',
-    'posts/slides.slides.html',
-    'reveal.js',
+    # 'posts/slides.slides.html',
+    # 'reveal.js',
 
 ]
 
 EXTRA_PATH_METADATA = {
     'extra/.nojekyll': {'path': '.nojekyll'},
-    'posts/slides.slides.html': {'path': 'posts/slides.slides.html'},
+    # 'posts/slides.slides.html': {'path': 'posts/slides.slides.html'},
     # 'pyreveal': {'path': 'posts/pyreveal'}
 }
 
@@ -100,3 +101,5 @@ COLOR_SCHEME_CSS = "darkly.css"
 
 DISPLAY_PAGES_ON_MENU = False
 THEME_STATIC_DIR = "theme"
+
+PLUGINS = ['frontmark']
