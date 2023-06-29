@@ -53,7 +53,7 @@ STATIC_PATHS = [
 EXTRA_PATH_METADATA = {
     'extra/.nojekyll': {'path': '.nojekyll'},
     'posts/slides.slides.html': {'path': 'posts/slides.slides.html'},
-    'pyreveal': {'path': 'posts/pyreveal'}
+    # 'pyreveal': {'path': 'posts/pyreveal'}
 }
 
 ARTICLE_URL = 'posts/{slug}.html'
