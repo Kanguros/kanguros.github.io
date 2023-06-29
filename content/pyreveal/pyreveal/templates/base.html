@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>{{ title }}</title>
+
+		<!--<link rel="stylesheet" href="{{ reveal_path }}/css/reset.css">-->
+		<link rel="stylesheet" href="{{ reveal_path }}/css/reveal.css">
+		<link rel="stylesheet" href="{{ reveal_path }}/css/theme/{{ theme }}.css">
+		<link rel="stylesheet" href="{{ reveal_path }}/css/simplemenu.css">
+		<link rel="stylesheet" href="{{ reveal_path }}/css/verticator.css">
+		<link rel="stylesheet" href="{{ reveal_path }}/css/typicons/typicons.min.css">
+        <link rel="stylesheet" href="{{ reveal_path }}/css/fontawesome/css/fontawesome.min.css">
+		<link rel="stylesheet" href="{{ reveal_path }}/css/fontawesome/css/brands.min.css">
+		<link rel="stylesheet" href="{{ reveal_path }}/css/fontawesome/css/solid.min.css">
+
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="{{ reveal_path }}/css/zenburn.css">
+
+		<!-- Printing and PDF exports --><!--
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '{{ reveal_path }}/css/print/pdf.css' : '{{ reveal_path }}/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>-->
+        
+		<link rel="stylesheet" href="{{ reveal_path }}/plugin/title-footer/title-footer.css">
+        
+        <!-- Custom stylesheet, it must be in the same directory as the html file -->
+        <link rel="stylesheet" href="custom.css">{% if not background is none %}
+        <style>
+            body {
+                background:url("{{ background }}") ;
+                background-repeat: {% if bgrepeat %}repeat{% else %}inherit{% endif %};
+                background-size: {% if not bgsize is none %}{{ bgsize }}{% else %}inherit{% endif %};
+            }
+        </style>{% endif %}
+	</head>
+	<body>
+		<div class="reveal">
+			{% if use_simplemenu %}
+			{% if not(menu_bottom) %}
+			<div class="menubar">
+				<ul class="menu">
+					<!-- Here's the menu -->
+					{% for chapter_id, chapter_name in chapters %}
+					<li><a href="#/{{ chapter_id }}">{{ chapter_name }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+			{% endif %}
+			<ul class="verticator">
+			</ul>
+			<div class="slides">
+                {{ slides_contents }}
+			</div>
+			{% if use_simplemenu %}
+			{% if menu_bottom %}
+			<div class="menubar">
+				<ul class="menu">
+					<!-- Here's the menu -->
+					{% for chapter_id, chapter_name in chapters %}
+					<li><a href="#/{{ chapter_id }}">{{ chapter_name }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			{% endif %}
+			{% endif %}
+		</div>
+
+		<!--<script src="{{ reveal_path }}/lib/js/head.min.js"></script>-->
+		<script src="{{ reveal_path }}/js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+                transition: Reveal.getQueryHash().transition || '{{ transition }}', // default/cube/page/concave/zoom/linear/none
+                verticator: { color: '#acc2d9' }, {% if use_simplemenu %}
+				simplemenu: {
+					menuselector: '.menu li',
+					activeclass: 'active'
+				}, {% endif %}
+				slideNumber: true,
+				slideNumber: 'h.v', 
+				showSlideNumber: 'all',
+                pdfExportShortcut: 'E',{% if use_menu %} 
+                menu: {
+                    // Use 'left' or 'right'.
+                    side: 'left',
+                    width: 'normal',
+                    numbers: false,
+                    titleSelector: 'h1, h2, h3, h4, h5, h6',
+                    useTextContentForMissingTitles: true,
+                    hideMissingTitles: false,
+                    markers: true,
+                    custom: false,
+                    themes: true,
+                    themesPath: 'css/theme/',
+                    transitions: true,
+                    openButton: true,
+                    openSlideNumber: false,
+                    keyboard: true,
+                    sticky: false,
+                    autoOpen: true,
+                    delayInit: false,
+                    openOnInit: false,
+                    loadIcons: true
+                },{% endif %}
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: '{{ reveal_path }}/plugin/markdown/marked.js' },
+					{ src: '{{ reveal_path }}/plugin/markdown/markdown.js' },
+					{ src: '{{ reveal_path }}/plugin/notes/notes.js', async: true },
+					{ src: '{{ reveal_path }}/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }, 
+                    { src: '{{ reveal_path }}/plugin/pdfexport/pdfexport.js', async: true },
+					{ src: '{{ reveal_path }}/plugin/verticator/verticator.js' }, {% if not(cr_word is none) %}
+                    { src: '{{ reveal_path }}/plugin/title-footer/title-footer.js', async: true,callback: function() {title_footer.initialize(title='{{ cr_word }}',background='{{ cr_color }}');}}, {% endif %} {% if use_katex %}
+                    { src: '{{ reveal_path }}/plugin/katex/katex.js', async: true},  {% endif %} {% if use_simplemenu %} 
+                    { src: '{{ reveal_path }}/plugin/simplemenu/simplemenu.js' }, {% endif %}{% if use_menu %} 
+                    { src: '{{ reveal_path }}/plugin/menu/menu.js' }, {% endif %}{% if use_chalkboard %} 
+                    { src: '{{ reveal_path }}/plugin/chalkboard/chalkboard.js' }, {% endif %}
+				]{% if use_chalkboard %}, 
+                keyboard: {
+                    67: function() { RevealChalkboard.toggleNotesCanvas() },	// toggle notes canvas when 'c' is pressed
+                    66: function() { RevealChalkboard.toggleChalkboard() },	// toggle chalkboard when 'b' is pressed
+                    46: function() { RevealChalkboard.clear() },	// clear chalkboard when 'DEL' is pressed
+                     8: function() { RevealChalkboard.reset() },	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
+                    68: function() { RevealChalkboard.download() },	// downlad recorded chalkboard drawing when 'd' is pressed
+                    88: function() { RevealChalkboard.colorNext() },	// cycle colors forward when 'x' is pressed
+                    89: function() { RevealChalkboard.colorPrev() },	// cycle colors backward when 'y' is pressed
+                }{% endif %}
+			});
+		</script>
+	</body>
+</html>
+ 

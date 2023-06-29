@@ -8,7 +8,7 @@ cr_word: ""
 cr_color: rgba(205,205,205,0.0)
 toc: False
 to_pdf: false
-reveal_path: reveal.js
+reveal_path: ../pyreveal/reveal.js
 
 
 [slides.html](slides.slides.html)
