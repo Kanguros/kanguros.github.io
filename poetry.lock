@@ -221,7 +221,7 @@ watchdog = "*"
 
 [package.source]
 type = "directory"
-url = "content/pyreveal"
+url = "pyreveal"
 
 [[package]]
 name = "python-dateutil"
@@ -359,7 +359,7 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "e01f3786e7ca4900c6f5dda4c5d4354de9c952c70562e29f4f1635ce562cbc6b"
+content-hash = "cecb119f5b664bbd9d9f5ba2edc8983a777a643bb5dd12bdb0f7554d3780f673"
 
 [metadata.files]
 application-properties = [
