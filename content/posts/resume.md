@@ -1,6 +1,5 @@
 title: Resume
 date: 01/06/2023
-authors: Kamil Urbanek
 category: Resume
 template: resume
 save_as: resume.html

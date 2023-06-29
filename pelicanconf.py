@@ -101,5 +101,3 @@ COLOR_SCHEME_CSS = "darkly.css"
 
 DISPLAY_PAGES_ON_MENU = False
 THEME_STATIC_DIR = "theme"
-
-PLUGINS = ['frontmark']
