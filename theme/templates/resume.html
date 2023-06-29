@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% block title %}{{ title|striptags }}{% endblock %}
+
+{% block content %}
+<article>
+
+    <div class="bodish">
+        <section id="masthead">
+            <div class="logo">
+                <img src="{{ basics.image }}">
+            </div>
+            <div class="content">
+                <div class="name">
+                    <h1>{{ basics.name }}</h1>
+                    <h2>{{ basics.label }}</h2>
+                </div>
+                <div class="contacts">
+                    <p>&#128392; <a>{{ basics.location }}</a></p>
+                    <p>&#128386; <a href="mailto:{{ basics.email }}">{{ basics.email }}</a></p>
+                    <p>&#128382; <a>{{ basics.phone }}</a></p>
+                    {% for url in basics.urls %}
+                    <p>&#128427; <a href="https://{{ url.name }}">{{ url.name }}</a></p>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h3>I</h3>
+            <article>
+                {{ basics.summary }}
+            </article>
+        </section>
+        <section id="skills">
+            <h3>Know</h3>
+            <div class="grid-list">
+                {% for skill in skills %}
+                <article>
+                    <div class="spaced-list">
+                        <h4>{{ skill.name }}</h4>
+                        <span>
+        </span>
+                    </div>
+                    <ul class="tag-list">
+                        {% for word in skill.keywords %}
+                        <li>{{ word }}</li>
+                        {% endfor %}
+                    </ul>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section id="projects">
+            <h3>Done</h3>
+            <div class="grid-list">
+                {% for project in projects %}
+                <article>
+                    <div class="spaced-list">
+                        <h4>{{ project.name }}</h4>
+                        <span>
+        </span>
+                    </div>
+                    {{ project.description }}
+                    <ul>
+                        {% for highlight in project.highlights %}
+                        <li>{{ highlight }}</li>
+                        {% endfor %}
+                    </ul>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+        <section id="work">
+            <h3>Work</h3>
+            <div class="stack">
+                {% for job in jobs %}
+                <article>
+                    <header>
+                        <div class="spaced-list">
+                            <h4>{{ job.name }}</h4>
+                            <span>
+              <time datetime="{{ job.startDate }}">{{ job.startDate }}</time> -
+              <time datetime="{{ job.endDate }}">{{ job.endDate }}</time>
+            </span>
+                        </div>
+                        <div class="spaced-list">
+                            {{ job.position }}
+                        </div>
+                    </header>
+                    {{ job.summary }}
+                    <ul>
+                        {% for highlight in job.highlights %}
+                        <li>{{ highlight }}</li>
+                        {% endfor %}
+                    </ul>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+        <section id="education">
+            <h3>Learn</h3>
+            <div class="stack">
+                {% for edu in educations %}
+                <article>
+                    <header>
+                        <div class="spaced-list">
+                            <h4>{{ edu.institution }}</h4>
+                            <span>
+            <time datetime="{{ edu.startDate }}">{{ edu.startDate }}</time> -
+            <time datetime="{{ edu.endDate }}">{{ edu.endDate }}</time>
+            </span>
+                        </div>
+                        <div class="spaced-list">
+                            {{ edu.area }}
+                            <a>{{ edu.studyType }}</a>
+                        </div>
+                    </header>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+    </div>
+
+
+</article>
+{% endblock content %}
