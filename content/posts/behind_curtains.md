@@ -1,6 +1,5 @@
 Title: Behind curtains
-Date: 06/10/2023
-Author: Kamil Urbanek
+Date: 10/06/2023
 Category: Webdev
 
 I've still remember, how complicated was the process of creating *my own website* 10 years ago. Starting from finding

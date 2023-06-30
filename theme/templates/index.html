@@ -49,6 +49,9 @@
         </div>
         {% endif %}
         {% for article in articles_page.object_list %}
+        {% if article.category not in EXCLUDED_CATEGORIES %}
+
+
         <div class="post-preview">
             <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
                 <h2 class="post-title">
@@ -68,6 +71,7 @@
             <!--            {% include 'comments.html' %}-->
         </div>
         <hr>
+        {% endif %}
         {% endfor %}
 
         {% include "pagination.html" %}

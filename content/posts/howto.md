@@ -1,6 +1,5 @@
 Title: Markdown in Pelican
 Date: 15/06/2023
-Author: Kamil Urbanek   
 Category: Webdev
 Summary: Examples of Markdown formatting available in Pelican.
 

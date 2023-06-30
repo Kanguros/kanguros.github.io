@@ -21,6 +21,13 @@ AUTHOR = 'Kamil Urbanek'
 DEFAULT_LANG = 'en'
 DEFAULT_CATEGORY = "Personal"
 DEFAULT_DATE_FORMAT = "%d/%m/%Y"
+DATE_FORMATS = {
+    'en': "%d/%m/%Y",
+}
+LOCALE = (
+    'usa',  # On Windows
+    'en_US',  # On Unix/Linux
+)
 
 THEME = 'theme'
 TYPOGRIFY = True
@@ -41,6 +48,7 @@ DEFAULT_PAGINATION = 3
 # Paths and other files
 PATH = 'content'
 OUTPUT_PATH = 'local_output/'
+ARTICLE_ORDER_BY = 'reversed-date'
 ARTICLE_PATHS = ['posts']
 PAGE_PATHS = ['pages']
 
@@ -70,7 +78,7 @@ CATEGORY_URL = 'category/{slug}/'
 CATEGORY_SAVE_AS = 'category/{slug}/index.html'
 CATEGORIES_SAVE_AS = 'categories.html'
 
-EXCLUDED_CATEGORIES = []
+EXCLUDED_CATEGORIES = ['resume']
 MENUITEMS = (
     # ('Tags', f'{TAGS_SAVE_AS}'),
     # ('Categories', f'{CATEGORIES_SAVE_AS}'),
@@ -102,3 +110,4 @@ COLOR_SCHEME_CSS = "darkly.css"
 
 DISPLAY_PAGES_ON_MENU = False
 THEME_STATIC_DIR = "theme"
+PLUGINS = ['yaml_metadata']
