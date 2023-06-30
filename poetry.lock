@@ -27,17 +27,6 @@ toolz = "*"
 wcwidth = "*"
 
 [[package]]
-name = "commonmark"
-version = "0.9.1"
-description = "Python parser for the CommonMark Markdown spec"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.extras]
-test = ["flake8 (==3.7.8)", "hypothesis (==3.55.3)"]
-
-[[package]]
 name = "docutils"
 version = "0.20.1"
 description = "Docutils -- Python Documentation Utilities"
@@ -181,21 +170,17 @@ unidecode = ">=1.1"
 markdown = ["markdown (>=3.1)"]
 
 [[package]]
-name = "pelican-frontmark"
-version = "1.2.1"
-description = "CommonMark/Frontmatter reader for Pelican"
+name = "pelican-yaml-metadata"
+version = "2.1.1"
+description = "Pelican plugin for YAML-formatted Markdown metadata headers"
 category = "main"
 optional = false
-python-versions = ">=3.5"
+python-versions = ">=3.8.1"
 
 [package.dependencies]
-commonmark = ">=0.9.1"
-pelican = ">=3.7.0"
-pyyaml = "*"
-
-[package.extras]
-qa = ["flake8", "pytest-cov"]
-test = ["pyquery", "pytest"]
+markdown = ">=3.3.4"
+pelican = ">=4.8.0"
+pyyaml = ">=5.4.1"
 
 [[package]]
 name = "Pygments"
@@ -386,8 +371,8 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.8"
-content-hash = "68f1d8eb4a1ca597ed6152cadb08965a449d921b482ca25c0590e28b5e49abd1"
+python-versions = "^3.8.1"
+content-hash = "c45d462eb7724c1b879ef4a26b8334439be282b289c8c26532def66ea8c4734c"
 
 [metadata.files]
 application-properties = [
@@ -401,10 +386,6 @@ blinker = [
 columnar = [
     {file = "Columnar-1.4.1-py3-none-any.whl", hash = "sha256:8efb692a7e6ca07dcc8f4ea889960421331a5dffa8e5af81f0a67ad8ea1fc798"},
     {file = "Columnar-1.4.1.tar.gz", hash = "sha256:c3cb57273333b2ff9cfaafc86f09307419330c97faa88dcfe23df05e6fbb9c72"},
-]
-commonmark = [
-    {file = "commonmark-0.9.1-py2.py3-none-any.whl", hash = "sha256:da2f38c92590f83de410ba1a3cbceafbc74fee9def35f9251ba9a971d6d66fd9"},
-    {file = "commonmark-0.9.1.tar.gz", hash = "sha256:452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60"},
 ]
 docutils = [
     {file = "docutils-0.20.1-py3-none-any.whl", hash = "sha256:96f387a2c5562db4476f09f13bbab2192e764cac08ebbf3a34a95d9b1e4a59d6"},
@@ -497,8 +478,9 @@ pelican = [
     {file = "pelican-4.8.0-py3-none-any.whl", hash = "sha256:c80a81930f57f9b1a11c9ab5894ce1465dcda2028c9e4e3993cf9cbf2061a57d"},
     {file = "pelican-4.8.0.tar.gz", hash = "sha256:6445c00cff2142a30592a2de046e5647b84a36c5a0cfafc0eba75abbabb2b4b1"},
 ]
-pelican-frontmark = [
-    {file = "pelican_frontmark-1.2.1-py2.py3-none-any.whl", hash = "sha256:365c3e0ffdf1e467f3585f3b934300c5b55a2dc13148f158fcb8ea003df1c55a"},
+pelican-yaml-metadata = [
+    {file = "pelican_yaml_metadata-2.1.1-py3-none-any.whl", hash = "sha256:93db45af2e626cd9dbef420e6b609374df4444d95c9c257f9c163f3d3afa0391"},
+    {file = "pelican_yaml_metadata-2.1.1.tar.gz", hash = "sha256:d1df4c5e3f8181e57d0ac1d9fd14609a6d57640e75164ec86ce1d3905cb0636a"},
 ]
 Pygments = [
     {file = "Pygments-2.15.1-py3-none-any.whl", hash = "sha256:db2db3deb4b4179f399a09054b023b6a586b76499d36965813c71aa8ed7b5fd1"},

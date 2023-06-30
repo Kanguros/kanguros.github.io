@@ -28,10 +28,11 @@ DIRECT_TEMPLATES = [
     'index',
     'categories',
     'archives',
-    'resume'
+    # 'resume'
 ]
 TEMPLATE_PAGES = {
-    'posts/slides.slides.html': 'posts/slides.slides.html',
+    # 'posts/resume.md': 'resume.html',
+    # 'posts/slides.slides.html': 'posts/slides.slides.html',
     # 'pyreveal': 'posts/pyreveal',
 }
 

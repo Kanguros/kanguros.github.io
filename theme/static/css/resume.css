@@ -98,7 +98,7 @@ h2 {
   font-size: var(--scale3);
 }
 
-h3 {
+h3, h2 {
   color: var(--secondaryColor);
   font-size: var(--scale3);
   grid-column: side;
@@ -166,7 +166,11 @@ padding-top: 10px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    padding: 5px 0px
+    padding: 3px 0px
+}
+
+.contacts > p {
+margin: 2px 0px;
 }
 
 a {

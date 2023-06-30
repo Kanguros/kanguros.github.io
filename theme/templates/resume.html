@@ -1,40 +1,57 @@
-{% extends "base.html" %}
-{% block title %}{{ title|striptags }}{% endblock %}
+{% extends "article.html" %}
+{% block title %}{{ article.title|striptags }}{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/resume.css" rel="stylesheet">
+{% endblock head %}
+
+{% block header %}
+<!-- Page Header -->
+<header class="intro-header"
+        style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="logo">
+                    <img src="url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/face.jpg')">
+                </div>
+                <div class="post-heading">
+                    <h1>{{ article.name }}</h1>
+                    <h2>{{ article.label }}</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock header %}
+
 
 {% block content %}
 <article>
 
-    <div class="bodish">
-        <section id="masthead">
-            <div class="logo">
-                <img src="{{ metadata.basics.image }}">
-            </div>
-            <div class="content">
-                <div class="name">
-                    <h1>{{ metadata.basics.name }}</h1>
-                    <h2>{{ metadata.basics.label }}</h2>
-                </div>
-                <div class="contacts">
-                    <p>&#128392; <a>{{ metadata.basics.location }}</a></p>
-                    <p>&#128386; <a href="mailto:{{ metadata.basics.email }}">{{ metadata.basics.email }}</a></p>
-                    <p>&#128382; <a>{{ metadata.basics.phone }}</a></p>
-                    {% for url in metadata.basics.urls %}
+<span class="contacts">
+                    <p>&#128392; <a>{{ article.location }}</a></p>
+                    <p>&#128386; <a href="mailto:{{ article.email }}">{{ article.email }}</a></p>
+                    <p>&#128382; <a>{{ article.phone }}</a></p>
+                    {% for url in article.urls %}
                     <p>&#128427; <a href="https://{{ url.name }}">{{ url.name }}</a></p>
                     {% endfor %}
-                </div>
-            </div>
-        </section>
+                </span>
 
-        <section id="about" class="about">
-            <h3>I</h3>
+    <div class="bodish">
+
+        <section id="about">
+            <h2>I</h2>
             <article>
-                {{ metadata.basics.summary }}
+                {{ article.summary }}
             </article>
         </section>
         <section id="skills">
-            <h3>Know</h3>
+            <h2>Know</h2>
             <div class="grid-list">
-                {% for skill in skills %}
+                {% for skill in article.skills %}
                 <article>
                     <div class="spaced-list">
                         <h4>{{ skill.name }}</h4>
@@ -52,9 +69,9 @@
         </section>
 
         <section id="projects">
-            <h3>Done</h3>
+            <h2>Done</h2>
             <div class="grid-list">
-                {% for project in projects %}
+                {% for project in article.projects %}
                 <article>
                     <div class="spaced-list">
                         <h4>{{ project.name }}</h4>
@@ -72,9 +89,9 @@
             </div>
         </section>
         <section id="work">
-            <h3>Work</h3>
+            <h2>Work</h2>
             <div class="stack">
-                {% for job in jobs %}
+                {% for job in article.jobs %}
                 <article>
                     <header>
                         <div class="spaced-list">
@@ -99,9 +116,9 @@
             </div>
         </section>
         <section id="education">
-            <h3>Learn</h3>
+            <h2>Learn</h2>
             <div class="stack">
-                {% for edu in educations %}
+                {% for edu in article.educations %}
                 <article>
                     <header>
                         <div class="spaced-list">

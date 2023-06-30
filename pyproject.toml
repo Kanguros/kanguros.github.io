@@ -5,7 +5,7 @@ description = ""
 authors = ["Kamil Urbanek <urbanek.kamil@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.8.1"
 pelican = { extras = ["markdown"], version = "^4.8.0" }
 typogrify = "^2.0.7"
 pymdown-extensions = "^10"
@@ -13,7 +13,7 @@ invoke = "^2.1"
 livereload = "^2.6.0"
 pymarkdownlnt = "^0.9.11"
 pyreveal = {path = "pyreveal"}
-#pelican-frontmark = "^1.2.1"
+pelican-yaml-metadata = "^2.1.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
