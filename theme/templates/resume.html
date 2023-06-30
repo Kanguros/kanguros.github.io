@@ -1,5 +1,5 @@
-{% extends "article.html" %}
-{% block title %}{{ article.title|striptags }}{% endblock %}
+{% extends "page.html" %}
+{% block title %}{{ page.title|striptags }}{% endblock %}
 
 {% block head %}
 {{ super() }}
@@ -17,12 +17,12 @@
                     <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/face.jpg">
                 </div>
                 <div class="post-heading" id="masthead">
-                    <h1>{{ article.name }}</h1>
-                    <h2>{{ article.label }}</h2>
+                    <h1>{{ page.name }}</h1>
+                    <h2>{{ page.label }}</h2>
                     <span class="contacts">
-                    <p>&#128392; <a>{{ article.location }}</a></p>
-                    <p>&#128386; <a href="mailto:{{ article.email }}">{{ article.email }}</a></p>
-                    <p>&#128382; <a>{{ article.phone }}</a></p>
+                    <p>&#128392; <a>{{ page.location }}</a></p>
+                    <p>&#128386; <a href="mailto:{{ page.email }}">{{ page.email }}</a></p>
+                    <p>&#128382; <a>{{ page.phone }}</a></p>
                 </span>
                 </div>
             </div>
@@ -40,13 +40,13 @@
         <section id="about">
             <h2>I</h2>
             <article>
-                {{ article.summary }}
+                {{ page.summary }}
             </article>
         </section>
         <section>
             <h2>Know</h2>
             <div class="grid-list">
-                {% for skill in article.skills %}
+                {% for skill in page.skills %}
                 <article>
                     <div class="spaced-list">
                         <h4>{{ skill.name }}</h4>
@@ -66,7 +66,7 @@
         <section id="projects">
             <h2>Done</h2>
             <div class="grid-list">
-                {% for project in article.projects %}
+                {% for project in page.projects %}
                 <article>
                     <div class="spaced-list">
                         <h4>{{ project.name }}</h4>
@@ -86,7 +86,7 @@
         <section id="work">
             <h2>Work</h2>
             <div class="stack">
-                {% for job in article.jobs %}
+                {% for job in page.jobs %}
                 <article>
                     <header>
                         <div class="spaced-list">
@@ -113,7 +113,7 @@
         <section id="education">
             <h2>Learn</h2>
             <div class="stack">
-                {% for edu in article.educations %}
+                {% for edu in page.educations %}
                 <article>
                     <header>
                         <div class="spaced-list">

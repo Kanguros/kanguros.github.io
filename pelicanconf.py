@@ -3,33 +3,20 @@ PORT = "8080"
 SITEURL = f'{URL}:{PORT}'
 RELATIVE_URLS = True
 
-# RSS and ATOM feeds
-FEED_ALL_ATOM = None
-CATEGORY_FEED_ATOM = None
-TRANSLATION_FEED_ATOM = None
-AUTHOR_FEED_ATOM = None
-AUTHOR_FEED_RSS = None
-
-# CACHING
-CACHE_CONTENT = False
-LOAD_CONTENT_CACHE = False
-DELETE_OUTPUT_DIRECTORY = True
-
 SITENAME = "Kamil's Notes"
 TIMEZONE = 'Europe/Warsaw'
 AUTHOR = 'Kamil Urbanek'
 DEFAULT_LANG = 'en'
 DEFAULT_CATEGORY = "Personal"
 DEFAULT_DATE_FORMAT = "%d/%m/%Y"
-DATE_FORMATS = {
-    'en': "%d/%m/%Y",
-}
-LOCALE = (
-    'usa',  # On Windows
-    'en_US',  # On Unix/Linux
-)
+DATE_FORMATS = {'en': "%d/%m/%Y"}
+LOCALE = ('en_US',)
+
+PLUGINS = ['yaml_metadata']
 
 THEME = 'theme'
+THEME_STATIC_DIR = "theme"
+COLOR_SCHEME_CSS = "darkly.css"
 TYPOGRIFY = True
 DIRECT_TEMPLATES = [
     'index',
@@ -48,27 +35,27 @@ DEFAULT_PAGINATION = 3
 # Paths and other files
 PATH = 'content'
 OUTPUT_PATH = 'local_output/'
-ARTICLE_ORDER_BY = 'reversed-date'
-ARTICLE_PATHS = ['posts']
-PAGE_PATHS = ['pages']
-
-STATIC_PATHS = [
-    'images',
-    'extra/.nojekyll',
-    # 'posts/slides.slides.html',
-    # 'reveal.js',
-
-]
-
-EXTRA_PATH_METADATA = {
-    'extra/.nojekyll': {'path': '.nojekyll'},
-    # 'posts/slides.slides.html': {'path': 'posts/slides.slides.html'},
-    # 'pyreveal': {'path': 'posts/pyreveal'}
-}
 
 ARTICLE_URL = 'posts/{slug}.html'
 ARTICLE_SAVE_AS = 'posts/{slug}.html'
 ARCHIVES_SAVE_AS = 'archive.html'
+ARTICLE_ORDER_BY = 'reversed-date'
+ARTICLE_PATHS = ['posts']
+
+PAGE_PATHS = ['pages']
+ARTICLE_URL = 'posts/{slug}.html'
+ARTICLE_SAVE_AS = 'posts/{slug}.html'
+ARCHIVES_SAVE_AS = 'archive.html'
+
+STATIC_PATHS = [
+    'images',
+    'extra/.nojekyll',
+
+]
+EXTRA_PATH_METADATA = {
+    'extra/.nojekyll': {'path': '.nojekyll'},
+}
+
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 TAG_URL = 'tags/{slug}/'
@@ -79,6 +66,7 @@ CATEGORY_SAVE_AS = 'category/{slug}/index.html'
 CATEGORIES_SAVE_AS = 'categories.html'
 
 EXCLUDED_CATEGORIES = ['resume']
+
 MENUITEMS = (
     # ('Tags', f'{TAGS_SAVE_AS}'),
     # ('Categories', f'{CATEGORIES_SAVE_AS}'),
@@ -89,8 +77,6 @@ MENUITEMS = (
 FOOTER_LINKS = (
     # ('github', "https://github.com/Kanguros/"),
 )
-
-AUTHORS_BIO = "Short bio about the site and the author."
 
 MARKDOWN = {
     'extension_configs': {
@@ -106,8 +92,13 @@ MARKDOWN = {
     'output_format': 'html5'
 }
 
-COLOR_SCHEME_CSS = "darkly.css"
-
-DISPLAY_PAGES_ON_MENU = False
-THEME_STATIC_DIR = "theme"
-PLUGINS = ['yaml_metadata']
+# RSS and ATOM feeds
+FEED_ALL_ATOM = None
+CATEGORY_FEED_ATOM = None
+TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
+# CACHING
+CACHE_CONTENT = False
+LOAD_CONTENT_CACHE = False
+DELETE_OUTPUT_DIRECTORY = True

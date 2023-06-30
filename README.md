@@ -1,6 +1,7 @@
 # [kanguros.github.io](https://kanguros.github.io)
 
-My personal blog with all of its content. Build and deployed using `pelican` library. With modified theme `svbtle`.
+My personal blog with all of its content. 
+Build and deployed using `pelican` library, with adjusted theme `Clean Blog`.
 
 ## Prerequisits
 
@@ -10,9 +11,9 @@ My personal blog with all of its content. Build and deployed using `pelican` lib
 ## Installation
 
 In order to have virtual environment ready to write posts and see them how they actually look on the website, run the
-code-snippet below:
+code snippet below:
 
-```commandline
+```shell
 git clone https://github.com/Kanguros/kanguros.github.io.git
 cd kanguros.github.io
 poetry install 
@@ -23,7 +24,7 @@ poetry install
 Once installed, you may use the commands below:
 
 - `invoke build` - Build site, append mode.
-- `invoke rebuild` - Remove existing files then build.
+- `invoke rebuild` - Remove existing site, then build.
 - `invoke serve` - Serve site on localhost.
 - `invoke reserve` - Clean build and then serve (`rebuild` and `serve`).
 
@@ -31,8 +32,8 @@ Website generated locally is saved to `./local_output` folder
 
 ## Theme
 
-Currently used theme is [Semantic UI](). Many modifications
-have been made. In templates and css files.
+Currently used theme is [Clean Blog Theme](https://github.com/BlackrockDigital/startbootstrap-clean-blog). 
+Many modifications have been applied, in templates and css files.
 
 ## Workflow
 
@@ -41,7 +42,7 @@ Generating website, deployment to desire branch and sending to host server is do
 ### 1. Build Action
 
 Definition of the workflow which build whole site and push it to the `deploy` branch is in
-file `.github/workflows/build.yml`
+file `.github/workflows/build.yml`. It is executed on merge to `master` branch.
 
 ### 2. Deploy Action
 
@@ -50,9 +51,7 @@ a GitHub Pages _server_ under address provided in a Repository settings.
 
 ## Articles
 
-Each article has to be placed in `content/posts/` directory as an `*.md` file type.  
-Push changes with a Pull Request to the `main` branch.
-Once approved, it will execute `build.yml` Action.
+Each article has to be placed in `content/posts/` directory as an `*.md` file type.
 
 ### Structure
 
@@ -71,7 +70,7 @@ Each _Article_ has to match template below:
 
 ### PyCharm File Template
 
-To help ourself, [`PyCharm's File Template`](
+To easy myself, I've prepared a [`PyCharm's File Template`](
 https://www.jetbrains.com/help/pycharm/using-file-and-code-templates.html) definition below.
 
 _Settings -> Editor -> File and Code Templates_
@@ -81,16 +80,16 @@ Template to Copy/Paste
 ```
 Title: ${FILE_NAME}  
 Date: ${DATE}  
-Author: Name Surname
-Tags: 
+Author: Kamil Urbanek
+Category: [TOFILL] 
 
 [MAIN CONTENT]
 ```
 
 ## Links
 
-- https://docs.getpelican.com/en/latest/ - Pelican documentation
-- https://github.com/peaceiris/actions-gh-pages - GitHub Action for deploying static website
-
+- https://docs.getpelican.com/en/latest/ - Pelican documentation.
+- https://github.com/peaceiris/actions-gh-pages - GitHub Action for deploying static website.
+- https://github.com/BlackrockDigital/startbootstrap-clean-blog - Clean Blog theme.
 
 
