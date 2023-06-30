@@ -18,7 +18,9 @@ body {
   font-size: 18px;
   font-weight: 500;
   color: #404040;
+
 }
+
 
 
 code {
@@ -272,7 +274,7 @@ hr.small {
 
 .post-preview > a > .post-title {
   font-size: 2.2em;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 10px;
 }
 .post-preview > a > .post-subtitle {
@@ -280,20 +282,20 @@ hr.small {
   font-weight: 300;
   margin-bottom: 10px;
 }
-.post-preview > .post-meta {
+.post-preview > .meta {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.post-preview > .post-meta > a {
+.post-preview > .meta > a {
   color: var(--fading-color);
   font-size: 1.4rem;
   text-decoration: none;
   margin-right: 10px;
 }
 
-.post-preview > .post-meta > a:hover,
-.post-preview > .post-meta > a:focus {
+.post-preview > .meta > a:hover,
+.post-preview > .meta > a:focus {
   color: #0085a1;
   text-decoration: underline;
 }
@@ -318,21 +320,7 @@ hr.small {
   border-bottom-left-radius: 5px;
 }
 
-footer {
-padding-top: 50px;
-padding-bottom: 10px;
-}
 
-footer .list-inline {
-  margin: 0;
-  padding: 0;
-}
-footer .copyright {
-  font-size: 14px;
-  text-align: center;
-  margin-bottom: 0;
-  margin-top: 10px;
-}
 .floating-label-form-group {
   font-size: 14px;
   position: relative;
@@ -458,7 +446,7 @@ body {
 }
 .article-summary {
   margin-top: 0.6em;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 article {
@@ -469,4 +457,29 @@ margin-bottom: 1.5em;
 hr {
     margin-bottom: 0;
     margin-top: 5px;
+}
+
+
+footer .list-inline {
+  margin: 0;
+  padding: 0;
+}
+footer .copyright {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+footer {
+position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+        z-index: 3;
+    line-height: 60px;
+    background-color: white;
+     min-height: 50px;
+
 }
