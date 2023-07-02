@@ -13,11 +13,11 @@
 
     <!-- Bootstrap and Clean Blog CSS -->
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/clean-blog.css" rel="stylesheet">
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/{{ COLOR_SCHEME_CSS }}" rel="stylesheet">
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/fontawesome.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/solid.css" rel="stylesheet">
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/brands.css" rel="stylesheet">
-    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/regular.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/clean-blog.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
           type='text/css'>
@@ -64,7 +64,7 @@
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
             {% block content %}{% endblock content %}
         </div>
     </div>
