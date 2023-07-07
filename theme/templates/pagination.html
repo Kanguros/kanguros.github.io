@@ -1,15 +1,28 @@
 {% if DEFAULT_PAGINATION and articles_paginator.num_pages > 1 %}
-<!-- Pager -->
-<ul class="pager">
-    <li class="next">
-        {% if articles_page.has_next() %}
-        <a href="{{ SITEURL }}/{{ articles_next_page.url }}">Older Posts &rarr;</a>
-        {% endif %}
+<nav aria-label="...">
+    <ul class="pagination justify-content-between pagination-bar">
         {% if articles_page.has_previous() %}
-        <a href="{{ SITEURL }}/{{ articles_previous_page.url }}"> &larr; Newest Posts</a>
+        <li class="page-item">
+            <a class="page-link" href="{{ SITEURL }}/{{ articles_previous_page.url }}">Newest Posts</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link disabled">Newest Posts</a>
+        </li>
         {% endif %}
-    </li>
-</ul>
-Page {{ articles_page.number }} / {{ articles_paginator.num_pages }}
-<hr>
+
+        {% if articles_page.has_next() %}
+        <li class="page-item">
+            <a class="page-link" href="{{ SITEURL }}/{{ articles_next_page.url }}">Older Posts</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link">Older Posts</a>
+        </li>
+        {% endif %}
+
+
+    </ul>
+</nav>
+
 {% endif %}
