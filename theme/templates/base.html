@@ -38,13 +38,13 @@
 </head>
 
 {% if page %}
-<body class="page-{{ page.slug }}">
+<body class="page-{{ page.slug }} d-flex flex-column vh-100">
 {% elif article %}
-<body class="article-{{ article.slug }}">
+<body class="article-{{ article.slug }} d-flex flex-column vh-100">
 {% elif category %}
-<body class="category-{{ category.slug }}">
+<body class="category-{{ category.slug }} d-flex flex-column vh-100">
 {% elif tag %}
-<body class="tag-{{ tag.slug }}">
+<body class="tag-{{ tag.slug }} d-flex flex-column vh-100">
 {% endif %}
 
 <!-- Navigation -->
@@ -62,7 +62,37 @@
 </div>
 
 <!-- Footer -->
-{% include 'footer.html' %}
+<footer class="footer mt-auto">
+    <hr>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <ul class="list-inline text-center">
+                    {% if FOOTER_LINKS %}
+                    {% for name,link in FOOTER_LINKS %}
+                    <li>
+                        <a href="{{ link }}">
+                            <span class="fa-stack">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-{{ name|lower }} fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+                <p class="copyright text-muted">
+                    &copy; Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                    on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
+                    theme. <br/>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JS Scripts -->
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.min.js"></script>
