@@ -67,20 +67,28 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <ul class="list-inline text-center">
-                    {% if FOOTER_LINKS %}
-                    {% for name,link in FOOTER_LINKS %}
+
+                <ul class="list-inline text-center text-muted copyright">
+                    {% for cat, null in categories %}
+                    {% if cat not in EXCLUDED_CATEGORIES %}
                     <li>
-                        <a href="{{ link }}">
-                            <span class="fa-stack">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-{{ name|lower }} fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
+                        <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+                        {% if not loop.last %}<li>|</li>{% endif %}
+                    </li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+
+
+                <ul class="list-inline text-center text-muted copyright">
+                    {% for title, link in MENUITEMS %}
+                    <li>
+                        <a href="{{ SITEURL }}/{{ link }}">{{ title }}</a>
+                        {% if not loop.last %}<li>|</li>{% endif %}
                     </li>
                     {% endfor %}
-                    {% endif %}
                 </ul>
+
                 <p class="copyright text-muted">
                     &copy; Blog powered by <a href="http://getpelican.com">Pelican</a>,
                     on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>

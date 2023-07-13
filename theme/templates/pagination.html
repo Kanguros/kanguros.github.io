@@ -3,25 +3,29 @@
     <ul class="pagination justify-content-between pagination-bar">
         {% if articles_page.has_previous() %}
         <li class="page-item">
-            <a class="page-link" href="{{ SITEURL }}/{{ articles_previous_page.url }}">Newest Posts</a>
+            <a class="page-link" href="{{ SITEURL }}/{{ articles_previous_page.url }}">
+                <i class="bi bi-arrow-left"></i></a>
         </li>
         {% else %}
         <li class="page-item disabled">
-            <a class="page-link disabled">Newest Posts</a>
+            <a class="page-link disabled">
+                <i class="bi bi-arrow-left"></i></a>
         </li>
         {% endif %}
 
         {% if articles_page.has_next() %}
         <li class="page-item">
-            <a class="page-link" href="{{ SITEURL }}/{{ articles_next_page.url }}">Older Posts</a>
+            <a class="page-link" href="{{ SITEURL }}/{{ articles_next_page.url }}">
+                <i class="bi bi-arrow-right"></i>
+            </a>
         </li>
         {% else %}
         <li class="page-item disabled">
-            <a class="page-link">Older Posts</a>
+            <a class="page-link">
+                <i class="bi bi-arrow-right"></i>
+            </a>
         </li>
         {% endif %}
-
-
     </ul>
 </nav>
 

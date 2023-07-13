@@ -16,7 +16,9 @@ PLUGINS = ['yaml_metadata']
 
 THEME = 'theme'
 THEME_STATIC_DIR = "theme"
-COLOR_SCHEME_CSS = "darkly.css"
+COLOR_SCHEME_CSS = "github_jekyll.css"
+COLOR_SCHEME_CSS = "github.css"
+COLOR_SCHEME_CSS = "monokai.css"
 TYPOGRIFY = True
 DIRECT_TEMPLATES = [
     'index',

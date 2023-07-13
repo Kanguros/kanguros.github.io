@@ -16,7 +16,7 @@
     --blue-color: #046cc7;
     --fading-color: #b5b2b2;
     --hr-color: #eee;
-    --code-background: #f9f2f4;
+    --code-background: #e9e9e9b0;
     --main-font: 'Roboto-Thin','Times New Roman',serif;
     --title-font: 'Roboto-Regular','Times New Roman',serif;
     --main-font-color: #404040;
@@ -45,7 +45,7 @@ background-color: var(--code-background);
 
 p {
   line-height: 1.5;
-  margin: 25px 0;
+  margin: 1em 0;
 }
 
 h1,
@@ -79,9 +79,12 @@ blockquote p {
 }
 
 pre {
-  background-color: transparent;
   font-size: 14px;
   padding: 10px !important;
+}
+
+pre code {
+background-color: transparent;
 }
 
 @media only screen and (min-width: 768px) {
@@ -92,7 +95,6 @@ pre {
 
 }
 
-.navbar-collapse
 
 .navbar-custom {
   position: absolute;
@@ -106,6 +108,8 @@ pre {
 .navbar-custom .navbar-brand {
   font-weight: 800;
   font-size: 18px;
+  padding-top: 0;
+    padding-bottom: 0;
 
 
 }
@@ -204,7 +208,7 @@ pre {
   .intro-header .site-heading,
   .intro-header .post-heading,
   .intro-header .page-heading {
-    padding: 2.5em 0 20px;
+    padding: 3.8em 0 20px;
   }
 }
 .intro-header .site-heading,
@@ -476,34 +480,42 @@ hr {
 
 hr.small {
   max-width: 80%;
-  margin: 5px auto;
+}
+
+article hr {
+  max-width: 20%;
+    margin: 1em auto;
 }
 
 
 footer .list-inline {
-  margin: 0;
+  margin: 0.6rem;
   padding: 0;
+}
+
+footer .list-inline li {
+            display: inline;
+            margin-right: 0.5rem;
+            margin-left: 0.5rem;
 }
 footer .copyright {
   font-size: 14px;
   text-align: center;
-  margin-bottom: 0;
-  margin-top: 10px;
+  margin: 5px 0;
 }
 
 footer {
     width: 100%;
     z-index: 3;
-    line-height: 60px;
     background-color: white;
     min-height: 50px;
 }
 
 .pagination-bar {
-margin:2rem 0;
+margin: 2rem 0;
 }
 .pagination-bar a {
-font-size: 0.8em;
+font-size: 0.9em;
 }
 .page-link {
   color: var(--orange-color);
@@ -514,4 +526,9 @@ font-size: 0.8em;
 .page-link:focus {
   color: var(--orange-color);
   text-decoration: underline;
+}
+
+.page-link.disabled {
+  color: var(--fading-color);
+
 }
