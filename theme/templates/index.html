@@ -14,25 +14,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                        <div class="page-heading">
+                        <div class="heading main-heading">
                             <h1>{{ SITENAME }}</h1>
-                            {% if SITESUBTITLE %}
-                            <hr class="small">
-                            <span class="subheading">{{ SITESUBTITLE }}</span>
-                            {% endif %}
-                            {% if SOCIAL and SHOW_SOCIAL_ON_INDEX_PAGE_HEADER %}
-                            <ul class="list-inline text-center">
-                                {% for name,link in SOCIAL %}
-                                <li>
-                                    <a href="{{ link }}">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-{{ name|lower }} fa-stack-1x fa-inverse"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -68,7 +51,6 @@
                 {% endif %}
             </p>
 
-            <!--            {% include 'comments.html' %}-->
         </div>
         <hr>
         {% endif %}
