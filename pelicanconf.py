@@ -80,6 +80,8 @@ FOOTER_LINKS = (
     # ('github', "https://github.com/Kanguros/"),
 )
 
+GITHUB_URL = "https://github.com/Kanguros/"
+
 MARKDOWN = {
     'extension_configs': {
         'markdown.extensions.extra': {},

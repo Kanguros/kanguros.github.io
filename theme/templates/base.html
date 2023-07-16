@@ -55,7 +55,11 @@
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ SITEURL }}/">
             <i class="bi bi-house"></i>
-            Home
+            {% if body_class == "" %}
+            Index
+            {% else %}
+            {{ SITENAME }}
+            {% endif %}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#bs-example-navbar-collapse-1">
@@ -101,29 +105,43 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <p class="footer-icons">
+                    <a href="{{ GITHUB_URL }}">
+                        <i class="bi bi-github"></i>
+                    </a>
+                </p>
+
+                <ul class="list-inline text-center text-muted copyright">
+                    <li>
+                        <a href="{{ SITEURL }}">
+                            Index
+                        </a>
+                    </li>
+                    <li>|</li>
+                    {% for title, link in MENUITEMS %}
+                    <li>
+                        <a href="{{ SITEURL }}/{{ link }}">
+                            {{ title }}
+                        </a>
+                    </li>
+                    {% if not loop.last %}
+                    <li>|</li>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
 
                 <ul class="list-inline text-center text-muted copyright">
                     {% for cat, null in categories %}
                     {% if cat not in EXCLUDED_CATEGORIES %}
                     <li>
-                        <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
-                        {% if not loop.last %}
+                        <a href="{{ SITEURL }}/{{ cat.url }}">
+                            {{ cat }}
+                        </a>
+                    </li>
+                    {% if not loop.last %}
                     <li>|</li>
                     {% endif %}
-                    </li>
                     {% endif %}
-                    {% endfor %}
-                </ul>
-
-
-                <ul class="list-inline text-center text-muted copyright">
-                    {% for title, link in MENUITEMS %}
-                    <li>
-                        <a href="{{ SITEURL }}/{{ link }}">{{ title }}</a>
-                        {% if not loop.last %}
-                    <li>|</li>
-                    {% endif %}
-                    </li>
                     {% endfor %}
                 </ul>
 
@@ -132,6 +150,7 @@
                     on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
                     theme. <br/>
                 </p>
+
 
             </div>
         </div>
