@@ -30,7 +30,7 @@ body {
 	font-size: 18px;
 	font-weight: 600;
 	color: var(--main-font-color);
-	webkit-tap-highlight-color: #0085a1;
+	webkit-tap-highlight-color: var(--main-font-color);
 }
 
 
@@ -63,7 +63,6 @@ a {
 
 a:hover,
 a:focus {
-	color: RGB(255, 87, 34);
 	text-decoration: underline;
 }
 
@@ -217,23 +216,18 @@ pre code {
 }
 
 .intro-header .heading {
-	padding: 10px 10px;
+	padding: 20px 20px;
 	color: white;
 	text-align: center;
 }
 
 @media only screen and (min-width: 768px) {
 	.intro-header .heading {
-		padding: 3.8em 0 20px;
+		padding: 6em 0 3.5em;
 	}
 }
 
-.intro-header .heading h1 {
-	margin-top: 0;
-	font-size: 56px;
-	font-family: var(--title-font);
 
-}
 
 .intro-header .heading .subheading,
 .intro-header .heading .subheading {
@@ -245,9 +239,17 @@ pre code {
 	margin: 10px 0 0;
 }
 
+.intro-header .heading h1 {
+	margin-top: 0;
+	font-size: 3.5em;
+	font-family: var(--title-font);
+	text-shadow: 0 0 2px black;
+
+}
+
 @media only screen and (min-width: 768px) {
 	.intro-header .heading h1 {
-		font-size: 90px;
+		font-size: 5em;
 	}
 }
 
@@ -308,8 +310,8 @@ pre code {
 
 .post-preview>a:hover,
 .post-preview>a:focus {
-	text-decoration: none;
-	color: var(--orange-color);
+	text-decoration: underline;
+	text-decoration-color: var(--orange-color);
 }
 
 .post-title {
@@ -322,6 +324,12 @@ pre code {
 	margin-top: 20px;
 }
 
+@media only screen and (min-width: 768px) {
+	.post-preview>a>.post-title {
+		font-size: 2.5em;
+	}
+}
+
 .post-preview>a>.post-subtitle {
 	margin: 0;
 	font-weight: 300;
@@ -330,12 +338,12 @@ pre code {
 
 .post-preview>.meta {
 	margin-top: 0;
-	margin-bottom: 0;
+	margin-bottom: 1rem;
 }
 
 .post-preview>.meta>a {
 	color: var(--fading-color);
-	font-size: 1rem;
+	font-size: 0.9rem;
 	text-decoration: none;
 	margin-right: 10px;
 }
@@ -346,11 +354,7 @@ pre code {
 	text-decoration: underline;
 }
 
-@media only screen and (min-width: 768px) {
-	.post-preview>a>.post-title {
-		font-size: 2.3em;
-	}
-}
+
 
 .section-heading {
 	font-size: 36px;
@@ -436,17 +440,6 @@ form .row:first-child .floating-label-form-group {
 	padding: 15px 25px;
 }
 
-.btn-lg {
-	font-size: 16px;
-	padding: 25px 35px;
-}
-
-.btn-default:hover,
-.btn-default:focus {
-	background-color: #0085a1;
-	border: 1px solid #0085a1;
-	color: white;
-}
 
 .pager {
 	margin: 20px 0 0;
@@ -509,8 +502,8 @@ img::-moz-selection {
 }
 
 .article-summary {
-	margin-top: 0.6em;
-	margin-bottom: 25px;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 }
 
 article {
@@ -529,7 +522,7 @@ article + hr {
 }
 
 hr {
-	margin: 5px auto;
+	margin: 1rem auto;
 	padding-left: 1em;
 	padding-right: 1em;
 }
@@ -538,11 +531,19 @@ hr .small {
 	max-width: 80%;
 }
 
+.tiny {
+	max-width: 70%;
+    margin: 0.5rem auto;
+    opacity: .15;
+}
+
 footer {
 	width: 100%;
 	z-index: 3;
 	background-color: white;
 	min-height: 50px;
+	font-size: 14px;
+    text-align: center;
 }
 
 footer .list-inline {
@@ -559,9 +560,7 @@ footer .list-inline li {
 }
 
 footer .copyright {
-	font-size: 14px;
-	text-align: center;
-	margin: 2px 0;
+	margin-bottom: 1rem;
 }
 
 footer .footer-icons {

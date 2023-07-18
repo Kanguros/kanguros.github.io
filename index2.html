@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>Kamil's Notes</title>
+    <title>Kamil's Scratchpad</title>
 
     <!-- Bootstrap and Clean Blog CSS -->
-    <link href="https://kanguros.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://kanguros.github.io/theme/css/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://kanguros.github.io/theme/css/code_blocks/monokai.css" rel="stylesheet">
-    <link href="https://kanguros.github.io/theme/css/clean-blog.css" rel="stylesheet">
+    <link href="http://localhost:8080/theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://localhost:8080/theme/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="http://localhost:8080/theme/css/code_blocks/github_jekyll.css" rel="stylesheet">
+    <link href="http://localhost:8080/theme/css/clean-blog.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,7 +23,7 @@
     <![endif]-->
 
     <meta property="og:locale" content="en_US">
-    <meta property="og:site_name" content="Kamil's Notes">
+    <meta property="og:site_name" content="Kamil's Scratchpad">
 
 </head>
 
@@ -43,23 +43,46 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="navbar-nav ms-auto">
-
-                <li >
-                    <a class="nav-link" href="https://kanguros.github.io/category/ai/">AI</a>
-                </li>
-                <li >
-                    <a class="nav-link" href="https://kanguros.github.io/category/personal/">Personal</a>
-                </li>
-                <li >
-                    <a class="nav-link" href="https://kanguros.github.io/category/webdev/">Webdev</a>
-                </li>
-
                 <li>
-                    <a class="nav-link" href="https://kanguros.github.io/archive.html">Archive</a>
+                    <a class="nav-link" href="https://kanguros.github.io/archive.html">
+                        <i class="bi bi-archive"></i>
+                        Archive
+                    </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="https://kanguros.github.io/about/index.html">About</a>
+                    <a class="nav-link" href="https://kanguros.github.io/about/index.html">
+                        <i class="bi bi-file-person"></i>
+                        About
+                    </a>
                 </li>
+                <li>
+                    <a class="nav-link" href="https://kanguros.github.io/tags.html">
+                        <i class="bi bi-tags"></i>
+                        Tags
+                    </a>
+                </li>
+
+                <!--                -->
+                <!--                <li >-->
+                <!--                    <a class="nav-link" href="https://kanguros.github.io/category/ai/">-->
+                <!--                        <i class="bi bi-tag"></i> AI-->
+                <!--                    </a>-->
+                <!--                </li>-->
+                <!--                -->
+                <!--                <li >-->
+                <!--                    <a class="nav-link" href="https://kanguros.github.io/category/personal/">-->
+                <!--                        <i class="bi bi-tag"></i> Personal-->
+                <!--                    </a>-->
+                <!--                </li>-->
+                <!--                -->
+                <!--                <li >-->
+                <!--                    <a class="nav-link" href="https://kanguros.github.io/category/webdev/">-->
+                <!--                        <i class="bi bi-tag"></i> Webdev-->
+                <!--                    </a>-->
+                <!--                </li>-->
+                <!--                -->
+
+
             </ul>
         </div>
     </div>
@@ -73,7 +96,7 @@
                 <div class="row">
                     <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                         <div class="heading main-heading">
-                            <h1>Kamil's Notes</h1>
+                            <h1>Kamil's Scratchpad</h1>
                         </div>
                     </div>
                 </div>
@@ -92,21 +115,20 @@
                     Welcome
                 </h2>
             </a>
-<span class="meta">
-    <a>
-<i class="bi bi-calendar"></i>
-    06/01/2023
-</a>
-<a href="https://kanguros.github.io/category/Personal" rel="bookmark"
-   title="Category Personal">
-    <i class="bi bi-tag"></i>
-    Personal
-</a>
-</span>
             <p class="article-summary">
                 You are on my blog dedicated loosely joined development, automation and network.
             </p>
-
+<span class="meta">
+    <a>
+        <i class="bi bi-calendar"></i>
+        06/01/2023
+    </a>
+    <a href="https://kanguros.github.io/tags/personal" rel="bookmark"
+       title="personal">
+        <i class="bi bi-tag"></i>
+        personal
+    </a>
+</span>
         </div>
         <hr>
 
@@ -141,50 +163,60 @@
                     </a>
                 </p>
 
-                <ul class="list-inline text-center text-muted copyright">
+                <ul class="list-inline text-center text-muted">
                     <li>
-                        <a href="https://kanguros.github.io">
-                            Index
+                        <a href="https://kanguros.github.io/index.html">
+                            <i class="bi bi-house"></i> Index
                         </a>
                     </li>
-                    <li>|</li>
                     <li>
                         <a href="https://kanguros.github.io/archive.html">
-                            Archive
+                            <i class="bi bi-archive"></i> Archive
                         </a>
                     </li>
-                    <li>|</li>
                     <li>
                         <a href="https://kanguros.github.io/about/index.html">
-                            About
+                            <i class="bi bi-file-person"></i> About
                         </a>
                     </li>
+                    <li>
+                        <a href="https://kanguros.github.io/tags.html">
+                            <i class="bi bi-tags"></i> Tags
+                        </a>
+                    </li>
+                    <!--                    -->
+                    <!--                    -->
+                    <!--                    <li>-->
+                    <!--                        <a href="https://kanguros.github.io/category/ai/">-->
+                    <!--                            <i class="bi bi-tag"></i> AI-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    -->
+                    <!--                    -->
+                    <!--                    -->
+                    <!--                    <li>-->
+                    <!--                        <a href="https://kanguros.github.io/category/personal/">-->
+                    <!--                            <i class="bi bi-tag"></i> Personal-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    -->
+                    <!--                    -->
+                    <!--                    -->
+                    <!--                    <li>-->
+                    <!--                        <a href="https://kanguros.github.io/category/webdev/">-->
+                    <!--                            <i class="bi bi-tag"></i> Webdev-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    -->
+                    <!--                    -->
                 </ul>
-
-                <ul class="list-inline text-center text-muted copyright">
-                    <li>
-                        <a href="https://kanguros.github.io/category/ai/">
-                            AI
-                        </a>
-                    </li>
-                    <li>|</li>
-                    <li>
-                        <a href="https://kanguros.github.io/category/personal/">
-                            Personal
-                        </a>
-                    </li>
-                    <li>|</li>
-                    <li>
-                        <a href="https://kanguros.github.io/category/webdev/">
-                            Webdev
-                        </a>
-                    </li>
-                </ul>
-
+                <hr class="tiny">
                 <p class="copyright text-muted">
                     &copy; Blog powered by <a href="http://getpelican.com">Pelican</a>,
                     on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
-                    theme. <br/>
+                    theme. Header image by <a
+                        href="https://www.freepik.com/free-photo/top-view-workspace-with-orange-background_4979017.htm#query=keyboard%20key&position=9&from_view=search&track=ais">Freepik</a>
+                    <br/>
                 </p>
 
 
@@ -194,9 +226,9 @@
 </footer>
 
 <!-- JS Scripts -->
-<script src="https://kanguros.github.io/theme/js/jquery.min.js"></script>
-<script src="https://kanguros.github.io/theme/js/bootstrap.min.js"></script>
-<script src="https://kanguros.github.io/theme/js/clean-blog.min.js"></script>
+<script src="http://localhost:8080/theme/js/jquery.min.js"></script>
+<script src="http://localhost:8080/theme/js/bootstrap.min.js"></script>
+<script src="http://localhost:8080/theme/js/clean-blog.min.js"></script>
 </body>
 
 </html>
