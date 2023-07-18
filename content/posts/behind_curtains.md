@@ -1,5 +1,5 @@
 Title: Behind curtains
-Date: 10/06/2023
+Date: 15/06/2023
 Category: Webdev
 Tags: webdev, pelican, markdown
 

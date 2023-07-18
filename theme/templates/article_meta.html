@@ -1,11 +1,13 @@
 <span class="meta">
     <a>
-<i class="bi bi-calendar"></i>
-    {{ article.locale_date }}
-</a>
-<a href="{{ SITEURL }}/category/{{ article.category }}" rel="bookmark"
-   title="Category {{ article.category|striptags }}">
-    <i class="bi bi-tag"></i>
-    {{ article.category }}
-</a>
+        <i class="bi bi-calendar"></i>
+        {{ article.locale_date }}
+    </a>
+{% for t in article.tags %}
+    <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark"
+       title="{{ t }}">
+        <i class="bi bi-tag"></i>
+        {{ t }}
+    </a>
+{% endfor %}
 </span>
