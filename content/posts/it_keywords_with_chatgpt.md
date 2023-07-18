@@ -1,6 +1,7 @@
 Title: IT keywords with ChatGPT
 Date: 20/06/2023
 Category: AI
+Tags: ai
 
 I playaround with ChatGPT and create a glossary of IT keywords. Take a look.
 

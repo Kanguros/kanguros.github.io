@@ -14,6 +14,7 @@ livereload = "^2.6.0"
 pymarkdownlnt = "^0.9.11"
 #pyreveal = {path = "pyreveal"}
 pelican-yaml-metadata = "^2.1.1"
+pelican-similar-posts = "^1.0.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

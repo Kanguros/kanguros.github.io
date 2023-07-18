@@ -12,10 +12,10 @@
         endif %}{% endblock title %}</title>
 
     <!-- Bootstrap and Clean Blog CSS -->
-    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap-icons.css" rel="stylesheet">
-    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/{{ COLOR_SCHEME_CSS }}" rel="stylesheet">
-    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/clean-blog.css" rel="stylesheet">
+    <link href="{{ THEME_CSS }}/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ THEME_CSS }}/bootstrap-icons.css" rel="stylesheet">
+    <link href="{{ THEME_CSS }}/code_blocks/{{ COLOR_SCHEME_CSS }}" rel="stylesheet">
+    <link href="{{ THEME_CSS }}/clean-blog.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,7 +51,7 @@
 <body class="{{ body_class }} d-flex flex-column vh-100">
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom navbar-fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom navbar-fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ SITEURL }}/">
             <i class="bi bi-house"></i>
@@ -68,20 +68,24 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="navbar-nav ms-auto">
-
-                {% for cat, null in categories %}
-                {% if cat not in EXCLUDED_CATEGORIES %}
-                <li {% if cat== category %} class="active" {% endif %}>
-                    <a class="nav-link" href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
-                </li>
-                {% endif %}
-                {% endfor %}
-
-                {% for title, link in MENUITEMS %}
+                {% for title, link, icon in MENUITEMS if title != "Index"%}
                 <li>
-                    <a class="nav-link" href="{{ SITEURL }}/{{ link }}">{{ title }}</a>
+                    <a class="nav-link" href="{{ SITEURL }}/{{ link }}">
+                        <i class="bi bi-{{ icon }}"></i>
+                        {{ title }}
+                    </a>
                 </li>
                 {% endfor %}
+
+                {% for cat, null in categories if cat not in EXCLUDED_CATEGORIES %}
+                <li {% if cat== category %} class="active" {% endif %}>
+                    <a class="nav-link" href="{{ SITEURL }}/{{ cat.url }}">
+                        <i class="bi bi-tag"></i> {{ cat }}
+                    </a>
+                </li>
+                {% endfor %}
+
+
             </ul>
         </div>
     </div>
@@ -111,44 +115,31 @@
                     </a>
                 </p>
 
-                <ul class="list-inline text-center text-muted copyright">
-                    <li>
-                        <a href="{{ SITEURL }}">
-                            Index
-                        </a>
-                    </li>
-                    <li>|</li>
-                    {% for title, link in MENUITEMS %}
+                <ul class="list-inline text-center text-muted">
+                    {% for title, link, icon in MENUITEMS %}
                     <li>
                         <a href="{{ SITEURL }}/{{ link }}">
-                            {{ title }}
+                            <i class="bi bi-{{ icon }}"></i> {{ title }}
                         </a>
                     </li>
-                    {% if not loop.last %}
-                    <li>|</li>
-                    {% endif %}
                     {% endfor %}
-                </ul>
-
-                <ul class="list-inline text-center text-muted copyright">
                     {% for cat, null in categories %}
                     {% if cat not in EXCLUDED_CATEGORIES %}
                     <li>
                         <a href="{{ SITEURL }}/{{ cat.url }}">
-                            {{ cat }}
+                            <i class="bi bi-tag"></i> {{ cat }}
                         </a>
                     </li>
-                    {% if not loop.last %}
-                    <li>|</li>
-                    {% endif %}
                     {% endif %}
                     {% endfor %}
                 </ul>
-
+                <hr class="tiny">
                 <p class="copyright text-muted">
                     &copy; Blog powered by <a href="http://getpelican.com">Pelican</a>,
                     on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
-                    theme. <br/>
+                    theme. Header image by <a
+                        href="https://www.freepik.com/free-photo/top-view-workspace-with-orange-background_4979017.htm#query=keyboard%20key&position=9&from_view=search&track=ais">Freepik</a>
+                    <br/>
                 </p>
 
 
@@ -158,9 +149,9 @@
 </footer>
 
 <!-- JS Scripts -->
-<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
-<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>
-<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.min.js"></script>
+<script src="{{ THEME_JS }}/jquery.min.js"></script>
+<script src="{{ THEME_JS }}/bootstrap.min.js"></script>
+<script src="{{ THEME_JS }}/clean-blog.min.js"></script>
 {% include 'analytics.html' %}
 </body>
 

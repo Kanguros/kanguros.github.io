@@ -4,7 +4,9 @@
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
 {% if HEADER_COVER %}
-<header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}')">
+{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/" + HEADER_COVER + "')" %}
+
+<header class="intro-header" style=>
     {% elif HEADER_COLOR %}
     <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
         {% else %}
@@ -41,8 +43,6 @@
                     {{ article.title }}
                 </h2>
             </a>
-            {% include "article_meta.html" %}
-
             <p class="article-summary">
                 {% if article.has_summary %}
                 {{ article.summary }}
@@ -50,6 +50,7 @@
                 {{ article.summary|striptags|truncate(200) }}
                 {% endif %}
             </p>
+            {% include "article_meta.html" %}
 
         </div>
         <hr>

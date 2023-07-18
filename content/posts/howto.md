@@ -1,6 +1,7 @@
 Title: Markdown in Pelican
 Date: 15/06/2023
 Category: Webdev
+Tags: webdev, markdown, pelican
 Summary: Examples of Markdown formatting available in Pelican.
 
 # Headers and texts
