@@ -12,10 +12,10 @@
         endif %}{% endblock title %}</title>
 
     <!-- Bootstrap and Clean Blog CSS -->
-    <link href="{{ THEME_CSS }}/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ THEME_CSS }}/bootstrap-icons.css" rel="stylesheet">
-    <link href="{{ THEME_CSS }}/code_blocks/{{ COLOR_SCHEME_CSS }}" rel="stylesheet">
-    <link href="{{ THEME_CSS }}/clean-blog.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/{{ COLOR_SCHEME_CSS }}" rel="stylesheet">
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/clean-blog.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -149,9 +149,9 @@
 </footer>
 
 <!-- JS Scripts -->
-<script src="{{ THEME_JS }}/jquery.min.js"></script>
-<script src="{{ THEME_JS }}/bootstrap.min.js"></script>
-<script src="{{ THEME_JS }}/clean-blog.min.js"></script>
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.min.js"></script>
 {% include 'analytics.html' %}
 </body>
 

@@ -17,8 +17,6 @@ PLUGINS = ['yaml_metadata']
 
 THEME = 'theme'
 THEME_STATIC_DIR = THEME
-THEME_JS = f"{SITEURL}/{THEME_STATIC_DIR}/js"
-THEME_CSS = f"{SITEURL}/{THEME_STATIC_DIR}/css"
 COLOR_SCHEME_CSS = "github_jekyll.css"
 TYPOGRIFY = True
 DIRECT_TEMPLATES = [
