@@ -70,7 +70,7 @@
             <ul class="navbar-nav ms-auto">
                 {% for title, link, icon in MENUITEMS if title != "Index"%}
                 <li>
-                    <a class="nav-link" href="{{ SITEURL }}/{{ link }}">
+                    <a class="nav-link" href="{{ link }}">
                         <i class="bi bi-{{ icon }}"></i>
                         {{ title }}
                     </a>
@@ -109,29 +109,14 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <p class="footer-icons">
-                    <a href="{{ GITHUB_URL }}">
-                        <i class="bi bi-github"></i>
-                    </a>
-                </p>
-
                 <ul class="list-inline text-center text-muted">
                     {% for title, link, icon in MENUITEMS %}
                     <li>
-                        <a href="{{ SITEURL }}/{{ link }}">
+                        <a href="{{ link }}">
                             <i class="bi bi-{{ icon }}"></i> {{ title }}
                         </a>
                     </li>
                     {% endfor %}
-                    <!--                    {% for cat, null in categories %}-->
-                    <!--                    {% if cat not in EXCLUDED_CATEGORIES %}-->
-                    <!--                    <li>-->
-                    <!--                        <a href="{{ SITEURL }}/{{ cat.url }}">-->
-                    <!--                            <i class="bi bi-tag"></i> {{ cat }}-->
-                    <!--                        </a>-->
-                    <!--                    </li>-->
-                    <!--                    {% endif %}-->
-                    <!--                    {% endfor %}-->
                 </ul>
                 <hr class="tiny">
                 <p class="copyright text-muted">

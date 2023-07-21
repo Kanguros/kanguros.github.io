@@ -4,7 +4,6 @@ SITEURL = f'{URL}:{PORT}'
 RELATIVE_URLS = True
 
 SITENAME = "Kamil's Scratchpad"
-GITHUB_URL = "https://github.com/Kanguros/"
 TIMEZONE = 'Europe/Warsaw'
 AUTHOR = 'Kamil Urbanek'
 DEFAULT_LANG = 'en'
@@ -17,7 +16,7 @@ PLUGINS = ['yaml_metadata']
 
 THEME = 'theme'
 THEME_STATIC_DIR = THEME
-COLOR_SCHEME_CSS = "github_jekyll.css"
+COLOR_SCHEME_CSS = "monokai.css"
 TYPOGRIFY = True
 DIRECT_TEMPLATES = [
     'index',
@@ -60,13 +59,13 @@ CATEGORIES_SAVE_AS = 'categories.html'
 ARCHIVES_SAVE_AS = 'archive.html'
 
 EXCLUDED_CATEGORIES = ['resume']
-
 MENUITEMS = (
     # Title, URL, Icon
-    ('Index', 'index.html', 'house'),
-    ('Archive', ARCHIVES_SAVE_AS, 'archive'),
-    ('About', 'about/index.html', 'file-person'),
-    ('Tags', TAGS_SAVE_AS, 'tags'),
+    ('Index', f'{SITEURL}/index.html', 'house'),
+    ('Tags', f'{SITEURL}/{TAGS_SAVE_AS}', 'tags'),
+    ('Archive', f'{SITEURL}/{ARCHIVES_SAVE_AS}', 'archive'),
+    ('About', f'{SITEURL}/about/index.html', 'file-person'),
+    ('Git', "https://github.com/Kanguros/", 'github'),
 )
 
 MARKDOWN = {
