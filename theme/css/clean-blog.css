@@ -37,7 +37,6 @@ body {
 code {
 	color: var(--blue-light-color);
 	background-color: var(--code-background);
-	padding: 1px 4px;
     border-radius: 3px;
 }
 
@@ -280,7 +279,7 @@ pre code {
 }
 
 .intro-header .heading h1 {
-	font-size: 45px;
+	font-size: 60px;
 	margin-top: 1.4em;
 	margin-bottom: 0.2em;
 	font-family: var(--title-font);
