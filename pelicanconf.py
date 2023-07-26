@@ -12,10 +12,14 @@ DEFAULT_DATE_FORMAT = "%d/%m/%Y"
 DATE_FORMATS = {'en': "%d/%m/%Y"}
 LOCALE = ('en_US',)
 
-PLUGINS = ['yaml_metadata']
+PLUGINS = [
+    'yaml_metadata',
+    'similar_posts'
+]
 
 THEME = 'theme'
 THEME_STATIC_DIR = THEME
+THEME_DEFAULT_HEADER = "home-bg.png"
 COLOR_SCHEME_CSS = "monokai.css"
 TYPOGRIFY = True
 DIRECT_TEMPLATES = [
@@ -92,3 +96,7 @@ AUTHOR_FEED_RSS = None
 CACHE_CONTENT = False
 LOAD_CONTENT_CACHE = False
 DELETE_OUTPUT_DIRECTORY = True
+
+SIMILAR_POSTS_ENABLED = True
+SIMILAR_POSTS_MAX_COUNT = 3
+SIMILAR_POSTS_MIN_SCORE = 0.0001

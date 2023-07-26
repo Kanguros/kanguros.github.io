@@ -4,58 +4,56 @@
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
 {% if HEADER_COVER %}
-{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/" + HEADER_COVER + "')" %}
-
-<header class="intro-header" style=>
-    {% elif HEADER_COLOR %}
-    <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
-        {% else %}
-        <header class="intro-header"
-                style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.png')">
-            {% endif %}
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                        <div class="heading main-heading">
-                            <h1>{{ SITENAME }}</h1>
-                        </div>
-                    </div>
+{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/images/" + HEADER_COVER + "')" %}
+{% elif HEADER_COLOR %}
+{% set HEADER_STYLE = "background-color: " + HEADER_COLOR %}
+{% else %}
+{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/" + THEME_STATIC_DIR + "/images/" + THEME_DEFAULT_HEADER + "')" %}
+{% endif %}
+<header class="intro-header" style="{{ HEADER_STYLE }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="heading main-heading">
+                    <h1>{{ SITENAME }}</h1>
                 </div>
             </div>
-        </header>
-        {% endblock header %}
-
-        {% block content %}
-        {% if INTRO_CONTENT %}
-        <div class="row intro-content">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                {{ INTRO_CONTENT }}
-            </div>
         </div>
+    </div>
+</header>
+{% endblock header %}
+
+{% block content %}
+{% if INTRO_CONTENT %}
+<div class="row intro-content">
+    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+        {{ INTRO_CONTENT }}
+    </div>
+</div>
+{% endif %}
+{% for article in articles_page.object_list %}
+{% if article.category not in EXCLUDED_CATEGORIES %}
+
+
+<div class="post-preview">
+    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
+        <h2 class="post-title">
+            {{ article.title }}
+        </h2>
+    </a>
+    <p class="article-summary">
+        {% if article.has_summary %}
+        {{ article.summary }}
+        {% elif article.summary %}
+        {{ article.summary|striptags|truncate(200) }}
         {% endif %}
-        {% for article in articles_page.object_list %}
-        {% if article.category not in EXCLUDED_CATEGORIES %}
+    </p>
+    {% include "article_meta.html" %}
 
+</div>
+<hr>
+{% endif %}
+{% endfor %}
 
-        <div class="post-preview">
-            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
-                <h2 class="post-title">
-                    {{ article.title }}
-                </h2>
-            </a>
-            <p class="article-summary">
-                {% if article.has_summary %}
-                {{ article.summary }}
-                {% elif article.summary %}
-                {{ article.summary|striptags|truncate(200) }}
-                {% endif %}
-            </p>
-            {% include "article_meta.html" %}
-
-        </div>
-        <hr>
-        {% endif %}
-        {% endfor %}
-
-        {% include "pagination.html" %}
-        {% endblock content %}
+{% include "pagination.html" %}
+{% endblock content %}

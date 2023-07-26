@@ -43,12 +43,16 @@
 <meta property="og:description" content="{{ article.summary|striptags|truncate(140) }}">
 {% endif %}
 
-{% if article.og_image %}
+{% if HEADER_COVER %}
+{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/images/" + HEADER_COVER + "')" %}
+{% elif HEADER_COLOR %}
+{% set HEADER_STYLE = "background-color: " + HEADER_COLOR %}
+{% else %}
+{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/" + THEME_STATIC_DIR + "/images/" + THEME_DEFAULT_HEADER + "')" %}
+{% endif %}
+
 {% if article.og_image|lower|truncate(4, True, '') == "http" %}
 <meta property="og:image" content="{{ article.og_image }}">
-{% else %}
-<meta property="og:image" content="{{ SITEURL }}/{{ article.og_image }}">
-{% endif %}
 {% elif article.header_cover %}
 <meta property="og:image" content="{{ SITEURL }}{{ article.header_cover }}">
 {% elif HEADER_COVER %}
@@ -56,64 +60,41 @@
 {% else %}
 <meta property="og:image" content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/post-bg.jpg">
 {% endif %}
+
 {% endblock %}
 
 {% block header %}
-<!-- Page Header -->
 {% if article.header_cover %}
-<header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ article.header_cover }}')">
-    {% elif HEADER_COVER %}
-    <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}')">
-        {% elif HEADER_COLOR %}
-        <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
-            {% else %}
-            <header class="intro-header"
-                    style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/post-bg.jpg')">
-                {% endif %}
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                            <div class="heading">
-                                <h1>{{ article.title|striptags }}</h1>
-                                {% if article.headline %}
-                                <h3 class="subheading">{{ article.headline }}</h3>
-                                {% endif %}
-                                {% include "article_meta.html" %}
-                            </div>
-                        </div>
-                    </div>
+{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/images/" + article.header_cover + "')" %}
+{% elif article.header_color %}
+{% set HEADER_STYLE = "background-color: " + HEADER_COLOR %}
+{% else %}
+{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/" + THEME_STATIC_DIR + "/images/" + THEME_DEFAULT_HEADER + "')" %}
+{% endif %}
+<header class="intro-header" style="{{ HEADER_STYLE }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="heading">
+                    <h1>{{ article.title|striptags }}</h1>
+                    {% if article.headline %}
+                    <h3 class="subheading">{{ article.headline }}</h3>
+                    {% endif %}
+                    {% include "article_meta.html" %}
                 </div>
-            </header>
-            {% endblock header %}
-
-            {% block content %}
-            <!-- Post Content -->
-            <article>
-                {{ article.content }}
-            </article>
-
-            {% include 'sharing.html' %}
-            <hr>
-
-
-            {% if DISQUS_SITENAME and SITEURL and article.status != "draft" %}
-            <div class="comments">
-                <h2>Comments !</h2>
-                <div id="disqus_thread"></div>
-                <script type="text/javascript">
-                var disqus_shortname = '{{ DISQUS_SITENAME }}';
-                var disqus_identifier = '{{ article.url }}';
-                var disqus_url = '{{ SITEURL }}/{{ article.url }}';
-                (function() {
-                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                    dsq.src = '//{{ DISQUS_SITENAME }}.disqus.com/embed.js';
-                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-                })();
-
-
-
-                </script>
-                <noscript>Please enable JavaScript to view the comments.</noscript>
             </div>
-            {% endif %}
-            {% endblock content %}
+        </div>
+    </div>
+</header>
+{% endblock header %}
+
+{% block content %}
+<!-- Post Content -->
+<article>
+    {{ article.content }}
+</article>
+
+{% include 'sharing.html' %}
+<hr>
+
+{% endblock content %}

@@ -1,0 +1,18 @@
+{% if SIMILAR_POSTS_ENABLED %}
+{% if article.similar_posts %}
+<div class="similar-posts">
+    <hr>
+
+    <ul>
+        {% for similar_article in article.similar_posts %}
+        <li>
+            <a href="{{ SITEURL }}/{{ similar_article.url }}">
+                {{ similar_article.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <hr>
+</div>
+{% endif %}
+{% endif %}

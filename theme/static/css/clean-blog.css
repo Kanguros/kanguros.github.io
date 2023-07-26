@@ -288,7 +288,7 @@ pre code {
 
 @media only screen and (min-width: 768px) {
 	.intro-header .heading h1 {
-		margin-top: 0.3em;
+		margin-top: 0.1em;
 		margin-bottom: 0.1em;
 		font-size: 90px;
 	}
@@ -559,7 +559,7 @@ footer .list-inline li {
 }
 
 footer .copyright {
-	margin-bottom: 1rem;
+	margin-bottom: 0.7rem;
 }
 
 footer .footer-icons {

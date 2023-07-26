@@ -4,10 +4,8 @@
         {{ article.locale_date }}
     </a>
 {% for t in article.tags %}
-    <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark"
-       title="{{ t }}">
-        <i class="bi bi-tag"></i>
-        {{ t }}
+    <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark" title="{{ t }}">
+        #{{ t }}
     </a>
 {% endfor %}
 </span>
