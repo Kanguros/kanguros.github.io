@@ -3,6 +3,8 @@
         <i class="bi bi-calendar"></i>
         {{ article.locale_date }}
     </a>
+</span>
+<span class="meta">
 {% for t in article.tags %}
     <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark" title="{{ t }}">
         #{{ t }}
