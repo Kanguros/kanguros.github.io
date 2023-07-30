@@ -102,6 +102,27 @@ pre code {
 }
 
 
+.navigation {
+	font-size: 0.9em;
+    text-align: center;
+
+}
+
+.navigation a {
+
+color: var(--whitish-color);
+
+}
+
+
+@media only screen and (min-width: 768px) {
+	pre {
+		font-size: 16px;
+		padding: 15px;
+	}
+
+}
+
 .navbar-custom {
 	position: absolute;
 	top: 0;
@@ -500,8 +521,8 @@ color: var(--whitish-color);
 
 .list-inline li {
 	display: inline;
-	margin-right: 0.5rem;
-	margin-left: 0.5rem;
+	margin-right: 0.3rem;
+	margin-left: 0.3rem;
 }
 
 footer .copyright {
