@@ -102,6 +102,27 @@ pre code {
 }
 
 
+.navigation {
+	font-size: 0.9em;
+    text-align: center;
+
+}
+
+.navigation a {
+
+color: var(--whitish-color);
+
+}
+
+
+@media only screen and (min-width: 768px) {
+	pre {
+		font-size: 16px;
+		padding: 15px;
+	}
+
+}
+
 .navbar-custom {
 	position: absolute;
 	top: 0;
@@ -277,7 +298,7 @@ pre code {
 
 .intro-header .heading h1 {
 	font-size: 55px;
-	margin-top: 1em;
+	margin-top: 0;
 	margin-bottom: 0;
 	font-family: var(--title-font);
 	text-shadow: 0 0 3px black;
@@ -370,62 +391,6 @@ pre code {
 }
 
 
-.floating-label-form-group {
-	font-size: 14px;
-	position: relative;
-	margin-bottom: 0;
-	padding-bottom: 0.5em;
-	border-bottom: 1px solid #eeeeee;
-}
-
-.floating-label-form-group input,
-.floating-label-form-group textarea {
-	z-index: 1;
-	position: relative;
-	padding-right: 0;
-	padding-left: 0;
-	border: none;
-	border-radius: 0;
-	font-size: 1.5em;
-	background: none;
-	box-shadow: none !important;
-	resize: none;
-}
-
-.floating-label-form-group label {
-	display: block;
-	z-index: 0;
-	position: relative;
-	top: 2em;
-	margin: 0;
-	font-size: 0.85em;
-	line-height: 1.764705882em;
-	vertical-align: middle;
-	vertical-align: baseline;
-	opacity: 0;
-	-webkit-transition: top 0.3s ease, opacity 0.3s ease;
-	-moz-transition: top 0.3s ease, opacity 0.3s ease;
-	-ms-transition: top 0.3s ease, opacity 0.3s ease;
-	transition: top 0.3s ease, opacity 0.3s ease;
-}
-
-.floating-label-form-group::not(:first-child) {
-	padding-left: 14px;
-	border-left: 1px solid #eeeeee;
-}
-
-.floating-label-form-group-with-value label {
-	top: 0;
-	opacity: 1;
-}
-
-.floating-label-form-group-with-focus label {
-	color: #0085a1;
-}
-
-form .row:first-child .floating-label-form-group {
-	border-top: 1px solid #eeeeee;
-}
 
 .btn {
 	text-transform: uppercase;
@@ -521,10 +486,12 @@ hr {
 	margin: 1rem auto;
 	padding-left: 1em;
 	padding-right: 1em;
+    opacity: .15;
+
 }
 
-hr .small {
-	max-width: 80%;
+hr .main {
+	max-width: 100%;
 }
 
 .tiny {
@@ -546,17 +513,16 @@ footer a {
 color: var(--whitish-color);
 }
 
-footer .list-inline {
+.list-inline {
 	margin: 0.4rem;
-	padding: 0;
+	padding: 4px;
 }
 
 
-
-footer .list-inline li {
+.list-inline li {
 	display: inline;
-	margin-right: 0.5rem;
-	margin-left: 0.5rem;
+	margin-right: 0.3rem;
+	margin-left: 0.3rem;
 }
 
 footer .copyright {
@@ -594,3 +560,4 @@ footer .footer-icons {
 	color: var(--fading-color);
 
 }
+

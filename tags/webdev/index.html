@@ -30,41 +30,35 @@
 <body class="tag-webdev d-flex flex-column vh-100">
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="https://kanguros.github.io/">
-            <i class="bi bi-house"></i>
-            Kamil's Scratchpad
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#bs-example-navbar-collapse-1">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="navbar-nav ms-auto">
+<!--<nav class="navbar navbar-expand-lg navbar-custom navbar-fixed-top">-->
+<nav class="container-fluid">
+    <!--<nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom navbar-fixed-top">-->
+    <div class="row">
+        <div class="navigation">
+            <ul class="list-inline">
                 <li>
-                    <a class="nav-link" href="http://localhost:8080/tags.html">
-                        <i class="bi bi-tags"></i>
-                        Tags
+                    <a href="http://localhost:8080/index.html">
+                        <i class="bi bi-house"></i> Index
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="http://localhost:8080/archive.html">
-                        <i class="bi bi-archive"></i>
-                        Archive
+                    <a href="http://localhost:8080/tags.html">
+                        <i class="bi bi-tags"></i> Tags
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="http://localhost:8080/about/index.html">
-                        <i class="bi bi-file-person"></i>
-                        About
+                    <a href="http://localhost:8080/archive.html">
+                        <i class="bi bi-archive"></i> Archive
                     </a>
                 </li>
                 <li>
-                    <a class="nav-link" href="https://github.com/Kanguros/">
-                        <i class="bi bi-github"></i>
-                        Git
+                    <a href="http://localhost:8080/about/index.html">
+                        <i class="bi bi-file-person"></i> About
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/Kanguros/">
+                        <i class="bi bi-github"></i> Git
                     </a>
                 </li>
             </ul>
@@ -96,9 +90,6 @@
             Behind&nbsp;curtains
         </h2>
     </a>
-    <p class="article-summary">
-        I’ve still remember, how complicated was the process of creating my own website 10 years ago. Starting from finding free or cheap server which would host my website too tremendous amount of...
-    </p>
 <span class="meta">
     <a>
         <i class="bi bi-calendar"></i>
@@ -116,6 +107,10 @@
         #markdown
     </a>
 </span>
+    <p class="article-summary">
+        I’ve still remember, how complicated was the process of creating my own website 10 years ago. Starting from finding free or cheap server which would host my website too tremendous amount of...
+    </p>
+
 </div>
 <hr>
 
@@ -126,9 +121,6 @@
             Markdown in&nbsp;Pelican
         </h2>
     </a>
-    <p class="article-summary">
-        Examples of Markdown formatting available in Pelican.
-    </p>
 <span class="meta">
     <a>
         <i class="bi bi-calendar"></i>
@@ -146,6 +138,10 @@
         #pelican
     </a>
 </span>
+    <p class="article-summary">
+        Examples of Markdown formatting available in Pelican.
+    </p>
+
 </div>
 <hr>
 
@@ -153,39 +149,14 @@
     </div>
 </div>
 
+
 <!-- Footer -->
 <footer class="footer mt-auto">
+    <hr class="main">
+
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <ul class="list-inline text-center text-muted">
-                    <li>
-                        <a href="http://localhost:8080/index.html">
-                            <i class="bi bi-house"></i> Index
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost:8080/tags.html">
-                            <i class="bi bi-tags"></i> Tags
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost:8080/archive.html">
-                            <i class="bi bi-archive"></i> Archive
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://localhost:8080/about/index.html">
-                            <i class="bi bi-file-person"></i> About
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/Kanguros/">
-                            <i class="bi bi-github"></i> Git
-                        </a>
-                    </li>
-                </ul>
-                <hr class="tiny">
                 <p class="copyright text-muted">
                     &copy; Blog powered by <a href="http://getpelican.com">Pelican</a>,
                     on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
