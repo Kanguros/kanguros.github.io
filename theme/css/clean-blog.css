@@ -102,27 +102,6 @@ pre code {
 }
 
 
-.navigation {
-	font-size: 0.9em;
-    text-align: center;
-
-}
-
-.navigation a {
-
-color: var(--whitish-color);
-
-}
-
-
-@media only screen and (min-width: 768px) {
-	pre {
-		font-size: 16px;
-		padding: 15px;
-	}
-
-}
-
 .navbar-custom {
 	position: absolute;
 	top: 0;
@@ -490,8 +469,8 @@ hr {
 
 }
 
-hr .main {
-	max-width: 100%;
+hr .small {
+	max-width: 80%;
 }
 
 .tiny {
@@ -515,14 +494,14 @@ color: var(--whitish-color);
 
 .list-inline {
 	margin: 0.4rem;
-	padding: 4px;
+	padding: 0;
 }
 
 
 .list-inline li {
 	display: inline;
-	margin-right: 0.3rem;
-	margin-left: 0.3rem;
+	margin-right: 0.5rem;
+	margin-left: 0.5rem;
 }
 
 footer .copyright {
