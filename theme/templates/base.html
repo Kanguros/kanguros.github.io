@@ -51,7 +51,6 @@
 <body class="{{ body_class }} d-flex flex-column vh-100">
 
 <!-- Navigation -->
-<!--<nav class="navbar navbar-expand-lg navbar-custom navbar-fixed-top">-->
 <nav class="container-fluid">
     <div class="row">
         <div class="navigation">
@@ -59,11 +58,13 @@
                 {% for title, link, icon in MENUITEMS %}
                 <li>
                     {% if icon == "github" %}
-                    <a href="{{ link }}">
+                    {% set nav_url = link %}
                     {% else %}
-                    <a href="{{ SITEURL }}/{{ link }}">
+                    {% set nav_url = SITEURL + "/" + link %}
                     {% endif %}
-                        <i class="bi bi-{{ icon }}"></i> {{ title }}
+                    <a href="{{ nav_url }}">
+                        <i class="bi bi-{{ icon }}"></i>
+                        {{ title }}
                     </a>
                 </li>
                 {% endfor %}

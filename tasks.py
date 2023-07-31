@@ -102,7 +102,7 @@ def live(c, d=False):
     debug = "--verbose --debug" if d else ""
 
     def cached_build(debug):
-        cmd = '{debug} -s {settings_base} -e CACHE_CONTENT=true LOAD_CONTENT_CACHE=true'
+        cmd = '-s {settings_base} -e CACHE_CONTENT=true LOAD_CONTENT_CACHE=true'
         pelican_run(cmd.format(**CONFIG, debug=debug))
 
     cached_build(debug)

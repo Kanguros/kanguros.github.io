@@ -41,6 +41,7 @@ code {
 	color: var(--blue-light-color);
 	background-color: var(--code-background);
     border-radius: 3px;
+    padding: 1px 3px;
 }
 
 p {
@@ -116,7 +117,7 @@ color: var(--whitish-color);
 
 
 @media only screen and (min-width: 768px) {
-.navigation a {
+.navigation li {
 		font-size: 1em;
 		padding: 15px 15px;
 	}
@@ -228,6 +229,9 @@ color: var(--whitish-color);
 	}
 }
 
+
+
+
 .intro-header {
 	background-color: var(--header-color);
 	background: no-repeat center center;
@@ -244,9 +248,17 @@ color: var(--whitish-color);
 	text-align: center;
 }
 
+.intro-header .main-heading {
+	padding: 20px 2px 20px;
+}
+
 @media only screen and (min-width: 768px) {
 	.intro-header .heading {
 		padding: 3em 0 3em;
+	}
+
+    .intro-header .main-heading {
+		padding: 7em 0 7em;
 	}
 }
 
@@ -300,6 +312,10 @@ color: var(--whitish-color);
 	text-shadow: 0 0 3px black;
 
 }
+
+.intro-header .main-heading h1 {
+	font-size: 70px;
+	}
 
 @media only screen and (min-width: 768px) {
 	.intro-header .heading h1 {
