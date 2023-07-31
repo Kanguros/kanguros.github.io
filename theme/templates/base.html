@@ -59,7 +59,7 @@
             <ul class="list-inline">
                 {% for title, link, icon in MENUITEMS %}
                 <li>
-                    {% if icon == 'github' %}
+                    {% if icon = 'github' %}
                     <a href="{{ link }}">
                     {% else %}
                     <a href="{{ SITEURL} }}/{{ link }}">
