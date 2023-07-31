@@ -60,7 +60,6 @@
 {% else %}
 <meta property="og:image" content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/post-bg.jpg">
 {% endif %}
-
 {% endblock %}
 
 {% block header %}
@@ -76,7 +75,11 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                 <div class="heading">
-                    <h1>{{ article.title|striptags }}</h1>
+                    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
+                        <h1>
+                            {{ article.title|striptags }}
+                        </h1>
+                    </a>
                     {% if article.headline %}
                     <h3 class="subheading">{{ article.headline }}</h3>
                     {% endif %}
@@ -96,5 +99,7 @@
 
 {% include 'sharing.html' %}
 <hr>
+{% include 'similar_posts.html' %}
+
 
 {% endblock content %}
