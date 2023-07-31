@@ -65,10 +65,10 @@ ARCHIVES_SAVE_AS = 'archive.html'
 EXCLUDED_CATEGORIES = ['resume']
 MENUITEMS = (
     # Title, URL, Icon
-    ('Index', f'{SITEURL}/index.html', 'house'),
-    ('Tags', f'{SITEURL}/{TAGS_SAVE_AS}', 'tags'),
-    ('Archive', f'{SITEURL}/{ARCHIVES_SAVE_AS}', 'archive'),
-    ('About', f'{SITEURL}/about/index.html', 'file-person'),
+    ('Index', 'index.html', 'house'),
+    ('Tags', f'{TAGS_SAVE_AS}', 'tags'),
+    ('Archive', f'{ARCHIVES_SAVE_AS}', 'archive'),
+    ('About', f'about/index.html', 'file-person'),
     ('Git', "https://github.com/Kanguros/", 'github'),
 )
 
