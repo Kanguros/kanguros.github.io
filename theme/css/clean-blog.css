@@ -200,9 +200,10 @@
          padding: 4em 0 4em;
     }
 }
- .intro-header .heading .subheading, .intro-header .heading .subheading {
+ .intro-header .heading .subheading, .intro-header .heading .subheading .article-heading {
      font-size: 24px;
-     line-height: 1.1, display: block;
+     line-height: 1.1;
+     display: block;
      font-family: var(--main-font);
      font-weight: 300;
      margin: 10px 0 0;
@@ -241,12 +242,25 @@
  .intro-header .main-heading h1 {
      font-size: 70px;
 }
+
+.intro-header .article-heading h1{
+     font-size: 53px;
+     margin-top: 0;
+     margin-bottom: 0;
+     text-decoration: none;
+     font-family: var(--title-font);
+      color: var(--main-font-color);
+
+}
  @media only screen and (min-width: 768px) {
      .intro-header .heading h1 {
          font-size: 90px;
     }
      .intro-header .main-heading h1 {
          font-size: 110px;
+    }
+         .intro-header .article-heading h1 {
+         font-size: 90px;
     }
      .intro-header .heading .subheading {
          font-size: 30px;
@@ -280,17 +294,31 @@
      font-weight: 300;
      margin-bottom: 10px;
 }
- .post-preview>.meta {
+.meta-line {
      margin-top: 0;
      margin-bottom: 1rem;
+      color: var(--fading-color) !important;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin: 0.4em 0;
+
 }
- .post-preview>.meta>a {
-     color: var(--fading-color);
-     font-size: 0.9rem;
-     text-decoration: none;
-     margin-right: 10px;
+
+.meta-line a {
+      color: var(--fading-color) !important;
 }
- .post-preview>.meta>a:hover, .post-preview>.meta>a:focus {
+
+.meta-more {
+      color: var(--fading-color) !important;
+      font-size: 15px;
+      margin: 0.1rem auto !important;
+      text-align: end;
+
+}
+
+
+.meta-line> :hover,
+.meta-line a:focus {
      color: var(--accent-color);
      text-decoration: underline;
 }
@@ -334,11 +362,11 @@
 }
  .article-summary {
      margin-top: 0.5em;
-     margin-bottom: 0.5em;
+     margin-bottom: 0.1em;
 }
  article {
+     margin-top: 0.2rem;
      margin-bottom: 1.2rem;
-     margin-top: 1.2rem;
 }
  article hr {
      max-width: 20%;
@@ -353,6 +381,11 @@
      padding-right: 1em;
      opacity: .15;
 }
+
+.navigation-hr {
+     margin: 0 auto !important;
+}
+
  hr .small {
      max-width: 80%;
 }
@@ -406,4 +439,16 @@
 }
  .page-link.disabled {
      color: var(--fading-color);
+}
+
+
+.similar-posts h1 {
+font-size: 39px;
+    margin-top: 10px;
+    margin-bottom: 4px;
+    text-decoration: none;
+    font-family: var(--title-font);
+    color: var(--main-font-color);
+         text-shadow: 0 0 1px black;
+
 }
