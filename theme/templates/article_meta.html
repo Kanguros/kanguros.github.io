@@ -1,13 +1,16 @@
-<span class="meta">
-    <a>
-        <i class="bi bi-calendar"></i>
-        {{ article.locale_date }}
-    </a>
-</span>
-<span class="meta">
-{% for t in article.tags %}
-    <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark" title="{{ t }}">
-        #{{ t }}
-    </a>
-{% endfor %}
-</span>
+<p class="meta-line">
+    <span class="meta">
+        <i class="bi bi-calendar"></i> {{ article.locale_date }}
+        <i class="bi bi-dot"></i>
+        <i class="bi bi-clock-history"></i> {{ article.readtime_string }}
+    </span>
+</p>
+<p class="meta-line">
+    <span class="meta">
+        {% for t in article.tags %}
+        <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark" title="{{ t }}">
+            #{{ t }}
+        </a>
+    {% endfor %}
+    </span>
+</p>

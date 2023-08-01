@@ -14,7 +14,10 @@ LOCALE = ('en_US',)
 
 PLUGINS = [
     'yaml_metadata',
-    'similar_posts'
+    'similar_posts',
+    'readtime',
+    'sitemap',
+    'neighbors',
 ]
 
 THEME = 'theme'

@@ -2,7 +2,7 @@
 {% if article.similar_posts %}
 <div class="similar-posts">
     <hr>
-
+    <h1 class="subheading">Related</h1>
     <ul>
         {% for similar_article in article.similar_posts %}
         <li>
@@ -12,7 +12,6 @@
         </li>
         {% endfor %}
     </ul>
-    <hr>
 </div>
 {% endif %}
 {% endif %}
