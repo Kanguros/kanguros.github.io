@@ -4,6 +4,14 @@ SITEURL = f'{URL}:{PORT}'
 RELATIVE_URLS = True
 
 SITENAME = "Kamil's Scratchpad"
+SITEINFO = "Welcome to my digital notepad, a space where I share my notes and thoughts on programming, pipelines, automation, and an array of other, yet-to-be-discovered, buzzwords."
+SITELINKS = (
+    # ('About', 'about/index.html', 'file-person'),
+    # ('About', 'resume.html', 'file-person'),
+    ('About', 'under_construction.html', 'file-person'),
+    ('Git', "https://github.com/Kanguros/", 'github'),
+)
+
 TIMEZONE = 'Europe/Warsaw'
 AUTHOR = 'Kamil Urbanek'
 DEFAULT_LANG = 'en'
@@ -22,13 +30,15 @@ PLUGINS = [
 
 THEME = 'theme'
 THEME_STATIC_DIR = THEME
-THEME_DEFAULT_HEADER = "home-bg.png"
+# THEME_DEFAULT_HEADER = "home-bg.png"
+THEME_DEFAULT_HEADER = "home-bg.jpg"
 COLOR_SCHEME_CSS = "monokai.css"
 TYPOGRIFY = True
 DIRECT_TEMPLATES = [
     'index',
     'archives',
     'tags',
+    'under_construction',
     # 'resume'
 ]
 STATIC_PATHS = [
@@ -65,15 +75,16 @@ CATEGORIES_SAVE_AS = 'categories.html'
 
 ARCHIVES_SAVE_AS = 'archive.html'
 
-EXCLUDED_CATEGORIES = ['resume']
-MENUITEMS = (
-    # Title, URL, Icon
-    ('Index', 'index.html', 'house'),
+PAGESMENUITEMS = [
     ('Tags', TAGS_SAVE_AS, 'tags'),
     ('Archive', ARCHIVES_SAVE_AS, 'archive'),
-    ('About', 'about/index.html', 'file-person'),
-    ('Git', "https://github.com/Kanguros/", 'github'),
-)
+]
+
+MENUITEMS = [
+    # Title, URL, Icon
+    ('Index', 'index.html', 'house'),
+    *PAGESMENUITEMS
+]
 
 MARKDOWN = {
     'extension_configs': {

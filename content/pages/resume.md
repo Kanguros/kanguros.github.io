@@ -2,6 +2,7 @@
 title: Resume
 date: 01/06/2023
 template: resume
+save_as: resume.html
 category: resume
 name: Kamil Urbanek
 label: Automation Engineer
@@ -90,9 +91,3 @@ educations:
     startDate: '2013-09-01'
     endDate: '2015-09-01'
 ---
-
-
-
-
-
-interests: [ ]
