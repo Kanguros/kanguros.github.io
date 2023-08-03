@@ -4,7 +4,7 @@ SITEURL = f'{URL}:{PORT}'
 RELATIVE_URLS = True
 
 SITENAME = "Kamil's Scratchpad"
-SITEINFO = "Welcome to my digital notepad, a space where I share my notes and thoughts on programming, pipelines, automation, and an array of other, yet-to-be-discovered, buzzwords."
+SITEINFO = "Welcome to my digital notepad, a space where I share my notes and thoughts on programming, pipelines, automation, and an array of other, yet to be discovered, buzzwords."
 SITELINKS = (
     # ('About', 'about/index.html', 'file-person'),
     # ('About', 'resume.html', 'file-person'),
