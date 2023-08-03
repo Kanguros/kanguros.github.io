@@ -20,7 +20,7 @@
      --header-color: #0093ff;
      --footer-color: white;
      --whitish-color: #838383;
-     --navigation-font-color: #404040;
+     --navigation-font-color: #737373;
 }
  body {
      font-family: var(--main-font);
@@ -75,19 +75,16 @@
          padding: 15px;
     }
 }
- .navigation {
-     text-align: center;
-}
+
  .navigation a {
-     font-size: 0.9em;
+         font-size: 1em;
      font-family: var(--title-font);
      font-weight:400;
-     color: var(--title-font-color);
+     color: var(--navigation-font-color);
 }
  @media only screen and (min-width: 768px) {
-     .navigation li {
+     .navigation a {
          font-size: 1.2em;
-         padding: 30px 30px;
     }
 }
  .navbar-custom {
@@ -346,9 +343,12 @@ margin-top: 1rem;
       color: var(--fading-color) !important;
     font-size: 0.9rem !important;
     text-decoration: none;
-    margin: 0.4em 0 0;
+    margin: 0.9em 0 0;
 }
 
+.meta-elements i {
+margin-right: 0.2em;
+}
 
 
 .meta-elements a:hover,
@@ -409,38 +409,39 @@ color: var(--fading-color) !important;
 }
  article {
      margin-top: 0.2rem;
-     margin-bottom: 1.2rem;
+     margin-bottom: 3rem;
 }
  article hr {
      max-width: 20%;
      margin: 1em auto;
+          opacity: .15;
+
 }
  article + hr {
      margin-bottom: 1.5rem;
 }
 
 article:first-child p {
-  margin-top: 0.5em;
+  margin-top: 0.2em;
 }
+
  hr {
      margin: 0.7rem auto;
-     padding-left: 1em;
-     padding-right: 1em;
-     opacity: .15;
+}
+
+.main-line {
+     color: black;
+}
+
+.section-line {
+     color: black;
 }
 
 .navigation-hr {
      margin: 0 auto !important;
 }
 
- hr .small {
-     max-width: 80%;
-}
- .tiny {
-     max-width: 70%;
-     margin: 0.5rem auto;
-     opacity: .15;
-}
+
  footer {
      width: 100%;
      z-index: 3;
@@ -448,6 +449,7 @@ article:first-child p {
      min-height: 50px;
      font-size: 14px;
      text-align: center;
+     font-color: var(--navigation-font-color);
 }
  footer a {
      color: var(--whitish-color);
@@ -489,17 +491,31 @@ article:first-child p {
 }
 
 
-.similar-posts h1 {
+.related-posts h1 {
 font-size: 39px;
-    margin-top: 10px;
-    margin-bottom: 4px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     text-decoration: none;
     font-family: var(--title-font);
     color: var(--main-font-color);
          text-shadow: 0 0 1px black;
 
+
 }
 
+.related-posts li {
+border-left: 1px solid var(--fading-color);
+list-style: none;
+padding-left: 1em;
+}
+
+.related-posts li .meta-elements {
+margin-top: 0.3em;
+}
+
+.related-posts ul {
+padding-left: 0.6em;
+}
 
 .grayish-gradient {
     background: rgb(230,230,230);
