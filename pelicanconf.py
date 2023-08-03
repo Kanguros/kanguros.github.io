@@ -33,6 +33,7 @@ THEME_STATIC_DIR = THEME
 # THEME_DEFAULT_HEADER = "home-bg.png"
 THEME_DEFAULT_HEADER = "home-bg.jpg"
 COLOR_SCHEME_CSS = "monokai.css"
+SUMMARY_END_SUFFIX = ''
 TYPOGRIFY = True
 DIRECT_TEMPLATES = [
     'index',
@@ -43,6 +44,7 @@ DIRECT_TEMPLATES = [
 ]
 STATIC_PATHS = [
     'images',
+    'slides',
     'extra/.nojekyll',
 
 ]
