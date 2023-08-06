@@ -5,62 +5,45 @@ template: resume
 save_as: resume.html
 category: resume
 name: Kamil Urbanek
-label: Automation Engineer
+label: DevOps Engineer
 email: urbanek.kamil at gmail.com
 phone: 518-755-XXX
-summary: Started in/at the bottom of a food chain as a Engineer in Master Control Room team. After a while I changed it to being a *secretary* of a Network Squad Product/Owner. As time pass by, I learned that my laziness have different meanings Network Automation and DevOps. From that day, I'm trying to tell everyone around me why and how to do it.
-location: Katowice PL
+location: "Katowice, PL"
 skills:
- - name: Python
-   keywords:
-     - requests
-     - netmiko
-     - napalm
-     - click
-     - rich
-     - pandas
-     - pydantic
-     - jinja
- - name: DevOps
-   keywords:
-     - StackStorm
-     - Git
-     - Azure DevOps
-     - Ansible
-     - Docker
-     - GitHub
- - name: Network
-   keywords:
-     - Cisco ISE
-     - Palo Alto Panorama
-     - Palo Alto Firewall
-     - Cisco IOS
-     - Cisco NXOS
- - name: Tools
-   keywords:
-     - PyCharm
-     - PowerShell
-     - Bash
-     - RHEL
+  - name: Python
+    keywords:
+      - requests
+      - netmiko
+      - napalm
+      - click
+      - pydantic
+  - name: DevOps
+    keywords:
+      - Azure DevOps
+      - Git
+      - Ansible
+      - Docker
+      - CI/CD
+  - name: Tools
+    keywords:
+      - PowerShell
+      - Bash
+      - RHEL
+      - PyCharm
+  - name: Network
+    keywords:
+      - Enterprise architecture
+      - Cisco ISE
+      - Palo Alto
 projects:
   - name: Development
-    description: ''
     highlights:
-      - Write and maintain tens of various Python packages, covered by CI\CD best practicies.
+      - Write and maintain tens of various Python packages, covered by CI\CD best practices.
       - Train, guide and mentor coworkers in Python and network automation.
   - name: Automation
-    description: 'Design, implement and maintain solutions'
     highlights:
-      - Automatic incident resolution on network devices.
-      - Automated patching of various network devices.
-      - Source of Truth database with distribution to dependent databases.
-      - Define, simplify and shorten a process of gathering, merging and analyzing data from different sources for formal purposes.
-  - name: Administration
-    description: 'Introduce and maintain an open-source orchestrating application StackStorm'
-    highlights:
-      - Deployed on OpenShift. Docker images build and delivered via Azure Pipeline.
-      - Components RabitMQ, Redis and MongoDB deployed and maintained using Ansible.
-      - Develope and maintain custom workflows.
+      - "Design and implement solutions: automatic incident resolution on network devices and automated patching of various network devices"
+      - Design and implement a Source of Truth database with automatic distribution to dependent databases.
 jobs:
   - name: ING Business Shared Service B.V.
     position: IAAS Network - Senior DevOps Engineer
@@ -82,7 +65,7 @@ jobs:
     startDate: '2015-08-01'
     endDate: '2018-05-01'
     summary: ''
-    highlights: []
+    highlights: [ ]
 educations:
   - institution: "Katowice School of Economics"
     url: gwsh.pl
@@ -90,4 +73,14 @@ educations:
     studyType: Bachelor
     startDate: '2013-09-01'
     endDate: '2015-09-01'
+interests:
+  - woodworking
+  - handcrafting
+  - programming
 ---
+
+Experienced DevOps Engineer with five years of expertise in designing, implementing, and managing **automation
+solutions**. Adept in **Python** and it's libraries, with a strong focus on automating network infrastructure.
+Proficient in setting up CI/CD pipelines, mainly on Azure DevOps. Skilled mentor in Python and network automation,
+leveraging in-depth knowledge of network devices. Committed to continuous learning and self-growth, recently fascinated
+by AI capabilities.

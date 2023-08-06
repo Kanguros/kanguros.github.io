@@ -430,7 +430,52 @@ margin-top: 0.3em;
 padding-left: 0.6em;
 }
 
-.grayish-gradient {
-    background: rgb(230,230,230);
-background: linear-gradient(90deg, rgba(230,230,230,1) 0%, rgba(230,230,230,1) 26%, rgba(255,255,255,1) 32%, rgba(255,255,255,1) 68%, rgba(230,230,230,1) 74%, rgba(230,230,230,1) 100%);
+
+.tag-item {
+  background: var(--code-background);
+  margin: 0 0.2em 0.1em 0;
+  padding: 0.1em 0.3em;
+  border-radius: 2px;
+  }
+
+.resume h2 {
+
+margin: 0.3em auto;
+
 }
+
+.resume h2 {
+  display: flex;
+  flex-direction: row;
+}
+.resume h2:before, h2:after{
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid var(--code-background);
+  margin: auto;
+}
+.resume h2:before {
+  margin-right: 10px
+}
+.resume h2:after {
+  margin-left: 10px
+}
+
+.resume .highlight {
+border-left: 2px solid var(--code-background);
+    padding-left: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.resume .contacts {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 3px 0px;
+}
+
+.resume .contacts > a {
+margin: 2px 0px;
+color: white !important;
+}
+

@@ -13,16 +13,17 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <div class="logo">
-                    <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/face.jpg">
-                </div>
-                <div class="post-heading" id="masthead">
+                <div class="heading resume-heading">
+
                     <h1>{{ page.name }}</h1>
                     <h2>{{ page.label }}</h2>
+
                     <span class="contacts">
-                    <p>&#128392; <a>{{ page.location }}</a></p>
-                    <p>&#128386; <a href="mailto:{{ page.email }}">{{ page.email }}</a></p>
-                    <p>&#128382; <a>{{ page.phone }}</a></p>
+       <a>&#128392; {{ page.location }}</a>
+       <a href="mailto:{{ page.email }}">&#128386; {{ page.email }}</a>
+       <a> &#128382;{{ page.phone }}</a>
+                        <!--                    <img src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/face.jpg">-->
+
                 </span>
                 </div>
             </div>
@@ -33,107 +34,92 @@
 
 
 {% block content %}
-<article>
-
-    <div class="bodish">
-
-        <section id="about">
-            <h2>I</h2>
-            <article>
-                {{ page.summary }}
-            </article>
-        </section>
-        <section>
-            <h2>Know</h2>
-            <div class="grid-list">
-                {% for skill in page.skills %}
-                <article>
-                    <div class="spaced-list">
-                        <h4>{{ skill.name }}</h4>
-                        <span>
-                        </span>
-                    </div>
-                    <ul class="tag-list">
-                        {% for word in skill.keywords %}
-                        <li>{{ word }}</li>
-                        {% endfor %}
-                    </ul>
-                </article>
-                {% endfor %}
+<article class="resume">
+    <div id="summary">
+        {{ page.content }}
+    </div>
+    <h2>Skills</h2>
+    <div class="container text-center">
+        <div class="row g-2">
+            {% for skill in page.skills %}
+            <div class="col">
+                <h4>{{ skill.name }}</h4>
+                <div class="d-flex flex-wrap justify-content-center">
+                    {% for word in skill.keywords %}
+                    <div class="tag-item">{{ word }}</div>
+                    {% endfor %}
+                </div>
             </div>
-        </section>
-
-        <section id="projects">
-            <h2>Done</h2>
-            <div class="grid-list">
-                {% for project in page.projects %}
-                <article>
-                    <div class="spaced-list">
-                        <h4>{{ project.name }}</h4>
-                        <span>
-        </span>
-                    </div>
-                    {{ project.description }}
-                    <ul>
-                        {% for highlight in project.highlights %}
-                        <li>{{ highlight }}</li>
-                        {% endfor %}
-                    </ul>
-                </article>
-                {% endfor %}
-            </div>
-        </section>
-        <section id="work">
-            <h2>Work</h2>
-            <div class="stack">
-                {% for job in page.jobs %}
-                <article>
-                    <header>
-                        <div class="spaced-list">
-                            <h4>{{ job.name }}</h4>
-                            <span>
-              <time datetime="{{ job.startDate }}">{{ job.startDate }}</time> -
-              <time datetime="{{ job.endDate }}">{{ job.endDate }}</time>
-            </span>
-                        </div>
-                        <div class="spaced-list">
-                            {{ job.position }}
-                        </div>
-                    </header>
-                    {{ job.summary }}
-                    <ul>
-                        {% for highlight in job.highlights %}
-                        <li>{{ highlight }}</li>
-                        {% endfor %}
-                    </ul>
-                </article>
-                {% endfor %}
-            </div>
-        </section>
-        <section id="education">
-            <h2>Learn</h2>
-            <div class="stack">
-                {% for edu in page.educations %}
-                <article>
-                    <header>
-                        <div class="spaced-list">
-                            <h4>{{ edu.institution }}</h4>
-                            <span>
-            <time datetime="{{ edu.startDate }}">{{ edu.startDate }}</time> -
-            <time datetime="{{ edu.endDate }}">{{ edu.endDate }}</time>
-            </span>
-                        </div>
-                        <div class="spaced-list">
-                            {{ edu.area }}
-                            <a>{{ edu.studyType }}</a>
-                        </div>
-                    </header>
-                </article>
-                {% endfor %}
-            </div>
-        </section>
+            {% endfor %}
+        </div>
     </div>
 
+    <h2>Done</h2>
+    <div class="container text-center p-1">
+        <div class="row g-2">
+            {% for project in page.projects %}
+            <div class="col">
+                <h4>{{ project.name }}</h4>
+                <!--                <div class="text-start">-->
+                <!--                    {{ project.description }}-->
+                <!--                </div>-->
+                {% for highlight in project.highlights %}
+                <div class="text-start highlight">
+                    {{ highlight }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div id="work">
+        <h2>Work</h2>
+        <div class="stack">
+            {% for job in page.jobs %}
+            <header>
+                <div class="spaced-list">
+                    <h4>{{ job.name }}</h4>
+                    <span>
+                  <time datetime="{{ job.startDate }}">{{ job.startDate }}</time> -
+                  <time datetime="{{ job.endDate }}">{{ job.endDate }}</time>
+                </span>
+                </div>
+                <div class="spaced-list">
+                    {{ job.position }}
+                </div>
+            </header>
+            {{ job.summary }}
+            <ul>
+                {% for highlight in job.highlights %}
+                <li>{{ highlight }}</li>
+                {% endfor %}
+            </ul>
+            {% endfor %}
+        </div>
+    </div>
+    <!--                -->
+    <!--                -->
+    <!--    <div id="education">-->
+    <!--        <h2>Learn</h2>-->
+    <!--        <div class="stack">-->
+    <!--            {% for edu in page.educations %}-->
+    <!--            <header>-->
+    <!--                <div class="spaced-list">-->
+    <!--                    <h4>{{ edu.institution }}</h4>-->
+    <!--                    <span>-->
+    <!--            <time datetime="{{ edu.startDate }}">{{ edu.startDate }}</time> - -->
+    <!--            <time datetime="{{ edu.endDate }}">{{ edu.endDate }}</time>-->
+    <!--            </span>-->
+    <!--                </div>-->
+    <!--                <div class="spaced-list">-->
+    <!--                    {{ edu.area }}-->
+    <!--                    <a>{{ edu.studyType }}</a>-->
+    <!--                </div>-->
+    <!--            </header>-->
+    <!--            {% endfor %}-->
+    <!--        </div>-->
+    <!--    </div>-->
 
 </article>
 {% endblock content %}

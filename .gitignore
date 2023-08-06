@@ -12,6 +12,7 @@ build/
 develop-eggs/
 dist/
 !content/slides/**/dist
+
 downloads/
 eggs/
 .eggs/
