@@ -60,7 +60,7 @@
      color: var(--blue-light-color);
      background-color: var(--code-background);
      border-radius: 3px;
-     padding: 1px 3px;
+     font-weight: 200;
 }
  pre {
      font-size: 14px;

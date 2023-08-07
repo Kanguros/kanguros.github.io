@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Variables and parameters in Azure Pipeline</title>
+
+    <!-- Bootstrap and Clean Blog CSS -->
+    <link href="https://kanguros.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/code_blocks/monokai.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/clean-blog.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+<meta name="description" content="Short and brief information about variables and parameters in Azure Pipeline.">
+
+<meta name="author" content="Kamil Urbanek">
+
+<meta name="tags" content="azure_pipeline">
+<meta name="tags" content="parameters">
+<meta name="tags" content="variables">
+
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Kamil's Scratchpad">
+
+<meta property="og:type" content="article">
+<meta property="article:author" content="https://kanguros.github.io/author/kamil-urbanek.html">
+<meta property="og:url" content="https://kanguros.github.io/posts/variables-and-parameters-in-azure-pipeline.html">
+<meta property="og:title" content="Variables and parameters in Azure Pipeline">
+<meta property="article:published_time" content="2023-07-15 00:00:00+02:00">
+<meta property="og:description" content="Short and brief information about variables and parameters in Azure Pipeline.">
+
+
+<meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
+
+</head>
+
+<body class="article-variables-and-parameters-in-azure-pipeline d-flex flex-column vh-100">
+
+<!-- Navigation -->
+<nav class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+
+            <div class="navigation d-flex">
+                <div class="me-auto p-2">
+                    <a href="https://kanguros.github.io/index.html">
+                        <i class="bi bi-house"></i>
+                        Scratchpad
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="https://kanguros.github.io/tags.html">
+                        <i class="bi bi-tags"></i>
+                        Tags
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="https://kanguros.github.io/archive.html">
+                        <i class="bi bi-archive"></i>
+                        Archive
+                    </a>
+                </div>
+            </div>
+        </div>
+        <hr class="main-line navigation-hr">
+    </div>
+</nav>
+
+<!--<header class="intro-header" style="background-image: url('https://kanguros.github.io/theme/images/home-bg.jpg')">-->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="article-heading">
+                    <a href="https://kanguros.github.io/posts/variables-and-parameters-in-azure-pipeline.html" rel="bookmark" title="Variables and parameters in Azure Pipeline">
+                        <h1>
+                            Variables and parameters in Azure Pipeline
+                        </h1>
+                    </a>
+                    <p class="meta-elements">
+                        <i class="bi bi-calendar"></i> 15/07/2023
+                        <i class="bi bi-dot"></i>
+                        <i class="bi bi-clock-history"></i> 3 minutes
+                    </p>
+                    <p class="meta-elements tags">
+                        <a href="https://kanguros.github.io/tags/azure_pipeline" rel="bookmark" title="azure_pipeline">
+                            #azure_pipeline
+                        </a>
+                        <a href="https://kanguros.github.io/tags/parameters" rel="bookmark" title="parameters">
+                            #parameters
+                        </a>
+                        <a href="https://kanguros.github.io/tags/variables" rel="bookmark" title="variables">
+                            #variables
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+<!-- Post Content -->
+<article>
+    <h2 id="variables">Variables</h2>
+<ul>
+<li>Used to <strong>store and manage data</strong> during the pipeline&nbsp;execution.</li>
+<li>Value <strong>can only be string</strong>.</li>
+<li>Are <strong>mutable</strong> and value can change from run to run or job to&nbsp;job.</li>
+<li>Can be overwrite, the most locally scoped variable&nbsp;wins.</li>
+</ul>
+<h3 id="definition-example">Definition&nbsp;example</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">variables</span><span class="p">:</span>
+<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myImportantVariable</span>
+<span class="w">   </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contoso</span>
+<span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">SECONDVARIABLE</span>
+<span class="w">   </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;LongTextPRDEnv&quot;</span>
+</code></pre></div>
+
+<h3 id="usage-example">Usage&nbsp;example</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span><span class="w"> </span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">bash</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo $(myImportantVariable)</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">powershell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo $(myImportantVariable)</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo $(myImportantVariable)</span>
+</code></pre></div>
+
+<h2 id="parameters">Parameters</h2>
+<ul>
+<li>Used to <strong>provide input values</strong> to a pipeline when it is&nbsp;triggered.</li>
+<li>Value could be string, number, bool or object (and more complex&nbsp;types).</li>
+<li>Can only be used in <strong>template expressions</strong>.</li>
+</ul>
+<h3 id="definition-example_1">Definition&nbsp;example</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">parameters</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myString</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">a string</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myMultiString</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">  </span><span class="nt">values</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="nt">parameters</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myNumber</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">number</span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">values</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">16</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myBoolean</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">boolean</span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myObject</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">object</span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">foo</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">FOO</span>
+<span class="w">    </span><span class="nt">bar</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BAR</span>
+<span class="w">    </span><span class="nt">things</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">one</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">two</span>
+<span class="w">    </span><span class="nt">nested</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">one</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apple</span>
+<span class="w">      </span><span class="nt">two</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pear</span>
+<span class="w">      </span><span class="nt">count</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
+</code></pre></div>
+
+<p>All available data types could be found in <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/template-parameters?view=azure-devops#parameter-data-types">Azure&nbsp;documentation</a></p>
+<h3 id="usage-example_1">Usage&nbsp;example</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">parameters</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">image</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pool Image</span>
+<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">  </span><span class="nt">values</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">windows-latest</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">macOS-latest</span>
+
+<span class="nt">trigger</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">none</span>
+
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">build</span>
+<span class="w">  </span><span class="nt">pool</span><span class="p">:</span><span class="w"> </span>
+<span class="w">    </span><span class="nt">vmImage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ parameters.image }}</span>
+<span class="w">  </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo building $(Build.BuildNumber) with ${{ parameters.image }}</span>
+</code></pre></div>
+
+<h2 id="how-to-use-it">How to use&nbsp;it</h2>
+<p>It depends&nbsp;;) </p>
+<p>First of all, we need to know that there are 3 different syntaxes for using a variables and&nbsp;parameters. </p>
+<h3 id="syntax">Syntax</h3>
+<p>A syntax how the variable or parameter is referenced, determines when the value will be&nbsp;processed. </p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Example</th>
+<th>When is it processed?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>template expression</td>
+<td><code>${{ variables.var }}</code></td>
+<td>compile time</td>
+</tr>
+<tr>
+<td>macro</td>
+<td><code>$(var)</code></td>
+<td>runtime before a task executes</td>
+</tr>
+<tr>
+<td>runtime expression</td>
+<td><code>$[variables.var]</code></td>
+<td>runtime</td>
+</tr>
+</tbody>
+</table>
+<h3 id="template-expression">Template&nbsp;expression</h3>
+<ul>
+<li>Are <strong>process at compile time</strong>, and get replaced before runtime&nbsp;starts. </li>
+<li>Are designed for reusing parts of <span class="caps">YAML</span> as&nbsp;templates.</li>
+</ul>
+<h3 id="macro">Macro</h3>
+<p>&#8230;</p>
+<h2 id="runtime-expression">Runtime&nbsp;expression</h2>
+<p>&#8230;</p>
+</article>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer mt-auto">
+    <hr class=main-line>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <p class="copyright text-muted">
+                    &copy; Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                    on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
+                    theme. Header image by <a
+                        href="https://www.freepik.com/free-photo/keyboard-with-small-plant_8726574.htm#&position=1&from_view=undefined">Freepik</a>
+                </p>
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JS Scripts -->
+<script src="https://kanguros.github.io/theme/js/jquery.min.js"></script>
+<script src="https://kanguros.github.io/theme/js/bootstrap.min.js"></script>
+<script src="https://kanguros.github.io/theme/js/clean-blog.min.js"></script>
+</body>
+
+</html>
