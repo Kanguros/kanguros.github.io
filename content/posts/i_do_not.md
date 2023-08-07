@@ -1,12 +1,8 @@
-Title: [DRAFT] I do not... 
-Date: 28.03.2022  
-Author: Kamil Urbanek
-Category: General
-Tags: IMO
+Title: I do not... 
+Date: 28/03/2022
 Status: hidden
 
-> Few personal thoughts
-
+Few personal thoughts
 
 ## I do not remember
 

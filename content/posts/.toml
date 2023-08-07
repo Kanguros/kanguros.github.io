@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "kanguros_blog"
+version = "0.1.0"
+description = ""
+authors = ["KAMIL URBANEK <kamil.urbanek@ing.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6.2"
+click = "8.0.1"
+
+[[tool.poetry.source]]
+name = "Azure-ING-P01655-incoming-pypi"
+url = "https://pkgs.dev.azure.com/INGCDaaS/IngOne/_packaging/P01655-incoming-pypi/pypi/simple/"
+default = true
+
+[tool.poetry.scripts]
+kanguros_blog = 'kanguros_blog.cli:main'
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
