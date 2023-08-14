@@ -91,7 +91,6 @@
      -moz-background-size: cover;
      background-size: cover;
      -o-background-size: cover;
-     margin-bottom: 1em;
 }
  .intro-header .heading {
      color: white;
@@ -251,6 +250,18 @@ margin-top: 1rem;
      margin-bottom: 10px;
 }
 
+.note-title {
+}
+
+ .post-preview>a>.note-title {
+     font-size: 1.6em;
+     margin-top: 20px;
+}
+ @media only screen and (min-width: 768px) {
+     .post-preview>a>.note-title {
+         font-size: 2.2em;
+    }
+}
 
 .meta-elements {
       color: var(--fading-color) !important;
@@ -337,6 +348,19 @@ color: var(--fading-color) !important;
 article:first-child p {
   margin-top: 0.2em;
 }
+
+article h2 {
+font-size: 2.5rem;
+margin: 1rem auto;
+}
+
+article h3,
+article h4,
+article h5,
+ {
+margin: 1rem auto;
+}
+
 
  hr {
      margin: 0.7rem auto;

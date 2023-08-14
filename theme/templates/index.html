@@ -41,17 +41,7 @@
 {% endblock header %}
 
 {% block content %}
-{% if INTRO_CONTENT %}
-<div class="row intro-content">
-    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-        {{ INTRO_CONTENT }}
-    </div>
-</div>
-{% endif %}
 {% for article in articles_page.object_list %}
-{% if article.category not in EXCLUDED_CATEGORIES %}
-
-
 <div class="post-preview">
     <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
         <h2 class="post-title">
@@ -59,7 +49,7 @@
         </h2>
     </a>
     <div class="d-flex justify-content-start meta-elements">
-        
+
         <i class="bi bi-calendar"></i> {{ article.locale_date }}
         <i class="bi bi-dot"></i>
         <i class="bi bi-book"></i> {{ article.readtime_string }}
@@ -90,7 +80,6 @@
     </div>
 </div>
 <hr>
-{% endif %}
 {% endfor %}
 
 {% include "pagination.html" %}

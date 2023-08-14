@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block header %}
+<!-- Page Header -->
+<!-- Set your background image for this header on the line below. -->
+{% if HEADER_COVER %}
+{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/images/" + HEADER_COVER + "')" %}
+{% elif HEADER_COLOR %}
+{% set HEADER_STYLE = "background-color: " + HEADER_COLOR %}
+{% else %}
+{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/" + THEME_STATIC_DIR + "/images/" + THEME_DEFAULT_HEADER + "')" %}
+{% endif %}
+<header class="intro-header" style="{{ HEADER_STYLE }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="heading">
+                    <a href="{{ SITEURL }}/{{ NOTES_URL }}" rel="bookmark" title="Notes">
+                        <h1>
+                            Notes
+                        </h1>
+                    </a>
+                    <p class="meta-elements">
+                        Raw private notes
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock header %}
+
+{% block content %}
+{% for article in hidden_articles %}
+<div class="post-preview">
+    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}"
+       class=" d-flex justify-content-between align-items-center">
+        <h2 class="note-title">
+            {{ article.title }}
+        </h2>
+        <div class="meta-elements">
+            <i class="bi bi-calendar"></i> {{ article.locale_date }}
+        </div>
+    </a>
+
+</div>
+<hr>
+{% endfor %}
+
+{% include "pagination.html" %}
+{% endblock content %}
