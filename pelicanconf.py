@@ -64,7 +64,7 @@ DEFAULT_PAGINATION = 3
 PATH = 'content'
 OUTPUT_PATH = 'local_output/'
 
-ARTICLE_PATHS = ['posts', 'raw_notes']
+ARTICLE_PATHS = ['posts', 'note']
 ARTICLE_URL = 'posts/{slug}.html'
 ARTICLE_SAVE_AS = 'posts/{slug}.html'
 ARTICLE_ORDER_BY = 'reversed-date'
