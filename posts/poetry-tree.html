@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Poetry tree</title>
+
+    <!-- Bootstrap and Clean Blog CSS -->
+    <link href="https://kanguros.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/code_blocks/monokai.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/clean-blog.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+
+<meta name="description" content="Poetry tree as graph.">
+
+<meta name="author" content="Kamil Urbanek">
+
+<meta name="tags" content="notes">
+<meta name="tags" content="poetry">
+<meta name="tags" content="graph">
+
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="Kamil's Scratchpad">
+
+<meta property="og:type" content="article">
+<meta property="article:author" content="https://kanguros.github.io/author/kamil-urbanek.html">
+<meta property="og:url" content="https://kanguros.github.io/posts/poetry-tree.html">
+<meta property="og:title" content="Poetry tree">
+<meta property="article:published_time" content="2023-10-07 00:00:00+02:00">
+<meta property="og:description" content="Poetry tree as graph.">
+
+
+<meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
+
+</head>
+
+<body class="article-poetry-tree d-flex flex-column vh-100">
+
+<!-- Navigation -->
+<nav class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+
+            <div class="navigation d-flex">
+                <div class="me-auto p-2">
+                    <a href="https://kanguros.github.io/index.html">
+                        <i class="bi bi-house"></i>
+                        Scratchpad
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="https://kanguros.github.io/tags.html">
+                        <i class="bi bi-tags"></i>
+                        Tags
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="https://kanguros.github.io/notes.html">
+                        <i class="bi bi-journal-code"></i>
+                        Notes
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="https://kanguros.github.io/archive.html">
+                        <i class="bi bi-archive"></i>
+                        Archive
+                    </a>
+                </div>
+            </div>
+        </div>
+        <hr class="main-line navigation-hr">
+    </div>
+</nav>
+
+<!--<header class="intro-header" style="background-image: url('https://kanguros.github.io/theme/images/home-bg.jpg')">-->
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="article-heading">
+                    <a href="https://kanguros.github.io/posts/poetry-tree.html" rel="bookmark" title="Poetry tree">
+                        <h1>
+                            Poetry tree
+                        </h1>
+                    </a>
+                    <p class="meta-elements">
+                        <i class="bi bi-calendar"></i> 07/10/2023
+                        <i class="bi bi-dot"></i>
+                        <i class="bi bi-clock-history"></i> 
+                    </p>
+                    <p class="meta-elements tags">
+                        <a href="https://kanguros.github.io/tags/notes" rel="bookmark" title="notes">
+                            #notes
+                        </a>
+                        <a href="https://kanguros.github.io/tags/poetry" rel="bookmark" title="poetry">
+                            #poetry
+                        </a>
+                        <a href="https://kanguros.github.io/tags/graph" rel="bookmark" title="graph">
+                            #graph
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+<!-- Post Content -->
+<article>
+    <p>This module provides functions to parse and work with a dependency tree output. The primary
+function, <code>parse_dependency_tree</code>, takes a tree-like output and converts it into a hierarchical data structure for
+further&nbsp;processing.</p>
+<h2 id="dependency_parserpy"><code>dependency_parser.py</code></h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_dependency_tree</span><span class="p">(</span><span class="n">tree_output</span><span class="p">):</span>
+    <span class="n">tree_lines</span> <span class="o">=</span> <span class="n">tree_output</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">dependencies</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">current_package</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tree_lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">):</span>  <span class="c1"># Indication of a dependency</span>
+            <span class="n">package_name</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">dependencies</span><span class="p">[</span><span class="n">package_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">current_package</span> <span class="o">=</span> <span class="n">package_name</span>
+        <span class="k">elif</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;├── &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;└── &quot;</span><span class="p">):</span>  <span class="c1"># Sub-dependency</span>
+            <span class="n">sub_dependency</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">current_package</span><span class="p">:</span>
+                <span class="n">dependencies</span><span class="p">[</span><span class="n">current_package</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_dependency</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dependencies</span>
+</code></pre></div>
+
+<h2 id="test_dependency_parserpy"><code>test_dependency_parser.py</code></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">dependency_parser</span>
+
+<span class="k">def</span> <span class="nf">test_parse_dependency_tree</span><span class="p">():</span>
+    <span class="n">tree_output</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    requests</span>
+<span class="s2">    ├── certifi</span>
+<span class="s2">    ├── charset-normalizer</span>
+<span class="s2">    ├── idna</span>
+<span class="s2">    └── urllib3</span>
+<span class="s2">    sqlalchemy</span>
+<span class="s2">    └── greenlet</span>
+<span class="s2">    celery</span>
+<span class="s2">    ├── billiard</span>
+<span class="s2">    ├── kombu</span>
+<span class="s2">    │   └── amqp</span>
+<span class="s2">    └── vine</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="n">expected_dependencies</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;requests&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;certifi&#39;</span><span class="p">,</span> <span class="s1">&#39;charset-normalizer&#39;</span><span class="p">,</span> <span class="s1">&#39;idna&#39;</span><span class="p">,</span> <span class="s1">&#39;urllib3&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;sqlalchemy&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;greenlet&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;celery&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;billiard&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;kombu&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;amqp&#39;</span><span class="p">]},</span> <span class="s1">&#39;vine&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="k">assert</span> <span class="n">dependency_parser</span><span class="o">.</span><span class="n">parse_dependency_tree</span><span class="p">(</span><span class="n">tree_output</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected_dependencies</span>
+</code></pre></div>
+</article>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="footer mt-auto">
+    <hr class=main-line>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <p class="copyright text-muted">
+                    &copy; Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                    on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
+                    theme. Header image by <a
+                        href="https://www.freepik.com/free-photo/keyboard-with-small-plant_8726574.htm#&position=1&from_view=undefined">Freepik</a>
+                </p>
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JS Scripts -->
+<script src="https://kanguros.github.io/theme/js/jquery.min.js"></script>
+<script src="https://kanguros.github.io/theme/js/bootstrap.min.js"></script>
+<script src="https://kanguros.github.io/theme/js/clean-blog.min.js"></script>
+</body>
+
+</html>
