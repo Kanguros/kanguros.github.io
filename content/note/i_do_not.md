@@ -1,7 +1,6 @@
 Title: I do not
 Date: 28/03/2022
-Status: hidden
-Category: notes
+Status: draft
 
 Few personal thoughts
 

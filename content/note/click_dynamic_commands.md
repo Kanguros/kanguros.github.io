@@ -1,59 +1,110 @@
 Title: Dynamic Click
 Date: 10/07/2023  
 Tags: notes, click
-Status: hidden
+Status: draft
 Summary: Dynamic Click groups and commands.
 
-As a coding enthusiast, I recently embarked on an intriguing journey to create a dynamic command-line interface (CLI)
-using Python's Click library. The challenge? To build a tool that could seamlessly find and execute various commands
-based on user input, all while optimizing efficiency and user-friendliness.
+Here you will find a Python code snippet that introduces dynamic subcommand loading to your command-line applications
+using the Click
+library. This innovative approach enhances the efficiency and organization of your CLI tools by loading subcommands on
+demand, resulting in faster startup times, reduced memory usage, and a more streamlined user experience.
 
-### The Challenge
+## How It Works
 
-The task at hand was to develop a CLI tool that dynamically recognizes and runs commands from different modules. The
-tool needed to decipher user-provided CLI commands, associate them with specific modules, and execute the corresponding
-command functions. Additionally, the CLI should load commands only when needed and showcase a clear tree of available
-groups and commands for users.
+`LazyLoadGroup` is built upon the concept of lazy loading, which means subcommands are loaded into memory only when they
+are actually invoked. This clever strategy offers significant benefits:
 
-### The Solution
+1. **Efficient Memory Usage:** Subcommands are loaded as needed, preventing unnecessary memory consumption during the
+   application's startup. This is particularly advantageous for larger CLI tools with numerous subcommands.
 
-Enter Click, a powerful Python library tailor-made for crafting CLI interfaces. I started by creating a custom Click
-Group called LazyLoadGroup. This specialized group was designed to load subcommands from chosen packages only when
-required, thus saving resources and boosting performance.
+2. **Faster Startup:** With subcommands loading on demand, your application starts up more quickly, enabling users to
+   engage with the CLI almost instantaneously.
 
-Click's option decorator allowed me to effortlessly integrate options like --config into the main command. Callback
-functions paired with these options further streamlined the handling of user input.
+3. **Modular Organization:** Subcommands are grouped into separate folders, maintaining a tidy and structured codebase.
+   LazyLoadGroup fetches subcommands from their designated locations, ensuring a clean organizational structure.
 
-To enhance the user experience, I harnessed Python's logging module. This enabled me to provide helpful debug messages,
-facilitating a smoother understanding of the CLI's inner workings and aiding in troubleshooting.
+## Getting Started
 
-### The Learning Experience
+1. **Requirements:** Ensure you have Python installed on your system.
 
-My journey in crafting this dynamic CLI opened doors to understanding dynamic module loading, the power of decorators,
-and the mechanics of command-line interfaces. Throughout the process, I came to appreciate Python's elegance and the
-versatility that libraries like Click bring to the table.
+2. **Installation:** Copy the provided `LazyLoadGroup` class into your Python project or create a new module containing
+   this class.
 
-While I encountered some challenges, the experience was incredibly rewarding. I gained insights into the importance of
-proper design, modularization, and documentation. Click's capabilities allowed me to create a user-friendly tool that
-seamlessly interacts with users.
+3. **Integration:** Import the `LazyLoadGroup` class into your Click-based command-line application. Utilize it as a
+   replacement for Click's `click.Group` class to leverage the dynamic subcommand loading feature.
 
-### The Takeaway
+4. **Usage:** Add subcommands to their designated folders within your project directory. LazyLoadGroup will
+   automatically load these subcommands when invoked by the user.
 
-This journey reiterated the joy of exploration and the satisfaction of mastering something new. Python's Click library
-became an invaluable asset, and building a dynamic CLI proved to be both a fun and educational endeavor. The project
-reinforced the idea that coding is an art, offering opportunities to create meaningful and unique tools.
+## Benefits
 
-With Click, I've added a practical skill to my coding toolkit. I look forward to applying this knowledge in future
-projects and continuing to explore the ever-evolving world of software development.
+- Faster startup times
+- Reduced memory usage
+- Neat and organized subcommand structure
+- Seamless integration with Click-based applications
+- Easy addition of new features without clutter
+
+## Example
 
 ```python
+import click
+from lazy_load_group import LazyLoadGroup
+
+
+@click.group(cls=LazyLoadGroup, no_args_is_help=True)
+def cli():
+    """
+    Your main command entry point.
+    """
+
+
+if __name__ == '__main__':
+    cli()
+
+```
+
+Example package structure
+
+```shell
+project_root/
+│
+├── cli.py      # Your main script containing the LazyLoadGroup integration
+├── lazy_load_group.py  # The provided LazyLoadGroup class
+│
+└── tasks/              # Directory for organizing subcommands
+    │
+    ├── group1/         # Example subcommand group 1
+    │   ├── command1.py # Subcommand 1 for group 1
+    │   ├── command2.py # Subcommand 2 for group 1
+    │   └── ...
+    │
+    ├── group2/         # Example subcommand group 2
+    │   ├── command3.py # Subcommand 3 for group 2
+    │   ├── command4.py # Subcommand 4 for group 2
+    │   └── ...
+    │
+    └── ...
+```
+
+In this example, your main script your_script.py would contain the integration of the LazyLoadGroup class, as shown in
+the previous README examples. The lazy_load_group.py file contains the implementation of the LazyLoadGroup class.
+
+The tasks/ directory is where you can organize your subcommands. Each subcommand group has its own folder (e.g.,
+group1/, group2/) for better organization. Inside each group folder, you have individual subcommand files (e.g.,
+command1.py, command2.py, etc.).
+
+This directory structure allows LazyLoadGroup to dynamically load subcommands from the tasks/ directory on demand,
+creating a modular and efficient command-line interface.
+
+## The code
+
+```python
+import importlib
+import logging
+import os
+from typing import Callable, List
 
 import click
-import importlib
-import json
-import os
-import logging
-from typing import Optional, Callable, ModuleType
 
 logger = logging.getLogger(__name__)
 
@@ -61,22 +112,25 @@ logger = logging.getLogger(__name__)
 class LazyLoadGroup(click.Group):
     """A custom Click Group that lazily loads subcommands from specified packages."""
 
-    def __init__(self, source_dir: str = 'program/tasks', source_package: Optional[str] = None, *args, **kwargs):
+    def __init__(self, commands_dir: str = "tasks", *args, **kwargs):
         """
         Initialize the LazyLoadGroup.
 
         Args:
-            source_dir (str): Base directory path for module imports.
-            source_package (str): Base package name for module imports.
+            commands_dir (str): Name of the inner package directory with groups..
         """
         super(LazyLoadGroup, self).__init__(*args, **kwargs)
         self._subcommands_loaded = False
-        self.source_dir = source_dir
-        self.source_package = source_package or source_dir.replace('/', '.')
+        self.commands_dir = commands_dir
+
+        self._curr_dirname = os.path.dirname(__file__)
+        self.source_dir = os.path.join(self._curr_dirname, self.commands_dir)
+        self.source_package = os.path.basename(self._curr_dirname) + "." + self.commands_dir
+
         logger.debug(
             f"LazyLoadGroup initialized with source_dir: {self.source_dir}, source_package: {self.source_package}")
 
-    def list_commands(self, ctx: click.Context) -> list[str]:
+    def list_commands(self, ctx: click.Context) -> List[str]:
         """
         List available subcommands.
 
@@ -87,7 +141,6 @@ class LazyLoadGroup(click.Group):
             List[str]: List of available subcommands.
         """
         if not self._subcommands_loaded:
-            logger.debug("Loading subcommands...")
             self.load_subcommands(ctx)
         return super(LazyLoadGroup, self).list_commands(ctx)
 
@@ -98,48 +151,54 @@ class LazyLoadGroup(click.Group):
         Args:
             ctx (click.Context): Click context.
         """
-        tasks_dir = self.source_dir
-        logger.debug(f"Loading subcommands from {tasks_dir}")
+        src_dir = self.source_dir
+        logger.debug(f"Loading subcommands from {src_dir}")
 
-        for dirpath, dirnames, filenames in os.walk(tasks_dir):
-            module_name = os.path.basename(dirpath)
-            if module_name == 'tasks':
+        for path in os.listdir(src_dir):
+            if path.startswith("_") or path.startswith("."):
                 continue
-            self.add_group_with_commands(module_name, filenames)
+            if not os.path.isdir(os.path.join(src_dir, path)):
+                continue
+            self.load_group(path)
 
-    def add_group_with_commands(self, module_name: str, filenames: list[str]) -> None:
-        """
-        Add a group with associated commands.
+    def load_group(self, group_name: str):
+        logger.debug(f"[Group:{group_name}] Loading new group")
+        group = click.Group(name=group_name)
+        group_dir = os.path.join(self.source_dir, group_name)
 
-        Args:
-            module_name (str): Name of the module.
-            filenames (List[str]): List of filenames in the module directory.
-        """
-        group = click.Group(name=module_name)
-        logger.debug(f"Adding group: {module_name}")
+        logger.debug(f"[Group:{group_name}] Looking for commands in path: {group_dir}")
+        for filename in os.listdir(group_dir):
+            if not filename.endswith('.py'):
+                continue
+            if filename.startswith("__"):
+                continue
+            command_name = os.path.splitext(filename)[0]
+            logger.debug(f"[Group:{group_name}] Importing a module [{filename}]. Looking for function [{command_name}]")
 
-        for filename in filenames:
-            if filename.endswith('.py') and filename != '__init__.py':
-                submodule_name = os.path.splitext(filename)[0]
-                command = self.import_module(f'{module_name}.{submodule_name}')
-                group.add_command(command, name=submodule_name)
-                logger.debug(f"Added command: {submodule_name}")
+            command = self.import_command(group_name, command_name)
+            group.add_command(command, name=command_name)
 
-        self.add_command(group, name=module_name)
-        logger.debug(f"Added group: {module_name}")
+            logger.debug(f"[Group:{group_name}] Added command: {command_name}")
 
-    def import_module(self, module_path: str) -> ModuleType:
+        self.add_command(group, name=group_name)
+
+    def import_command(self, module_name: str, command_name: str):
         """
         Import a module dynamically.
 
         Args:
-            module_path (str): Path to the module.
+            module_name (str): Path to the module.
+            command_name (str): Name of the command.
 
         Returns:
             Callable: Imported module.
         """
+        module_path = f'{self.source_package}.{module_name}.{command_name}'
         logger.debug(f"Importing module: {module_path}")
-        return importlib.import_module(f'{self.source_package}.{module_path}')
+        module = importlib.import_module(module_path)
+        logger.debug(f"Getting a function: {command_name}")
+        function = getattr(module, command_name)
+        return function
 
     def get_command(self, ctx: click.Context, cmd_name: str) -> Callable:
         """
@@ -155,31 +214,16 @@ class LazyLoadGroup(click.Group):
         Raises:
             click.ClickException: Raised if the command is not found.
         """
-        try:
-            module = self.import_module(cmd_name)
-            function = module.cmd_name
-            return function
-        except ImportError:
-            raise click.ClickException(f"Command '{cmd_name}' not found.")
+        if cmd_name not in self.commands:
+            self.load_group(cmd_name)
+        return self.commands[cmd_name]
 
 
 @click.group(cls=LazyLoadGroup, no_args_is_help=True)
-@click.option('--config', type=click.Path(exists=True), callback=load_config, help='Path to configuration file')
-def main(config: str) -> None:
+def cli() -> None:
     """
     Main command entry point.
-
-    Args:
-        config (str): Path to the configuration file.
     """
-    if config:
-        ctx = click.get_current_context()
-        ctx.obj = {'config': config}
-
-
-if __name__ == '__main__':
-    main()
 
 
 ```
-

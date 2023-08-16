@@ -96,14 +96,17 @@ def reg(c, d=False, o=False):
 
 
 @task
-def live(c, d=False):
+def live(c, d=False, v=False):
     """Automatically reload browser tab upon file modification."""
     from livereload import Server
-    debug = "--verbose --debug" if d else ""
+    debug = "--debug" if d else ""
+    verbose = "--verbose" if v else ""
 
-    def cached_build(debug):
+    debug = " ".join([debug, verbose])
+
+    def cached_build(inner_debug):
         cmd = '-s {settings_base} -e CACHE_CONTENT=true LOAD_CONTENT_CACHE=true'
-        pelican_run(cmd.format(**CONFIG, debug=debug))
+        pelican_run(cmd.format(**CONFIG, debug=inner_debug))
 
     cached_build(debug)
     server = Server()

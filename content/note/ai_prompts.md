@@ -1,7 +1,7 @@
 Title: AI prompts
 Date: 04/07/2023  
 Tags: ai, prompt
-Status: hidden
+Status: draft
 Summary: A list of useful prompts for AI generators. 
 
 ## Creating a presentation

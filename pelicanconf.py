@@ -19,13 +19,20 @@ PLUGINS = [
     'neighbors',
 ]
 
+# readtime
+LANG_SETTINGS = 150
+
+# similarposts
+SIMILAR_POSTS_ENABLED = True
+SIMILAR_POSTS_MAX_COUNT = 3
+SIMILAR_POSTS_MIN_SCORE = 0.0001
+
 SITENAME = "Kamil's Scratchpad"
 SITEINFO = "Welcome to my digital notepad, a space where I share my notes and thoughts on programming, pipelines, automation, and an array of other, yet to be discovered, buzzwords."
 SITELINKS = (
-    # ('About', 'about/index.html', 'file-person'),
     ('About', 'resume.html', 'file-person'),
-    # ('About', 'under_construction.html', 'file-person'),
     ('Git', "https://github.com/Kanguros/", 'github'),
+    # ('About', 'under_construction.html', 'file-person'),
 )
 
 THEME = 'theme'
@@ -36,17 +43,21 @@ COLOR_SCHEME_CSS = "monokai.css"
 SUMMARY_END_SUFFIX = ''
 TYPOGRIFY = True
 DIRECT_TEMPLATES = [
+    'posts',
     'index',
     'archives',
     'tags',
     'under_construction',
     'notes',
-    # 'resume'
 ]
-PAGINATED_DIRECT_TEMPLATES = [
-    'index',
-    'notes'
-]
+DEFAULT_PAGINATION = 3
+PAGINATED_TEMPLATES = {
+    'index': None,
+    'posts': None,
+    'notes': None,
+    'tag': None,
+    'category': None,
+}
 
 STATIC_PATHS = [
     'images',
@@ -58,8 +69,6 @@ EXTRA_PATH_METADATA = {
     'extra/.nojekyll': {'path': '.nojekyll'},
 }
 
-DEFAULT_PAGINATION = 3
-
 # Paths and other files
 PATH = 'content'
 OUTPUT_PATH = 'local_output/'
@@ -68,6 +77,11 @@ ARTICLE_PATHS = ['posts', 'note']
 ARTICLE_URL = 'posts/{slug}.html'
 ARTICLE_SAVE_AS = 'posts/{slug}.html'
 ARTICLE_ORDER_BY = 'reversed-date'
+
+DRAFT_URL = 'notes/{slug}.html'
+DRAFT_SAVE_AS = 'notes/{slug}.html'
+NOTES_URL = 'notes.html'
+POSTS_URL = 'posts.html'
 
 PAGE_PATHS = ['pages']
 PAGE_URL = '{slug}/'
@@ -83,12 +97,12 @@ CATEGORIES_SAVE_AS = 'categories.html'
 
 ARCHIVES_SAVE_AS = 'archive.html'
 
-NOTES_URL = 'notes.html'
-EXCLUDED_CATEGORIES = ['notes']
+AUTHOR_SAVE_AS = ""
 
 PAGESMENUITEMS = [
-    ('Tags', TAGS_SAVE_AS, 'tags'),
+    ('Posts', POSTS_URL, 'journal-code'),
     ('Notes', NOTES_URL, 'journal-code'),
+    ('Tags', TAGS_SAVE_AS, 'tags'),
     ('Archive', ARCHIVES_SAVE_AS, 'archive'),
 ]
 
@@ -122,7 +136,3 @@ AUTHOR_FEED_RSS = None
 CACHE_CONTENT = False
 LOAD_CONTENT_CACHE = False
 DELETE_OUTPUT_DIRECTORY = True
-
-SIMILAR_POSTS_ENABLED = True
-SIMILAR_POSTS_MAX_COUNT = 3
-SIMILAR_POSTS_MIN_SCORE = 0.0001

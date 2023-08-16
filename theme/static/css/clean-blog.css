@@ -63,9 +63,19 @@
      font-weight: 200;
 }
  pre {
+   position: relative;
      font-size: 14px;
      padding: 10px !important;
 }
+
+pre button {
+     font-size: 14px;
+
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  }
+
  pre code {
      background-color: transparent;
 }
@@ -223,6 +233,7 @@ margin-top: 1rem;
 
  .post-preview {
      line-height: 15px;
+     margin: 1em auto;
 }
  .post-preview>a {
      color: #404040;
@@ -238,6 +249,8 @@ margin-top: 1rem;
  .post-preview>a>.post-title {
      font-size: 2em;
      margin-top: 20px;
+          margin-bottom: 20px;
+
 }
  @media only screen and (min-width: 768px) {
      .post-preview>a>.post-title {
@@ -250,24 +263,20 @@ margin-top: 1rem;
      margin-bottom: 10px;
 }
 
-.note-title {
-}
 
- .post-preview>a>.note-title {
+ .post-preview .note-title {
      font-size: 1.6em;
-     margin-top: 20px;
 }
  @media only screen and (min-width: 768px) {
-     .post-preview>a>.note-title {
-         font-size: 2.2em;
+ .post-preview .note-title {
+         font-size: 2.3em;
     }
 }
 
 .meta-elements {
       color: var(--fading-color) !important;
-    font-size: 0.9rem !important;
+    font-size: 0.95rem !important;
     text-decoration: none;
-    margin: 0.9em 0 0;
 }
 
 .meta-elements i {
@@ -286,7 +295,6 @@ margin-right: 0.2em;
 margin-right: 3px;
 color: var(--fading-color) !important;
     font-size: 0.9rem !important;
-
 }
 
 
@@ -363,7 +371,7 @@ margin: 1rem auto;
 
 
  hr {
-     margin: 0.7rem auto;
+     margin: 0.1rem auto;
 }
 
 .main-line {
