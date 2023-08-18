@@ -108,7 +108,7 @@ PAGESMENUITEMS = [
 
 MENUITEMS = [
     # Title, URL, Icon
-    ('Index', 'index.html', 'house'),
+    ('Home', 'index.html', 'house'),
     *PAGESMENUITEMS
 ]
 

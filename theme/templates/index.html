@@ -62,7 +62,7 @@
         {{ article.summary|striptags|truncate(200) }}
         {% endif %}
     </p>
-    <div class="d-flex justify-content-between meta-elements">
+    <div class="d-flex justify-content-between bottom-meta-elements">
         <div class="tags">
             {% for t in article.tags %}
             <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark" title="{{ t }}">

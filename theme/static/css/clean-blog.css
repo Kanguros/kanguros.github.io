@@ -247,9 +247,8 @@ margin-top: 1rem;
      font-family: var(--title-font);
 }
  .post-preview>a>.post-title {
-     font-size: 2em;
-     margin-top: 20px;
-          margin-bottom: 20px;
+     font-size: 1.8em;
+        margin: 0.7em auto;
 
 }
  @media only screen and (min-width: 768px) {
@@ -275,7 +274,13 @@ margin-top: 1rem;
 
 .meta-elements {
       color: var(--fading-color) !important;
-    font-size: 0.95rem !important;
+    font-size: 0.8rem !important;
+    text-decoration: none;
+}
+
+.bottom-meta-elements {
+    color: var(--fading-color) !important;
+    font-size: 1rem !important;
     text-decoration: none;
 }
 
@@ -469,45 +474,4 @@ padding-left: 0.6em;
   padding: 0.1em 0.3em;
   border-radius: 2px;
   }
-
-.resume h2 {
-
-margin: 0.3em auto;
-
-}
-
-.resume h2 {
-  display: flex;
-  flex-direction: row;
-}
-.resume h2:before, h2:after{
-  content: "";
-  flex: 1 1;
-  border-bottom: 1px solid var(--code-background);
-  margin: auto;
-}
-.resume h2:before {
-  margin-right: 10px
-}
-.resume h2:after {
-  margin-left: 10px
-}
-
-.resume .highlight {
-border-left: 2px solid var(--code-background);
-    padding-left: 0.6rem;
-    margin-bottom: 1rem;
-}
-
-.resume .contacts {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    padding: 3px 0px;
-}
-
-.resume .contacts > a {
-margin: 2px 0px;
-color: white !important;
-}
 
