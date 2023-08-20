@@ -9,6 +9,9 @@ label: DevOps Engineer
 email: urbanek.kamil at gmail.com
 phone: 518-755-XXX
 location: "Katowice, PL"
+github:
+  url: https://kanguros.github.io/
+  name: kanguros
 skills:
   - name: Python
     keywords:
@@ -20,7 +23,7 @@ skills:
   - name: DevOps
     keywords:
       - Azure DevOps
-      - Git
+      - git
       - Ansible
       - Docker
       - CI/CD
@@ -79,7 +82,7 @@ interests:
   - programming
 ---
 
-Experienced DevOps Engineer with five years of expertise in designing, implementing, and managing **automation
+I'm experienced DevOps Engineer with five years of expertise in designing, implementing, and managing **automation
 solutions**. Adept in **Python** and it's libraries, with a strong focus on automating network infrastructure.
 Proficient in setting up CI/CD pipelines, mainly on Azure DevOps. Skilled mentor in Python and network automation,
 leveraging in-depth knowledge of network devices. Committed to continuous learning and self-growth, recently fascinated

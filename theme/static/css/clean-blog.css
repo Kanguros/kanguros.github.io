@@ -248,7 +248,7 @@ margin-top: 1rem;
 }
  .post-preview>a>.post-title {
      font-size: 1.8em;
-        margin: 0.7em auto;
+        margin: 0.5em auto;
 
 }
  @media only screen and (min-width: 768px) {
@@ -470,8 +470,8 @@ padding-left: 0.6em;
 
 .tag-item {
   background: var(--code-background);
-  margin: 0 0.2em 0.1em 0;
-  padding: 0.1em 0.3em;
-  border-radius: 2px;
+  margin: 0.2em 0.2em;
+  padding: 0.1em 0.1em;
+  border-radius: 3px;
   }
 
