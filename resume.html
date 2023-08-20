@@ -34,8 +34,8 @@
 <!-- Navigation -->
 <nav class="container-fluid">
     <div class="row">
-        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-            <div class="navigation d-flex justify-content-center">
+        <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1">
+            <div class="navigation d-flex justify-content-evenly">
                 <div class="px-3 py-2">
                     <a href="https://kanguros.github.io/index.html" class="d-flex flex-column align-self-center align-items-center">
                         <i class="bi bi-house"></i>
@@ -73,23 +73,32 @@
 </nav>
 
 <!-- Page Header -->
-<header class="intro-header"
-        style="background-image: url('https://kanguros.github.io/theme/images/home-bg.png')">
+<header class="intro-header">
+    <!--        style="background-image: url('https://kanguros.github.io/theme/images/home-bg.png')">-->
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <div class="heading resume-heading">
+                <div class="article-heading">
+                    <h1 class="text-center">Kamil Urbanek</h1>
+                </div>
+                <div class="contacts d-flex flex-wrap justify-content-between p-2">
 
-                    <h1>Kamil Urbanek</h1>
-                    <h2>DevOps Engineer</h2>
-
-                    <span class="contacts">
-       <a>&#128392; Katowice, PL</a>
-       <a href="mailto:urbanek.kamil at gmail.com">&#128386; urbanek.kamil at gmail.com</a>
-       <a> &#128382;518-755-XXX</a>
-                        <!--                    <img src="https://kanguros.github.io/theme/images/face.jpg">-->
-
-                </span>
+                    <a class="p-1" href="mailto:urbanek.kamil at gmail.com">
+                        <i class="bi bi-envelope-at"></i>
+                        urbanek.kamil at gmail.com
+                    </a>
+                    <a class="p-1">
+                        <i class="bi bi-telephone"></i>
+                        518-755-XXX
+                    </a>
+                    <a class="p-1" href="https://kanguros.github.io/">
+                        <i class="bi bi-github"></i>
+                        kanguros
+                    </a>
+                    <a class="p-1">
+                        <i class="bi bi-pin-map"></i>
+                        Katowice, PL
+                    </a>
                 </div>
             </div>
         </div>
@@ -101,51 +110,53 @@
     <div class="row">
         <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
 <article class="resume">
-    <div id="summary">
-        <p>Experienced DevOps Engineer with five years of expertise in designing, implementing, and managing <strong>automation
+    <div class="summary">
+        <p>I&#8217;m experienced DevOps Engineer with five years of expertise in designing, implementing, and managing <strong>automation
 solutions</strong>. Adept in <strong>Python</strong> and it&#8217;s libraries, with a strong focus on automating network infrastructure.
 Proficient in setting up <span class="caps">CI</span>/<span class="caps">CD</span> pipelines, mainly on Azure DevOps. Skilled mentor in Python and network automation,
 leveraging in-depth knowledge of network devices. Committed to continuous learning and self-growth, recently fascinated
 by <span class="caps">AI</span>&nbsp;capabilities.</p>
     </div>
-    <h2>Skills</h2>
-    <div class="container text-center">
-        <div class="row g-2">
-            <div class="col">
-                <h4>Python</h4>
-                <div class="d-flex flex-wrap justify-content-center">
-                    <div class="tag-item">requests</div>
-                    <div class="tag-item">netmiko</div>
-                    <div class="tag-item">napalm</div>
-                    <div class="tag-item">click</div>
-                    <div class="tag-item">pydantic</div>
+
+
+    <h2>Know</h2>
+    <div class="container text-center p-0">
+        <div class="row g-1 row-cols-2 row-cols-md-4">
+            <div class="col skills-col">
+                <h3>Python</h3>
+                <div class="d-flex flex-wrap justify-content-center pb-3">
+                    <div class="skill-tag">requests</div>
+                    <div class="skill-tag">netmiko</div>
+                    <div class="skill-tag">napalm</div>
+                    <div class="skill-tag">click</div>
+                    <div class="skill-tag">pydantic</div>
                 </div>
             </div>
-            <div class="col">
-                <h4>DevOps</h4>
-                <div class="d-flex flex-wrap justify-content-center">
-                    <div class="tag-item">Azure DevOps</div>
-                    <div class="tag-item">Git</div>
-                    <div class="tag-item">Ansible</div>
-                    <div class="tag-item">Docker</div>
-                    <div class="tag-item">CI/CD</div>
+            <div class="col skills-col">
+                <h3>DevOps</h3>
+                <div class="d-flex flex-wrap justify-content-center pb-3">
+                    <div class="skill-tag">Azure DevOps</div>
+                    <div class="skill-tag">git</div>
+                    <div class="skill-tag">Ansible</div>
+                    <div class="skill-tag">Docker</div>
+                    <div class="skill-tag">CI/CD</div>
                 </div>
             </div>
-            <div class="col">
-                <h4>Tools</h4>
-                <div class="d-flex flex-wrap justify-content-center">
-                    <div class="tag-item">PowerShell</div>
-                    <div class="tag-item">Bash</div>
-                    <div class="tag-item">RHEL</div>
-                    <div class="tag-item">PyCharm</div>
+            <div class="col skills-col">
+                <h3>Tools</h3>
+                <div class="d-flex flex-wrap justify-content-center pb-3">
+                    <div class="skill-tag">PowerShell</div>
+                    <div class="skill-tag">Bash</div>
+                    <div class="skill-tag">RHEL</div>
+                    <div class="skill-tag">PyCharm</div>
                 </div>
             </div>
-            <div class="col">
-                <h4>Network</h4>
-                <div class="d-flex flex-wrap justify-content-center">
-                    <div class="tag-item">Enterprise architecture</div>
-                    <div class="tag-item">Cisco ISE</div>
-                    <div class="tag-item">Palo Alto</div>
+            <div class="col skills-col">
+                <h3>Network</h3>
+                <div class="d-flex flex-wrap justify-content-center pb-3">
+                    <div class="skill-tag">Enterprise architecture</div>
+                    <div class="skill-tag">Cisco ISE</div>
+                    <div class="skill-tag">Palo Alto</div>
                 </div>
             </div>
         </div>
@@ -153,12 +164,9 @@ by <span class="caps">AI</span>&nbsp;capabilities.</p>
 
     <h2>Done</h2>
     <div class="container text-center p-1">
-        <div class="row g-2">
+        <div class="row g-2 row-cols-1 row-cols-md-2">
             <div class="col">
-                <h4>Development</h4>
-                <!--                <div class="text-start">-->
-                <!--                    -->
-                <!--                </div>-->
+                <h3>Development</h3>
                 <div class="text-start highlight">
                     Write and maintain tens of various Python packages, covered by CI\CD best practices.
                 </div>
@@ -167,10 +175,7 @@ by <span class="caps">AI</span>&nbsp;capabilities.</p>
                 </div>
             </div>
             <div class="col">
-                <h4>Automation</h4>
-                <!--                <div class="text-start">-->
-                <!--                    -->
-                <!--                </div>-->
+                <h3>Automation</h3>
                 <div class="text-start highlight">
                     Design and implement solutions: automatic incident resolution on network devices and automated patching of various network devices
                 </div>
@@ -181,81 +186,70 @@ by <span class="caps">AI</span>&nbsp;capabilities.</p>
         </div>
     </div>
 
-    <div id="work">
-        <h2>Work</h2>
-        <div class="stack">
-            <header>
-                <div class="spaced-list">
-                    <h4>ING Business Shared Service B.V.</h4>
-                    <span>
+    <h2>Work</h2>
+    <div class="work stack">
+        <div class="spaced-list">
+            <h3>ING Business Shared Service B.V.</h3>
+            <span>
                   <time datetime="2021-01-01">2021-01-01</time> -
                   <time datetime="Present">Present</time>
                 </span>
-                </div>
-                <div class="spaced-list">
-                    IAAS Network - Senior DevOps Engineer
-                </div>
-            </header>
-            
-            <ul>
-                <li>Automatization whatever</li>
-            </ul>
-            <header>
-                <div class="spaced-list">
-                    <h4>ING Tech Poland</h4>
-                    <span>
+        </div>
+        <div class="spaced-list">
+            IAAS Network - Senior DevOps Engineer
+        </div>
+        
+        <ul>
+            <li>Automatization whatever</li>
+        </ul>
+        <div class="spaced-list">
+            <h3>ING Tech Poland</h3>
+            <span>
                   <time datetime="2018-05-01">2018-05-01</time> -
                   <time datetime="2021-01-01">2021-01-01</time>
                 </span>
-                </div>
-                <div class="spaced-list">
-                    Squad Network Stack - DevOps Engineer
-                </div>
-            </header>
-            
-            <ul>
-                <li>Supporting delegate of the Network Product Owner.</li>
-                <li>Customer Experience Manager for a foreigner customer.</li>
-            </ul>
-            <header>
-                <div class="spaced-list">
-                    <h4>ING Service Polska</h4>
-                    <span>
+        </div>
+        <div class="spaced-list">
+            Squad Network Stack - DevOps Engineer
+        </div>
+        
+        <ul>
+            <li>Supporting delegate of the Network Product Owner.</li>
+            <li>Customer Experience Manager for a foreigner customer.</li>
+        </ul>
+        <div class="spaced-list">
+            <h3>ING Service Polska</h3>
+            <span>
                   <time datetime="2015-08-01">2015-08-01</time> -
                   <time datetime="2018-05-01">2018-05-01</time>
                 </span>
-                </div>
-                <div class="spaced-list">
-                    Master Control Room - IT Engineer
-                </div>
-            </header>
-            
-            <ul>
-            </ul>
+        </div>
+        <div class="spaced-list">
+            Master Control Room - IT Engineer
+        </div>
+        
+        <ul>
+        </ul>
+    </div>
+
+
+    <h2>Learn</h2>
+    <div class="learn stack">
+        <div class="d-flex justify-content-between">
+            <h3>
+                Katowice School of Economics
+            </h3>
+            <small class="text-muted">
+                <time datetime="2013-09-01">2013-09-01</time>
+                -
+                <time datetime="2015-09-01">2015-09-01</time>
+            </small>
+        </div>
+        <div class="spaced-list">
+            Computer science, forensics science speciality
+            <a>Bachelor</a>
         </div>
     </div>
-    <!--                -->
-    <!--                -->
-    <!--    <div id="education">-->
-    <!--        <h2>Learn</h2>-->
-    <!--        <div class="stack">-->
-    <!--            -->
-    <!--            <header>-->
-    <!--                <div class="spaced-list">-->
-    <!--                    <h4>Katowice School of Economics</h4>-->
-    <!--                    <span>-->
-    <!--            <time datetime="2013-09-01">2013-09-01</time> - -->
-    <!--            <time datetime="2015-09-01">2015-09-01</time>-->
-    <!--            </span>-->
-    <!--                </div>-->
-    <!--                <div class="spaced-list">-->
-    <!--                    Computer science, forensics science speciality-->
-    <!--                    <a>Bachelor</a>-->
-    <!--                </div>-->
-    <!--            </header>-->
-    <!--            -->
-    <!--        </div>-->
-    <!--    </div>-->
 
 </article>
         </div>

@@ -1,19 +1,61 @@
-.resume h2 {
+:root {
 
-margin: 0.3em auto;
+--line-color: #d1d1d1;
+}
+
+.resume .padding-less {
+
+    margin: 0 0 !important;
+}
+
+
+
+.resume .summary {
+padding: 0.5em 0;
 
 }
 
+.summary p {
+margin: 0 auto !important;
+}
+
+
+
+
+.contacts a {
+margin: 2px 0px;
+color: var(--line-color) !important;
+font-size: 0.9rem;
+
+}
+
+
+
+
+.resume h3 {
+
+font-size: 1.8rem;
+margin-bottom: 0.2em;
+    font-family: var(--title-font);
+    font-weight: 500;
+}
+
 .resume h2 {
+
+margin: 0.4em auto;
   display: flex;
   flex-direction: row;
+    font-family: var(--title-font);
+
 }
+
 .resume h2:before, h2:after{
   content: "";
   flex: 1 1;
-  border-bottom: 1px solid var(--code-background);
+  border-bottom: 2px solid var(--line-color);
   margin: auto;
 }
+
 .resume h2:before {
   margin-right: 10px
 }
@@ -22,22 +64,23 @@ margin: 0.3em auto;
 }
 
 .resume .highlight {
-border-left: 2px solid var(--code-background);
     padding-left: 0.6rem;
     margin-bottom: 1rem;
 }
 
-.resume .contacts {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row;
-    padding: 3px 0px;
+
+.resume .skills-col {
+
+margin-top: 0 !important;
+
 }
 
-.resume .contacts > a {
-margin: 2px 0px;
-color: white !important;
-}
+.resume .skill-tag {
+  background: var(--code-background);
+  margin: 0.2em 0.2em;
+  padding: 0.1em 0.2em;
+  border-radius: 3px;
+  }
 
 
 
