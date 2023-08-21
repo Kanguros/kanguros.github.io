@@ -45,18 +45,20 @@ font-size: 1.8rem;
 margin-bottom: 0.2em;
     font-family: var(--title-font);
     font-weight: 600;
+    text-align: left;
+    color: #595050;
 }
 
 .resume h2 {
 
-margin: 0.4em auto;
+margin: 0.5em auto;
   display: flex;
   flex-direction: row;
     font-family: var(--title-font);
 
 }
 
-.resume h2:before, h2:after{
+.resume h2:after{
   content: "";
   flex: 1 1;
   border-bottom: 2px solid var(--line-color);
