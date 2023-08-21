@@ -30,6 +30,13 @@ font-size: 0.9rem;
 }
 
 
+.resume h4 {
+
+    font-family: var(--title-font);
+        font-weight: 500;
+
+    }
+
 
 
 .resume h3 {
@@ -37,7 +44,7 @@ font-size: 0.9rem;
 font-size: 1.8rem;
 margin-bottom: 0.2em;
     font-family: var(--title-font);
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .resume h2 {
@@ -57,14 +64,17 @@ margin: 0.4em auto;
 }
 
 .resume h2:before {
-  margin-right: 10px
+  margin-right: 10px;
 }
 .resume h2:after {
-  margin-left: 10px
+  margin-left: 10px;
 }
 
+
+
+
+
 .resume .highlight {
-    padding-left: 0.6rem;
     margin-bottom: 1rem;
 }
 
@@ -83,4 +93,13 @@ margin-top: 0 !important;
   }
 
 
+
+ .resume .work-items {
+ padding-top: 10px;
+ }
+
+.resume .italic {
+
+font-style: italic;
+}
 

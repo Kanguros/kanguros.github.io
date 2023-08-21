@@ -48,34 +48,38 @@ projects:
       - "Design and implement solutions: automatic incident resolution on network devices and automated patching of various network devices"
       - Design and implement a Source of Truth database with automatic distribution to dependent databases.
 jobs:
-  - name: ING Business Shared Service B.V.
-    position: IAAS Network - Senior DevOps Engineer
-    startDate: '2021-01-01'
-    endDate: 'Present'
-    summary: ""
-    highlights:
-      - Automatization whatever
-  - name: ING Tech Poland
-    position: Squad Network Stack - DevOps Engineer
-    startDate: '2018-05-01'
-    endDate: '2021-01-01'
-    summary: ''
-    highlights:
-      - Supporting delegate of the Network Product Owner.
-      - Customer Experience Manager for a foreigner customer.
-  - name: ING Service Polska
-    position: Master Control Room - IT Engineer
-    startDate: '2015-08-01'
-    endDate: '2018-05-01'
-    summary: ''
-    highlights: [ ]
+  - name: ING Hubs Poland
+    info: "Former ING Business Shared Service B.V."
+    positions:  
+      - name: Senior DevOps Engineer
+        team: IAAS Network
+        startDate: '01-01-2021'
+        endDate: 'Present'
+        highlights:
+          - Spearheaded the automation of diverse network processes, significantly boosting operational efficiency and minimizing manual errors.
+          - Led the implementation of infrastructure as code (IaC) practices, resulting in heightened infrastructure consistency.
+          - Contributed to the creation of documentation and knowledge-sharing resources, enhancing team productivity and ensuring consistent best practices.
+      - name: DevOps Engineer
+        team: Squad Network Stack   
+        startDate: '01-05-2018'
+        endDate: '01-01-2021'
+        highlights:
+          - Provided essential support to the Network Product Owner in fulfilling their responsibilities.
+          - Managed the customer experience for an international client, addressing inquiries, resolving issues, and ensuring their satisfaction with services provided.
+      - name: IT Engineer
+        team: Master Control Room         
+        startDate: '01-08-2015'
+        endDate: '01-05-2018'
+        highlights:
+          - Monitored and managed critical IT systems in a high-pressure environment, ensuring uninterrupted service availability and rapid response to incidents.
+          - Conducted training sessions for new team members, contributing to their successful onboarding and integration into the team.
 educations:
   - institution: "Katowice School of Economics"
     url: gwsh.pl
     area: Computer science, forensics science speciality
     studyType: Bachelor
-    startDate: '2013-09-01'
-    endDate: '2015-09-01'
+    startDate: '01-09-2013'
+    endDate: '01-09-2015'
 interests:
   - woodworking
   - handcrafting

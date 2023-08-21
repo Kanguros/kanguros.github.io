@@ -16,7 +16,7 @@
                 <div class="article-heading">
                     <h1 class="text-center">{{ page.name }}</h1>
                 </div>
-                <div class="contacts d-flex flex-wrap justify-content-between p-2">
+                <div class="contacts d-flex flex-wrap justify-content-between py-1 px-3">
 
                     <a class="p-1" href="mailto:{{ page.email }}">
                         <i class="bi bi-envelope-at"></i>
@@ -66,10 +66,10 @@
     </div>
 
     <h2>Done</h2>
-    <div class="container text-center p-1">
+    <div class="container text-center p-1 padding-less">
         <div class="row g-2 row-cols-1 row-cols-md-2">
             {% for project in page.projects %}
-            <div class="col">
+            <div class="col padding-less">
                 <h3>{{ project.name }}</h3>
                 {% for highlight in project.highlights %}
                 <div class="text-start highlight">
@@ -84,22 +84,42 @@
     <h2>Work</h2>
     <div class="work stack">
         {% for job in page.jobs %}
-        <div class="spaced-list">
+        <div>
             <h3>{{ job.name }}</h3>
-            <span>
-                  <time datetime="{{ job.startDate }}">{{ job.startDate }}</time> -
-                  <time datetime="{{ job.endDate }}">{{ job.endDate }}</time>
-                </span>
-        </div>
-        <div class="spaced-list">
-            {{ job.position }}
-        </div>
-        {{ job.summary }}
-        <ul>
-            {% for highlight in job.highlights %}
-            <li>{{ highlight }}</li>
+            <div>{{ job.info }}</div>
+
+            {% for position in job.positions %}
+            <div class="work-position py-2">
+                <div class="d-flex justify-content-between flex-wrap align-self-center">
+
+                    <h4 class="flex-fill">
+                        {{ position.team }}
+                    </h4>
+
+                    <small>
+                        <time datetime="{{ position.startDate }}">
+                            {{ position.startDate }}
+                        </time>
+                        -
+                        <time datetime="{{ position.endDate }}">
+                            {{ position.endDate }}
+                        </time>
+                    </small>
+                </div>
+                <div class="italic">
+                    {{ position.name }}
+                </div>
+                <div class="work-items">
+                    <ul>
+                        {% for highlight in position.highlights %}
+                        <li>{{ highlight }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
             {% endfor %}
-        </ul>
+
+        </div>
         {% endfor %}
     </div>
 
@@ -107,19 +127,20 @@
     <h2>Learn</h2>
     <div class="learn stack">
         {% for edu in page.educations %}
-        <div class="d-flex justify-content-between">
-            <h3>
-                {{ edu.institution }}
-            </h3>
+        <h3>
+            {{ edu.institution }}
+        </h3>
+        <div class="d-flex justify-content-between flex-wrap align-self-center">
+            <small>{{ edu.studyType }}</small>
             <small class="text-muted">
                 <time datetime="{{ edu.startDate }}">{{ edu.startDate }}</time>
                 -
                 <time datetime="{{ edu.endDate }}">{{ edu.endDate }}</time>
             </small>
+
         </div>
-        <div class="spaced-list">
+        <div class="d-flex justify-content-between flex-wrap">
             {{ edu.area }}
-            <a>{{ edu.studyType }}</a>
         </div>
         {% endfor %}
     </div>
