@@ -1,6 +1,7 @@
 :root {
 
 --line-color: #d1d1d1;
+--bullet-color: #737373;
 }
 
 .resume .padding-less {
@@ -11,7 +12,7 @@
 
 
 .resume .summary {
-padding: 0.5em 0;
+padding: 0.5em 0.15em;
 
 }
 
@@ -96,12 +97,47 @@ margin-top: 0 !important;
 
 
 
- .resume .work-items {
- padding-top: 10px;
- }
 
-.resume .italic {
 
-font-style: italic;
+.resume ul.carret-list {
+
+padding-left: 0.8rem;
+list-style-type: none;
 }
 
+.resume ul.carret-list > li {
+    padding: 0.3rem 0 0 0.3rem;
+}
+
+.resume ul.carret-list > li::marker {
+content: "\f231";
+  font-family: "bootstrap-icons";
+  color: var(--bullet-color);
+  font-size: 1rem;
+}
+
+.resume ul.bullet-list {
+padding-left: 0.8rem;
+list-style-type: none;
+
+
+}
+
+.resume ul.bullet-list > li {
+    padding: 0.3rem 0 0 0.3rem;
+
+
+}
+
+.resume ul.bullet-list > li::marker {
+content: "\F309";
+  font-family: "bootstrap-icons";
+  color: var(--bullet-color);
+  font-size: 1rem;
+}
+
+.resume .more-padding {
+
+padding-top: 0.7rem !important;
+
+}
