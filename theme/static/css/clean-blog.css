@@ -125,11 +125,11 @@ pre button {
     }
 }
  .intro-header .article-heading {
-     padding: 12px 2px 0px;
+     padding: 12px 0px 0px;
 }
  @media only screen and (min-width: 768px) {
      .intro-header .article-heading {
-         padding: 1em 2px 0.5em;
+         padding: 1em 0px 0.5em;
     }
 }
  .intro-header .heading .subheading, .intro-header .heading .subheading .article-heading {
