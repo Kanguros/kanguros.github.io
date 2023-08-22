@@ -13,8 +13,16 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <div class="article-heading">
-                    <h1>{{ page.name }}</h1>
+                <div class="article-heading d-flex flex-wrap align-items-center justify-content-between">
+                    <h1 class="flex-grow">{{ page.name }}</h1>
+                    <div class="contacts d-flex flex-column pe-4">
+                        {% for icon in page.icons %}
+                        <a class="py-1" href="{{ icon.url }}">
+                            <i class="bi bi-{{ icon.bi }}"></i>
+                            {{ icon.name }}
+                        </a>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
@@ -25,32 +33,15 @@
 
 {% block content %}
 <article class="resume">
-    <div class="contacts d-flex flex-wrap justify-content-start">
 
-        <a class="p-2" href="mailto:{{ page.email }}">
-            <i class="bi bi-envelope-at"></i>
-            {{ page.email }}
-        </a>
-        <!--        <a class="p-1">-->
-        <!--            <i class="bi bi-telephone"></i>-->
-        <!--            {{ page.phone }}-->
-        <!--        </a>-->
-        <a class="p-2" href="{{ page.github.url }}">
-            <i class="bi bi-github"></i>
-            {{ page.github.name }}
-        </a>
-        <!--        <a class="p-1">-->
-        <!--            <i class="bi bi-pin-map"></i>-->
-        <!--            {{ page.location }}-->
-        <!--        </a>-->
-    </div>
+
     <div class="summary">
         {{ page.content }}
     </div>
 
 
-    <h2>Know</h2>
     <div class="container p-0">
+        <h2>Know</h2>
         <div class="row g-2 row-cols-1 row-cols-md-2 row-cols-xl-4">
             {% for skill in page.skills %}
             <div class="col skills-col">
@@ -65,8 +56,8 @@
         </div>
     </div>
 
-    <h2>Done</h2>
     <div class="container p-0">
+        <h2>Done</h2>
         <div class="row g-2 row-cols-1 row-cols-md-2">
             {% for project in page.projects %}
             <div class="col">
@@ -83,8 +74,9 @@
         </div>
     </div>
 
-    <h2>Work</h2>
     <div class="container p-0 work">
+        <h2>Work</h2>
+
         {% for job in page.jobs %}
         <div class="row row-cols-1">
             <div>
@@ -94,6 +86,7 @@
                 <ul class="carret-list">
                     {% for position in job.positions %}
                     <li class="more-padding">
+
                         <div class="d-flex justify-content-between flex-wrap align-self-center">
 
                             <h4 class="flex-fill">
@@ -101,6 +94,7 @@
                             </h4>
 
                             <small>
+<!--                                <i class="bi bi-calendar3"></i>-->
                                 <time datetime="{{ position.startDate }}">
                                     {{ position.startDate }}
                                 </time>
@@ -110,7 +104,10 @@
                                 </time>
                             </small>
                         </div>
+
                         <div class="italic">
+<!--                            <i class="bi bi-person-badge"></i>-->
+
                             {{ position.name }}
                         </div>
                         <ul class="bullet-list">

@@ -2,6 +2,7 @@
 
 --line-color: #d1d1d1;
 --bullet-color: #737373;
+--icon-color: #abaaaa;
 }
 
 .resume .padding-less {
@@ -10,9 +11,8 @@
 }
 
 
-
 .resume .summary {
-padding: 0.5em 0.15em;
+padding: 0.1em 0.2em;
 
 }
 
@@ -25,8 +25,8 @@ margin: 0 auto !important;
 
 .contacts a {
 margin: 2px 0px;
-color: var(--line-color) !important;
-font-size: 0.9rem;
+color: var(--icon-color) !important;
+font-size: 1rem;
 
 }
 
