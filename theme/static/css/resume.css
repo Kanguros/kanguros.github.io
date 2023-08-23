@@ -11,10 +11,6 @@
 }
 
 
-.resume .summary {
-padding: 0.1em 0.2em;
-
-}
 
 .summary p {
 margin: 0 auto !important;
@@ -42,7 +38,7 @@ font-size: 1rem;
 
 .resume h3 {
 
-font-size: 1.8rem;
+font-size: 1.7rem;
 margin-bottom: 0.2em;
     font-family: var(--title-font);
     font-weight: 600;
@@ -66,9 +62,7 @@ margin: 0.5em auto;
   margin: auto;
 }
 
-.resume h2:before {
-  margin-right: 10px;
-}
+
 .resume h2:after {
   margin-left: 10px;
 }
@@ -90,9 +84,9 @@ margin-top: 0 !important;
 
 .resume .skill-tag {
   background: var(--code-background);
-  margin: 0.2em 0.2em;
-  padding: 0.1em 0.2em;
-  border-radius: 3px;
+margin: 0.2em 0.1em;
+    padding: 0.2em 0.3em;
+    border-radius: 4px;
   }
 
 

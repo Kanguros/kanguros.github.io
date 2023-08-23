@@ -10,15 +10,41 @@
 {% else %}
 {% set HEADER_STYLE = "background-image: url('" + SITEURL + "/" + THEME_STATIC_DIR + "/images/" + THEME_DEFAULT_HEADER + "')" %}
 {% endif %}
-<header class="intro-header" style="{{ HEADER_STYLE }}">
+<!--<header class="intro-header" style="{{ HEADER_STYLE }}">-->
+<header class="intro-header">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <div class="heading main-heading">
-                    <h1>{{ SITENAME }}</h1>
-                    <hr>
-                    <h3>{{ SITEINFO }}</h3>
-                    <hr>
+                <!--                <div class="heading main-heading">-->
+                <!--                <div class="heading article-heading">-->
+                <!--                    <h1>{{ SITENAME }}</h1>-->
+                <!--                    <hr>-->
+                <!--                    <h3>{{ SITEINFO }}</h3>-->
+                <!--                    <hr>-->
+                <!--                    <div class="d-flex justify-content-evenly heading-links">-->
+                <!--                        {% for title, link, icon in SITELINKS %}-->
+                <!--                        {% if icon == "github" %}-->
+                <!--                        {% set nav_url = link %}-->
+                <!--                        {% else %}-->
+                <!--                        {% set nav_url = SITEURL + "/" + link %}-->
+                <!--                        {% endif %}-->
+                <!--                        <a class="d-flex flex-column align-self-start" href="{{ nav_url }}" title="{{ title }}">-->
+                <!--                            <i class="bi bi-{{ icon }}"></i>-->
+                <!--                            {{ title }}-->
+                <!--                        </a>-->
+                <!--                        {% endfor %}-->
+
+                <!--                    </div>-->
+                <!--                </div>-->
+                <div class="article-heading big-heading">
+                    <a href="{{ SITEURL }}" rel="bookmark" title="{{ SITENAME }}">
+                        <h1 class="big-title">
+                            {{ SITENAME }}
+                        </h1>
+                    </a>
+                    <hr class="main-line">
+
+                    <h3 class="subheading">{{ SITEINFO }}</h3>
                     <div class="d-flex justify-content-evenly heading-links">
                         {% for title, link, icon in SITELINKS %}
                         {% if icon == "github" %}
@@ -26,7 +52,8 @@
                         {% else %}
                         {% set nav_url = SITEURL + "/" + link %}
                         {% endif %}
-                        <a class="d-flex flex-column align-self-start" href="{{ nav_url }}" title="{{ title }}">
+                        <a class="d-flex flex-column align-self-center align-items-center" href="{{ nav_url }}"
+                           title="{{ title }}">
                             <i class="bi bi-{{ icon }}"></i>
                             {{ title }}
                         </a>
@@ -34,14 +61,18 @@
 
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
+
+    <hr class="main-line navigation-hr up-shadow">
 </header>
 {% endblock header %}
 
 
 {% block content %}
+
 {% for article in articles_page.object_list %}
 <div class="post-preview">
     <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
@@ -62,7 +93,7 @@
         {{ article.summary|striptags|truncate(200) }}
         {% endif %}
     </p>
-    <div class="d-flex justify-content-between bottom-meta-elements">
+    <div class="d-flex justify-content-between meta-elements">
         <div class="tags">
             {% for t in article.tags %}
             <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark" title="{{ t }}">

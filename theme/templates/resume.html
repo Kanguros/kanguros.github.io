@@ -15,9 +15,9 @@
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                 <div class="article-heading d-flex flex-wrap align-items-center justify-content-between">
                     <h1 class="flex-grow">{{ page.name }}</h1>
-                    <div class="contacts d-flex flex-column pe-4">
+                    <div class="contacts d-flex flex-row flex-md-column pe-2">
                         {% for icon in page.icons %}
-                        <a class="py-1" href="{{ icon.url }}">
+                        <a class="py-1 pe-3" href="{{ icon.url }}">
                             <i class="bi bi-{{ icon.bi }}"></i>
                             {{ icon.name }}
                         </a>
@@ -34,11 +34,9 @@
 {% block content %}
 <article class="resume">
 
-
     <div class="summary">
         {{ page.content }}
     </div>
-
 
     <div class="container p-0">
         <h2>Know</h2>
@@ -76,13 +74,11 @@
 
     <div class="container p-0 work">
         <h2>Work</h2>
-
-        {% for job in page.jobs %}
-        <div class="row row-cols-1">
-            <div>
+        <div class="row g-2 row-cols-1">
+            {% for job in page.jobs %}
+            <div class="col">
                 <h3>{{ job.name }}</h3>
                 <div>{{ job.info }}</div>
-
                 <ul class="carret-list">
                     {% for position in job.positions %}
                     <li class="more-padding">
@@ -94,7 +90,7 @@
                             </h4>
 
                             <small>
-<!--                                <i class="bi bi-calendar3"></i>-->
+                                <!--                                <i class="bi bi-calendar3"></i>-->
                                 <time datetime="{{ position.startDate }}">
                                     {{ position.startDate }}
                                 </time>
@@ -106,7 +102,7 @@
                         </div>
 
                         <div class="italic">
-<!--                            <i class="bi bi-person-badge"></i>-->
+                            <!--                            <i class="bi bi-person-badge"></i>-->
 
                             {{ position.name }}
                         </div>
@@ -118,31 +114,35 @@
                     </li>
                     {% endfor %}
                 </ul>
-
             </div>
             {% endfor %}
         </div>
 
 
-        <h2>Learn</h2>
-        <div class="learn stack">
-            {% for edu in page.educations %}
-            <h3>
-                {{ edu.institution }}
-            </h3>
-            <div class="d-flex justify-content-between flex-wrap align-self-center">
-                <small>{{ edu.studyType }}</small>
-                <small class="text-muted">
-                    <time datetime="{{ edu.startDate }}">{{ edu.startDate }}</time>
-                    -
-                    <time datetime="{{ edu.endDate }}">{{ edu.endDate }}</time>
-                </small>
+        <div class="container p-0 work">
+            <h2>Learn</h2>
+            <div class="row g-2 row-cols-1">
+                {% for edu in page.educations %}
+                <div class="col">
+                    <h3>
+                        {{ edu.institution }}
+                    </h3>
+                    <div class="d-flex justify-content-between flex-wrap align-self-center">
+                        <small>{{ edu.studyType }}</small>
+                        <small class="text-muted">
+                            <time datetime="{{ edu.startDate }}">{{ edu.startDate }}</time>
+                            -
+                            <time datetime="{{ edu.endDate }}">{{ edu.endDate }}</time>
+                        </small>
+
+                    </div>
+                    <div class="d-flex justify-content-between flex-wrap">
+                        {{ edu.area }}
+                    </div>
+                </div>
+                {% endfor %}
 
             </div>
-            <div class="d-flex justify-content-between flex-wrap">
-                {{ edu.area }}
-            </div>
-            {% endfor %}
         </div>
 
 </article>

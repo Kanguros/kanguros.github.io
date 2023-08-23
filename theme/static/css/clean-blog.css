@@ -1,10 +1,74 @@
+/* fira-sans-200 - latin_latin-ext */
 @font-face {
-     font-family: 'Roboto-Regular';
-     src: local('Roboto-Regular'), url('../fonts/Roboto-Regular.ttf') format('truetype');
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 200;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
- @font-face {
-     font-family: 'Roboto-Thin';
-     src: local('Roboto-Thin'), url('../fonts/Roboto-Thin.ttf') format('truetype');
+/* fira-sans-200italic - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: italic;
+  font-weight: 200;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-200italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-300 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-300italic - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: italic;
+  font-weight: 300;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-300italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-regular - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-italic - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-500 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-700 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-800 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
  :root {
      --accent-color: #78c109;
@@ -13,8 +77,8 @@
      --fading-color: #b5b2b2;
      --hr-color: #eee;
      --code-background: #e9e9e9b0;
-     --main-font: 'Roboto-Thin', 'Times New Roman', serif;
-     --title-font: 'Roboto-Regular', 'Times New Roman', serif;
+     --main-font: 'Fira Sans', 'Times New Roman', serif;
+     --title-font: 'Fira Sans', 'Times New Roman', serif;
      --main-font-color: #404040;
      --heading-font-color: white;
      --header-color: #0093ff;
@@ -24,8 +88,8 @@
 }
  body {
      font-family: var(--main-font);
-     font-size: 18px;
-     font-weight: 600;
+     font-size: 19px;
+     font-weight: 300;
      color: var(--main-font-color);
      webkit-tap-highlight-color: var(--main-font-color);
 }
@@ -35,7 +99,7 @@
 }
  h1, h2, h3, h4, h5, h6 {
      font-family: var(--main-font);
-     font-weight: 800;
+     font-weight: 500;
 }
  a {
      color: var(--accent-color);
@@ -89,23 +153,10 @@ pre button {
  .navigation a {
          font-size: 1em;
      font-family: var(--title-font);
-     font-weight:400;
+     font-weight: 400;
      color: var(--navigation-font-color);
 }
 
- .intro-header {
-     background-color: var(--header-color);
-     background: no-repeat center center;
-     background-attachment: scroll;
-     -webkit-background-size: cover;
-     -moz-background-size: cover;
-     background-size: cover;
-     -o-background-size: cover;
-}
- .intro-header .heading {
-     color: white;
-     text-align: center;
-}
 
 
  .intro-header .main-heading hr {
@@ -132,22 +183,27 @@ pre button {
          padding: 1em 0px 0.5em;
     }
 }
- .intro-header .heading .subheading, .intro-header .heading .subheading .article-heading {
+
+.intro-header .subheading {
+
+padding: 2rem;
+
+}
+ .intro-header .subheading, .intro-header .article-heading {
      font-size: 24px;
      line-height: 1.1;
      display: block;
-     font-family: var(--main-font);
      font-weight: 300;
      margin: 10px 0 0;
 }
- .intro-header .heading .subheading, .intro-header .heading .meta {
+ .intro-header .subheading, .intro-header  .meta {
      line-height: 1.1;
      display: block;
 }
  .intro-header .heading .subheading {
      font-family: var(--main-font);
      font-size: 24px;
-     margin: 10px 0 30px;
+     margin: 1rem 0 30px;
      font-weight: 600;
 }
 
@@ -196,7 +252,7 @@ pre button {
          font-size: 110px;
     }
          .intro-header .article-heading h1 {
-         font-size: 90px;
+         font-size: 3.4rem;
     }
       .intro-header .heading h3 {
         margin-top: 30px;
@@ -220,12 +276,10 @@ margin-top: 1rem;
 }
 .heading-links a {
       font-size: 18px;
-       color: white;
-        text-shadow: 0 0 2px black;
+       color: var(--main-font-color);
 }
 
 .heading-links > a:hover, .heading-links > a:focus {
-            text-shadow: 0 0 6px black;
                  text-decoration: underline;
 
 
@@ -243,8 +297,7 @@ margin-top: 1rem;
      text-decoration-color: var(--accent-color);
 }
  .post-title {
-     font-weight: 700;
-     font-family: var(--title-font);
+     font-weight: 600;
 }
  .post-preview>a>.post-title {
      font-size: 1.8em;
@@ -274,15 +327,11 @@ margin-top: 1rem;
 
 .meta-elements {
       color: var(--fading-color) !important;
-    font-size: 0.8rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 300;
     text-decoration: none;
 }
 
-.bottom-meta-elements {
-    color: var(--fading-color) !important;
-    font-size: 1rem !important;
-    text-decoration: none;
-}
 
 .meta-elements i {
 margin-right: 0.2em;
@@ -299,7 +348,6 @@ margin-right: 0.2em;
 .tags a {
 margin-right: 3px;
 color: var(--fading-color) !important;
-    font-size: 0.9rem !important;
 }
 
 
@@ -389,6 +437,12 @@ margin: 1rem auto;
 
 .navigation-hr {
      margin: 0 auto !important;
+         color: #575757;
+    border-top: 1px solid;
+}
+
+b, strong {
+    font-weight: 500;
 }
 
 
@@ -475,3 +529,32 @@ padding-left: 0.6em;
   border-radius: 3px;
   }
 
+
+h1.big-title {
+
+font-size: 4.5rem !important;
+text-align: center;
+
+}
+
+ .intro-header .big-heading {
+ margin: 1rem auto !important;
+
+ }
+
+ .intro-header .big-heading {
+     padding: 20px 2px 20px;
+}
+ @media only screen and (min-width: 768px) {
+     .intro-header .big-heading {
+         padding: 2em 0 2em;
+    }
+}
+
+.down-shadow {
+box-shadow: #d7d7d7 0 1px 3px 1px;
+}
+
+.up-shadow {
+box-shadow: #d7d7d7 0 -2px 3px 1px;
+}
