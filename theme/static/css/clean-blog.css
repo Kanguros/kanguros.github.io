@@ -82,7 +82,7 @@
      --main-font-color: #404040;
      --heading-font-color: white;
      --header-color: #0093ff;
-     --footer-color: white;
+     --whitesmoke-color: #f5f5f5;
      --whitish-color: #838383;
      --navigation-font-color: #737373;
 }
@@ -102,7 +102,6 @@
      font-weight: 500;
 }
  a {
-     color: var(--accent-color);
      text-decoration: none;
 }
  a:hover, a:focus {
@@ -200,23 +199,7 @@ padding: 2rem;
      line-height: 1.1;
      display: block;
 }
- .intro-header .heading .subheading {
-     font-family: var(--main-font);
-     font-size: 24px;
-     margin: 1rem 0 30px;
-     font-weight: 600;
-}
 
- .intro-header .heading h1 {
-     font-size: 55px;
-     margin-top: 0;
-     margin-bottom: 0;
-     color: white;
-     text-decoration: none;
-     font-family: var(--title-font);
-     text-shadow: 0 0 4px black;
-     line-height: 80px;
-}
 
  .intro-header .main-heading h3 {
       font-size: 26px;
@@ -246,7 +229,9 @@ padding: 2rem;
  @media only screen and (min-width: 768px) {
      .intro-header .heading h1 {
           line-height: 120px;
-         font-size: 90px;
+         font-size: 110px;
+         margin: 90px auto;
+         text-decoration: underline;
     }
      .intro-header .main-heading h1 {
          font-size: 110px;
@@ -294,14 +279,13 @@ margin-top: 1rem;
 }
  .post-preview>a:hover, .post-preview>a:focus {
      text-decoration: underline;
-     text-decoration-color: var(--accent-color);
 }
  .post-title {
      font-weight: 600;
 }
  .post-preview>a>.post-title {
      font-size: 1.8em;
-        margin: 0.5em auto;
+        margin-top: 0.5em;
 
 }
  @media only screen and (min-width: 768px) {
@@ -330,6 +314,7 @@ margin-top: 1rem;
     font-size: 0.9rem !important;
     font-weight: 300;
     text-decoration: none;
+    margin: 1.2rem auto;
 }
 
 
@@ -447,10 +432,9 @@ b, strong {
 
 
  footer {
-     width: 100%;
      z-index: 3;
-     background-color: var(--footer-color);
-     min-height: 50px;
+     background-color: white;
+     min-height: 70px;
      font-size: 14px;
      text-align: center;
      font-color: var(--navigation-font-color);
@@ -483,11 +467,13 @@ b, strong {
      font-size: 0.9em;
 }
  .page-link {
-     color: var(--accent-color);
+ color: var(--main-font-color);
+        font-weight:400;
+
      text-decoration: none;
 }
  .page-link:hover, .page-link:focus {
-     color: var(--accent-color);
+       font-weight:600;
      text-decoration: underline;
 }
  .page-link.disabled {
@@ -530,12 +516,21 @@ padding-left: 0.6em;
   }
 
 
-h1.big-title {
+.big-heading h1.big-title {
+text-decoration: underline;
 
 font-size: 4.5rem !important;
 text-align: center;
 
 }
+
+ @media only screen and (min-width: 768px) {
+.big-heading h1.big-title {
+
+font-size: 8rem !important;
+}
+}
+
 
  .intro-header .big-heading {
  margin: 1rem auto !important;
@@ -556,5 +551,6 @@ box-shadow: #d7d7d7 0 1px 3px 1px;
 }
 
 .up-shadow {
-box-shadow: #d7d7d7 0 -2px 3px 1px;
+box-shadow: #d7d7d7 0 -1px 5px 1px;
 }
+

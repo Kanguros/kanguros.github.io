@@ -1,17 +1,7 @@
 {% extends "base.html" %}
 
 {% block header %}
-<!-- Page Header -->
-<!-- Set your background image for this header on the line below. -->
-{% if HEADER_COVER %}
-{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/images/" + HEADER_COVER + "')" %}
-{% elif HEADER_COLOR %}
-{% set HEADER_STYLE = "background-color: " + HEADER_COLOR %}
-{% else %}
-{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/" + THEME_STATIC_DIR + "/images/" + THEME_DEFAULT_HEADER + "')" %}
-{% endif %}
-<!--<header class="intro-header" style="{{ HEADER_STYLE }}">-->
-<header class="intro-header">
+<header class="intro-header inset-shadow">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
@@ -42,7 +32,6 @@
                             {{ SITENAME }}
                         </h1>
                     </a>
-                    <hr class="main-line">
 
                     <h3 class="subheading">{{ SITEINFO }}</h3>
                     <div class="d-flex justify-content-evenly heading-links">
@@ -65,11 +54,10 @@
             </div>
         </div>
     </div>
+    <hr class="navigation-hr">
 
-    <hr class="main-line navigation-hr up-shadow">
 </header>
 {% endblock header %}
-
 
 {% block content %}
 
@@ -100,11 +88,10 @@
                 #{{ t }}
             </a>
             {% endfor %}
-
         </div>
-        <div class="read-more">
+        <div type="button">
             <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-               title="{{ article.title|striptags }}">
+               title="{{ article.title|striptags }}" class="page-link">
                 Read more<i class="bi bi-arrow-right-short"></i>
             </a>
         </div>
