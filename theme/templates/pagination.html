@@ -1,6 +1,6 @@
 {% if DEFAULT_PAGINATION and articles_paginator.num_pages > 1 %}
 <nav aria-label="...">
-    <ul class="pagination justify-content-between pagination-bar">
+    <ul class="pagination justify-content-evenly pagination-bar">
         {% if articles_page.has_previous() %}
         <li class="solid-link">
             <a href="{{ SITEURL }}/{{ articles_previous_page.url }}">

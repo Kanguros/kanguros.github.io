@@ -328,6 +328,14 @@ margin-top: 1rem;
 margin: 0.3rem 0 !important;
 }
 
+.heading-meta {
+      color: var(--fading-color) !important;
+    font-size: 1rem;
+    font-weight: 400;
+    text-decoration: none;
+    margin: 1.2rem auto;
+}
+
 .meta-elements {
       color: var(--fading-color) !important;
     font-size: 0.9rem !important;
