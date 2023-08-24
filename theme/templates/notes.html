@@ -34,34 +34,35 @@
 
 {% block content %}
 {% for article in drafts %}
-<div class="post-preview d-flex bd-highlight mb-3 align-items-center">
-    <div class="p-2">
-        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
+<div class="post-preview bd-highlight mb-3">
+    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}"
+       class="d-flex align-items-center justify-content-between">
 
-            <h2 class="note-title">
+        <h1 class="note-title pe-2">
 
-                {{ article.title }}
-            </h2>
-        </a>
-    </div>
-    <div class="p-2 meta-elements">
-        <i class="bi bi-calendar"></i> {{ article.locale_date }}
+            {{ article.title }}
+        </h1>
+        <div class="meta-elements note-meta">
+            <i class="bi bi-calendar"></i> {{ article.locale_date }}
 
-    </div>
-    <div class="p-2 tags">
-        {% for t in article.tags %}
-        <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark" title="{{ t }}">
-            #{{ t }}
-        </a>
-        {% endfor %}
+        </div>
+    </a>
 
-    </div>
-    <div class="ms-auto p-2 read-more">
-        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-           title="{{ article.title|striptags }}">
-            Read more<i class="bi bi-arrow-right-short"></i>
-        </a>
-    </div>
+
+    <!--    <div class="p-2 tags">-->
+    <!--        {% for t in article.tags %}-->
+    <!--        <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark" title="{{ t }}">-->
+    <!--            #{{ t }}-->
+    <!--        </a>-->
+    <!--        {% endfor %}-->
+
+    <!--    </div>-->
+    <!--    <div class="ms-auto p-1 solid-link">-->
+    <!--        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"-->
+    <!--           title="{{ article.title|striptags }}">-->
+    <!--            Read more<i class="bi bi-arrow-right-short"></i>-->
+    <!--        </a>-->
+    <!--    </div>-->
 
 
 </div>

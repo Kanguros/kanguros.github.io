@@ -103,7 +103,8 @@ PAGESMENUITEMS = [
     ('Posts', POSTS_URL, 'journal-code'),
     ('Notes', NOTES_URL, 'journal-code'),
     ('Tags', TAGS_SAVE_AS, 'tags'),
-    ('Archive', ARCHIVES_SAVE_AS, 'archive'),
+    ('About', 'resume.html', 'file-person'),
+    # ('Archive', ARCHIVES_SAVE_AS, 'archive'),
 ]
 
 MENUITEMS = [
@@ -136,5 +137,3 @@ AUTHOR_FEED_RSS = None
 CACHE_CONTENT = False
 LOAD_CONTENT_CACHE = False
 DELETE_OUTPUT_DIRECTORY = True
-
-HEADER_COLOR = "white"

@@ -33,7 +33,9 @@
                         </h1>
                     </a>
 
-                    <h3 class="subheading">{{ SITEINFO }}</h3>
+                    <h3 class="subheading">
+                        {{ SITEINFO }}
+                    </h3>
                     <div class="d-flex justify-content-evenly heading-links">
                         {% for title, link, icon in SITELINKS %}
                         {% if icon == "github" %}
@@ -89,9 +91,9 @@
             </a>
             {% endfor %}
         </div>
-        <div type="button">
+        <div class="solid-link">
             <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-               title="{{ article.title|striptags }}" class="page-link">
+               title="{{ article.title|striptags }}">
                 Read more<i class="bi bi-arrow-right-short"></i>
             </a>
         </div>

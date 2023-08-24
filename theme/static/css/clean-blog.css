@@ -102,9 +102,11 @@
      font-weight: 500;
 }
  a {
-     text-decoration: none;
+     text-decoration: underline;
+   color: var(--main-font-color);
 }
  a:hover, a:focus {
+ font-weight: bolder;
      text-decoration: underline;
 }
  a img:hover, a img:focus {
@@ -153,10 +155,16 @@ pre button {
          font-size: 1em;
      font-family: var(--title-font);
      font-weight: 400;
-     color: var(--navigation-font-color);
+     text-decoration: none;
+     color: var(--main-font-color);
 }
 
 
+.navigation a:hover,
+.navigation aa:focus {
+     text-decoration: underline;
+          font-weight: 600;
+     }
 
  .intro-header .main-heading hr {
 
@@ -185,7 +193,7 @@ pre button {
 
 .intro-header .subheading {
 
-padding: 2rem;
+padding: 1rem;
 
 }
  .intro-header .subheading, .intro-header .article-heading {
@@ -226,18 +234,24 @@ padding: 2rem;
       color: var(--main-font-color);
 
 }
- @media only screen and (min-width: 768px) {
+
      .intro-header .heading h1 {
           line-height: 120px;
          font-size: 110px;
          margin: 90px auto;
          text-decoration: underline;
     }
+
+ @media only screen and (min-width: 768px) {
+     .intro-header .heading h1 {
+         font-size: 110px;
+         margin: 90px auto;
+    }
      .intro-header .main-heading h1 {
          font-size: 110px;
     }
          .intro-header .article-heading h1 {
-         font-size: 3.4rem;
+         font-size: 3.6rem;
     }
       .intro-header .heading h3 {
         margin-top: 30px;
@@ -276,6 +290,7 @@ margin-top: 1rem;
 }
  .post-preview>a {
      color: #404040;
+          text-decoration: none;
 }
  .post-preview>a:hover, .post-preview>a:focus {
      text-decoration: underline;
@@ -285,7 +300,7 @@ margin-top: 1rem;
 }
  .post-preview>a>.post-title {
      font-size: 1.8em;
-        margin-top: 0.5em;
+        margin-top: 0.7em;
 
 }
  @media only screen and (min-width: 768px) {
@@ -309,6 +324,10 @@ margin-top: 1rem;
     }
 }
 
+.note-meta {
+margin: 0.3rem 0 !important;
+}
+
 .meta-elements {
       color: var(--fading-color) !important;
     font-size: 0.9rem !important;
@@ -323,18 +342,58 @@ margin-right: 0.2em;
 }
 
 
-.meta-elements a:hover,
-.meta-elements a:focus {
-     color: var(--accent-color);
-     text-decoration: underline;
+.meta-link a:hover,
+.meta-link a:focus {
+      font-weight: 400;
+          text-decoration: none;
+
+     border-bottom: var(--main-font-color) solid 2px;
 }
 
 
 .tags a {
 margin-right: 3px;
+    text-decoration: none;
+
 color: var(--fading-color) !important;
 }
 
+.tags a:hover,
+.tags a:focus {
+      font-weight: 400;
+          text-decoration: none;
+     border-bottom: var(--fading-color) solid 1px;
+}
+
+.solid-link a {
+      font-weight: 400;
+    text-decoration: none;
+     border-bottom: var(--fading-color) solid 1px;
+color: var(--main-font-color);
+
+}
+
+.solid-link a:hover,
+.solid-link a:focus {
+      font-weight: 600;
+          text-decoration: none;
+
+     border-bottom: var(--main-font-color) solid 2px;
+}
+
+.disabled-solid-link a {
+      font-weight: 400;
+    text-decoration: none;
+     border-bottom: var(--fading-color) solid 1px;
+color: var(--fading-color) !important;
+
+}
+
+.disabled-solid-link a:hover,
+.disabled-solid-link a:focus {
+          text-decoration: none;
+color: var(--fading-color) !important;
+}
 
  .section-heading {
      font-size: 36px;
@@ -461,23 +520,10 @@ b, strong {
      font-size: 1.5rem;
 }
  .pagination-bar {
-     margin: 2rem 0;
+     margin: 3.2rem 0;
 }
  .pagination-bar a {
-     font-size: 0.9em;
-}
- .page-link {
- color: var(--main-font-color);
-        font-weight:400;
-
-     text-decoration: none;
-}
- .page-link:hover, .page-link:focus {
-       font-weight:600;
-     text-decoration: underline;
-}
- .page-link.disabled {
-     color: var(--fading-color);
+     font-size: 1.2em;
 }
 
 
@@ -518,16 +564,16 @@ padding-left: 0.6em;
 
 .big-heading h1.big-title {
 text-decoration: underline;
-
-font-size: 4.5rem !important;
+font-size: 4.5rem;
 text-align: center;
+padding: 1rem 0;
 
 }
 
  @media only screen and (min-width: 768px) {
 .big-heading h1.big-title {
 
-font-size: 8rem !important;
+font-size: 9rem;
 }
 }
 
