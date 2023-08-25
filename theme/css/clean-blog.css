@@ -260,8 +260,8 @@ padding: 1rem;
 
      .intro-header .heading h1 {
           line-height: 120px;
-         font-size: 110px;
-         margin: 90px auto;
+         font-size: 100px;
+         margin: 90px auto 30px;
          text-decoration: underline;
     }
 
@@ -357,7 +357,7 @@ margin: 0.3rem 0 !important;
     font-size: 1rem;
     font-weight: 400;
     text-decoration: none;
-    margin: 1.2rem auto;
+    margin: 1.2rem 0;
 }
 
 .meta-elements {
@@ -501,6 +501,12 @@ margin: 1rem auto;
      margin: 0.1rem auto;
 }
 
+hr.little {
+     max-width: 20%;
+     margin: 0.6em auto;
+          opacity: .15;
+          }
+
 .main-line {
      color: black;
 }
@@ -522,9 +528,12 @@ b, strong {
 
  footer {
      z-index: 3;
-     min-height: 70px;
+     min-height: 120px;
      font-size: 14px;
      text-align: center;
+}
+.hide {
+opacity: 0 !important;
 }
 
  .list-inline {
@@ -537,7 +546,6 @@ b, strong {
      margin-left: 0.3rem;
 }
  footer .copyright {
-     margin-bottom: 0.7rem;
      font-size: 13px;
 }
  footer .footer-icons {
