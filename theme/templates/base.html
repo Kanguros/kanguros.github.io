@@ -51,10 +51,10 @@
 <body class="{{ body_class }} d-flex flex-column vh-100">
 
 <!-- Navigation -->
-<nav class="container-fluid down-shadow">
+<nav class="dark-bg container-fluid down-shadow">
     <div class="row">
         <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1">
-            <div class="navigation d-flex justify-content-evenly">
+            <div class="navigation d-flex justify-content-evenly align-items-center">
                 {% for title, link, icon in MENUITEMS %}
                 <div class="px-3 py-2">
                     {% if icon == "github" %}
@@ -63,7 +63,6 @@
                     {% set nav_url = SITEURL + "/" + link %}
                     {% endif %}
                     <a href="{{ nav_url }}" class="d-flex flex-column align-self-center align-items-center">
-<!--                        <i class="bi bi-{{ icon }}"></i>-->
                         {{ title }}
                     </a>
                 </div>
@@ -75,8 +74,6 @@
 
 {% block header %}
 {% endblock header %}
-<!-- Main Content -->
-
 
 <div class="container">
     <div class="row">
@@ -87,11 +84,10 @@
 </div>
 
 
-<!-- Footer -->
-<footer class="footer mt-auto container-fluid up-shadow">
+<footer class="footer dark-bg mt-auto container-fluid up-shadow">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <p class="copyright text-muted">
+                <p class="copyright">
                     &copy; Blog powered by <a href="http://getpelican.com">Pelican</a>,
                     on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
                     theme. Header image by <a
