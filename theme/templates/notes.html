@@ -7,8 +7,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <div class="heading d-flex flex-wrap align-items-center">
-                    <a href="{{ SITEURL }}/{{ NOTES_URL }}" rel="bookmark" title="Notes" class="pe-2">
+                <div class="heading d-flex flex-wrap align-items-baseline justify-content-between">
+                    <a href="{{ SITEURL }}/{{ NOTES_URL }}" rel="bookmark" title="Notes" class="pe-5">
                         <h1>
                             Notes
                         </h1>
@@ -41,24 +41,10 @@
         </div>
     </a>
 
-
-    <!--    <div class="p-2 tags">-->
-    <!--        {% for t in article.tags %}-->
-    <!--        <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark" title="{{ t }}">-->
-    <!--            #{{ t }}-->
-    <!--        </a>-->
-    <!--        {% endfor %}-->
-
-    <!--    </div>-->
-    <!--    <div class="ms-auto p-1 solid-link">-->
-    <!--        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"-->
-    <!--           title="{{ article.title|striptags }}">-->
-    <!--            Read more<i class="bi bi-arrow-right-short"></i>-->
-    <!--        </a>-->
-    <!--    </div>-->
-
     <hr>
 </div>
 {% endfor %}
 
+
 {% endblock content %}
+

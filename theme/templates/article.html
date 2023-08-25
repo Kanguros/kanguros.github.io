@@ -16,10 +16,6 @@
 <meta name="description" content="{{ article.summary|striptags|truncate(140) }}">
 {% endif %}
 
-{% for author in article.authors %}
-<meta name="author" content="{{ author }}">
-{% endfor %}
-
 {% for tag in article.tags %}
 <meta name="tags" content="{{tag}}">
 {% endfor %}
@@ -29,9 +25,6 @@
 {% block opengraph %}
 {{ super() }}
 <meta property="og:type" content="article">
-{% for author in article.authors %}
-<meta property="article:author" content="{{ SITEURL }}/{{ author.url }}">
-{% endfor %}
 <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}">
 <meta property="og:title" content="{{ article.title|striptags }}">
 <meta property="article:published_time" content="{{ article.date }}">
@@ -41,14 +34,6 @@
 <meta property="og:description" content="{{ article.headline }}">
 {% elif article.summary %}
 <meta property="og:description" content="{{ article.summary|striptags|truncate(140) }}">
-{% endif %}
-
-{% if HEADER_COVER %}
-{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/images/" + HEADER_COVER + "')" %}
-{% elif HEADER_COLOR %}
-{% set HEADER_STYLE = "background-color: " + HEADER_COLOR %}
-{% else %}
-{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/" + THEME_STATIC_DIR + "/images/" + THEME_DEFAULT_HEADER + "')" %}
 {% endif %}
 
 {% if article.og_image|lower|truncate(4, True, '') == "http" %}
@@ -63,14 +48,7 @@
 {% endblock %}
 
 {% block header %}
-{% if article.header_cover %}
-{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/images/" + article.header_cover + "')" %}
-{% elif article.header_color %}
-{% set HEADER_STYLE = "background-color: " + HEADER_COLOR %}
-{% else %}
-{% set HEADER_STYLE = "background-image: url('" + SITEURL + "/" + THEME_STATIC_DIR + "/images/" + THEME_DEFAULT_HEADER + "')" %}
-{% endif %}
-<!--<header class="intro-header" style="{{ HEADER_STYLE }}">-->
+
 <header class="intro-header">
     <div class="container">
         <div class="row">
@@ -110,7 +88,6 @@
     {{ article.content }}
 </article>
 
-{% include 'sharing.html' %}
 {% include 'similar_posts.html' %}
 
 

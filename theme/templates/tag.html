@@ -1,22 +1,23 @@
 {% extends "index.html" %}
 {% block title %}{{ SITENAME }} - #{{ tag }}{% endblock %}
 {% block header %}
-    {% if HEADER_COVER %}
-        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}')">
-    {% elif HEADER_COLOR %}
-        <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
-    {% else %}
-        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.png')">
-    {% endif %}
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                    <div class="heading">
-                        <h1>#{{ tag }}</h1>
-                    </div>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="heading d-flex flex-wrap align-items-baseline justify-content-between">
+                    <a href="{{ SITEURL }}/tags/{{ tag }}" rel="bookmark" title="Tag {{ tag }}" class="pe-5">
+                        <h1>
+                            Tag {{ tag }}
+                        </h1>
+                    </a>
+                    <p class="heading-meta">
+                        All posts with #{{ tag }} tag.
+                    </p>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+    <hr class="navigation-hr">
+</header>
 {% endblock header %}
-

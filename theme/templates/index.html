@@ -5,27 +5,6 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <!--                <div class="heading main-heading">-->
-                <!--                <div class="heading article-heading">-->
-                <!--                    <h1>{{ SITENAME }}</h1>-->
-                <!--                    <hr>-->
-                <!--                    <h3>{{ SITEINFO }}</h3>-->
-                <!--                    <hr>-->
-                <!--                    <div class="d-flex justify-content-evenly heading-links">-->
-                <!--                        {% for title, link, icon in SITELINKS %}-->
-                <!--                        {% if icon == "github" %}-->
-                <!--                        {% set nav_url = link %}-->
-                <!--                        {% else %}-->
-                <!--                        {% set nav_url = SITEURL + "/" + link %}-->
-                <!--                        {% endif %}-->
-                <!--                        <a class="d-flex flex-column align-self-start" href="{{ nav_url }}" title="{{ title }}">-->
-                <!--                            <i class="bi bi-{{ icon }}"></i>-->
-                <!--                            {{ title }}-->
-                <!--                        </a>-->
-                <!--                        {% endfor %}-->
-
-                <!--                    </div>-->
-                <!--                </div>-->
                 <div class="article-heading big-heading">
                     <a href="{{ SITEURL }}" rel="bookmark" title="{{ SITENAME }}">
                         <h1 class="big-title">
@@ -36,21 +15,6 @@
                     <h3 class="subheading">
                         {{ SITEINFO }}
                     </h3>
-                    <div class="d-flex justify-content-evenly heading-links">
-                        {% for title, link, icon in SITELINKS %}
-                        {% if icon == "github" %}
-                        {% set nav_url = link %}
-                        {% else %}
-                        {% set nav_url = SITEURL + "/" + link %}
-                        {% endif %}
-                        <a class="d-flex flex-column align-self-center align-items-center" href="{{ nav_url }}"
-                           title="{{ title }}">
-                            <i class="bi bi-{{ icon }}"></i>
-                            {{ title }}
-                        </a>
-                        {% endfor %}
-
-                    </div>
                 </div>
 
             </div>

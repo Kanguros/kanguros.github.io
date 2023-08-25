@@ -3,34 +3,35 @@
 {% block title %}{{ SITENAME }} - Tags{% endblock %}
 
 {% block header %}
-<!-- Page Header -->
-{% if HEADER_COVER %}
-<header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}')">
-    {% elif HEADER_COLOR %}
-    <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
-        {% else %}
-        <header class="intro-header"
-                style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.png')">
-            {% endif %}
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                        <div class="heading">
-                            <h1>Tags</h1>
-                        </div>
-                    </div>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="heading d-flex flex-wrap align-items-center justify-content-between">
+                    <a href="{{ SITEURL }}/tags.html" rel="bookmark" title="Posts">
+                        <h1>
+                            Tags
+                        </h1>
+                    </a>
+                    <p class="heading-meta">
+                        List of all used tags.
+                    </p>
                 </div>
             </div>
-        </header>
-        {% endblock header %}
-
-        {% block content %}
-        <div class="d-flex flex-wrap justify-content-center mt-2">
-
-            {%- for tag, articles in tags|sort %}
-            <button href="{{ SITEURL }}/{{ tag.url }}" type="button" class="btn btn-outline-secondary">{{ tag }} ({{
-                articles|count }})
-            </button>
-            {% endfor %}
         </div>
-        {% endblock content %}
+    </div>
+    <hr class="navigation-hr">
+</header>
+{% endblock header %}
+
+{% block content %}
+<div class="d-flex flex-wrap justify-content-center mt-2">
+
+    {%- for tag, articles in tags|sort %}
+    <button href="{{ SITEURL }}/{{ tag.url }}" type="button" class="btn btn-outline-secondary">{{ tag }} ({{
+        articles|count }})
+    </button>
+    {% endfor %}
+</div>
+{% endblock content %}

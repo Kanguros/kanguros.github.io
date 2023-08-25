@@ -29,11 +29,6 @@ SIMILAR_POSTS_MIN_SCORE = 0.0001
 
 SITENAME = "Kamil's Scratchpad"
 SITEINFO = "Welcome to my digital notepad, a space where I share my notes and thoughts on programming, pipelines, automation, and an array of other, yet to be discovered, buzzwords."
-SITELINKS = (
-    ('About', 'resume.html', 'file-person'),
-    ('Git', "https://github.com/Kanguros/", 'github'),
-    # ('About', 'under_construction.html', 'file-person'),
-)
 
 THEME = 'theme'
 THEME_STATIC_DIR = THEME
@@ -99,18 +94,25 @@ ARCHIVES_SAVE_AS = 'archive.html'
 
 AUTHOR_SAVE_AS = ""
 
-PAGESMENUITEMS = [
-    ('Posts', POSTS_URL, 'journal-code'),
-    ('Notes', NOTES_URL, 'journal-code'),
+GIT_LINK = ('Git', "https://github.com/Kanguros/", 'github'),
+
+OTHER_LINKS = [
     ('Tags', TAGS_SAVE_AS, 'tags'),
-    ('About', 'resume.html', 'file-person'),
-    # ('Archive', ARCHIVES_SAVE_AS, 'archive'),
+    ('Archive', ARCHIVES_SAVE_AS, 'archive'),
+
 ]
 
-MENUITEMS = [
+NAV_LINKS = [
     # Title, URL, Icon
     ('Home', 'index.html', 'house'),
-    *PAGESMENUITEMS
+    ('Posts', POSTS_URL, 'journal-code'),
+    ('Notes', NOTES_URL, 'journal-code'),
+    ('About', 'resume.html', 'file-person'),
+]
+
+ALL_LINKS = [
+    *NAV_LINKS,
+    *OTHER_LINKS
 ]
 
 MARKDOWN = {

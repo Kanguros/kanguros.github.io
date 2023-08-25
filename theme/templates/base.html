@@ -55,7 +55,7 @@
     <div class="row">
         <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1">
             <div class="navigation d-flex justify-content-evenly align-items-center">
-                {% for title, link, icon in MENUITEMS %}
+                {% for title, link, icon in NAV_LINKS %}
                 <div class="px-3 py-2">
                     {% if icon == "github" %}
                     {% set nav_url = link %}
@@ -85,18 +85,29 @@
 
 
 <footer class="footer dark-bg mt-auto container-fluid up-shadow">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <p class="copyright">
-                    &copy; Blog powered by <a href="http://getpelican.com">Pelican</a>,
-                    on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
-                    theme. Header image by <a
-                        href="https://www.freepik.com/free-photo/keyboard-with-small-plant_8726574.htm#&position=1&from_view=undefined">Freepik</a>
-                </p>
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+            <hr class="little hide">
+                <span>
+                {% for title, link, icon in ALL_LINKS %}
+
+                    <a href="{{ SITEURL }}/{{ link }}" class="px-2">
+                        {{ title }}
+                    </a>
+
+                {% endfor %}
+                </span>
+            <hr class="little">
+            <p class="copyright">
+                &copy; Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
+                theme. Header image by <a
+                    href="https://www.freepik.com/free-photo/keyboard-with-small-plant_8726574.htm#&position=1&from_view=undefined">Freepik</a>
+            </p>
 
 
-            </div>
         </div>
+    </div>
     </div>
 </footer>
 
