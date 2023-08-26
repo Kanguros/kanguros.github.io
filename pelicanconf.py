@@ -68,7 +68,7 @@ EXTRA_PATH_METADATA = {
 PATH = 'content'
 OUTPUT_PATH = 'local_output/'
 
-ARTICLE_PATHS = ['posts', 'note']
+ARTICLE_PATHS = ['posts', 'notes']
 ARTICLE_URL = 'posts/{slug}.html'
 ARTICLE_SAVE_AS = 'posts/{slug}.html'
 ARTICLE_ORDER_BY = 'reversed-date'

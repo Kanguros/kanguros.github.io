@@ -100,6 +100,7 @@
 }
  h1, h2, h3, h4, h5, h6 {
      font-family: var(--main-font);
+     color: var(--main-font-color);
      font-weight: 500;
 }
  a {
@@ -486,7 +487,7 @@ article:first-child p {
 
 article h2 {
 font-size: 2.5rem;
-margin: 1rem auto;
+margin: 2rem auto 1rem;
 }
 
 article h3,
@@ -496,6 +497,10 @@ article h5,
 margin: 1rem auto;
 }
 
+article tr {
+
+    border-bottom: var(--fading-color) solid 1px;
+    }
 
  hr {
      margin: 0.1rem auto;

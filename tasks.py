@@ -27,6 +27,11 @@ CONFIG = {
 }
 
 
+def pelican_run(cmd):
+    cmd += ' ' + program.core.remainder  # allows to pass-through args to pelican
+    pelican_main(shlex.split(cmd))
+
+
 @task
 def clean(c):
     """Remove generated files"""
@@ -138,6 +143,18 @@ def live(c, d=False, v=False):
     server.serve(host=CONFIG['host'], port=CONFIG['port'], root=CONFIG['deploy_path'])
 
 
-def pelican_run(cmd):
-    cmd += ' ' + program.core.remainder  # allows to pass-through args to pelican
-    pelican_main(shlex.split(cmd))
+@task
+def showfiles(c):
+    paths = [
+        ('.\pyproject.toml', "Python package dependencies"),
+        ('.\pelicanconf.py', "Pelican configuration file"),
+        
+        '.\README.md',
+        '.\local_output\index.html'
+    ]
+    for path in paths:
+        with open(path, "r") as file:
+            print(f"------ {path} ------")
+            print(file.read())
+            print(f"--------------------")
+            print("")
