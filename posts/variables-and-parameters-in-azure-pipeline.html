@@ -114,14 +114,14 @@
         <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
 <!-- Post Content -->
 <article>
-    <h2 id="variables">Variables</h2>
+    <h2 id="variables"><a class="toclink" href="#variables">Variables</a></h2>
 <ul>
 <li>Used to <strong>store and manage data</strong> during the pipeline&nbsp;execution.</li>
 <li>Value <strong>can only be string</strong>.</li>
 <li>Are <strong>mutable</strong> and value can change from run to run or job to&nbsp;job.</li>
 <li>Can be overwrite, the most locally scoped variable&nbsp;wins.</li>
 </ul>
-<h3 id="definition-example">Definition&nbsp;example</h3>
+<h3 id="definition-example"><a class="toclink" href="#definition-example">Definition&nbsp;example</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">variables</span><span class="p">:</span>
 <span class="w"> </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myImportantVariable</span>
 <span class="w">   </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">contoso</span>
@@ -129,20 +129,20 @@
 <span class="w">   </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;LongTextPRDEnv&quot;</span>
 </code></pre></div>
 
-<h3 id="usage-example">Usage&nbsp;example</h3>
+<h3 id="usage-example"><a class="toclink" href="#usage-example">Usage&nbsp;example</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">steps</span><span class="p">:</span><span class="w"> </span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">bash</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo $(myImportantVariable)</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">powershell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo $(myImportantVariable)</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo $(myImportantVariable)</span>
 </code></pre></div>
 
-<h2 id="parameters">Parameters</h2>
+<h2 id="parameters"><a class="toclink" href="#parameters">Parameters</a></h2>
 <ul>
 <li>Used to <strong>provide input values</strong> to a pipeline when it is&nbsp;triggered.</li>
 <li>Value could be string, number, bool or object (and more complex&nbsp;types).</li>
 <li>Can only be used in <strong>template expressions</strong>.</li>
 </ul>
-<h3 id="definition-example_1">Definition&nbsp;example</h3>
+<h3 id="definition-example_1"><a class="toclink" href="#definition-example_1">Definition&nbsp;example</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">parameters</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">myString</span>
 <span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
@@ -184,7 +184,7 @@
 </code></pre></div>
 
 <p>All available data types could be found in <a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/process/template-parameters?view=azure-devops#parameter-data-types">Azure&nbsp;documentation</a></p>
-<h3 id="usage-example_1">Usage&nbsp;example</h3>
+<h3 id="usage-example_1"><a class="toclink" href="#usage-example_1">Usage&nbsp;example</a></h3>
 <div class="highlight"><pre><span></span><code><span class="nt">parameters</span><span class="p">:</span>
 <span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">image</span>
 <span class="w">  </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pool Image</span>
@@ -206,10 +206,10 @@
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">echo building $(Build.BuildNumber) with ${{ parameters.image }}</span>
 </code></pre></div>
 
-<h2 id="how-to-use-it">How to use&nbsp;it</h2>
+<h2 id="how-to-use-it"><a class="toclink" href="#how-to-use-it">How to use&nbsp;it</a></h2>
 <p>It depends&nbsp;;) </p>
 <p>First of all, we need to know that there are 3 different syntaxes for using a variables and&nbsp;parameters. </p>
-<h3 id="syntax">Syntax</h3>
+<h3 id="syntax"><a class="toclink" href="#syntax">Syntax</a></h3>
 <p>A syntax how the variable or parameter is referenced, determines when the value will be&nbsp;processed. </p>
 <table>
 <thead>
@@ -237,14 +237,14 @@
 </tr>
 </tbody>
 </table>
-<h3 id="template-expression">Template&nbsp;expression</h3>
+<h3 id="template-expression"><a class="toclink" href="#template-expression">Template&nbsp;expression</a></h3>
 <ul>
 <li>Are <strong>process at compile time</strong>, and get replaced before runtime&nbsp;starts. </li>
 <li>Are designed for reusing parts of <span class="caps">YAML</span> as&nbsp;templates.</li>
 </ul>
-<h3 id="macro">Macro</h3>
+<h3 id="macro"><a class="toclink" href="#macro">Macro</a></h3>
 <p>&#8230;</p>
-<h2 id="runtime-expression">Runtime&nbsp;expression</h2>
+<h2 id="runtime-expression"><a class="toclink" href="#runtime-expression">Runtime&nbsp;expression</a></h2>
 <p>&#8230;</p>
 </article>
 

@@ -114,7 +114,7 @@
 using the Click
 library. This innovative approach enhances the efficiency and organization of your <span class="caps">CLI</span> tools by loading subcommands on
 demand, resulting in faster startup times, reduced memory usage, and a more streamlined user&nbsp;experience.</p>
-<h2 id="how-it-works">How It&nbsp;Works</h2>
+<h2 id="how-it-works"><a class="toclink" href="#how-it-works">How It&nbsp;Works</a></h2>
 <p><code>LazyLoadGroup</code> is built upon the concept of lazy loading, which means subcommands are loaded into memory only when they
 are actually invoked. This clever strategy offers significant&nbsp;benefits:</p>
 <ol>
@@ -131,7 +131,7 @@ are actually invoked. This clever strategy offers significant&nbsp;benefits:</p>
    LazyLoadGroup fetches subcommands from their designated locations, ensuring a clean organizational&nbsp;structure.</p>
 </li>
 </ol>
-<h2 id="getting-started">Getting&nbsp;Started</h2>
+<h2 id="getting-started"><a class="toclink" href="#getting-started">Getting&nbsp;Started</a></h2>
 <ol>
 <li>
 <p><strong>Requirements:</strong> Ensure you have Python installed on your&nbsp;system.</p>
@@ -149,7 +149,7 @@ are actually invoked. This clever strategy offers significant&nbsp;benefits:</p>
    automatically load these subcommands when invoked by the&nbsp;user.</p>
 </li>
 </ol>
-<h2 id="benefits">Benefits</h2>
+<h2 id="benefits"><a class="toclink" href="#benefits">Benefits</a></h2>
 <ul>
 <li>Faster startup&nbsp;times</li>
 <li>Reduced memory&nbsp;usage</li>
@@ -157,7 +157,7 @@ are actually invoked. This clever strategy offers significant&nbsp;benefits:</p>
 <li>Seamless integration with Click-based&nbsp;applications</li>
 <li>Easy addition of new features without&nbsp;clutter</li>
 </ul>
-<h2 id="example">Example</h2>
+<h2 id="example"><a class="toclink" href="#example">Example</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">click</span>
 <span class="kn">from</span> <span class="nn">lazy_load_group</span> <span class="kn">import</span> <span class="n">LazyLoadGroup</span>
 
@@ -201,7 +201,7 @@ group1/, group2/) for better organization. Inside each group folder, you have in
 command1.py, command2.py,&nbsp;etc.).</p>
 <p>This directory structure allows LazyLoadGroup to dynamically load subcommands from the tasks/ directory on demand,
 creating a modular and efficient command-line&nbsp;interface.</p>
-<h2 id="the-code">The&nbsp;code</h2>
+<h2 id="the-code"><a class="toclink" href="#the-code">The&nbsp;code</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">importlib</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">os</span>

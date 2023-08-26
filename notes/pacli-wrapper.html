@@ -119,7 +119,7 @@
 <!-- Post Content -->
 <article>
     <p>The <strong><span class="caps">PACLI</span> Wrapper</strong> is a Python tool designed to streamline the interaction with the <strong>Privileged Access Manager (<span class="caps">PAM</span>) <span class="caps">CLI</span> (<span class="caps">PACLI</span>)</strong> utility. With this wrapper, you can easily manage your privileged access vault using Python scripts, making tasks like unlocking accounts and opening/closing safes more&nbsp;efficient.</p>
-<h2 id="features">Features</h2>
+<h2 id="features"><a class="toclink" href="#features">Features</a></h2>
 <ul>
 <li>Initialize <span class="caps">PACLI</span> sessions easily with default&nbsp;settings.</li>
 <li>Execute <span class="caps">PACLI</span> commands and capture their outputs using&nbsp;subprocess.</li>
@@ -127,14 +127,14 @@
 <li>Unlock individual accounts or multiple accounts within a&nbsp;safe.</li>
 <li>Convenient context management for automatic logon and&nbsp;logoff.</li>
 </ul>
-<h2 id="installation">Installation</h2>
+<h2 id="installation"><a class="toclink" href="#installation">Installation</a></h2>
 <p>The <span class="caps">PACLI</span> Wrapper is designed to work with Python 3.6+ and requires no additional&nbsp;dependencies.</p>
 <ol>
 <li>Copy and paste the provided <code>PACLI</code> class into your&nbsp;project.</li>
 <li>Customize the initialization parameters as per your environment, including username, password, and vault <span class="caps">URL</span>.</li>
 <li>Use the wrapper&#8217;s methods to interact with <span class="caps">PACLI</span> commands, such as opening safes and unlocking&nbsp;accounts.</li>
 </ol>
-<h2 id="usage">Usage</h2>
+<h2 id="usage"><a class="toclink" href="#usage">Usage</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Import the PACLI class</span>
 <span class="kn">from</span> <span class="nn">pacli_wrapper</span> <span class="kn">import</span> <span class="n">PACLI</span>
 
@@ -151,13 +151,13 @@
     <span class="n">pacli</span><span class="o">.</span><span class="n">unlock_accounts</span><span class="p">(</span><span class="s2">&quot;SafeName&quot;</span><span class="p">,</span> <span class="n">accounts_to_unlock</span><span class="p">)</span>
 </code></pre></div>
 
-<h2 id="get-started">Get&nbsp;Started</h2>
+<h2 id="get-started"><a class="toclink" href="#get-started">Get&nbsp;Started</a></h2>
 <ol>
 <li>Clone the repository or copy the <code>PACLI</code> class into your&nbsp;project.</li>
 <li>Customize the <code>username</code>, <code>password</code>, and <code>vault_url</code> fields in the <code>get_pacli()</code> function.</li>
 <li>Use the provided methods to interact with <span class="caps">PACLI</span>&nbsp;commands.</li>
 </ol>
-<h2 id="code">Code</h2>
+<h2 id="code"><a class="toclink" href="#code">Code</a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">from</span> <span class="nn">subprocess</span> <span class="kn">import</span> <span class="n">run</span><span class="p">,</span> <span class="n">CompletedProcess</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Dict</span>

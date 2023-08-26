@@ -117,7 +117,7 @@
     <p>This module provides functions to parse and work with a dependency tree output. The primary
 function, <code>parse_dependency_tree</code>, takes a tree-like output and converts it into a hierarchical data structure for
 further&nbsp;processing.</p>
-<h2 id="dependency_parserpy"><code>dependency_parser.py</code></h2>
+<h2 id="dependency_parserpy"><a class="toclink" href="#dependency_parserpy"><code>dependency_parser.py</code></a></h2>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_dependency_tree</span><span class="p">(</span><span class="n">tree_output</span><span class="p">):</span>
     <span class="n">tree_lines</span> <span class="o">=</span> <span class="n">tree_output</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">dependencies</span> <span class="o">=</span> <span class="p">{}</span>
@@ -136,7 +136,7 @@ further&nbsp;processing.</p>
     <span class="k">return</span> <span class="n">dependencies</span>
 </code></pre></div>
 
-<h2 id="test_dependency_parserpy"><code>test_dependency_parser.py</code></h2>
+<h2 id="test_dependency_parserpy"><a class="toclink" href="#test_dependency_parserpy"><code>test_dependency_parser.py</code></a></h2>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">dependency_parser</span>
 
 <span class="k">def</span> <span class="nf">test_parse_dependency_tree</span><span class="p">():</span>
