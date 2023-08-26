@@ -1,8 +1,8 @@
-Title: Dynamic Click
+Title: Dynamic Click  
 Date: 10/07/2023  
-Tags: notes, click
-Status: draft
-Summary: Dynamic Click groups and commands.
+Tags: notes, click  
+Status: draft  
+Summary: Dynamic Click groups and commands.  
 
 Here you will find a Python code snippet that introduces dynamic subcommand loading to your command-line applications
 using the Click

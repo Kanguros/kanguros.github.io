@@ -1,8 +1,8 @@
-Title: PACLI Wrapper
+Title: PACLI Wrapper  
 Date: 10/08/2023  
-Tags: notes, pwv, pacli, python
-Status: draft
-Summary: CyberArk PACLI wrapper in Python
+Tags: notes, pwv, pacli, python  
+Status: draft  
+Summary: CyberArk PACLI wrapper in Python  
 
 
 The **PACLI Wrapper** is a Python tool designed to streamline the interaction with the **Privileged Access Manager (PAM) CLI (PACLI)** utility. With this wrapper, you can easily manage your privileged access vault using Python scripts, making tasks like unlocking accounts and opening/closing safes more efficient.

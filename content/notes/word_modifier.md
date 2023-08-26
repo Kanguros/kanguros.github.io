@@ -1,8 +1,8 @@
-Title: Word file modifier
-Date: 08/08/2023
-Tags: python
-Status: draft
-
+Title: Word file modifier  
+Date: 08/08/2023  
+Tags: python  
+Status: draft  
+ 
 
 This Python script allows you to modify Word documents by performing specific actions on their content. The script uses the `python-docx` library to work with Word documents.
 

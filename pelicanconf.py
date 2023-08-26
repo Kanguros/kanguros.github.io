@@ -6,9 +6,7 @@ RELATIVE_URLS = True
 TIMEZONE = 'Europe/Warsaw'
 AUTHOR = 'Kamil Urbanek'
 DEFAULT_LANG = 'en'
-DEFAULT_CATEGORY = "Personal"
 DEFAULT_DATE_FORMAT = "%d/%m/%Y"
-DATE_FORMATS = {'en': "%d/%m/%Y"}
 LOCALE = ('en_US',)
 
 PLUGINS = [
@@ -106,7 +104,7 @@ NAV_LINKS = [
     # Title, URL, Icon
     ('Home', 'index.html', 'house'),
     ('Posts', POSTS_URL, 'journal-code'),
-    ('Notes', NOTES_URL, 'journal-code'),
+    ('Notes', NOTES_URL, 'file-code'),
     ('About', 'resume.html', 'file-person'),
 ]
 
@@ -123,7 +121,9 @@ MARKDOWN = {
         'markdown.extensions.codehilite': {
             'css_class': 'highlight'},
         'markdown.extensions.toc': {
-            'permalink': 'false'},
+            'permalink': 'false',
+            'anchorlink': 'true',
+        },
         'pymdownx.progressbar': {},
     },
     'output_format': 'html5'
