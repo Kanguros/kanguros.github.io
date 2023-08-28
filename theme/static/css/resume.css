@@ -16,7 +16,9 @@
 margin: 0 auto !important;
 }
 
-
+.resume article > h2, h3, h4 {
+margin: 1rem auto 0.5rem;
+}
 
 
 .contacts a {
@@ -48,23 +50,8 @@ margin-bottom: 0.2em;
 
 .resume h2 {
 
-margin: 0.5em auto;
-  display: flex;
-  flex-direction: row;
-    font-family: var(--title-font);
+border-bottom: 2px solid #595050;
 
-}
-
-.resume h2:after{
-  content: "";
-  flex: 1 1;
-  border-bottom: 2px solid var(--line-color);
-  margin: auto;
-}
-
-
-.resume h2:after {
-  margin-left: 10px;
 }
 
 
@@ -85,8 +72,8 @@ margin-top: 0 !important;
 .resume .skill-tag {
   background: var(--code-background);
 margin: 0.2em 0.1em;
-    padding: 0.2em 0.3em;
-    border-radius: 4px;
+    padding: 0.1em 0.2em;
+    border-radius: 3px;
   }
 
 
