@@ -43,6 +43,8 @@ DIRECT_TEMPLATES = [
     'under_construction',
     'notes',
 ]
+
+TEMPLATE_PAGES = {'notes.html': 'notes/index.html'}
 DEFAULT_PAGINATION = 3
 PAGINATED_TEMPLATES = {
     'index': None,
