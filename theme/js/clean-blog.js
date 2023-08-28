@@ -1,7 +1,7 @@
 const copyButtonLabel = "Copy Code";
 
 // use a class selector if available
-let blocks = document.querySelectorAll("pre");
+let blocks = document.querySelectorAll("div.highlight");
 
 blocks.forEach((block) => {
   // only add button if browser supports Clipboard API
@@ -9,10 +9,10 @@ blocks.forEach((block) => {
     let button = document.createElement("button");
 
     button.innerText = copyButtonLabel;
-    block.appendChild(button);
+    block.insertAdjacentElement("afterbegin", button);
 
     button.addEventListener("click", async () => {
-      await copyCode(block);
+      await copyCode(block, button);
     });
   }
 });
@@ -24,9 +24,9 @@ async function copyCode(block, button) {
   await navigator.clipboard.writeText(text);
 
   // visual feedback that task is completed
-  button.innerText = "Code Copied";
+  button.innerText = "Copied!";
 
   setTimeout(() => {
     button.innerText = copyButtonLabel;
-  }, 700);
+  }, 1000);
 }
