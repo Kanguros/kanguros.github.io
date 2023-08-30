@@ -1,3 +1,4 @@
+{% from 'macros.j2' import big_note %}
 {% extends "base.html" %}
 
 {% block header %}
@@ -26,46 +27,8 @@
 {% endblock header %}
 
 {% block content %}
-
 {% for article in articles_page.object_list %}
-<div class="post-preview">
-    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
-        <h2 class="post-title">
-            {{ article.title }}
-        </h2>
-    </a>
-    <div class="d-flex justify-content-start meta-elements">
-
-        <i class="bi bi-calendar"></i> {{ article.locale_date }}
-        <i class="bi bi-dot"></i>
-        <i class="bi bi-book"></i> {{ article.readtime_string }}
-    </div>
-    <p class="article-summary">
-        {% if article.has_summary %}
-        {{ article.summary }}
-        {% elif article.summary %}
-        {{ article.summary|striptags|truncate(200) }}
-        {% endif %}
-    </p>
-    <div class="d-flex justify-content-between meta-elements">
-        <div class="tags">
-            {% for t in article.tags %}
-            <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark" title="{{ t }}">
-                #{{ t }}
-            </a>
-            {% endfor %}
-        </div>
-        <div class="solid-link">
-            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-               title="{{ article.title|striptags }}">
-                Read more<i class="bi bi-arrow-right-short"></i>
-            </a>
-        </div>
-
-    </div>
-</div>
-<hr>
+{{ big_note(article) }}
 {% endfor %}
-
 {% include "pagination.html" %}
 {% endblock content %}

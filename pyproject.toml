@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "kanguros.github.io"
-version = "0.2.0"
+version = "0.2.1"
 description = ""
 authors = ["Kamil Urbanek <urbanek.kamil@gmail.com>"]
 
@@ -18,6 +18,7 @@ pelican-similar-posts = "^1.0.0"
 pelican-neighbors = "^1.2.0"
 pelican-sitemap = "^1.1.0"
 pelican-readtime = "^0.2.0"
+pelican-minify = "^2.0.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

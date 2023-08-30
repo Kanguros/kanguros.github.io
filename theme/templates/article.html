@@ -1,5 +1,9 @@
+{% from 'macros.j2' import article_header %}
+
 {% extends "base.html" %}
-{% block title %}{{ article.title|striptags }}{% endblock %}
+{% block title %}
+{{ article.title|striptags }}
+{% endblock %}
 
 {% block head %}
 {{ super() }}
@@ -48,47 +52,12 @@
 {% endblock %}
 
 {% block header %}
-
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <div class="article-heading">
-                    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
-                        <h1>
-                            {{ article.title|striptags }}
-                        </h1>
-                    </a>
-                    {% if article.headline %}
-                    <h3 class="subheading">{{ article.headline }}</h3>
-                    {% endif %}
-                    <p class="meta-elements">
-                        <i class="bi bi-calendar"></i> {{ article.locale_date }}
-                        <i class="bi bi-dot"></i>
-                        <i class="bi bi-clock-history"></i> {{ article.readtime_string }}
-                    </p>
-                    <p class="meta-elements tags">
-                        {% for t in article.tags %}
-                        <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark" title="{{ t }}">
-                            #{{ t }}
-                        </a>
-                        {% endfor %}
-                    </p>
-                    <!--                    <hr class="navigation-hr">-->
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+{{ article_header(article) }}
 {% endblock header %}
 
 {% block content %}
-<!-- Post Content -->
 <article>
     {{ article.content }}
 </article>
-
 {% include 'similar_posts.html' %}
-
-
 {% endblock content %}

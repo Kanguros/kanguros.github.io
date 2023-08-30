@@ -119,7 +119,8 @@ def live(c, d=False, v=False):
     watched_globs = [
         CONFIG['settings_base'],
         '{}/templates/**/*.html'.format(theme_path),
-        '{}/templates/static/*.html'.format(theme_path),
+        '{}/templates/**/*.j2'.format(theme_path),
+        '{}/templates/static/*.*'.format(theme_path),
     ]
 
     content_file_extensions = ['.md', '.rst']
@@ -148,7 +149,7 @@ def showfiles(c):
     paths = [
         ('.\pyproject.toml', "Python package dependencies"),
         ('.\pelicanconf.py', "Pelican configuration file"),
-        
+
         '.\README.md',
         '.\local_output\index.html'
     ]

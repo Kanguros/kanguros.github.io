@@ -1,34 +1,20 @@
+{% from 'macros.j2' import page_header %}
 {% extends "base.html" %}
 
-{% block title %}{{ SITENAME }} - Archives for {{ period | reverse | join (' ') }}{% endblock %}
+{% block title %}
+{{ SITENAME }} - Posts for {{ period | reverse | join (' ') }}
+{% endblock %}
 
 {% block header %}
-    <!-- Page Header -->
-    {% if HEADER_COVER %}
-        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}')">
-    {% elif HEADER_COLOR %}
-        <header class="intro-header" style="background-color: {{ HEADER_COLOR }}">
-    {% else %}
-        <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.png')">
-    {% endif %}
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                    <div class="post-heading">
-                        <h1>Archives for {{ period | reverse | join (' ') }}</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+{{ page_header("Posts for {{ period | reverse | join (' ') }}", "archive.html") }}
 {% endblock header %}
 
 {% block content %}
-    <dl>
-        {% for article in dates %}
-            <dt>{{ article.locale_date }}</dt>
-            <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
-        {% endfor %}
-        <hr>
-    </dl>
+<dl>
+    {% for article in dates %}
+    <dt>{{ article.locale_date }}</dt>
+    <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+    {% endfor %}
+    <hr>
+</dl>
 {% endblock content %}

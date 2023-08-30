@@ -15,6 +15,7 @@ PLUGINS = [
     'readtime',
     'sitemap',
     'neighbors',
+    'minify ',
 ]
 
 # readtime
@@ -24,6 +25,12 @@ LANG_SETTINGS = 150
 SIMILAR_POSTS_ENABLED = True
 SIMILAR_POSTS_MAX_COUNT = 3
 SIMILAR_POSTS_MIN_SCORE = 0.0001
+
+# minify
+CSS_MIN = True
+HTML_MIN = True
+INLINE_CSS_MIN = True
+INLINE_JS_MIN = True
 
 SITENAME = "Kamil's Scratchpad"
 SITEINFO = "Welcome to my digital notepad, a space where I share my notes and thoughts on programming, pipelines, automation, and an array of other, yet to be discovered, buzzwords."

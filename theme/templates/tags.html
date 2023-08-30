@@ -1,28 +1,12 @@
+{% from 'macros.j2' import page_header %}
 {% extends "base.html" %}
 
-{% block title %}{{ SITENAME }} - Tags{% endblock %}
+{% block title %}
+{{ SITENAME }} - Tags
+{% endblock %}
 
 {% block header %}
-
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <div class="heading d-flex flex-wrap align-items-center justify-content-between">
-                    <a href="{{ SITEURL }}/tags.html" rel="bookmark" title="Posts">
-                        <h1>
-                            Tags
-                        </h1>
-                    </a>
-                    <p class="heading-meta">
-                        List of all used tags.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr class="navigation-hr">
-</header>
+{{ page_header("Tags", "tags.html", "List of all used tags.") }}
 {% endblock header %}
 
 {% block content %}

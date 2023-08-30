@@ -1,24 +1,12 @@
+{% from 'macros.j2' import page_header %}
 {% extends "index.html" %}
 
-{% block title %}{{ page.title }}{% endblock title %}
+{% block title %}
+{{ SITENAME }} - {{ page.title }}
+{% endblock title %}
 
 {% block header %}
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <div class="heading d-flex flex-wrap align-items-baseline justify-content-between">
-                    <a href="{{ SITEURL }}/{{ page.url }}" rel="bookmark" title="{{ page.name }}" class="pe-5">
-                        <h1>
-                            {{ page.title }}
-                        </h1>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr class="navigation-hr">
-</header>
+{{ page_header("{{ page.title }}", "{{ page.url }}") }}
 {% endblock header %}
 
 {% block content %}

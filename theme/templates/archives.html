@@ -1,28 +1,13 @@
+{% from 'macros.j2' import page_header %}
 {% extends "base.html" %}
 
-{% block title %}{{ SITENAME }} - Archive{% endblock %}
+{% block title %}
+{{ SITENAME }} - Archive
+{% endblock %}
 
 
 {% block header %}
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <div class="heading d-flex flex-wrap align-items-center justify-content-between">
-                    <a href="{{ SITEURL }}/archives.html" rel="bookmark" title="Archives">
-                        <h1>
-                            Archives
-                        </h1>
-                    </a>
-                    <p class="heading-meta">
-                        All posts as date-time list.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr class="navigation-hr">
-</header>
+{{ page_header("Archives", "archives.html", "All posts as date-time list.") }}
 {% endblock header %}
 
 {% block content %}

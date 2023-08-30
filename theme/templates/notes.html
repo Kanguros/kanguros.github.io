@@ -1,48 +1,17 @@
+{% from 'macros.j2' import small_note, page_header %}
 {% extends "base.html" %}
 
-{% block header %}
-<!-- Page Header -->
-<!-- Set your background image for this header on the line below. -->
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <div class="heading d-flex flex-wrap align-items-baseline justify-content-between">
-                    <a href="{{ SITEURL }}/{{ NOTES_URL }}" rel="bookmark" title="Notes" class="pe-5">
-                        <h1>
-                            Notes
-                        </h1>
-                    </a>
-                    <p class="heading-meta">
-                        Raw private notes
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <hr class="navigation-hr">
+{% block title %}
+{{ SITENAME }} - Notes
+{% endblock %}
 
-</header>
+{% block header %}
+{{ page_header("Notes", NOTES_URL, "Raw private notes") }}
 {% endblock header %}
 
 {% block content %}
 {% for article in drafts %}
-<div class="post-preview bd-highlight my-5">
-    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}"
-       class="d-flex align-items-center justify-content-between">
-
-        <h1 class="note-title pe-2">
-
-            {{ article.title }}
-        </h1>
-        <div class="meta-elements note-meta">
-            <i class="bi bi-calendar"></i> {{ article.locale_date }}
-
-        </div>
-    </a>
-
-    <hr>
-</div>
+{{ small_note(article) }}
 {% endfor %}
 
 
