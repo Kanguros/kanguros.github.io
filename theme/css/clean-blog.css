@@ -78,6 +78,7 @@
      --the-fadest-color: #d7d7d7;
      --hr-color: #eee;
      --code-background: #e9e9e9b0;
+     --code-font-color: #686969;
      --main-font: 'Fira Sans', 'Times New Roman', serif;
      --title-font: 'Fira Sans', 'Times New Roman', serif;
      --main-font-color: #404040;
@@ -87,6 +88,11 @@
      --whitish-color: #838383;
      --navigation-font-color: #737373;
 }
+.my-6 {
+    margin-top: 3.5rem!important;
+    margin-bottom: 3.5rem!important;
+}
+
  body {
      font-family: var(--main-font);
      font-size: 16px;
@@ -129,20 +135,29 @@
     flex-direction: column;
     align-items: stretch;
     }
-    div.highlight > button {
-     font-size: 12px;
-    align-self: flex-end;
-    background-color: var(--the-fadest-color);
-    border-radius: 5px 5px 0px 0px;
-    border: 0;
-    margin-bottom: -2px;
-    color: var(--main-font-color);
-  }
+div.highlight > button {
+ font-size: 13px;
+align-self: flex-end;
+background-color: var(--the-fadest-color);
+border-radius: 5px 5px 0px 0px;
+border: 0;
+margin-bottom: -2px;
+color: var(--main-font-color);
+}
+
+div.highlight > button:hover,
+div.highlight > button:focus {
+
+text-decoration: underline;
+}
+
+
  code {
-     color: var(--blue-light-color);
+     color: var(--code-font-color);
      background-color: var(--code-background);
      border-radius: 3px;
      font-weight: 200;
+     padding: 1px 2px;
 }
  pre {
    position: relative;
@@ -164,8 +179,8 @@
 
 .navigation {
 
-min-height:60px;
-font-size: 20px;
+min-height:40px;
+font-size: 1rem;
 
 }
 .dark-bg {
@@ -271,7 +286,6 @@ padding: 1rem;
      .intro-header .heading h1 {
           line-height: 120px;
          font-size: 100px;
-         margin: 90px auto 30px;
          text-decoration: underline;
     }
 
@@ -284,7 +298,7 @@ padding: 1rem;
          font-size: 110px;
     }
          .intro-header .article-heading h1 {
-         font-size: 3.6rem;
+         font-size: 3.8rem;
     }
       .intro-header .heading h3 {
         margin-top: 30px;
@@ -332,13 +346,13 @@ margin-top: 1rem;
  .post-title {
      font-weight: 600;
 }
- .post-preview>a>.post-title {
+a>.post-title {
      font-size: 1.8em;
         margin-top: 0.7em;
 
 }
  @media only screen and (min-width: 768px) {
-     .post-preview>a>.post-title {
+    a>.post-title {
          font-size: 2.5em;
     }
 }
@@ -364,18 +378,17 @@ margin: 0.3rem 0 !important;
 
 .heading-meta {
       color: var(--fading-color) !important;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 400;
     text-decoration: none;
     margin: 1.2rem 0;
 }
 
-.meta-elements {
+.meta-element {
       color: var(--fading-color) !important;
     font-size: 0.9rem !important;
     font-weight: 300;
     text-decoration: none;
-    margin: 1.2rem auto;
 }
 
 
