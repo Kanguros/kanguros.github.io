@@ -1,392 +1,158 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html><html lang=en><meta charset=utf-8><meta content=IE=edge http-equiv=X-UA-Compatible><meta content=width=device-width,initial-scale=1 name=viewport><title>Kamil's Scratchpad - Dynamic Click
+</title><link href=https://kanguros.github.io/theme/css/bootstrap.min.css rel=stylesheet><link href=https://kanguros.github.io/theme/css/bootstrap-icons.css rel=stylesheet><link href=https://kanguros.github.io/theme/css/code_blocks/darkly.css rel=stylesheet><link href=https://kanguros.github.io/theme/css/clean-blog.css rel=stylesheet><meta content="Dynamic Click groups and commands." name=description><meta content=notes name=tags><meta content=click name=tags><meta content=en_US property=og:locale><meta content="Kamil's Scratchpad" property=og:site_name><meta content=article property=og:type><meta content=https://kanguros.github.io/notes/dynamic-click.html property=og:url><meta content=Dynamic Click property=og:title><meta content="2023-10-07 00:00:00+02:00" property=article:published_time><meta content="Dynamic Click groups and commands." property=og:description><meta content=https://kanguros.github.io/theme/images/post-bg.jpg property=og:image><body class="article-dynamic-click d-flex flex-column vh-100"><nav class="dark-bg container-fluid down-shadow"><div class=row><div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1"><div class="navigation d-flex justify-content-between align-items-center"><div class="px-3 py-2"><a class="d-flex flex-column align-self-center align-items-center" href=https://kanguros.github.io/index.html> Home </a></div><div class="px-3 py-2"><a class="d-flex flex-column align-self-center align-items-center" href=https://kanguros.github.io/posts.html> Posts </a></div><div class="px-3 py-2"><a class="d-flex flex-column align-self-center align-items-center" href=https://kanguros.github.io/notes/index.html> Notes </a></div><div class="px-3 py-2"><a class="d-flex flex-column align-self-center align-items-center" href=https://kanguros.github.io/resume.html> About </a></div></div></div></div></nav><header class=intro-header><div class=container><div class=row><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><div class=article-heading><a href=/notes/dynamic-click.html rel=bookmark title=Dynamic Click> <h1>Dynamic Click</h1> </a><p class=meta-element><i class="bi bi-calendar"></i> 07/10/2023 <i class="bi bi-dot"></i> <i class="bi bi-clock-history"></i><p class="meta-element tags"><a href=/tags/notes rel=bookmark title=notes> #notes </a> <a href=/tags/click rel=bookmark title=click> #click </a></div></div></div></div></header><div class=container><div class=row><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><article><p>Here you will find a Python code snippet that introduces dynamic subcommand loading to your command-line applications using the Click library. This innovative approach enhances the efficiency and organization of your <span class=caps>CLI</span> tools by loading subcommands on demand, resulting in faster startup times, reduced memory usage, and a more streamlined user experience.<h2 id=how-it-works><a class=toclink href=#how-it-works>How It Works</a></h2><p><code>LazyLoadGroup</code> is built upon the concept of lazy loading, which means subcommands are loaded into memory only when they are actually invoked. This clever strategy offers significant benefits:<ol><li><p><strong>Efficient Memory Usage:</strong> Subcommands are loaded as needed, preventing unnecessary memory consumption during the application’s startup. This is particularly advantageous for larger <span class=caps>CLI</span> tools with numerous subcommands.</p><li><p><strong>Faster Startup:</strong> With subcommands loading on demand, your application starts up more quickly, enabling users to engage with the <span class=caps>CLI</span> almost instantaneously.</p><li><p><strong>Modular Organization:</strong> Subcommands are grouped into separate folders, maintaining a tidy and structured codebase. LazyLoadGroup fetches subcommands from their designated locations, ensuring a clean organizational structure.</p></ol><h2 id=getting-started><a class=toclink href=#getting-started>Getting Started</a></h2><ol><li><p><strong>Requirements:</strong> Ensure you have Python installed on your system.</p><li><p><strong>Installation:</strong> Copy the provided <code>LazyLoadGroup</code> class into your Python project or create a new module containing this class.</p><li><p><strong>Integration:</strong> Import the <code>LazyLoadGroup</code> class into your Click-based command-line application. Utilize it as a replacement for Click’s <code>click.Group</code> class to leverage the dynamic subcommand loading feature.</p><li><p><strong>Usage:</strong> Add subcommands to their designated folders within your project directory. LazyLoadGroup will automatically load these subcommands when invoked by the user.</p></ol><h2 id=benefits><a class=toclink href=#benefits>Benefits</a></h2><ul><li>Faster startup times<li>Reduced memory usage<li>Neat and organized subcommand structure<li>Seamless integration with Click-based applications<li>Easy addition of new features without clutter</ul><h2 id=example><a class=toclink href=#example>Example</a></h2><div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>click</span>
+<span class=kn>from</span> <span class=nn>lazy_load_group</span> <span class=kn>import</span> <span class=n>LazyLoadGroup</span>
 
 
-    <title>Dynamic Click
-</title>
-
-    <!-- Bootstrap and Clean Blog CSS -->
-    <link href="https://kanguros.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://kanguros.github.io/theme/css/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://kanguros.github.io/theme/css/code_blocks/monokai.css" rel="stylesheet">
-    <link href="https://kanguros.github.io/theme/css/clean-blog.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<span class=nd>@click</span><span class=o>.</span><span class=n>group</span><span class=p>(</span><span class=bp>cls</span><span class=o>=</span><span class=n>LazyLoadGroup</span><span class=p>,</span> <span class=n>no_args_is_help</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+<span class=k>def</span> <span class=nf>cli</span><span class=p>():</span>
+<span class=w>    </span><span class=sd>"""</span>
+<span class=sd>    Your main command entry point.</span>
+<span class=sd>    """</span>
 
 
-
-<meta name="description" content="Dynamic Click groups and commands.">
-
-<meta name="tags" content="notes">
-<meta name="tags" content="click">
-
-    <meta property="og:locale" content="en_US">
-    <meta property="og:site_name" content="Kamil's Scratchpad">
-
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://kanguros.github.io/notes/dynamic-click.html">
-<meta property="og:title" content="Dynamic Click">
-<meta property="article:published_time" content="2023-10-07 00:00:00+02:00">
-<meta property="og:description" content="Dynamic Click groups and commands.">
-
-<meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
-
-</head>
-
-<body class="article-dynamic-click d-flex flex-column vh-100">
-
-<!-- Navigation -->
-<nav class="dark-bg container-fluid down-shadow">
-    <div class="row">
-        <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1">
-            <div class="navigation d-flex justify-content-evenly align-items-center">
-                <div class="px-3 py-2">
-                    <a href="https://kanguros.github.io/index.html" class="d-flex flex-column align-self-center align-items-center">
-                        Home
-                    </a>
-                </div>
-                <div class="px-3 py-2">
-                    <a href="https://kanguros.github.io/posts.html" class="d-flex flex-column align-self-center align-items-center">
-                        Posts
-                    </a>
-                </div>
-                <div class="px-3 py-2">
-                    <a href="https://kanguros.github.io/notes.html" class="d-flex flex-column align-self-center align-items-center">
-                        Notes
-                    </a>
-                </div>
-                <div class="px-3 py-2">
-                    <a href="https://kanguros.github.io/resume.html" class="d-flex flex-column align-self-center align-items-center">
-                        About
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</nav>
-
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <div class="article-heading">
-                    <a href="/notes/dynamic-click.html" rel="bookmark" title="Dynamic Click">
-                        <h1>
-                            Dynamic Click
-                        </h1>
-                    </a>
-                    <p class="meta-element">
-                        <i class="bi bi-calendar"></i> 07/10/2023
-                        <i class="bi bi-dot"></i>
-                        <i class="bi bi-clock-history"></i> 
-                    </p>
-                    <p class="meta-element tags">
-                        <a href="/tags/notes" rel="bookmark" title="notes">
-                            #notes
-                        </a>
-                        <a href="/tags/click" rel="bookmark" title="click">
-                            #click
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-<article>
-    <p>Here you will find a Python code snippet that introduces dynamic subcommand loading to your command-line applications
-using the Click
-library. This innovative approach enhances the efficiency and organization of your <span class="caps">CLI</span> tools by loading subcommands on
-demand, resulting in faster startup times, reduced memory usage, and a more streamlined user&nbsp;experience.</p>
-<h2 id="how-it-works"><a class="toclink" href="#how-it-works">How It&nbsp;Works</a></h2>
-<p><code>LazyLoadGroup</code> is built upon the concept of lazy loading, which means subcommands are loaded into memory only when they
-are actually invoked. This clever strategy offers significant&nbsp;benefits:</p>
-<ol>
-<li>
-<p><strong>Efficient Memory Usage:</strong> Subcommands are loaded as needed, preventing unnecessary memory consumption during the
-   application&#8217;s startup. This is particularly advantageous for larger <span class="caps">CLI</span> tools with numerous&nbsp;subcommands.</p>
-</li>
-<li>
-<p><strong>Faster Startup:</strong> With subcommands loading on demand, your application starts up more quickly, enabling users to
-   engage with the <span class="caps">CLI</span> almost&nbsp;instantaneously.</p>
-</li>
-<li>
-<p><strong>Modular Organization:</strong> Subcommands are grouped into separate folders, maintaining a tidy and structured codebase.
-   LazyLoadGroup fetches subcommands from their designated locations, ensuring a clean organizational&nbsp;structure.</p>
-</li>
-</ol>
-<h2 id="getting-started"><a class="toclink" href="#getting-started">Getting&nbsp;Started</a></h2>
-<ol>
-<li>
-<p><strong>Requirements:</strong> Ensure you have Python installed on your&nbsp;system.</p>
-</li>
-<li>
-<p><strong>Installation:</strong> Copy the provided <code>LazyLoadGroup</code> class into your Python project or create a new module containing
-   this&nbsp;class.</p>
-</li>
-<li>
-<p><strong>Integration:</strong> Import the <code>LazyLoadGroup</code> class into your Click-based command-line application. Utilize it as a
-   replacement for Click&#8217;s <code>click.Group</code> class to leverage the dynamic subcommand loading&nbsp;feature.</p>
-</li>
-<li>
-<p><strong>Usage:</strong> Add subcommands to their designated folders within your project directory. LazyLoadGroup will
-   automatically load these subcommands when invoked by the&nbsp;user.</p>
-</li>
-</ol>
-<h2 id="benefits"><a class="toclink" href="#benefits">Benefits</a></h2>
-<ul>
-<li>Faster startup&nbsp;times</li>
-<li>Reduced memory&nbsp;usage</li>
-<li>Neat and organized subcommand&nbsp;structure</li>
-<li>Seamless integration with Click-based&nbsp;applications</li>
-<li>Easy addition of new features without&nbsp;clutter</li>
-</ul>
-<h2 id="example"><a class="toclink" href="#example">Example</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">click</span>
-<span class="kn">from</span> <span class="nn">lazy_load_group</span> <span class="kn">import</span> <span class="n">LazyLoadGroup</span>
-
-
-<span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="bp">cls</span><span class="o">=</span><span class="n">LazyLoadGroup</span><span class="p">,</span> <span class="n">no_args_is_help</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">cli</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Your main command entry point.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">cli</span><span class="p">()</span>
-</code></pre></div>
-
-<p>Example package&nbsp;structure</p>
-<div class="highlight"><pre><span></span><code>project_root/
+<span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>'__main__'</span><span class=p>:</span>
+    <span class=n>cli</span><span class=p>()</span>
+</code></pre></div><p>Example package structure<div class=highlight><pre><span></span><code>project_root/
 │
-├──<span class="w"> </span>cli.py<span class="w">      </span><span class="c1"># Your main script containing the LazyLoadGroup integration</span>
-├──<span class="w"> </span>lazy_load_group.py<span class="w">  </span><span class="c1"># The provided LazyLoadGroup class</span>
+├──<span class=w> </span>cli.py<span class=w>      </span><span class=c1># Your main script containing the LazyLoadGroup integration</span>
+├──<span class=w> </span>lazy_load_group.py<span class=w>  </span><span class=c1># The provided LazyLoadGroup class</span>
 │
-└──<span class="w"> </span>tasks/<span class="w">              </span><span class="c1"># Directory for organizing subcommands</span>
-<span class="w">    </span>│
-<span class="w">    </span>├──<span class="w"> </span>group1/<span class="w">         </span><span class="c1"># Example subcommand group 1</span>
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>command1.py<span class="w"> </span><span class="c1"># Subcommand 1 for group 1</span>
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>command2.py<span class="w"> </span><span class="c1"># Subcommand 2 for group 1</span>
-<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>...
-<span class="w">    </span>│
-<span class="w">    </span>├──<span class="w"> </span>group2/<span class="w">         </span><span class="c1"># Example subcommand group 2</span>
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>command3.py<span class="w"> </span><span class="c1"># Subcommand 3 for group 2</span>
-<span class="w">    </span>│<span class="w">   </span>├──<span class="w"> </span>command4.py<span class="w"> </span><span class="c1"># Subcommand 4 for group 2</span>
-<span class="w">    </span>│<span class="w">   </span>└──<span class="w"> </span>...
-<span class="w">    </span>│
-<span class="w">    </span>└──<span class="w"> </span>...
-</code></pre></div>
+└──<span class=w> </span>tasks/<span class=w>              </span><span class=c1># Directory for organizing subcommands</span>
+<span class=w>    </span>│
+<span class=w>    </span>├──<span class=w> </span>group1/<span class=w>         </span><span class=c1># Example subcommand group 1</span>
+<span class=w>    </span>│<span class=w>   </span>├──<span class=w> </span>command1.py<span class=w> </span><span class=c1># Subcommand 1 for group 1</span>
+<span class=w>    </span>│<span class=w>   </span>├──<span class=w> </span>command2.py<span class=w> </span><span class=c1># Subcommand 2 for group 1</span>
+<span class=w>    </span>│<span class=w>   </span>└──<span class=w> </span>...
+<span class=w>    </span>│
+<span class=w>    </span>├──<span class=w> </span>group2/<span class=w>         </span><span class=c1># Example subcommand group 2</span>
+<span class=w>    </span>│<span class=w>   </span>├──<span class=w> </span>command3.py<span class=w> </span><span class=c1># Subcommand 3 for group 2</span>
+<span class=w>    </span>│<span class=w>   </span>├──<span class=w> </span>command4.py<span class=w> </span><span class=c1># Subcommand 4 for group 2</span>
+<span class=w>    </span>│<span class=w>   </span>└──<span class=w> </span>...
+<span class=w>    </span>│
+<span class=w>    </span>└──<span class=w> </span>...
+</code></pre></div><p>In this example, your main script your_script.py would contain the integration of the LazyLoadGroup class, as shown in the previous <span class=caps>README</span> examples. The lazy_load_group.py file contains the implementation of the LazyLoadGroup class.<p>The tasks/ directory is where you can organize your subcommands. Each subcommand group has its own folder (e.g., group1/, group2/) for better organization. Inside each group folder, you have individual subcommand files (e.g., command1.py, command2.py, etc.).<p>This directory structure allows LazyLoadGroup to dynamically load subcommands from the tasks/ directory on demand, creating a modular and efficient command-line interface.<h2 id=the-code><a class=toclink href=#the-code>The code</a></h2><div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>importlib</span>
+<span class=kn>import</span> <span class=nn>logging</span>
+<span class=kn>import</span> <span class=nn>os</span>
+<span class=kn>from</span> <span class=nn>typing</span> <span class=kn>import</span> <span class=n>Callable</span><span class=p>,</span> <span class=n>List</span>
 
-<p>In this example, your main script your_script.py would contain the integration of the LazyLoadGroup class, as shown in
-the previous <span class="caps">README</span> examples. The lazy_load_group.py file contains the implementation of the LazyLoadGroup&nbsp;class.</p>
-<p>The tasks/ directory is where you can organize your subcommands. Each subcommand group has its own folder (e.g.,
-group1/, group2/) for better organization. Inside each group folder, you have individual subcommand files (e.g.,
-command1.py, command2.py,&nbsp;etc.).</p>
-<p>This directory structure allows LazyLoadGroup to dynamically load subcommands from the tasks/ directory on demand,
-creating a modular and efficient command-line&nbsp;interface.</p>
-<h2 id="the-code"><a class="toclink" href="#the-code">The&nbsp;code</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">importlib</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">List</span>
+<span class=kn>import</span> <span class=nn>click</span>
 
-<span class="kn">import</span> <span class="nn">click</span>
-
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class=n>logger</span> <span class=o>=</span> <span class=n>logging</span><span class=o>.</span><span class=n>getLogger</span><span class=p>(</span><span class=vm>__name__</span><span class=p>)</span>
 
 
-<span class="k">class</span> <span class="nc">LazyLoadGroup</span><span class="p">(</span><span class="n">click</span><span class="o">.</span><span class="n">Group</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;A custom Click Group that lazily loads subcommands from specified packages.&quot;&quot;&quot;</span>
+<span class=k>class</span> <span class=nc>LazyLoadGroup</span><span class=p>(</span><span class=n>click</span><span class=o>.</span><span class=n>Group</span><span class=p>):</span>
+<span class=w>    </span><span class=sd>"""A custom Click Group that lazily loads subcommands from specified packages."""</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">commands_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;tasks&quot;</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initialize the LazyLoadGroup.</span>
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>commands_dir</span><span class=p>:</span> <span class=nb>str</span> <span class=o>=</span> <span class=s2>"tasks"</span><span class=p>,</span> <span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>):</span>
+<span class=w>        </span><span class=sd>"""</span>
+<span class=sd>        Initialize the LazyLoadGroup.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            commands_dir (str): Name of the inner package directory with groups..</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">LazyLoadGroup</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_subcommands_loaded</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">commands_dir</span> <span class="o">=</span> <span class="n">commands_dir</span>
+<span class=sd>        Args:</span>
+<span class=sd>            commands_dir (str): Name of the inner package directory with groups..</span>
+<span class=sd>        """</span>
+        <span class=nb>super</span><span class=p>(</span><span class=n>LazyLoadGroup</span><span class=p>,</span> <span class=bp>self</span><span class=p>)</span><span class=o>.</span><span class=fm>__init__</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>**</span><span class=n>kwargs</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_subcommands_loaded</span> <span class=o>=</span> <span class=kc>False</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>commands_dir</span> <span class=o>=</span> <span class=n>commands_dir</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_curr_dirname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">source_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_curr_dirname</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">commands_dir</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">source_package</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_curr_dirname</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">commands_dir</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_curr_dirname</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>dirname</span><span class=p>(</span><span class=vm>__file__</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>source_dir</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_curr_dirname</span><span class=p>,</span> <span class=bp>self</span><span class=o>.</span><span class=n>commands_dir</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>source_package</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>basename</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_curr_dirname</span><span class=p>)</span> <span class=o>+</span> <span class=s2>"."</span> <span class=o>+</span> <span class=bp>self</span><span class=o>.</span><span class=n>commands_dir</span>
 
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;LazyLoadGroup initialized with source_dir: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">source_dir</span><span class="si">}</span><span class="s2">, source_package: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">source_package</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class=n>logger</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span>
+            <span class=sa>f</span><span class=s2>"LazyLoadGroup initialized with source_dir: </span><span class=si>{</span><span class=bp>self</span><span class=o>.</span><span class=n>source_dir</span><span class=si>}</span><span class=s2>, source_package: </span><span class=si>{</span><span class=bp>self</span><span class=o>.</span><span class=n>source_package</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
 
-    <span class="k">def</span> <span class="nf">list_commands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">click</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        List available subcommands.</span>
+    <span class=k>def</span> <span class=nf>list_commands</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>ctx</span><span class=p>:</span> <span class=n>click</span><span class=o>.</span><span class=n>Context</span><span class=p>)</span> <span class=o>-></span> <span class=n>List</span><span class=p>[</span><span class=nb>str</span><span class=p>]:</span>
+<span class=w>        </span><span class=sd>"""</span>
+<span class=sd>        List available subcommands.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            ctx (click.Context): Click context.</span>
+<span class=sd>        Args:</span>
+<span class=sd>            ctx (click.Context): Click context.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            List[str]: List of available subcommands.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_subcommands_loaded</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">load_subcommands</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">LazyLoadGroup</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">list_commands</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+<span class=sd>        Returns:</span>
+<span class=sd>            List[str]: List of available subcommands.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=ow>not</span> <span class=bp>self</span><span class=o>.</span><span class=n>_subcommands_loaded</span><span class=p>:</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>load_subcommands</span><span class=p>(</span><span class=n>ctx</span><span class=p>)</span>
+        <span class=k>return</span> <span class=nb>super</span><span class=p>(</span><span class=n>LazyLoadGroup</span><span class=p>,</span> <span class=bp>self</span><span class=p>)</span><span class=o>.</span><span class=n>list_commands</span><span class=p>(</span><span class=n>ctx</span><span class=p>)</span>
 
-    <span class="k">def</span> <span class="nf">load_subcommands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">click</span><span class="o">.</span><span class="n">Context</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Load subcommands dynamically from specified packages.</span>
+    <span class=k>def</span> <span class=nf>load_subcommands</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>ctx</span><span class=p>:</span> <span class=n>click</span><span class=o>.</span><span class=n>Context</span><span class=p>)</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+<span class=w>        </span><span class=sd>"""</span>
+<span class=sd>        Load subcommands dynamically from specified packages.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            ctx (click.Context): Click context.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">src_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">source_dir</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading subcommands from </span><span class="si">{</span><span class="n">src_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class=sd>        Args:</span>
+<span class=sd>            ctx (click.Context): Click context.</span>
+<span class=sd>        """</span>
+        <span class=n>src_dir</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>source_dir</span>
+        <span class=n>logger</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span><span class=sa>f</span><span class=s2>"Loading subcommands from </span><span class=si>{</span><span class=n>src_dir</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
 
-        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">src_dir</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">):</span>
-                <span class="k">continue</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">src_dir</span><span class="p">,</span> <span class="n">path</span><span class="p">)):</span>
-                <span class="k">continue</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">load_group</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class=k>for</span> <span class=n>path</span> <span class=ow>in</span> <span class=n>os</span><span class=o>.</span><span class=n>listdir</span><span class=p>(</span><span class=n>src_dir</span><span class=p>):</span>
+            <span class=k>if</span> <span class=n>path</span><span class=o>.</span><span class=n>startswith</span><span class=p>(</span><span class=s2>"_"</span><span class=p>)</span> <span class=ow>or</span> <span class=n>path</span><span class=o>.</span><span class=n>startswith</span><span class=p>(</span><span class=s2>"."</span><span class=p>):</span>
+                <span class=k>continue</span>
+            <span class=k>if</span> <span class=ow>not</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>isdir</span><span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>src_dir</span><span class=p>,</span> <span class=n>path</span><span class=p>)):</span>
+                <span class=k>continue</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>load_group</span><span class=p>(</span><span class=n>path</span><span class=p>)</span>
 
-    <span class="k">def</span> <span class="nf">load_group</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[Group:</span><span class="si">{</span><span class="n">group_name</span><span class="si">}</span><span class="s2">] Loading new group&quot;</span><span class="p">)</span>
-        <span class="n">group</span> <span class="o">=</span> <span class="n">click</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">group_name</span><span class="p">)</span>
-        <span class="n">group_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">source_dir</span><span class="p">,</span> <span class="n">group_name</span><span class="p">)</span>
+    <span class=k>def</span> <span class=nf>load_group</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>group_name</span><span class=p>:</span> <span class=nb>str</span><span class=p>):</span>
+        <span class=n>logger</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span><span class=sa>f</span><span class=s2>"[Group:</span><span class=si>{</span><span class=n>group_name</span><span class=si>}</span><span class=s2>] Loading new group"</span><span class=p>)</span>
+        <span class=n>group</span> <span class=o>=</span> <span class=n>click</span><span class=o>.</span><span class=n>Group</span><span class=p>(</span><span class=n>name</span><span class=o>=</span><span class=n>group_name</span><span class=p>)</span>
+        <span class=n>group_dir</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>source_dir</span><span class=p>,</span> <span class=n>group_name</span><span class=p>)</span>
 
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[Group:</span><span class="si">{</span><span class="n">group_name</span><span class="si">}</span><span class="s2">] Looking for commands in path: </span><span class="si">{</span><span class="n">group_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">group_dir</span><span class="p">):</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.py&#39;</span><span class="p">):</span>
-                <span class="k">continue</span>
-            <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;__&quot;</span><span class="p">):</span>
-                <span class="k">continue</span>
-            <span class="n">command_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[Group:</span><span class="si">{</span><span class="n">group_name</span><span class="si">}</span><span class="s2">] Importing a module [</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">]. Looking for function [</span><span class="si">{</span><span class="n">command_name</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+        <span class=n>logger</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span><span class=sa>f</span><span class=s2>"[Group:</span><span class=si>{</span><span class=n>group_name</span><span class=si>}</span><span class=s2>] Looking for commands in path: </span><span class=si>{</span><span class=n>group_dir</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
+        <span class=k>for</span> <span class=n>filename</span> <span class=ow>in</span> <span class=n>os</span><span class=o>.</span><span class=n>listdir</span><span class=p>(</span><span class=n>group_dir</span><span class=p>):</span>
+            <span class=k>if</span> <span class=ow>not</span> <span class=n>filename</span><span class=o>.</span><span class=n>endswith</span><span class=p>(</span><span class=s1>'.py'</span><span class=p>):</span>
+                <span class=k>continue</span>
+            <span class=k>if</span> <span class=n>filename</span><span class=o>.</span><span class=n>startswith</span><span class=p>(</span><span class=s2>"__"</span><span class=p>):</span>
+                <span class=k>continue</span>
+            <span class=n>command_name</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>splitext</span><span class=p>(</span><span class=n>filename</span><span class=p>)[</span><span class=mi>0</span><span class=p>]</span>
+            <span class=n>logger</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span><span class=sa>f</span><span class=s2>"[Group:</span><span class=si>{</span><span class=n>group_name</span><span class=si>}</span><span class=s2>] Importing a module [</span><span class=si>{</span><span class=n>filename</span><span class=si>}</span><span class=s2>]. Looking for function [</span><span class=si>{</span><span class=n>command_name</span><span class=si>}</span><span class=s2>]"</span><span class=p>)</span>
 
-            <span class="n">command</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">import_command</span><span class="p">(</span><span class="n">group_name</span><span class="p">,</span> <span class="n">command_name</span><span class="p">)</span>
-            <span class="n">group</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">command_name</span><span class="p">)</span>
+            <span class=n>command</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>import_command</span><span class=p>(</span><span class=n>group_name</span><span class=p>,</span> <span class=n>command_name</span><span class=p>)</span>
+            <span class=n>group</span><span class=o>.</span><span class=n>add_command</span><span class=p>(</span><span class=n>command</span><span class=p>,</span> <span class=n>name</span><span class=o>=</span><span class=n>command_name</span><span class=p>)</span>
 
-            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[Group:</span><span class="si">{</span><span class="n">group_name</span><span class="si">}</span><span class="s2">] Added command: </span><span class="si">{</span><span class="n">command_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class=n>logger</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span><span class=sa>f</span><span class=s2>"[Group:</span><span class=si>{</span><span class=n>group_name</span><span class=si>}</span><span class=s2>] Added command: </span><span class=si>{</span><span class=n>command_name</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">add_command</span><span class="p">(</span><span class="n">group</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">group_name</span><span class="p">)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>add_command</span><span class=p>(</span><span class=n>group</span><span class=p>,</span> <span class=n>name</span><span class=o>=</span><span class=n>group_name</span><span class=p>)</span>
 
-    <span class="k">def</span> <span class="nf">import_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">command_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Import a module dynamically.</span>
+    <span class=k>def</span> <span class=nf>import_command</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>module_name</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>command_name</span><span class=p>:</span> <span class=nb>str</span><span class=p>):</span>
+<span class=w>        </span><span class=sd>"""</span>
+<span class=sd>        Import a module dynamically.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            module_name (str): Path to the module.</span>
-<span class="sd">            command_name (str): Name of the command.</span>
+<span class=sd>        Args:</span>
+<span class=sd>            module_name (str): Path to the module.</span>
+<span class=sd>            command_name (str): Name of the command.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Callable: Imported module.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">module_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">source_package</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">module_name</span><span class="si">}</span><span class="s1">.</span><span class="si">{</span><span class="n">command_name</span><span class="si">}</span><span class="s1">&#39;</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Importing module: </span><span class="si">{</span><span class="n">module_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">module</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">module_path</span><span class="p">)</span>
-        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Getting a function: </span><span class="si">{</span><span class="n">command_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">function</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="n">command_name</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">function</span>
+<span class=sd>        Returns:</span>
+<span class=sd>            Callable: Imported module.</span>
+<span class=sd>        """</span>
+        <span class=n>module_path</span> <span class=o>=</span> <span class=sa>f</span><span class=s1>'</span><span class=si>{</span><span class=bp>self</span><span class=o>.</span><span class=n>source_package</span><span class=si>}</span><span class=s1>.</span><span class=si>{</span><span class=n>module_name</span><span class=si>}</span><span class=s1>.</span><span class=si>{</span><span class=n>command_name</span><span class=si>}</span><span class=s1>'</span>
+        <span class=n>logger</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span><span class=sa>f</span><span class=s2>"Importing module: </span><span class=si>{</span><span class=n>module_path</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
+        <span class=n>module</span> <span class=o>=</span> <span class=n>importlib</span><span class=o>.</span><span class=n>import_module</span><span class=p>(</span><span class=n>module_path</span><span class=p>)</span>
+        <span class=n>logger</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span><span class=sa>f</span><span class=s2>"Getting a function: </span><span class=si>{</span><span class=n>command_name</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
+        <span class=n>function</span> <span class=o>=</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>module</span><span class=p>,</span> <span class=n>command_name</span><span class=p>)</span>
+        <span class=k>return</span> <span class=n>function</span>
 
-    <span class="k">def</span> <span class="nf">get_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ctx</span><span class="p">:</span> <span class="n">click</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">cmd_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get the command function based on the command name.</span>
+    <span class=k>def</span> <span class=nf>get_command</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>ctx</span><span class=p>:</span> <span class=n>click</span><span class=o>.</span><span class=n>Context</span><span class=p>,</span> <span class=n>cmd_name</span><span class=p>:</span> <span class=nb>str</span><span class=p>)</span> <span class=o>-></span> <span class=n>Callable</span><span class=p>:</span>
+<span class=w>        </span><span class=sd>"""</span>
+<span class=sd>        Get the command function based on the command name.</span>
 
-<span class="sd">        Args:</span>
-<span class="sd">            ctx (click.Context): Click context.</span>
-<span class="sd">            cmd_name (str): Name of the command.</span>
+<span class=sd>        Args:</span>
+<span class=sd>            ctx (click.Context): Click context.</span>
+<span class=sd>            cmd_name (str): Name of the command.</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            Callable: The command function.</span>
+<span class=sd>        Returns:</span>
+<span class=sd>            Callable: The command function.</span>
 
-<span class="sd">        Raises:</span>
-<span class="sd">            click.ClickException: Raised if the command is not found.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">cmd_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">load_group</span><span class="p">(</span><span class="n">cmd_name</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">commands</span><span class="p">[</span><span class="n">cmd_name</span><span class="p">]</span>
-
-
-<span class="nd">@click</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="bp">cls</span><span class="o">=</span><span class="n">LazyLoadGroup</span><span class="p">,</span> <span class="n">no_args_is_help</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">cli</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Main command entry point.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-</code></pre></div>
-</article>
-        </div>
-    </div>
-</div>
+<span class=sd>        Raises:</span>
+<span class=sd>            click.ClickException: Raised if the command is not found.</span>
+<span class=sd>        """</span>
+        <span class=k>if</span> <span class=n>cmd_name</span> <span class=ow>not</span> <span class=ow>in</span> <span class=bp>self</span><span class=o>.</span><span class=n>commands</span><span class=p>:</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>load_group</span><span class=p>(</span><span class=n>cmd_name</span><span class=p>)</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>commands</span><span class=p>[</span><span class=n>cmd_name</span><span class=p>]</span>
 
 
-<footer class="footer dark-bg mt-auto container-fluid up-shadow">
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-            <hr class="little hide">
-                <span>
-
-                    <a href="https://kanguros.github.io/index.html" class="px-2">
-                        Home
-                    </a>
-
-
-                    <a href="https://kanguros.github.io/posts.html" class="px-2">
-                        Posts
-                    </a>
-
-
-                    <a href="https://kanguros.github.io/notes.html" class="px-2">
-                        Notes
-                    </a>
-
-
-                    <a href="https://kanguros.github.io/resume.html" class="px-2">
-                        About
-                    </a>
-
-
-                    <a href="https://kanguros.github.io/tags.html" class="px-2">
-                        Tags
-                    </a>
-
-
-                    <a href="https://kanguros.github.io/archive.html" class="px-2">
-                        Archive
-                    </a>
-
-                </span>
-            <hr class="little">
-            <p class="copyright">
-                &copy; Blog powered by <a href="http://getpelican.com">Pelican</a>,
-                on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
-                theme.
-            </p>
-
-
-        </div>
-    </div>
-    </div>
-</footer>
-
-<!-- JS Scripts -->
-<script src="https://kanguros.github.io/theme/js/jquery.min.js"></script>
-<script src="https://kanguros.github.io/theme/js/bootstrap.min.js"></script>
-<script src="https://kanguros.github.io/theme/js/clean-blog.js"></script>
-</body>
-
-</html>
+<span class=nd>@click</span><span class=o>.</span><span class=n>group</span><span class=p>(</span><span class=bp>cls</span><span class=o>=</span><span class=n>LazyLoadGroup</span><span class=p>,</span> <span class=n>no_args_is_help</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+<span class=k>def</span> <span class=nf>cli</span><span class=p>()</span> <span class=o>-></span> <span class=kc>None</span><span class=p>:</span>
+<span class=w>    </span><span class=sd>"""</span>
+<span class=sd>    Main command entry point.</span>
+<span class=sd>    """</span>
+</code></pre></div></article></div></div></div><footer class="footer dark-bg mt-auto container-fluid up-shadow"><div class=row><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><hr class="little hide"><span> <a class=px-2 href=https://kanguros.github.io/index.html> Home </a> <a class=px-2 href=https://kanguros.github.io/posts.html> Posts </a> <a class=px-2 href=https://kanguros.github.io/notes/index.html> Notes </a> <a class=px-2 href=https://kanguros.github.io/resume.html> About </a> <a class=px-2 href=https://kanguros.github.io/tags/index.html> Tags </a> <a class=px-2 href=https://kanguros.github.io/archive.html> Archive </a> </span><hr class=little><p class=copyright>© Blog powered by <a href=http://getpelican.com>Pelican</a>, on modified <a href=https://github.com/BlackrockDigital/startbootstrap-clean-blog>Clean Blog</a> theme.</div></div></footer><script src=https://kanguros.github.io/theme/js/jquery.min.js></script><script src=https://kanguros.github.io/theme/js/bootstrap.min.js></script><script src=https://kanguros.github.io/theme/js/clean-blog.js></script>
