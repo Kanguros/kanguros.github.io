@@ -15,7 +15,7 @@ PLUGINS = [
     'readtime',
     'sitemap',
     'neighbors',
-    'minify ',
+    # 'minify',  In publishconf.py
 ]
 
 # readtime
@@ -37,9 +37,7 @@ SITEINFO = "Welcome to my digital notepad, a space where I share my notes and th
 
 THEME = 'theme'
 THEME_STATIC_DIR = THEME
-# THEME_DEFAULT_HEADER = "home-bg.png"
-THEME_DEFAULT_HEADER = "home-bg.jpg"
-COLOR_SCHEME_CSS = "monokai.css"
+COLOR_SCHEME_CSS = "darkly.css"
 SUMMARY_END_SUFFIX = ''
 TYPOGRIFY = True
 DIRECT_TEMPLATES = [
@@ -82,7 +80,7 @@ ARTICLE_ORDER_BY = 'reversed-date'
 
 DRAFT_URL = 'notes/{slug}.html'
 DRAFT_SAVE_AS = 'notes/{slug}.html'
-NOTES_URL = 'notes.html'
+NOTES_URL = 'notes/index.html'
 POSTS_URL = 'posts.html'
 
 PAGE_PATHS = ['pages']
@@ -91,7 +89,7 @@ PAGE_SAVE_AS = '{slug}/index.html'
 
 TAG_URL = 'tags/{slug}/'
 TAG_SAVE_AS = 'tags/{slug}/index.html'
-TAGS_SAVE_AS = 'tags.html'
+TAGS_SAVE_AS = 'tags/index.html'
 
 CATEGORY_URL = 'category/{slug}/'
 CATEGORY_SAVE_AS = 'category/{slug}/index.html'

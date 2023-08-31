@@ -7,13 +7,13 @@
         </h1>
     </a>
     <div class="container text-start p-0">
-        <div class="row row-cols-2 align-items-center justify-content-between">
-            <div class="col-8 meta-element note-meta">
-                <div class="pb-2">
+        <div class="row row-cols-2 align-items-start justify-content-between">
+            <div class="col-8 meta-element note-meta d-flex flex-wrap flex-lg-nowrap">
+                <div class="pb-3 pe-4 nobr">
                     <i class="bi bi-calendar"></i>
                     {{ article.locale_date }}
                 </div>
-                <div class="tags pb-3">
+                <div class="tags pb-3 pe-2">
                     {% for t in article.tags %}
                     <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark" title="{{ t }}">
                         #{{ t }}
@@ -23,8 +23,9 @@
             </div>
 
             <div class="col-4 solid-link text-end">
-                <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
-                   title="{{ article.title|striptags }}">
+                <a href="{{ SITEURL }}/{{ article.url }}"
+                   rel="bookmark" title="{{ article.title|striptags }}"
+                   class="nobr">
                     Read more<i class="bi bi-arrow-right-short"></i>
                 </a>
             </div>
@@ -66,6 +67,35 @@
             </a>
         </div>
 
+    </div>
+</div>
+<hr>
+
+{% endmacro %}
+
+{% macro block_article(article) %}
+
+<div class="post-preview">
+    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
+        <h2 class="post-title">
+            {{ article.title }}
+        </h2>
+    </a>
+    <div class="d-flex justify-content-start meta-element">
+
+        <i class="bi bi-calendar"></i> {{ article.locale_date }}
+        <i class="bi bi-dot"></i>
+        <i class="bi bi-book"></i> {{ article.readtime_string }}
+    </div>
+    <p class="article-summary">
+        {% if article.has_summary %}
+        {{ article.summary }}
+        {% elif article.summary %}
+        {{ article.summary|striptags|truncate(200) }}
+        {% endif %}
+    </p>
+    <div class="d-flex justify-content-between">
+        {{ tags_list(article.tags) }}
     </div>
 </div>
 <hr>

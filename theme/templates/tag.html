@@ -2,9 +2,9 @@
 {% extends "index.html" %}
 
 {% block title %}
-{{ SITENAME }} - #{{ tag }}
+{{ SITENAME }} - #{{ tag.name }}
 {% endblock %}
 
 {% block header %}
-{{ page_header("Tag {{ tag }}", "tags/{{ tag }}", "All posts with #{{ tag }} tag.") }}
+{{ page_header("#" +  tag.name , tag.url , "All posts with #" +  tag.name  + " tag.") }}
 {% endblock header %}

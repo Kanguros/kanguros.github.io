@@ -7,14 +7,20 @@
 
 
 {% block header %}
-{{ page_header("Archives", "archives.html", "All posts as date-time list.") }}
+{{ page_header("Archives", ARCHIVES_SAVE_AS, "All posts as date-time list.") }}
 {% endblock header %}
 
 {% block content %}
 <dl>
     {% for article in dates %}
-    <dt>{{ article.locale_date }}</dt>
-    <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+    <dt>
+        {{ article.locale_date }}
+    </dt>
+    <dd>
+        <a href="{{ SITEURL }}/{{ article.url }}">
+            {{ article.title }}
+        </a>
+    </dd>
     {% endfor %}
     <hr>
 </dl>

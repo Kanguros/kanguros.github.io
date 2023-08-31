@@ -151,6 +151,12 @@ div.highlight > button:focus {
 text-decoration: underline;
 }
 
+.wrap > pre {
+
+text-wrap: wrap;
+
+}
+
 
  code {
      color: var(--code-font-color);
@@ -285,7 +291,7 @@ padding: 1rem;
 
      .intro-header .heading h1 {
           line-height: 120px;
-         font-size: 100px;
+         font-size: 85px;
          text-decoration: underline;
     }
 
@@ -392,10 +398,13 @@ margin: 0.3rem 0 !important;
 }
 
 
-.meta-elements i {
-margin-right: 0.2em;
+.meta-element > i {
+margin-right: 0.3em;
 }
 
+.nobr {
+white-space: nowrap
+}
 
 .meta-link a:hover,
 .meta-link a:focus {

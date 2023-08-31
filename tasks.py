@@ -88,32 +88,22 @@ def reserve(c, d=False):
 
 
 @task
-def reg(c, d=False, o=False):
-    """Clean and automatically regenerate site upon file modification"""
-    debug = "--verbose --debug" if d else ""
-    clean(c)
-    if o:
-        # Open site in default browser
-        import webbrowser
-        webbrowser.open("http://{host}:{port}".format(**CONFIG))
-
-    pelican_run('{debug} -r -s {settings_base}'.format(**CONFIG, debug=debug))
-
-
-@task
-def live(c, d=False, v=False):
+def l(c, d=False, v=False):
     """Automatically reload browser tab upon file modification."""
     from livereload import Server
-    debug = "--debug" if d else ""
-    verbose = "--verbose" if v else ""
+    debug = " --debug " if d else d
+    verbose = " --verbose" if v else v
 
-    debug = " ".join([debug, verbose])
-
-    def cached_build(inner_debug):
+    def cached_build(inner_debug="", inner_verbose=""):
         cmd = '-s {settings_base} -e CACHE_CONTENT=true LOAD_CONTENT_CACHE=true'
-        pelican_run(cmd.format(**CONFIG, debug=inner_debug))
+        # if inner_debug:
+        #     cmd = inner_debug + cmd
+        # if inner_verbose:
+        #     cmd = inner_verbose + cmd
+        # print(cmd)
+        pelican_run(cmd.format(**CONFIG))
 
-    cached_build(debug)
+    cached_build(debug, verbose)
     server = Server()
     theme_path = SETTINGS['THEME']
     watched_globs = [

@@ -19,6 +19,7 @@ pelican-neighbors = "^1.2.0"
 pelican-sitemap = "^1.1.0"
 pelican-readtime = "^0.2.0"
 pelican-minify = "^2.0.0"
+Markdown = "^3.4.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
