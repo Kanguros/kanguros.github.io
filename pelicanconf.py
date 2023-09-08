@@ -61,6 +61,7 @@ PAGINATED_TEMPLATES = {
 
 STATIC_PATHS = [
     'images',
+    'code',
     'slides',
     'extra/.nojekyll',
 
@@ -126,12 +127,19 @@ MARKDOWN = {
         'markdown.extensions.attr_list': {},
         'markdown.extensions.admonition': {},
         'markdown.extensions.codehilite': {
-            'css_class': 'highlight'},
+            'css_class': 'highlight'
+        },
         'markdown.extensions.toc': {
             'permalink': 'false',
-            'anchorlink': 'true',
+            'anchorlink': 'true'
         },
         'pymdownx.progressbar': {},
+        'pymdownx.blocks.tab': {},
+        'pymdownx.snippets': {
+            'check_paths': 'true',
+            'base_path': "content"
+        },
+        'pymdownx.magiclink': {},
     },
     'output_format': 'html5'
 }

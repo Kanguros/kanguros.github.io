@@ -23,7 +23,9 @@ Underline text
 Another quote
 
 > This is multiline quote.
-> It spans on few lines
+> It spans on few lines.
+> at least should be.
+> It has to be long enough.
 
 ## Code block
 
@@ -49,20 +51,24 @@ def clean(c):
 Syntax:
 
 ```markdown
-!!! danger
+/// danger
 This is admonition type: `danger` without title.
+///
 
-!!! tip "Custom tip title"
+/// tip | Custom tip title
 This is admonition type: `tip` with custom title.
+///
 ```
 
 Available types: `danger`, `error`, `warning`, `caution`, `attention`, `important`, `note`, `hint`, `tip`
 
-!!! danger
+/// danger
 This is admonition type: `danger` without title.
+///
 
-!!! tip "Custom tip title"
+/// tip "Custom tip title"
 This is admonition type: `tip` with custom title.
+///
 
 # Progress Bars
 
@@ -76,10 +82,15 @@ This is admonition type: `tip` with custom title.
 ```
 
 [=0% "0%"]
+
 [=50% "50%"]
+
 [=100% "100%"]
+
 [=0%]{: .thin}
+
 [=50%]{: .thin}
+
 [=100%]{: .thin}
 
 # Article

@@ -9,6 +9,29 @@ Summary: Small setup for testing HTTP requests using pytest
 This module provides a pytest fixture to mock HTTP requests.
 It provide custom responses based on response files.
 
+## Response files 
+
+Response files are organized in the 'tests/responses' directory.
+
+Each response file is placed within a subdirectory named after the URI of the URL being tested. 
+This ensures responses are matched accurately with test URLs.
+
+### File naming 
+
+Response files should be named based on the following convention:
+
+``` .text
+HTTP_METHOD_query_parameters.txt
+```
+
+- HTTP_METHOD represents the HTTP method to be mocked (e.g., GET, POST).
+- query_parameters represent query parameters, separated by underscores (_) if there are multiple.
+
+## Running Tests
+
+When a test function is executed, it uses the `http_request_fixture` to intercept HTTP requests and 
+It return custom responses based on the corresponding response file.
+
 ## Adding new response
 
 1. Go to the 'tests/responses' directory.
@@ -20,7 +43,7 @@ It provide custom responses based on response files.
    query_parameters with the query parameters, separated by underscores if multiple.
 4. Open the file and format it like this:
 
-```text
+``` text
 # status code: STATUS_CODE
 # reason: REASON
 BODY
@@ -32,11 +55,11 @@ BODY
     - `BODY` with the response content to mock.
 6. Save the file.
 
+
 ### Example
 
-#### test_example.py
 
-```python
+``` python
 import pytest
 import requests
 
@@ -63,116 +86,27 @@ def test_http_request(http_request_fixture):
 
 ```
 
-#### Mock file path
 
+**Mock file path**
+
+``` .shell
+|- tests
+   |- responses
+      |- path_to_resource
+         |- param1_value1_param2_value2.txt
 ```
-- tests
--- responses
---- path_to_resource_param1_value1_param2_value2.txt
-```
 
-#### Mock file content
+**Mock file content**
 
-```text
+``` text
 # status code: 404
 # reason: Not Found
 Response body content for 404 status code
 ```
 
+
 ## Code
 
-```python
-import os
-from typing import List, Tuple
-from urllib.parse import urlparse, parse_qs
-
-import pytest
-import requests
-from requests import Response
-
-
-def get_response_directory(url: str) -> str:
-    """
-    Get the directory path for response files based on the URL.
-    """
-    parsed_url = urlparse(url)
-    uri = parsed_url.path
-    return os.path.join("tests", "responses", uri)
-
-
-def get_response_file(response_directory: str, method: str, query_params: dict) -> str:
-    """
-    Get the response file path based on the response directory, method type, and query parameters.
-    """
-    query_str = "_".join([f"{param}_{value}" for param, values in query_params.items() for value in values])
-    return os.path.join(response_directory, method, f"{query_str}.txt")
-
-
-def load_response_content(response_file: str) -> List[str]:
-    """
-    Load the content of a response file.
-    """
-    with open(response_file, "r") as file:
-        return file.readlines()
-
-
-def extract_response_info(content_lines: List[str]) -> Tuple[int, str, str]:
-    """
-    Extract response information from response content lines.
-    """
-    status_code = 200
-    reason = ""
-    body = []
-
-    for index, line in enumerate(content_lines):
-        line = line.strip()
-        if not line.startswith("# "):
-            body = content_lines[index:]
-            break
-
-        line_parts = line.split(":", maxsplit=1)
-        line_key = line_parts[0]
-        line_value = line_parts[1].strip()
-
-        if "status_code" in line_key:
-            status_code = int(line_value)
-        elif "reason" in line_key:
-            reason = line_value
-
-    return status_code, reason, "\n".join(body)
-
-
-def create_mock_response(status_code: int, reason: str, body: str) -> Response:
-    """
-    Create a mocked HTTP response.
-    """
-    response = Response()
-    response.status_code = status_code
-    response.reason = reason
-    response._content = body.encode("utf-8")
-    return response
-
-
-@pytest.fixture
-def http_request_fixture(monkeypatch):
-    """
-    Pytest fixture to mock HTTP requests and provide custom responses based on response files.
-    """
-
-    def mock_request(*args, **kwargs):
-        url = args[1]
-        method = args[0]
-        query_params = parse_qs(urlparse(url).query)
-
-        response_directory = get_response_directory(url)
-        response_file = get_response_file(response_directory, method, query_params)
-
-        content_lines = load_response_content(response_file)
-        status_code, reason, body = extract_response_info(content_lines)
-
-        return create_mock_response(status_code, reason, body)
-
-    monkeypatch.setattr(requests.sessions.Session, "request", mock_request)
-
-
+``` { .python title="title test" }
+--8<-- "code/pytests_requests.py"
 ```
