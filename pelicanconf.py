@@ -6,8 +6,8 @@ RELATIVE_URLS = True
 TIMEZONE = 'Europe/Warsaw'
 AUTHOR = 'Kamil Urbanek'
 DEFAULT_LANG = 'en'
-DEFAULT_DATE_FORMAT = "%d/%m/%Y"
-LOCALE = ('en_US',)
+DEFAULT_DATE_FORMAT = "%Y-%m-%d"
+# LOCALE = ('en_US',)
 
 PLUGINS = [
     'yaml_metadata',
@@ -72,7 +72,7 @@ EXTRA_PATH_METADATA = {
 
 # Paths and other files
 PATH = 'content'
-OUTPUT_PATH = 'local_output/'
+OUTPUT_PATH = '_output/'
 
 ARTICLE_PATHS = ['posts', 'notes']
 ARTICLE_URL = 'posts/{slug}.html'

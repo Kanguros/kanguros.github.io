@@ -1,5 +1,5 @@
 Title: Diet for woman by ChatGPT
-Date: 24/08/2023    
+Date: 2023-08-24     
 Status: draft  
 Tags: ai, chatgpt  
 Summary: Generated diet for a woman by ChatGPT.  

@@ -1,5 +1,5 @@
 Title: Poetry tree  
-Date: 10/07/2023  
+Date: 2023-07-10    
 Tags: notes, poetry, graph  
 Status: draft  
 Summary: Poetry tree as graph.  

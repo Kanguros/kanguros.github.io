@@ -1,5 +1,5 @@
 Title: Word file modifier  
-Date: 08/08/2023  
+Date: 2023-08-08   
 Tags: python  
 Status: draft  
  

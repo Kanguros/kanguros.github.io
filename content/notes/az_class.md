@@ -1,5 +1,5 @@
 Title: Azure Devops Class
-Date: 01/09/2023  
+Date: 2023-09-01
 Tags: azure-devops, python  
 Status: draft  
 Summary: Short wrapper for Azure Devops API. Based on `azure-core`.

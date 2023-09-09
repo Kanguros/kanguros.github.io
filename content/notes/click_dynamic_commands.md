@@ -1,5 +1,5 @@
 Title: Dynamic Click  
-Date: 10/07/2023  
+Date: 2023-07-10  
 Tags: notes, click  
 Status: draft  
 Summary: Dynamic Click groups and commands.  

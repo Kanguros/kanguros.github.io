@@ -10,10 +10,10 @@
 {% endblock header %}
 
 {% block content %}
-{% for article in drafts %}
+
+{% for article in drafts|sort(attribute="date") %}
 {{ small_note(article) }}
 {% endfor %}
-
 
 {% endblock content %}
 

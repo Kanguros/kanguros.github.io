@@ -1,5 +1,5 @@
 Title: Keywords with ChatGPT
-Date: 20/06/2023
+Date: 2023-06-20
 Tags: ai
 Summary: I playaround with ChatGPT and create a glossary of IT keywords. Take a look.
 

@@ -1,5 +1,5 @@
 Title: Requests using pytest
-Date: 02/09/2023  
+Date: 2023-09-02     
 Tags: pytest, requests, python  
 Status: draft  
 Summary: Small setup for testing HTTP requests using pytest

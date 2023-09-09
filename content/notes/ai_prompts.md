@@ -1,5 +1,5 @@
 Title: AI prompts  
-Date: 4/07/2023   
+Date: 2023-07-04
 Tags: ai, prompts  
 Status: draft  
 Summary: A list of useful prompts for AI generators.   
