@@ -11,7 +11,7 @@
 
 {% block content %}
 
-{% for article in drafts|sort(attribute="date") %}
+{% for article in drafts|sort(attribute="date", reverse=True) %}
 {{ small_note(article) }}
 {% endfor %}
 

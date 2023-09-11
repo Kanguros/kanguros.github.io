@@ -1,6 +1,6 @@
-{% macro small_note(article) %}
+{% macro small_note(article, style="") %}
 
-<div class="post-preview">
+<div class="post-preview {{style}}">
     <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
         <h1 class="post-title">
             {{ article.title }}

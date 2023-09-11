@@ -7,7 +7,6 @@ TIMEZONE = 'Europe/Warsaw'
 AUTHOR = 'Kamil Urbanek'
 DEFAULT_LANG = 'en'
 DEFAULT_DATE_FORMAT = "%Y-%m-%d"
-# LOCALE = ('en_US',)
 
 PLUGINS = [
     'yaml_metadata',
@@ -32,7 +31,7 @@ HTML_MIN = True
 INLINE_CSS_MIN = True
 INLINE_JS_MIN = True
 
-SITENAME = "Kamil's Scratchpad"
+SITENAME = "Code Scratchpad"
 SITEINFO = "Welcome to my digital notepad, a space where I share my notes and thoughts on programming, pipelines, automation, and an array of other, yet to be discovered, buzzwords."
 
 THEME = 'theme'
