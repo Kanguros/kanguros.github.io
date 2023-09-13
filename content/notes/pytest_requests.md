@@ -107,6 +107,13 @@ Response body content for 404 status code
 
 ## Code
 
-``` { .python title="title test" }
---8<-- "code/pytests_requests.py"
+``` { .python }
+--8<-- "code/pytest_requests.py"
+```
+
+
+## Extracting Responses from actual API
+
+``` { .python }
+--8<-- "code/pytest_requests_extract.py"
 ```
