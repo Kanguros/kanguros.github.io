@@ -98,22 +98,20 @@ def test_http_request(http_request_fixture):
 
 **Mock file content**
 
-``` text
-# status code: 404
-# reason: Not Found
-Response body content for 404 status code
+``` { .text }
+--8<-- "code/pytest_requests/mock_file.txt"
 ```
 
 
 ## Code
 
 ``` { .python }
---8<-- "code/pytest_requests.py"
+--8<-- "code/pytest_requests/tests.py"
 ```
 
 
 ## Extracting Responses from actual API
 
 ``` { .python }
---8<-- "code/pytest_requests_extract.py"
+--8<-- "code/pytest_requests/extract.py"
 ```

@@ -1,15 +1,16 @@
 import os
 from urllib.parse import urlparse, parse_qs
 
+from requests import Response
+
 
 class ApiWrapper:
     def __init__(self):
         # Initialize your API client here
         pass
 
-    def get_data(self):
-        # Implement your method to get data here
-        return {"data": "example_data"}
+    def get_data(self) -> Response:
+        pass
 
 
 def execute_and_save_responses(api: ApiWrapper):
@@ -28,14 +29,12 @@ def execute_and_save_responses(api: ApiWrapper):
             response = method()  # Call the method without arguments
 
         # Convert the response data to a string for saving
-        response_content = str(response.content)
-
+        file_content = prepare_file_content(response)
         # Get the URL associated with the method (for response file path)
         request_url = response.request.url
 
-        # Save the response in the required format
         response_file_path = get_response_file(request_url)
-        save_response(response_file_path, response_content)
+        save_response(response_file_path, file_content)
 
         responses[method.__name__] = response_file_path
 
@@ -50,6 +49,15 @@ def get_response_file(url: str) -> str:
 
     query_str = "_".join([f"{param}_{value}" for param, values in query_params.items() for value in values])
     return os.path.join("tests", "responses", "_".join(path_parts), f"{method}_{query_str}.txt")
+
+
+def prepare_file_content(response: Response):
+    content = f"""# status_code: {response.status_code}
+    # reason: {response.reson}
+    {response.content}
+    
+    """
+    return content
 
 
 def save_response(file_path: str, content: str):

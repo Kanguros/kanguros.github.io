@@ -501,8 +501,8 @@ color: var(--fading-color) !important;
      font-size: 17px;
 }
  article {
-     margin-top: 0.2rem;
-     margin-bottom: 3rem;
+     margin-top: 0.1rem;
+     margin-bottom: 5rem;
 }
  article hr {
      max-width: 20%;
