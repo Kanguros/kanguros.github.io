@@ -30,7 +30,7 @@ BODY
 <span class=w>   </span><span class=p>|</span>-<span class=w> </span>responses
 <span class=w>      </span><span class=p>|</span>-<span class=w> </span>path_to_resource
 <span class=w>         </span><span class=p>|</span>-<span class=w> </span>param1_value1_param2_value2.txt
-</code></pre></div><p><strong>Mock file content</strong><div class=highlight><pre><span></span><code># status code: 404
+</code></pre></div><p><strong>Mock file content</strong><div class=highlight><pre><span></span><code># status_code: 404
 # reason: Not Found
 Response body content for 404 status code
 </code></pre></div><h2 id=code><a class=toclink href=#code>Code</a></h2><div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>os</span>
@@ -114,4 +114,76 @@ Response body content for 404 status code
         <span class=k>return</span> <span class=n>response</span>
 
     <span class=n>monkeypatch</span><span class=o>.</span><span class=n>setattr</span><span class=p>(</span><span class=n>requests</span><span class=o>.</span><span class=n>sessions</span><span class=o>.</span><span class=n>Session</span><span class=p>,</span> <span class=s2>"request"</span><span class=p>,</span> <span class=n>mock_request</span><span class=p>)</span>
+</code></pre></div><h2 id=extracting-responses-from-actual-api><a class=toclink href=#extracting-responses-from-actual-api>Extracting Responses from actual <span class=caps>API</span></a></h2><div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>os</span>
+<span class=kn>from</span> <span class=nn>urllib.parse</span> <span class=kn>import</span> <span class=n>urlparse</span><span class=p>,</span> <span class=n>parse_qs</span>
+
+<span class=kn>from</span> <span class=nn>requests</span> <span class=kn>import</span> <span class=n>Response</span>
+
+
+<span class=k>class</span> <span class=nc>ApiWrapper</span><span class=p>:</span>
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+        <span class=c1># Initialize your API client here</span>
+        <span class=k>pass</span>
+
+    <span class=k>def</span> <span class=nf>get_data</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span> <span class=o>-></span> <span class=n>Response</span><span class=p>:</span>
+        <span class=k>pass</span>
+
+
+<span class=k>def</span> <span class=nf>execute_and_save_responses</span><span class=p>(</span><span class=n>api</span><span class=p>:</span> <span class=n>ApiWrapper</span><span class=p>):</span>
+    <span class=n>responses</span> <span class=o>=</span> <span class=p>{}</span>
+
+    <span class=c1># Define the methods to execute with arguments</span>
+    <span class=n>methods_to_execute</span> <span class=o>=</span> <span class=p>{</span>
+        <span class=n>api</span><span class=o>.</span><span class=n>get_data</span><span class=p>:</span> <span class=kc>None</span><span class=p>,</span>  <span class=c1># No arguments</span>
+        <span class=c1># Add more methods with their respective arguments as needed</span>
+    <span class=p>}</span>
+
+    <span class=k>for</span> <span class=n>method</span><span class=p>,</span> <span class=n>args</span> <span class=ow>in</span> <span class=n>methods_to_execute</span><span class=o>.</span><span class=n>items</span><span class=p>():</span>
+        <span class=k>if</span> <span class=n>args</span><span class=p>:</span>
+            <span class=n>response</span> <span class=o>=</span> <span class=n>method</span><span class=p>(</span><span class=n>args</span><span class=p>)</span>  <span class=c1># Call the method with arguments</span>
+        <span class=k>else</span><span class=p>:</span>
+            <span class=n>response</span> <span class=o>=</span> <span class=n>method</span><span class=p>()</span>  <span class=c1># Call the method without arguments</span>
+
+        <span class=c1># Convert the response data to a string for saving</span>
+        <span class=n>file_content</span> <span class=o>=</span> <span class=n>prepare_file_content</span><span class=p>(</span><span class=n>response</span><span class=p>)</span>
+        <span class=c1># Get the URL associated with the method (for response file path)</span>
+        <span class=n>request_url</span> <span class=o>=</span> <span class=n>response</span><span class=o>.</span><span class=n>request</span><span class=o>.</span><span class=n>url</span>
+
+        <span class=n>response_file_path</span> <span class=o>=</span> <span class=n>get_response_file</span><span class=p>(</span><span class=n>request_url</span><span class=p>)</span>
+        <span class=n>save_response</span><span class=p>(</span><span class=n>response_file_path</span><span class=p>,</span> <span class=n>file_content</span><span class=p>)</span>
+
+        <span class=n>responses</span><span class=p>[</span><span class=n>method</span><span class=o>.</span><span class=vm>__name__</span><span class=p>]</span> <span class=o>=</span> <span class=n>response_file_path</span>
+
+    <span class=k>return</span> <span class=n>responses</span>
+
+
+<span class=k>def</span> <span class=nf>get_response_file</span><span class=p>(</span><span class=n>url</span><span class=p>:</span> <span class=nb>str</span><span class=p>)</span> <span class=o>-></span> <span class=nb>str</span><span class=p>:</span>
+    <span class=n>parsed_url</span> <span class=o>=</span> <span class=n>urlparse</span><span class=p>(</span><span class=n>url</span><span class=p>)</span>
+    <span class=n>path_parts</span> <span class=o>=</span> <span class=n>parsed_url</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>strip</span><span class=p>(</span><span class=s2>"/"</span><span class=p>)</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>'/'</span><span class=p>)</span>
+    <span class=n>method</span> <span class=o>=</span> <span class=n>parsed_url</span><span class=o>.</span><span class=n>scheme</span>
+    <span class=n>query_params</span> <span class=o>=</span> <span class=n>parse_qs</span><span class=p>(</span><span class=n>parsed_url</span><span class=o>.</span><span class=n>query</span><span class=p>)</span>
+
+    <span class=n>query_str</span> <span class=o>=</span> <span class=s2>"_"</span><span class=o>.</span><span class=n>join</span><span class=p>([</span><span class=sa>f</span><span class=s2>"</span><span class=si>{</span><span class=n>param</span><span class=si>}</span><span class=s2>_</span><span class=si>{</span><span class=n>value</span><span class=si>}</span><span class=s2>"</span> <span class=k>for</span> <span class=n>param</span><span class=p>,</span> <span class=n>values</span> <span class=ow>in</span> <span class=n>query_params</span><span class=o>.</span><span class=n>items</span><span class=p>()</span> <span class=k>for</span> <span class=n>value</span> <span class=ow>in</span> <span class=n>values</span><span class=p>])</span>
+    <span class=k>return</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=s2>"tests"</span><span class=p>,</span> <span class=s2>"responses"</span><span class=p>,</span> <span class=s2>"_"</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>path_parts</span><span class=p>),</span> <span class=sa>f</span><span class=s2>"</span><span class=si>{</span><span class=n>method</span><span class=si>}</span><span class=s2>_</span><span class=si>{</span><span class=n>query_str</span><span class=si>}</span><span class=s2>.txt"</span><span class=p>)</span>
+
+
+<span class=k>def</span> <span class=nf>prepare_file_content</span><span class=p>(</span><span class=n>response</span><span class=p>:</span> <span class=n>Response</span><span class=p>):</span>
+    <span class=n>content</span> <span class=o>=</span> <span class=sa>f</span><span class=s2>"""# status_code: </span><span class=si>{</span><span class=n>response</span><span class=o>.</span><span class=n>status_code</span><span class=si>}</span>
+<span class=s2>    # reason: </span><span class=si>{</span><span class=n>response</span><span class=o>.</span><span class=n>reson</span><span class=si>}</span>
+<span class=s2>    </span><span class=si>{</span><span class=n>response</span><span class=o>.</span><span class=n>content</span><span class=si>}</span>
+
+<span class=s2>    """</span>
+    <span class=k>return</span> <span class=n>content</span>
+
+
+<span class=k>def</span> <span class=nf>save_response</span><span class=p>(</span><span class=n>file_path</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>content</span><span class=p>:</span> <span class=nb>str</span><span class=p>):</span>
+    <span class=n>os</span><span class=o>.</span><span class=n>makedirs</span><span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>dirname</span><span class=p>(</span><span class=n>file_path</span><span class=p>),</span> <span class=n>exist_ok</span><span class=o>=</span><span class=kc>True</span><span class=p>)</span>
+    <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>file_path</span><span class=p>,</span> <span class=s2>"w"</span><span class=p>)</span> <span class=k>as</span> <span class=n>file</span><span class=p>:</span>
+        <span class=n>file</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=n>content</span><span class=p>)</span>
+
+
+<span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s2>"__main__"</span><span class=p>:</span>
+    <span class=n>api</span> <span class=o>=</span> <span class=n>ApiWrapper</span><span class=p>()</span>
+    <span class=n>responses</span> <span class=o>=</span> <span class=n>execute_and_save_responses</span><span class=p>(</span><span class=n>api</span><span class=p>)</span>
+    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>"Responses saved successfully! </span><span class=si>{</span><span class=n>responses</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
 </code></pre></div></article></div></div></div><footer class="footer dark-bg mt-auto container-fluid up-shadow"><div class=row><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><hr class="little hide"><span> <a class=px-2 href=https://kanguros.github.io/index.html> Home </a> <a class=px-2 href=https://kanguros.github.io/posts.html> Posts </a> <a class=px-2 href=https://kanguros.github.io/notes/index.html> Notes </a> <a class=px-2 href=https://kanguros.github.io/resume.html> About </a> <a class=px-2 href=https://kanguros.github.io/tags/index.html> Tags </a> <a class=px-2 href=https://kanguros.github.io/archive.html> Archive </a> </span><hr class=little><p class=copyright>© Blog powered by <a href=http://getpelican.com>Pelican</a>, on modified <a href=https://github.com/BlackrockDigital/startbootstrap-clean-blog>Clean Blog</a> theme.</div></div></footer><script src=https://kanguros.github.io/theme/js/jquery.min.js></script><script src=https://kanguros.github.io/theme/js/bootstrap.min.js></script><script src=https://kanguros.github.io/theme/js/clean-blog.js></script>
