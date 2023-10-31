@@ -17,18 +17,10 @@
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/{{ COLOR_SCHEME_CSS }}" rel="stylesheet">
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/clean-blog.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
     {% endblock head %}
 
     {% block opengraph %}
-    {% for LOC in LOCALE %}
-    <meta property="og:locale" content="{{ LOC }}">
-    {% endfor %}
+    <meta property="og:locale" content="{{ DEFAULT_LANG }}">
     <meta property="og:site_name" content="{{ SITENAME }}">
     {% endblock opengraph %}
 
@@ -62,7 +54,7 @@
                     {% else %}
                     {% set nav_url = SITEURL + "/" + link %}
                     {% endif %}
-                    <a href="{{ nav_url }}" class="d-flex flex-column align-self-center align-items-center">
+                    <a href="{{ nav_url }}" class="d-flex flex-column align-self-center align-items-center navigation-link">
                         {{ title }}
                     </a>
                 </div>
@@ -88,18 +80,16 @@
     <div class="row">
         <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
             <hr class="little hide">
-                <span>
+                <p class="footer-links my-3">
                 {% for title, link, icon in ALL_LINKS %}
-
                     <a href="{{ SITEURL }}/{{ link }}" class="px-2">
                         {{ title }}
                     </a>
-
                 {% endfor %}
-                </span>
+                </p>
             <hr class="little">
             <p class="copyright">
-                &copy; Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                &copy; Blog made by <a href="{{ SITEURL }}/about.html">Kamil Urbanek</a>, powered by <a href="http://getpelican.com">Pelican</a>,
                 on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
                 theme.
             </p>

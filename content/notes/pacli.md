@@ -1,7 +1,7 @@
 Title: PACLI Wrapper  
 Date: 2023-08-10      
 Tags: notes, pwv, pacli, python  
-Status: draft  
+Category: Note  
 Summary: CyberArk PACLI wrapper in Python  
 
 

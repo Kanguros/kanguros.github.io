@@ -1,7 +1,7 @@
 Title: Usage of AI
 Date: 2023-09-15      
 Tags: ai 
-Status: draft  
+Category: Note  
 Summary: Example of AI usage.
 
 

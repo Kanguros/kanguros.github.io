@@ -1,6 +1,6 @@
 Title: Behind curtains
 Date: 2023-06-15
-Category: Webdev
+Category: Article
 Tags: webdev, pelican, markdown
 
 I've still remember, how complicated was the process of creating *my own website* 10 years ago. Starting from finding

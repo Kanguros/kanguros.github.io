@@ -96,6 +96,7 @@ def l(c, d=False, v=False):
 
     def cached_build(inner_debug="", inner_verbose=""):
         cmd = '-s {settings_base} -e CACHE_CONTENT=true LOAD_CONTENT_CACHE=true'
+        # cmd = '-s {settings_base} -e CACHE_CONTENT=true LOAD_CONTENT_CACHE=true --verbose --debug'
         # if inner_debug:
         #     cmd = inner_debug + cmd
         # if inner_verbose:

@@ -1,4 +1,4 @@
-{% from 'macros.j2' import big_note %}
+{% from 'macros.j2' import big_note, primary_button %}
 {% extends "base.html" %}
 
 {% block header %}
@@ -12,12 +12,13 @@
                             {{ SITENAME }}
                         </h1>
                     </a>
-
                     <h3 class="subheading">
                         {{ SITEINFO }}
                     </h3>
+                    <div class="d-flex flex-wrap flex-lg-nowrap justify-content-evenly mt-4 mb-1">
+                        {{ primary_button('about.html', 'About me') }}
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -27,8 +28,11 @@
 {% endblock header %}
 
 {% block content %}
+
 {% for article in articles_page.object_list %}
 {{ big_note(article) }}
 {% endfor %}
+
 {% include "pagination.html" %}
+
 {% endblock content %}

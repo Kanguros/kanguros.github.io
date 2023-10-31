@@ -18,7 +18,7 @@ PLUGINS = [
 ]
 
 # readtime
-LANG_SETTINGS = 150
+LANG_SETTINGS = 120
 
 # similarposts
 SIMILAR_POSTS_ENABLED = True
@@ -31,8 +31,8 @@ HTML_MIN = True
 INLINE_CSS_MIN = True
 INLINE_JS_MIN = True
 
-SITENAME = "Code Scratchpad"
-SITEINFO = "Welcome to my digital notepad, a space where I share my notes and thoughts on programming, pipelines, automation, and an array of other, yet to be discovered, buzzwords."
+SITENAME = "Kamil's Scratchpad"
+SITEINFO = "Welcome to my digital notepad. Space where <strong>I share</strong> my <strong>notes and thoughts</strong> on <strong>programming, pipelines, automation,</strong> and an array of other, yet to be discovered, fancy stuff."
 
 THEME = 'theme'
 THEME_STATIC_DIR = THEME
@@ -40,20 +40,18 @@ COLOR_SCHEME_CSS = "darkly.css"
 SUMMARY_END_SUFFIX = ''
 TYPOGRIFY = True
 DIRECT_TEMPLATES = [
-    'posts',
     'index',
     'archives',
+    'categories',
     'tags',
     'under_construction',
-    'notes',
+    'homepage',
 ]
 
-TEMPLATE_PAGES = {'notes.html': 'notes/index.html'}
-DEFAULT_PAGINATION = 3
+TEMPLATE_PAGES = {'homepage.html': 'index.html'}
+DEFAULT_PAGINATION = 5
 PAGINATED_TEMPLATES = {
     'index': None,
-    'posts': None,
-    'notes': None,
     'tag': None,
     'category': None,
 }
@@ -73,31 +71,34 @@ EXTRA_PATH_METADATA = {
 PATH = 'content'
 OUTPUT_PATH = '_output/'
 
+INDEX_SAVE_AS = "all_posts.html"
+
+ARCHIVES_SAVE_AS = 'archive.html'
+
+AUTHOR_SAVE_AS = ""
+
 ARTICLE_PATHS = ['posts', 'notes']
 ARTICLE_URL = 'posts/{slug}.html'
 ARTICLE_SAVE_AS = 'posts/{slug}.html'
 ARTICLE_ORDER_BY = 'reversed-date'
 
-DRAFT_URL = 'notes/{slug}.html'
-DRAFT_SAVE_AS = 'notes/{slug}.html'
-NOTES_URL = 'notes/index.html'
-POSTS_URL = 'posts.html'
+DRAFT_URL = 'drafts/{slug}.html'
+DRAFT_SAVE_AS = 'drafts/{slug}.html'
 
 PAGE_PATHS = ['pages']
 PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}/index.html'
 
-TAG_URL = 'tags/{slug}/'
+TAG_URL = 'tags/{slug}.html'
 TAG_SAVE_AS = 'tags/{slug}/index.html'
 TAGS_SAVE_AS = 'tags/index.html'
 
-CATEGORY_URL = 'category/{slug}/'
-CATEGORY_SAVE_AS = 'category/{slug}/index.html'
+CATEGORY_URL = '{slug}s.html'
+CATEGORY_SAVE_AS = '{slug}.html'
 CATEGORIES_SAVE_AS = 'categories.html'
-
-ARCHIVES_SAVE_AS = 'archive.html'
-
-AUTHOR_SAVE_AS = ""
+CATEGORY_ARTICLES_URL = "articles.html"
+CATEGORY_NOTES_URL = "note.html"
+DEFAULT_CATEGORY = "Note"
 
 GIT_LINK = ('Git', "https://github.com/Kanguros/", 'github'),
 
@@ -110,8 +111,8 @@ OTHER_LINKS = [
 NAV_LINKS = [
     # Title, URL, Icon
     ('Home', 'index.html', 'house'),
-    ('Posts', POSTS_URL, 'journal-code'),
-    ('Notes', NOTES_URL, 'file-code'),
+    ('Articles', CATEGORY_ARTICLES_URL, 'journal-code'),
+    ('Notes', CATEGORY_NOTES_URL, 'file-code'),
     ('About', 'resume.html', 'file-person'),
 ]
 
