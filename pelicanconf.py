@@ -12,7 +12,7 @@ PLUGINS = [
     'yaml_metadata',
     'similar_posts',
     'readtime',
-    'sitemap',
+    # 'sitemap',
     'neighbors',
     # 'minify',  In publishconf.py
 ]
@@ -59,7 +59,7 @@ PAGINATED_TEMPLATES = {
 STATIC_PATHS = [
     'images',
     'code',
-    'slides',
+    # 'slides',
     'extra/.nojekyll',
 
 ]
@@ -78,8 +78,8 @@ ARCHIVES_SAVE_AS = 'archive.html'
 AUTHOR_SAVE_AS = ""
 
 ARTICLE_PATHS = ['posts', 'notes']
-ARTICLE_URL = 'posts/{slug}.html'
-ARTICLE_SAVE_AS = 'posts/{slug}.html'
+ARTICLE_URL = '{category}/{slug}.html'
+ARTICLE_SAVE_AS = '{category}/{slug}.html'
 ARTICLE_ORDER_BY = 'reversed-date'
 
 DRAFT_URL = 'drafts/{slug}.html'
@@ -87,17 +87,17 @@ DRAFT_SAVE_AS = 'drafts/{slug}.html'
 
 PAGE_PATHS = ['pages']
 PAGE_URL = '{slug}/'
-PAGE_SAVE_AS = '{slug}/index.html'
+PAGE_SAVE_AS = '{slug}.html'
 
 TAG_URL = 'tags/{slug}.html'
 TAG_SAVE_AS = 'tags/{slug}/index.html'
 TAGS_SAVE_AS = 'tags/index.html'
 
 CATEGORY_URL = '{slug}s.html'
-CATEGORY_SAVE_AS = '{slug}.html'
+CATEGORY_SAVE_AS = '{slug}s.html'
 CATEGORIES_SAVE_AS = 'categories.html'
 CATEGORY_ARTICLES_URL = "articles.html"
-CATEGORY_NOTES_URL = "note.html"
+CATEGORY_NOTES_URL = "notes.html"
 DEFAULT_CATEGORY = "Note"
 
 GIT_LINK = ('Git', "https://github.com/Kanguros/", 'github'),
@@ -110,10 +110,10 @@ OTHER_LINKS = [
 
 NAV_LINKS = [
     # Title, URL, Icon
-    ('Home', 'index.html', 'house'),
+    # ('Home', 'index.html', 'house'),
     ('Articles', CATEGORY_ARTICLES_URL, 'journal-code'),
     ('Notes', CATEGORY_NOTES_URL, 'file-code'),
-    ('About', 'resume.html', 'file-person'),
+    ('About', 'about.html', 'file-person'),
 ]
 
 ALL_LINKS = [

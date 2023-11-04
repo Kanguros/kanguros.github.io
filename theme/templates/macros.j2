@@ -26,6 +26,23 @@
 
 {% endmacro %}
 
+{% macro note_card(article) %}
+
+<div class="post-preview">
+    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
+        <h3 class="post-title">
+            {{ article.title }}
+        </h3>
+    </a>
+    <div class="d-flex justify-content-start meta-element">
+        {{ meta_elements(article) }}
+    </div>
+    {{ tags_list(article) }}
+    <hr class="post-line">
+</div>
+
+{% endmacro %}
+
 {% macro block_article(article) %}
 
 <div class="post-preview">
@@ -70,6 +87,7 @@
                     <h3 class="subheading">{{ article.headline }}</h3>
                     {% endif %}
                     <p class="meta-element">
+                        {{ meta_category(article) }}
                         {{ meta_elements(article) }}
                     </p>
                     {{ tags_list(article) }}
@@ -83,6 +101,14 @@
 
 {% macro meta_elements(article) %}
 
+<i class="bi bi-calendar"></i> {{ article.locale_date }}
+<i class="bi bi-dot"></i>
+<i class="bi bi-book"></i> {{ article.readtime_string }}
+
+{% endmacro %}
+
+{% macro meta_category(article) %}
+
 {% if article.category == 'Article' %}
 <i class="bi bi-file-post"></i>
 {% else %}
@@ -90,9 +116,6 @@
 {% endif %}
 {{ article.category }}
 <i class="bi bi-dot"></i>
-<i class="bi bi-calendar"></i> {{ article.locale_date }}
-<i class="bi bi-dot"></i>
-<i class="bi bi-book"></i> {{ article.readtime_string }}
 
 {% endmacro %}
 
@@ -116,7 +139,7 @@
 {% endmacro %}
 
 {% macro primary_button(uri, name) %}
-<a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-lg btn-darker btn-heading"
+<a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker btn-heading"
    title="{{ name }}"
    aria-label="{{ name }}"
 >

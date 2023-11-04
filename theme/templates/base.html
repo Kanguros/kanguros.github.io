@@ -41,28 +41,36 @@
 {% set body_class = "" %}
 {% endif %}
 <body class="{{ body_class }} d-flex flex-column vh-100">
+<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
 
-<!-- Navigation -->
-<nav class="dark-bg container-fluid down-shadow">
-    <div class="row">
-        <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1">
-            <div class="navigation d-flex justify-content-between align-items-center">
+
+    <nav class="navbar navbar-expand-lg container px-2">
+        <a class="navbar-brand" href="{{ SITEURL }}">kangúros</a>
+        <!-- Hamburger toggle button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible navigation links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="nav navbar-nav">
                 {% for title, link, icon in NAV_LINKS %}
-                <div class="px-3 py-2">
-                    {% if icon == "github" %}
-                    {% set nav_url = link %}
-                    {% else %}
-                    {% set nav_url = SITEURL + "/" + link %}
-                    {% endif %}
-                    <a href="{{ nav_url }}" class="d-flex flex-column align-self-center align-items-center navigation-link">
-                        {{ title }}
-                    </a>
-                </div>
+                {% if icon == "github" %}
+                {% set nav_url = link %}
+                {% else %}
+                {% set nav_url = SITEURL + "/" + link %}
+                {% endif %}
+                <li class="nav-item">
+                    <a class="btn btn-navigation mx-2 float-end" href="{{ nav_url }}">{{ title }}</a>
+                </li>
                 {% endfor %}
-            </div>
+            </ul>
         </div>
-    </div>
-</nav>
+    </nav>
+    <hr>
+</div>
+
 
 {% block header %}
 {% endblock header %}
@@ -76,20 +84,23 @@
 </div>
 
 
-<footer class="footer dark-bg mt-auto container-fluid up-shadow">
+<footer class="footer">
     <div class="row">
+
         <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-            <hr class="little hide">
-                <p class="footer-links my-3">
+            <hr>
+
+            <p class="footer-links my-3">
                 {% for title, link, icon in ALL_LINKS %}
-                    <a href="{{ SITEURL }}/{{ link }}" class="px-2">
-                        {{ title }}
-                    </a>
+                <a href="{{ SITEURL }}/{{ link }}" class="px-2">
+                    {{ title }}
+                </a>
                 {% endfor %}
-                </p>
+            </p>
             <hr class="little">
             <p class="copyright">
-                &copy; Blog made by <a href="{{ SITEURL }}/about.html">Kamil Urbanek</a>, powered by <a href="http://getpelican.com">Pelican</a>,
+                &copy; Blog made by <a href="{{ SITEURL }}/about.html">Kamil Urbanek</a>, powered by <a
+                    href="http://getpelican.com">Pelican</a>,
                 on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
                 theme.
             </p>

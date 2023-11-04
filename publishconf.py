@@ -6,4 +6,4 @@ from pelicanconf import *
 
 SITEURL = "https://kanguros.github.io"
 RELATIVE_URLS = False
-PLUGINS = PLUGINS + ['minify']
+PLUGINS = PLUGINS + ['minify', 'sitemap']
