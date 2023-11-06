@@ -32,6 +32,7 @@ INLINE_CSS_MIN = True
 INLINE_JS_MIN = True
 
 SITENAME = "Kamil's Scratchpad"
+SITENAME_BRAND = "KS"
 SITEINFO = "Welcome to my digital notepad. Space where <strong>I share</strong> my <strong>notes and thoughts</strong> on <strong>programming, pipelines, automation,</strong> and an array of other, yet to be discovered, fancy stuff."
 
 THEME = 'theme'
@@ -100,7 +101,7 @@ CATEGORY_ARTICLES_URL = "articles.html"
 CATEGORY_NOTES_URL = "notes.html"
 DEFAULT_CATEGORY = "Note"
 
-GIT_LINK = ('Git', "https://github.com/Kanguros/", 'github'),
+GIT_LINK = "https://github.com/Kanguros/"
 
 OTHER_LINKS = [
     ('Tags', TAGS_SAVE_AS, 'tags'),

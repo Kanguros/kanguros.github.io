@@ -45,7 +45,7 @@
 
 
     <nav class="navbar navbar-expand-lg container px-2">
-        <a class="navbar-brand" href="{{ SITEURL }}">kangúros</a>
+        <a class="navbar-brand" href="{{ SITEURL }}"><i class="bi bi-house"></i> {{ SITENAME_BRAND }}</a>
         <!-- Hamburger toggle button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,7 +68,7 @@
             </ul>
         </div>
     </nav>
-    <hr>
+    <hr class="section-line">
 </div>
 
 
@@ -84,32 +84,27 @@
 </div>
 
 
-<footer class="footer">
-    <div class="row">
+<footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+    <hr>
 
-        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-            <hr>
-
-            <p class="footer-links my-3">
-                {% for title, link, icon in ALL_LINKS %}
-                <a href="{{ SITEURL }}/{{ link }}" class="px-2">
-                    {{ title }}
-                </a>
-                {% endfor %}
-            </p>
-            <hr class="little">
-            <p class="copyright">
-                &copy; Blog made by <a href="{{ SITEURL }}/about.html">Kamil Urbanek</a>, powered by <a
-                    href="http://getpelican.com">Pelican</a>,
-                on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
-                theme.
-            </p>
+    <p class="footer-links my-3">
+        {% for title, link, icon in ALL_LINKS %}
+        <a href="{{ SITEURL }}/{{ link }}" class="px-2">
+            {{ title }}
+        </a>
+        {% endfor %}
+    </p>
+    <hr class="little">
+    <p class="copyright">
+        &copy; Blog made by <a href="{{ SITEURL }}/about.html">Kamil Urbanek</a>, powered by <a
+            href="http://getpelican.com">Pelican</a>,
+        on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
+        theme.
+    </p>
 
 
-        </div>
-    </div>
-    </div>
 </footer>
+
 
 <!-- JS Scripts -->
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>

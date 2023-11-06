@@ -37,7 +37,10 @@
     <div class="d-flex justify-content-start meta-element">
         {{ meta_elements(article) }}
     </div>
-    {{ tags_list(article) }}
+    <div class="d-flex justify-content-between align-self-center align-items-center">
+        {{ tags_list(article) }}
+        {{ read_more_button(article) }}
+    </div>
     <hr class="post-line">
 </div>
 
@@ -138,7 +141,7 @@
 
 {% endmacro %}
 
-{% macro primary_button(uri, name) %}
+{% macro primary_button(uri, name, icon=False) %}
 <a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker btn-heading"
    title="{{ name }}"
    aria-label="{{ name }}"
