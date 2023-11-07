@@ -1,25 +1,332 @@
-<!doctype html><html lang=en><meta charset=utf-8><meta content=IE=edge http-equiv=X-UA-Compatible><meta content=width=device-width,initial-scale=1 name=viewport><title>Kamil's Scratchpad - Markdown in Pelican
-</title><link href=https://kanguros.github.io/theme/css/bootstrap.min.css rel=stylesheet><link href=https://kanguros.github.io/theme/css/bootstrap-icons.css rel=stylesheet><link href=https://kanguros.github.io/theme/css/code_blocks/darkly.css rel=stylesheet><link href=https://kanguros.github.io/theme/css/clean-blog.css rel=stylesheet><meta content="Examples of Markdown formatting available in Pelican." name=description><meta content=webdev name=tags><meta content=markdown name=tags><meta content=pelican name=tags><meta content=en property=og:locale><meta content="Kamil's Scratchpad" property=og:site_name><meta content=article property=og:type><meta content=https://kanguros.github.io/article/markdown-in-pelican.html property=og:url><meta content="Markdown in Pelican" property=og:title><meta content="2023-06-15 00:00:00+02:00" property=article:published_time><meta content="Examples of Markdown formatting available in Pelican." property=og:description><meta content=https://kanguros.github.io/theme/images/post-bg.jpg property=og:image><body class="article-markdown-in-pelican d-flex flex-column vh-100"><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><nav class="navbar navbar-expand-lg container px-2"><a class=navbar-brand href=https://kanguros.github.io><i class="bi bi-house"></i> KS</a><button aria-label="Toggle navigation" aria-controls=#navbarNav aria-expanded=false class=navbar-toggler data-bs-target=#navbarNav data-bs-toggle=collapse type=button><span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse justify-content-end" id=navbarNav><ul class="nav navbar-nav"><li class=nav-item><a class="btn btn-navigation mx-2 float-end" href=https://kanguros.github.io/articles.html>Articles</a><li class=nav-item><a class="btn btn-navigation mx-2 float-end" href=https://kanguros.github.io/notes.html>Notes</a><li class=nav-item><a class="btn btn-navigation mx-2 float-end" href=https://kanguros.github.io/about.html>About</a></ul></div></nav><hr class=section-line></div><header class=intro-header><div class=container><div class=row><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><div class=article-heading><a title="Markdown in Pelican" href=/article/markdown-in-pelican.html rel=bookmark> <h1>Markdown in Pelican</h1> </a><p class=meta-element><i class="bi bi-file-post"></i> Article <i class="bi bi-dot"></i> <i class="bi bi-calendar"></i> 2023-06-15 <i class="bi bi-dot"></i> <i class="bi bi-book"></i> 2 minutes<div class="tags meta-element"><a href=/tags/webdev rel=bookmark title=webdev> #webdev </a><a href=/tags/markdown rel=bookmark title=markdown> #markdown </a><a href=/tags/pelican rel=bookmark title=pelican> #pelican </a></div></div></div></div></div></header><div class=container><div class=row><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><article><h1 id=headers-and-texts><a class=toclink href=#headers-and-texts>Headers and texts</a></h1><h2 id=second-level><a class=toclink href=#second-level>Second level</a></h2><h3 id=third-level><a class=toclink href=#third-level>Third level</a></h3><h4 id=forth-level><a class=toclink href=#forth-level>Forth level</a></h4><p><strong>Bold text</strong> <em>Italic text</em> Underline text<h2 id=quote><a class=toclink href=#quote>Quote</a></h2><blockquote><p>This is single line quote</blockquote><p>Another quote<blockquote><p>This is multiline quote. It spans on few lines. at least should be. It has to be long enough.</blockquote><h2 id=code-block><a class=toclink href=#code-block>Code block</a></h2><p>Inline <code>code text</code>.<p>Block code<div class=highlight><pre><span></span><code><span class=nd>@task</span>
-<span class=k>def</span> <span class=nf>clean</span><span class=p>(</span><span class=n>c</span><span class=p>):</span>
-<span class=w>    </span><span class=sd>"""Remove generated files"""</span>
-    <span class=n>path</span> <span class=o>=</span> <span class=n>CONFIG</span><span class=p>[</span><span class=s1>'deploy_path'</span><span class=p>]</span>
-    <span class=k>if</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>isdir</span><span class=p>(</span><span class=n>path</span><span class=p>):</span>
-        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>"Removing directory: </span><span class=si>{</span><span class=n>path</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
-        <span class=n>shutil</span><span class=o>.</span><span class=n>rmtree</span><span class=p>(</span><span class=n>path</span><span class=p>)</span>
-        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>"Creating a empty folder: </span><span class=si>{</span><span class=n>path</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
-        <span class=n>os</span><span class=o>.</span><span class=n>makedirs</span><span class=p>(</span><span class=n>path</span><span class=p>)</span>
-    <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>"No directory as: </span><span class=si>{</span><span class=n>path</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
-</code></pre></div><h2 id=admonitions><a class=toclink href=#admonitions>Admonitions</a></h2><p>Syntax:<div class=highlight><pre><span></span><code>/// danger
-This is admonition type: <span class=sb>`danger`</span> without title.
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Kamil's Scratchpad - Markdown in Pelican
+</title>
+
+    <!-- Bootstrap and Clean Blog CSS -->
+    <link href="https://kanguros.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/code_blocks/darkly.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/clean-blog.css" rel="stylesheet">
+
+
+
+
+<meta name="description" content="Examples of Markdown formatting available in Pelican.">
+
+<meta name="tags" content="webdev">
+<meta name="tags" content="markdown">
+<meta name="tags" content="pelican">
+
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Kamil's Scratchpad">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kanguros.github.io/article/markdown-in-pelican.html">
+<meta property="og:title" content="Markdown in Pelican">
+<meta property="article:published_time" content="2023-06-15 00:00:00+02:00">
+<meta property="og:description" content="Examples of Markdown formatting available in Pelican.">
+
+<meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
+
+</head>
+
+<body class="article-markdown-in-pelican d-flex flex-column vh-100">
+<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+
+
+    <nav class="navbar navbar-expand-lg container px-2 my-1">
+        <a class="navbar-brand" href="https://kanguros.github.io"><i class="bi bi-house"></i> KS</a>
+        <!-- Hamburger toggle button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible navigation links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="nav navbar-nav mt-2">
+                <li class="nav-item">
+                    <a class="btn-navigation mx-3 my-2 float-end"
+                       href="https://kanguros.github.io/articles.html"
+                       title="Articles"
+                       aria-label="Articles"
+                    >Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-3 my-2 float-end"
+                       href="https://kanguros.github.io/notes.html"
+                       title="Notes"
+                       aria-label="Notes"
+                    >Notes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-3 my-2 float-end"
+                       href="https://kanguros.github.io/tags.html"
+                       title="Tags"
+                       aria-label="Tags"
+                    >Tags</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-3 my-2 float-end"
+                       href="https://kanguros.github.io/about.html"
+                       title="About"
+                       aria-label="About"
+                    >About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <hr class="section-line">
+</div>
+
+
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="article-heading">
+                    <a href="/article/markdown-in-pelican.html" rel="bookmark" title="Markdown in Pelican">
+                        <h1>
+                            Markdown in Pelican
+                        </h1>
+                    </a>
+                    <p class="meta-element">
+                        
+<i class="bi bi-file-post"></i>
+Article
+<i class="bi bi-dot"></i>
+
+
+                        
+<i class="bi bi-calendar"></i> 2023-06-15
+<i class="bi bi-dot"></i>
+<i class="bi bi-book"></i> 2 minutes
+
+
+                    </p>
+                    
+<div class="tags meta-element">
+    <a href="/tags/webdev.html"
+       rel="bookmark"
+       title="webdev"
+       aria-label="webdev"
+    >
+        #webdev
+    </a>
+    <a href="/tags/markdown.html"
+       rel="bookmark"
+       title="markdown"
+       aria-label="markdown"
+    >
+        #markdown
+    </a>
+    <a href="/tags/pelican.html"
+       rel="bookmark"
+       title="pelican"
+       aria-label="pelican"
+    >
+        #pelican
+    </a>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+<article>
+    <h1 id="headers-and-texts"><a class="toclink" href="#headers-and-texts">Headers and&nbsp;texts</a></h1>
+<h2 id="second-level"><a class="toclink" href="#second-level">Second&nbsp;level</a></h2>
+<h3 id="third-level"><a class="toclink" href="#third-level">Third&nbsp;level</a></h3>
+<h4 id="forth-level"><a class="toclink" href="#forth-level">Forth&nbsp;level</a></h4>
+<p><strong>Bold text</strong>
+<em>Italic text</em>
+Underline&nbsp;text</p>
+<h2 id="quote"><a class="toclink" href="#quote">Quote</a></h2>
+<blockquote>
+<p>This is single line&nbsp;quote</p>
+</blockquote>
+<p>Another&nbsp;quote</p>
+<blockquote>
+<p>This is multiline quote.
+It spans on few lines.
+at least should be.
+It has to be long&nbsp;enough.</p>
+</blockquote>
+<h2 id="code-block"><a class="toclink" href="#code-block">Code&nbsp;block</a></h2>
+<p>Inline <code>code text</code>.</p>
+<p>Block&nbsp;code</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@task</span>
+<span class="k">def</span> <span class="nf">clean</span><span class="p">(</span><span class="n">c</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Remove generated files&quot;&quot;&quot;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">CONFIG</span><span class="p">[</span><span class="s1">&#39;deploy_path&#39;</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Removing directory: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Creating a empty folder: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No directory as: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="admonitions"><a class="toclink" href="#admonitions">Admonitions</a></h2>
+<p>Syntax:</p>
+<div class="highlight"><pre><span></span><code>/// danger
+This is admonition type: <span class="sb">`danger`</span> without title.
 ///
 
 /// tip | Custom tip title
-This is admonition type: <span class=sb>`tip`</span> with custom title.
+This is admonition type: <span class="sb">`tip`</span> with custom title.
 ///
-</code></pre></div><p>Available types: <code>danger</code>, <code>error</code>, <code>warning</code>, <code>caution</code>, <code>attention</code>, <code>important</code>, <code>note</code>, <code>hint</code>, <code>tip</code><p>/// danger This is admonition type: <code>danger</code> without title. ///<p>/// tip “Custom tip title” This is admonition type: <code>tip</code> with custom title. ///<h1 id=progress-bars><a class=toclink href=#progress-bars>Progress Bars</a></h1><div class=highlight><pre><span></span><code>[=0% "0%"]
-[=50% "50%"]
-[=100% "100%"]
+</code></pre></div>
+
+<p>Available types: <code>danger</code>, <code>error</code>, <code>warning</code>, <code>caution</code>, <code>attention</code>, <code>important</code>, <code>note</code>, <code>hint</code>, <code>tip</code></p>
+<p>/// danger
+This is admonition type: <code>danger</code> without title.&nbsp;///</p>
+<p>/// tip &#8220;Custom tip title&#8221;
+This is admonition type: <code>tip</code> with custom title.&nbsp;///</p>
+<h1 id="progress-bars"><a class="toclink" href="#progress-bars">Progress&nbsp;Bars</a></h1>
+<div class="highlight"><pre><span></span><code>[=0% &quot;0%&quot;]
+[=50% &quot;50%&quot;]
+[=100% &quot;100%&quot;]
 [=0%]{: .thin}
 [=50%]{: .thin}
 [=100%]{: .thin}
-</code></pre></div><p><div class="progress progress-0plus"><div class=progress-bar style=width:.00%><p class=progress-label>0%</div></div><p><div class="progress progress-40plus"><div class=progress-bar style=width:50.00%><p class=progress-label>50%</div></div><p><div class="progress progress-100plus"><div class=progress-bar style=width:100.00%><p class=progress-label>100%</div></div><p><div class="progress progress-0plus thin"><div class=progress-bar style=width:.00%><p class=progress-label></div></div><p><div class="progress progress-40plus thin"><div class=progress-bar style=width:50.00%><p class=progress-label></div></div><p><div class="progress progress-100plus thin"><div class=progress-bar style=width:100.00%><p class=progress-label></div></div><h1 id=article><a class=toclink href=#article>Article</a></h1><p>How to create new article.<h2 id=filename><a class=toclink href=#filename>Filename</a></h2><p>In folder <code>content/posts/</code> create new file according to <a href=#template>template</a> with *.md extension.<h2 id=template><a class=toclink href=#template>Template</a></h2><blockquote><p><strong>Title</strong>: Required. Main header of the article.<br> <strong>Date</strong>: Required. Data of a posting.<br> <strong>Author</strong>: Required. One of the <code>Name Surname</code> defined authors.<br> <strong>Category</strong>: Optional. By default, it gets an <code>General</code> Category.<br> <strong>Cover</strong>: Optional. Path to header image. If not provided, default one will be used.<br> <strong>Summary</strong>: Optional. Short description of the article. <br> <strong>Save_as</strong>: Optional. File name of article.<br> <strong>Slug</strong>: Optional, article <span class=caps>ID</span>/<span class=caps>REF</span> (?). Used in <span class=caps>URL</span> creation. If not provided, it takes normalized title. <br> <strong>Template</strong>: Optional, filepath to <code>Jinja2</code> template used for generating html representation.<br> <strong>Tags</strong>: Optional<p>[<span class=caps>MAIN</span> <span class=caps>CONTENT</span>] Article’s content written in Markdown.</blockquote></article><div class=related-posts><hr class=section-line><h1 class=subheading>Related posts</h1><ul><li><a href=https://kanguros.github.io/article/behind-curtains.html> Behind curtains </a> <div class="d-flex justify-content-start meta-elements"><i class="bi bi-calendar"></i> 2023-06-15 <i class="bi bi-dot"></i><i class="bi bi-book"></i> 2 minutes</div></ul></div></div></div></div><footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><hr><p class="footer-links my-3"><a class=px-2 href=https://kanguros.github.io/articles.html> Articles </a> <a class=px-2 href=https://kanguros.github.io/notes.html> Notes </a> <a class=px-2 href=https://kanguros.github.io/about.html> About </a> <a class=px-2 href=https://kanguros.github.io/tags/index.html> Tags </a> <a class=px-2 href=https://kanguros.github.io/archive.html> Archive </a><hr class=little><p class=copyright>© Blog made by <a href=https://kanguros.github.io/about.html>Kamil Urbanek</a>, powered by <a href=http://getpelican.com>Pelican</a>, on modified <a href=https://github.com/BlackrockDigital/startbootstrap-clean-blog>Clean Blog</a> theme.</footer><script src=https://kanguros.github.io/theme/js/jquery.js></script><script src=https://kanguros.github.io/theme/js/bootstrap.js></script><script src=https://kanguros.github.io/theme/js/clean-blog.js></script>
+</code></pre></div>
+
+<p>
+<div class="progress progress-0plus">
+<div class="progress-bar" style="width:0.00%">
+<p class="progress-label">0%</p>
+</div>
+</div>
+</p>
+<p>
+<div class="progress progress-40plus">
+<div class="progress-bar" style="width:50.00%">
+<p class="progress-label">50%</p>
+</div>
+</div>
+</p>
+<p>
+<div class="progress progress-100plus">
+<div class="progress-bar" style="width:100.00%">
+<p class="progress-label">100%</p>
+</div>
+</div>
+</p>
+<p>
+<div class="progress progress-0plus thin">
+<div class="progress-bar" style="width:0.00%">
+<p class="progress-label"></p>
+</div>
+</div>
+</p>
+<p>
+<div class="progress progress-40plus thin">
+<div class="progress-bar" style="width:50.00%">
+<p class="progress-label"></p>
+</div>
+</div>
+</p>
+<p>
+<div class="progress progress-100plus thin">
+<div class="progress-bar" style="width:100.00%">
+<p class="progress-label"></p>
+</div>
+</div>
+</p>
+<h1 id="article"><a class="toclink" href="#article">Article</a></h1>
+<p>How to create new&nbsp;article.</p>
+<h2 id="filename"><a class="toclink" href="#filename">Filename</a></h2>
+<p>In folder <code>content/posts/</code> create new file according to <a href="#template">template</a> with *.md&nbsp;extension.</p>
+<h2 id="template"><a class="toclink" href="#template">Template</a></h2>
+<blockquote>
+<p><strong>Title</strong>: Required. Main header of the article.<br>
+<strong>Date</strong>: Required. Data of a posting.<br>
+<strong>Author</strong>: Required. One of the <code>Name Surname</code> defined authors.<br>
+<strong>Category</strong>: Optional. By default, it gets an <code>General</code> Category.<br>
+<strong>Cover</strong>: Optional. Path to header image. If not provided, default one will be used.<br>
+<strong>Summary</strong>: Optional. Short description of the article.  <br>
+<strong>Save_as</strong>: Optional. File name of article.<br>
+<strong>Slug</strong>: Optional, article <span class="caps">ID</span>/<span class="caps">REF</span> (?). Used in <span class="caps">URL</span> creation. If not provided, it takes normalized title.  <br>
+<strong>Template</strong>: Optional, filepath to <code>Jinja2</code> template used for generating html representation.<br>
+<strong>Tags</strong>:&nbsp;Optional</p>
+<p>[<span class="caps">MAIN</span> <span class="caps">CONTENT</span>]
+Article&#8217;s content written in&nbsp;Markdown.</p>
+</blockquote>
+</article>
+<div class="related-posts">
+    <hr class="section-line">
+    <h1 class="subheading">Related posts</h1>
+    <ul>
+        <li>
+            <a href="https://kanguros.github.io/article/behind-curtains.html">
+                Behind&nbsp;curtains
+            </a>
+            <div class="d-flex justify-content-start meta-elements">
+                <i class="bi bi-calendar"></i> 2023-06-15
+                <i class="bi bi-dot"></i>
+                <i class="bi bi-book"></i> 2 minutes
+            </div>
+        </li>
+    </ul>
+</div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+    <hr class="section-line">
+
+    <p class="footer-links my-4">
+        <a href="https://kanguros.github.io" class="px-2">Index</a>
+        <a href="https://kanguros.github.io/articles.html" class="px-2">
+            Articles
+        </a>
+        <a href="https://kanguros.github.io/notes.html" class="px-2">
+            Notes
+        </a>
+        <a href="https://kanguros.github.io/tags.html" class="px-2">
+            Tags
+        </a>
+        <a href="https://kanguros.github.io/about.html" class="px-2">
+            About
+        </a>
+    </p>
+    <hr class="little">
+    <p class="copyright">
+        &copy; Blog made by <a href="https://kanguros.github.io/about.html">Kamil Urbanek</a>, powered by <a
+            href="http://getpelican.com">Pelican</a>,
+        on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
+        theme.
+    </p>
+
+
+</footer>
+
+
+<!-- JS Scripts -->
+<script src="https://kanguros.github.io/theme/js/jquery.js"></script>
+<script src="https://kanguros.github.io/theme/js/bootstrap.js"></script>
+<script src="https://kanguros.github.io/theme/js/clean-blog.js"></script>
+</body>
+
+</html>

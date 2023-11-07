@@ -1,115 +1,319 @@
-<!doctype html><html lang=en><meta charset=utf-8><meta content=IE=edge http-equiv=X-UA-Compatible><meta content=width=device-width,initial-scale=1 name=viewport><title>Kamil's Scratchpad - Word file modifier
-</title><link href=https://kanguros.github.io/theme/css/bootstrap.min.css rel=stylesheet><link href=https://kanguros.github.io/theme/css/bootstrap-icons.css rel=stylesheet><link href=https://kanguros.github.io/theme/css/code_blocks/darkly.css rel=stylesheet><link href=https://kanguros.github.io/theme/css/clean-blog.css rel=stylesheet><meta content="This Python script allows you to modify Word documents by performing specific actions on their content. The script uses the python-docx..." name=description><meta content=python name=tags><meta content=en property=og:locale><meta content="Kamil's Scratchpad" property=og:site_name><meta content=article property=og:type><meta content=https://kanguros.github.io/drafts/word-file-modifier.html property=og:url><meta content="Word file modifier" property=og:title><meta content="2023-08-08 00:00:00+02:00" property=article:published_time><meta content="This Python script allows you to modify Word documents by performing specific actions on their content. The script uses the python-docx..." property=og:description><meta content=https://kanguros.github.io/theme/images/post-bg.jpg property=og:image><body class="article-word-file-modifier d-flex flex-column vh-100"><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><nav class="navbar navbar-expand-lg container px-2"><a class=navbar-brand href=https://kanguros.github.io><i class="bi bi-house"></i> KS</a><button aria-label="Toggle navigation" aria-controls=#navbarNav aria-expanded=false class=navbar-toggler data-bs-target=#navbarNav data-bs-toggle=collapse type=button><span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse justify-content-end" id=navbarNav><ul class="nav navbar-nav"><li class=nav-item><a class="btn btn-navigation mx-2 float-end" href=https://kanguros.github.io/articles.html>Articles</a><li class=nav-item><a class="btn btn-navigation mx-2 float-end" href=https://kanguros.github.io/notes.html>Notes</a><li class=nav-item><a class="btn btn-navigation mx-2 float-end" href=https://kanguros.github.io/about.html>About</a></ul></div></nav><hr class=section-line></div><header class=intro-header><div class=container><div class=row><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><div class=article-heading><a title="Word file modifier" href=/drafts/word-file-modifier.html rel=bookmark> <h1>Word file modifier</h1> </a><p class=meta-element><i class="bi bi-sticky"></i> notes <i class="bi bi-dot"></i> <i class="bi bi-calendar"></i> 2023-08-08 <i class="bi bi-dot"></i> <i class="bi bi-book"></i><div class="tags meta-element"><a href=/tags/python rel=bookmark title=python> #python </a></div></div></div></div></div></header><div class=container><div class=row><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><article><p>This Python script allows you to modify Word documents by performing specific actions on their content. The script uses the <code>python-docx</code> library to work with Word documents.<h2 id=features><a class=toclink href=#features>Features</a></h2><p>The script includes the following features:<ol><li>Remove text enclosed in square brackets from paragraphs.<li>Correct the order of numeric values within paragraphs.<li>Set the font type of all text runs to a specified font.<li>Align formatting of numeric points within paragraphs.</ol><h2 id=prerequisites><a class=toclink href=#prerequisites>Prerequisites</a></h2><p>Before using the script, make sure you have the following installed:<ul><li>Python (version 3.6 or higher)<li>The <code>python-docx</code> library (install using <code>pip install python-docx</code>)</ul><h2 id=usage><a class=toclink href=#usage>Usage</a></h2><ol><li>Paste the code to the new file.<li>Open a terminal and navigate to the directory containing the script.<li>Run the script using the following command:</ol><div class=highlight><pre><span></span><code>python<span class=w> </span>script.py<span class=w> </span>input_file.docx
-</code></pre></div><h2 id=code><a class=toclink href=#code>Code</a></h2><div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>sys</span>
-<span class=kn>import</span> <span class=nn>logging</span>
-<span class=kn>from</span> <span class=nn>docx</span> <span class=kn>import</span> <span class=n>Document</span>
 
-<span class=n>logging</span><span class=o>.</span><span class=n>basicConfig</span><span class=p>(</span><span class=n>filename</span><span class=o>=</span><span class=s1>'script.log'</span><span class=p>,</span> <span class=n>level</span><span class=o>=</span><span class=n>logging</span><span class=o>.</span><span class=n>ERROR</span><span class=p>,</span> <span class=nb>format</span><span class=o>=</span><span class=s1>'</span><span class=si>%(asctime)s</span><span class=s1> - </span><span class=si>%(levelname)s</span><span class=s1>: </span><span class=si>%(message)s</span><span class=s1>'</span><span class=p>)</span>
+<!DOCTYPE html>
+<html lang="en">
 
-<span class=k>def</span> <span class=nf>remove_text_between_brackets</span><span class=p>(</span><span class=n>doc</span><span class=p>):</span>
-<span class=w>    </span><span class=sd>"""</span>
-<span class=sd>    Remove text enclosed in square brackets from all paragraphs in the document.</span>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<span class=sd>    Args:</span>
-<span class=sd>        doc (Document): The Word document to be modified.</span>
-<span class=sd>    """</span>
-    <span class=k>try</span><span class=p>:</span>
-        <span class=k>for</span> <span class=n>paragraph</span> <span class=ow>in</span> <span class=n>doc</span><span class=o>.</span><span class=n>paragraphs</span><span class=p>:</span>
-            <span class=n>open_bracket</span> <span class=o>=</span> <span class=mi>0</span>
-            <span class=n>new_text</span> <span class=o>=</span> <span class=s1>''</span>
-            <span class=k>for</span> <span class=n>char</span> <span class=ow>in</span> <span class=n>paragraph</span><span class=o>.</span><span class=n>text</span><span class=p>:</span>
-                <span class=k>if</span> <span class=n>char</span> <span class=o>==</span> <span class=s1>'['</span><span class=p>:</span>
-                    <span class=n>open_bracket</span> <span class=o>+=</span> <span class=mi>1</span>
-                <span class=k>elif</span> <span class=n>char</span> <span class=o>==</span> <span class=s1>']'</span><span class=p>:</span>
-                    <span class=n>open_bracket</span> <span class=o>-=</span> <span class=mi>1</span>
-                <span class=k>elif</span> <span class=n>open_bracket</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
-                    <span class=n>new_text</span> <span class=o>+=</span> <span class=n>char</span>
-            <span class=n>paragraph</span><span class=o>.</span><span class=n>text</span> <span class=o>=</span> <span class=n>new_text</span>
-    <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
-        <span class=n>logging</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=sa>f</span><span class=s2>"Error in remove_text_between_brackets: </span><span class=si>{</span><span class=nb>str</span><span class=p>(</span><span class=n>e</span><span class=p>)</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
 
-<span class=k>def</span> <span class=nf>correct_numeric_order</span><span class=p>(</span><span class=n>doc</span><span class=p>):</span>
-<span class=w>    </span><span class=sd>"""</span>
-<span class=sd>    Correct the order of numeric values in each paragraph by sorting them.</span>
+    <title>Kamil's Scratchpad - Word file modifier
+</title>
 
-<span class=sd>    Args:</span>
-<span class=sd>        doc (Document): The Word document to be modified.</span>
-<span class=sd>    """</span>
-    <span class=k>try</span><span class=p>:</span>
-        <span class=k>for</span> <span class=n>paragraph</span> <span class=ow>in</span> <span class=n>doc</span><span class=o>.</span><span class=n>paragraphs</span><span class=p>:</span>
-            <span class=n>words</span> <span class=o>=</span> <span class=n>paragraph</span><span class=o>.</span><span class=n>text</span><span class=o>.</span><span class=n>split</span><span class=p>()</span>
-            <span class=n>nums</span> <span class=o>=</span> <span class=p>[</span><span class=n>word</span> <span class=k>for</span> <span class=n>word</span> <span class=ow>in</span> <span class=n>words</span> <span class=k>if</span> <span class=n>word</span><span class=o>.</span><span class=n>isdigit</span><span class=p>()]</span>
-            <span class=n>nums</span><span class=o>.</span><span class=n>sort</span><span class=p>(</span><span class=n>key</span><span class=o>=</span><span class=nb>int</span><span class=p>)</span>
-            <span class=k>for</span> <span class=n>i</span><span class=p>,</span> <span class=n>word</span> <span class=ow>in</span> <span class=nb>enumerate</span><span class=p>(</span><span class=n>words</span><span class=p>):</span>
-                <span class=k>if</span> <span class=n>word</span><span class=o>.</span><span class=n>isdigit</span><span class=p>():</span>
-                    <span class=n>words</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>nums</span><span class=o>.</span><span class=n>pop</span><span class=p>(</span><span class=mi>0</span><span class=p>)</span>
-            <span class=n>paragraph</span><span class=o>.</span><span class=n>text</span> <span class=o>=</span> <span class=s1>' '</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>words</span><span class=p>)</span>
-    <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
-        <span class=n>logging</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=sa>f</span><span class=s2>"Error in correct_numeric_order: </span><span class=si>{</span><span class=nb>str</span><span class=p>(</span><span class=n>e</span><span class=p>)</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
+    <!-- Bootstrap and Clean Blog CSS -->
+    <link href="https://kanguros.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/code_blocks/darkly.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/clean-blog.css" rel="stylesheet">
 
-<span class=k>def</span> <span class=nf>set_same_font_type</span><span class=p>(</span><span class=n>doc</span><span class=p>,</span> <span class=n>font_type</span><span class=p>):</span>
-<span class=w>    </span><span class=sd>"""</span>
-<span class=sd>    Set the font type of all text runs in the document to a specified font.</span>
 
-<span class=sd>    Args:</span>
-<span class=sd>        doc (Document): The Word document to be modified.</span>
-<span class=sd>        font_type (str): The name of the font to be applied.</span>
-<span class=sd>    """</span>
-    <span class=k>try</span><span class=p>:</span>
-        <span class=k>for</span> <span class=n>paragraph</span> <span class=ow>in</span> <span class=n>doc</span><span class=o>.</span><span class=n>paragraphs</span><span class=p>:</span>
-            <span class=k>for</span> <span class=n>run</span> <span class=ow>in</span> <span class=n>paragraph</span><span class=o>.</span><span class=n>runs</span><span class=p>:</span>
-                <span class=n>run</span><span class=o>.</span><span class=n>font</span><span class=o>.</span><span class=n>name</span> <span class=o>=</span> <span class=n>font_type</span>
-    <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
-        <span class=n>logging</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=sa>f</span><span class=s2>"Error in set_same_font_type: </span><span class=si>{</span><span class=nb>str</span><span class=p>(</span><span class=n>e</span><span class=p>)</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
 
-<span class=k>def</span> <span class=nf>align_numeric_points</span><span class=p>(</span><span class=n>doc</span><span class=p>):</span>
-<span class=w>    </span><span class=sd>"""</span>
-<span class=sd>    Align formatting of numeric points in each paragraph.</span>
 
-<span class=sd>    Args:</span>
-<span class=sd>        doc (Document): The Word document to be modified.</span>
-<span class=sd>    """</span>
-    <span class=k>try</span><span class=p>:</span>
-        <span class=k>for</span> <span class=n>paragraph</span> <span class=ow>in</span> <span class=n>doc</span><span class=o>.</span><span class=n>paragraphs</span><span class=p>:</span>
-            <span class=k>if</span> <span class=n>paragraph</span><span class=o>.</span><span class=n>text</span><span class=o>.</span><span class=n>startswith</span><span class=p>(</span><span class=s1>'- '</span><span class=p>):</span>
-                <span class=n>paragraphs</span> <span class=o>=</span> <span class=n>paragraph</span><span class=o>.</span><span class=n>text</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s1>'</span><span class=se>\n</span><span class=s1>'</span><span class=p>)</span>
-                <span class=n>new_paragraphs</span> <span class=o>=</span> <span class=p>[]</span>
-                <span class=k>for</span> <span class=n>p</span> <span class=ow>in</span> <span class=n>paragraphs</span><span class=p>:</span>
-                    <span class=k>if</span> <span class=n>p</span><span class=o>.</span><span class=n>startswith</span><span class=p>(</span><span class=s1>'- '</span><span class=p>):</span>
-                        <span class=n>new_paragraphs</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>p</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=s1>'- '</span><span class=p>,</span> <span class=s1>''</span><span class=p>,</span> <span class=mi>1</span><span class=p>))</span>
-                    <span class=k>else</span><span class=p>:</span>
-                        <span class=n>new_paragraphs</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>p</span><span class=p>)</span>
-                <span class=n>paragraph</span><span class=o>.</span><span class=n>clear_content</span><span class=p>()</span>
-                <span class=k>for</span> <span class=n>p</span> <span class=ow>in</span> <span class=n>new_paragraphs</span><span class=p>:</span>
-                    <span class=n>paragraph</span><span class=o>.</span><span class=n>add_run</span><span class=p>(</span><span class=s1>'- '</span> <span class=o>+</span> <span class=n>p</span><span class=p>)</span>
-    <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
-        <span class=n>logging</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=sa>f</span><span class=s2>"Error in align_numeric_points: </span><span class=si>{</span><span class=nb>str</span><span class=p>(</span><span class=n>e</span><span class=p>)</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
+<meta name="description" content="This Python script allows you to modify Word documents by performing specific actions on their content. The script uses the python-docx...">
 
-<span class=k>def</span> <span class=nf>main</span><span class=p>(</span><span class=n>input_file</span><span class=p>):</span>
-<span class=w>    </span><span class=sd>"""</span>
-<span class=sd>    Main function to modify the Word document according to specified actions.</span>
+<meta name="tags" content="python">
 
-<span class=sd>    Args:</span>
-<span class=sd>        input_file (str): The path to the input Word document.</span>
-<span class=sd>    """</span>
-    <span class=k>try</span><span class=p>:</span>
-        <span class=n>doc</span> <span class=o>=</span> <span class=n>Document</span><span class=p>(</span><span class=n>input_file</span><span class=p>)</span>
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Kamil's Scratchpad">
 
-        <span class=n>remove_text_between_brackets</span><span class=p>(</span><span class=n>doc</span><span class=p>)</span>
-        <span class=n>correct_numeric_order</span><span class=p>(</span><span class=n>doc</span><span class=p>)</span>
-        <span class=n>set_same_font_type</span><span class=p>(</span><span class=n>doc</span><span class=p>,</span> <span class=s1>'Arial'</span><span class=p>)</span>
-        <span class=n>align_numeric_points</span><span class=p>(</span><span class=n>doc</span><span class=p>)</span>
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kanguros.github.io/drafts/word-file-modifier.html">
+<meta property="og:title" content="Word file modifier">
+<meta property="article:published_time" content="2023-08-08 00:00:00+02:00">
+<meta property="og:description" content="This Python script allows you to modify Word documents by performing specific actions on their content. The script uses the python-docx...">
 
-        <span class=n>modified_file</span> <span class=o>=</span> <span class=s1>'modified_'</span> <span class=o>+</span> <span class=n>input_file</span>
-        <span class=n>doc</span><span class=o>.</span><span class=n>save</span><span class=p>(</span><span class=n>modified_file</span><span class=p>)</span>
-        <span class=nb>print</span><span class=p>(</span><span class=sa>f</span><span class=s2>"Modified document saved as: </span><span class=si>{</span><span class=n>modified_file</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
-    <span class=k>except</span> <span class=ne>Exception</span> <span class=k>as</span> <span class=n>e</span><span class=p>:</span>
-        <span class=n>logging</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=sa>f</span><span class=s2>"Error in main: </span><span class=si>{</span><span class=nb>str</span><span class=p>(</span><span class=n>e</span><span class=p>)</span><span class=si>}</span><span class=s2>"</span><span class=p>)</span>
+<meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
 
-<span class=k>if</span> <span class=vm>__name__</span> <span class=o>==</span> <span class=s1>'__main__'</span><span class=p>:</span>
-    <span class=k>if</span> <span class=nb>len</span><span class=p>(</span><span class=n>sys</span><span class=o>.</span><span class=n>argv</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>2</span><span class=p>:</span>
-        <span class=nb>print</span><span class=p>(</span><span class=s2>"Usage: python script.py &LTinput_file>"</span><span class=p>)</span>
-    <span class=k>else</span><span class=p>:</span>
-        <span class=n>input_file</span> <span class=o>=</span> <span class=n>sys</span><span class=o>.</span><span class=n>argv</span><span class=p>[</span><span class=mi>1</span><span class=p>]</span>
-        <span class=n>main</span><span class=p>(</span><span class=n>input_file</span><span class=p>)</span>
-</code></pre></div></article></div></div></div><footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><hr><p class="footer-links my-3"><a class=px-2 href=https://kanguros.github.io/articles.html> Articles </a> <a class=px-2 href=https://kanguros.github.io/notes.html> Notes </a> <a class=px-2 href=https://kanguros.github.io/about.html> About </a> <a class=px-2 href=https://kanguros.github.io/tags/index.html> Tags </a> <a class=px-2 href=https://kanguros.github.io/archive.html> Archive </a><hr class=little><p class=copyright>© Blog made by <a href=https://kanguros.github.io/about.html>Kamil Urbanek</a>, powered by <a href=http://getpelican.com>Pelican</a>, on modified <a href=https://github.com/BlackrockDigital/startbootstrap-clean-blog>Clean Blog</a> theme.</footer><script src=https://kanguros.github.io/theme/js/jquery.js></script><script src=https://kanguros.github.io/theme/js/bootstrap.js></script><script src=https://kanguros.github.io/theme/js/clean-blog.js></script>
+</head>
+
+<body class="article-word-file-modifier d-flex flex-column vh-100">
+<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+
+
+    <nav class="navbar navbar-expand-lg container px-2 my-1">
+        <a class="navbar-brand" href="https://kanguros.github.io"><i class="bi bi-house"></i> KS</a>
+        <!-- Hamburger toggle button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible navigation links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="nav navbar-nav mt-2">
+                <li class="nav-item">
+                    <a class="btn-navigation mx-3 my-2 float-end"
+                       href="https://kanguros.github.io/articles.html"
+                       title="Articles"
+                       aria-label="Articles"
+                    >Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-3 my-2 float-end"
+                       href="https://kanguros.github.io/notes.html"
+                       title="Notes"
+                       aria-label="Notes"
+                    >Notes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-3 my-2 float-end"
+                       href="https://kanguros.github.io/tags.html"
+                       title="Tags"
+                       aria-label="Tags"
+                    >Tags</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-3 my-2 float-end"
+                       href="https://kanguros.github.io/about.html"
+                       title="About"
+                       aria-label="About"
+                    >About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <hr class="section-line">
+</div>
+
+
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="article-heading">
+                    <a href="/drafts/word-file-modifier.html" rel="bookmark" title="Word file modifier">
+                        <h1>
+                            Word file modifier
+                        </h1>
+                    </a>
+                    <p class="meta-element">
+                        
+<i class="bi bi-sticky"></i>
+notes
+<i class="bi bi-dot"></i>
+
+
+                        
+<i class="bi bi-calendar"></i> 2023-08-08
+<i class="bi bi-dot"></i>
+<i class="bi bi-book"></i> 
+
+
+                    </p>
+                    
+<div class="tags meta-element">
+    <a href="/tags/python.html"
+       rel="bookmark"
+       title="python"
+       aria-label="python"
+    >
+        #python
+    </a>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+<article>
+    <p>This Python script allows you to modify Word documents by performing specific actions on their content. The script uses the <code>python-docx</code> library to work with Word&nbsp;documents.</p>
+<h2 id="features"><a class="toclink" href="#features">Features</a></h2>
+<p>The script includes the following&nbsp;features:</p>
+<ol>
+<li>Remove text enclosed in square brackets from&nbsp;paragraphs.</li>
+<li>Correct the order of numeric values within&nbsp;paragraphs.</li>
+<li>Set the font type of all text runs to a specified&nbsp;font.</li>
+<li>Align formatting of numeric points within&nbsp;paragraphs.</li>
+</ol>
+<h2 id="prerequisites"><a class="toclink" href="#prerequisites">Prerequisites</a></h2>
+<p>Before using the script, make sure you have the following&nbsp;installed:</p>
+<ul>
+<li>Python (version 3.6 or&nbsp;higher)</li>
+<li>The <code>python-docx</code> library (install using <code>pip install python-docx</code>)</li>
+</ul>
+<h2 id="usage"><a class="toclink" href="#usage">Usage</a></h2>
+<ol>
+<li>Paste the code to the new&nbsp;file.</li>
+<li>Open a terminal and navigate to the directory containing the&nbsp;script.</li>
+<li>Run the script using the following&nbsp;command:</li>
+</ol>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>script.py<span class="w"> </span>input_file.docx
+</code></pre></div>
+
+<h2 id="code"><a class="toclink" href="#code">Code</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">docx</span> <span class="kn">import</span> <span class="n">Document</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;script.log&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> - </span><span class="si">%(levelname)s</span><span class="s1">: </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">remove_text_between_brackets</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove text enclosed in square brackets from all paragraphs in the document.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        doc (Document): The Word document to be modified.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">paragraphs</span><span class="p">:</span>
+            <span class="n">open_bracket</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">new_text</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+            <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;[&#39;</span><span class="p">:</span>
+                    <span class="n">open_bracket</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="n">char</span> <span class="o">==</span> <span class="s1">&#39;]&#39;</span><span class="p">:</span>
+                    <span class="n">open_bracket</span> <span class="o">-=</span> <span class="mi">1</span>
+                <span class="k">elif</span> <span class="n">open_bracket</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                    <span class="n">new_text</span> <span class="o">+=</span> <span class="n">char</span>
+            <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">new_text</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in remove_text_between_brackets: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">correct_numeric_order</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Correct the order of numeric values in each paragraph by sorting them.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        doc (Document): The Word document to be modified.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">paragraphs</span><span class="p">:</span>
+            <span class="n">words</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+            <span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">isdigit</span><span class="p">()]</span>
+            <span class="n">nums</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">words</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">isdigit</span><span class="p">():</span>
+                    <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in correct_numeric_order: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">set_same_font_type</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">font_type</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set the font type of all text runs in the document to a specified font.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        doc (Document): The Word document to be modified.</span>
+<span class="sd">        font_type (str): The name of the font to be applied.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">paragraphs</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">run</span> <span class="ow">in</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">runs</span><span class="p">:</span>
+                <span class="n">run</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">font_type</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in set_same_font_type: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">align_numeric_points</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Align formatting of numeric points in each paragraph.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        doc (Document): The Word document to be modified.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">paragraph</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">paragraphs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;- &#39;</span><span class="p">):</span>
+                <span class="n">paragraphs</span> <span class="o">=</span> <span class="n">paragraph</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="n">new_paragraphs</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paragraphs</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;- &#39;</span><span class="p">):</span>
+                        <span class="n">new_paragraphs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;- &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">new_paragraphs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+                <span class="n">paragraph</span><span class="o">.</span><span class="n">clear_content</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">new_paragraphs</span><span class="p">:</span>
+                    <span class="n">paragraph</span><span class="o">.</span><span class="n">add_run</span><span class="p">(</span><span class="s1">&#39;- &#39;</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in align_numeric_points: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">input_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Main function to modify the Word document according to specified actions.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        input_file (str): The path to the input Word document.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">doc</span> <span class="o">=</span> <span class="n">Document</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+
+        <span class="n">remove_text_between_brackets</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+        <span class="n">correct_numeric_order</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+        <span class="n">set_same_font_type</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="s1">&#39;Arial&#39;</span><span class="p">)</span>
+        <span class="n">align_numeric_points</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+
+        <span class="n">modified_file</span> <span class="o">=</span> <span class="s1">&#39;modified_&#39;</span> <span class="o">+</span> <span class="n">input_file</span>
+        <span class="n">doc</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">modified_file</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Modified document saved as: </span><span class="si">{</span><span class="n">modified_file</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error in main: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Usage: python script.py &lt;input_file&gt;&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">input_file</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">main</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+</code></pre></div>
+</article>
+        </div>
+    </div>
+</div>
+
+
+<footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+    <hr class="section-line">
+
+    <p class="footer-links my-4">
+        <a href="https://kanguros.github.io" class="px-2">Index</a>
+        <a href="https://kanguros.github.io/articles.html" class="px-2">
+            Articles
+        </a>
+        <a href="https://kanguros.github.io/notes.html" class="px-2">
+            Notes
+        </a>
+        <a href="https://kanguros.github.io/tags.html" class="px-2">
+            Tags
+        </a>
+        <a href="https://kanguros.github.io/about.html" class="px-2">
+            About
+        </a>
+    </p>
+    <hr class="little">
+    <p class="copyright">
+        &copy; Blog made by <a href="https://kanguros.github.io/about.html">Kamil Urbanek</a>, powered by <a
+            href="http://getpelican.com">Pelican</a>,
+        on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
+        theme.
+    </p>
+
+
+</footer>
+
+
+<!-- JS Scripts -->
+<script src="https://kanguros.github.io/theme/js/jquery.js"></script>
+<script src="https://kanguros.github.io/theme/js/bootstrap.js"></script>
+<script src="https://kanguros.github.io/theme/js/clean-blog.js"></script>
+</body>
+
+</html>

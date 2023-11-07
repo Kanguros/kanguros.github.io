@@ -1,1 +1,755 @@
-/* fira-sans-200 - latin_latin-ext */ @font-face { font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */ font-family: 'Fira Sans'; font-style: normal; font-weight: 200; src: url('../fonts/fira-sans-v17-latin_latin-ext-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */ } /* fira-sans-200italic - latin_latin-ext */ @font-face { font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */ font-family: 'Fira Sans'; font-style: italic; font-weight: 200; src: url('../fonts/fira-sans-v17-latin_latin-ext-200italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */ } /* fira-sans-300 - latin_latin-ext */ @font-face { font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */ font-family: 'Fira Sans'; font-style: normal; font-weight: 300; src: url('../fonts/fira-sans-v17-latin_latin-ext-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */ } /* fira-sans-300italic - latin_latin-ext */ @font-face { font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */ font-family: 'Fira Sans'; font-style: italic; font-weight: 300; src: url('../fonts/fira-sans-v17-latin_latin-ext-300italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */ } /* fira-sans-regular - latin_latin-ext */ @font-face { font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */ font-family: 'Fira Sans'; font-style: normal; font-weight: 400; src: url('../fonts/fira-sans-v17-latin_latin-ext-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */ } /* fira-sans-italic - latin_latin-ext */ @font-face { font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */ font-family: 'Fira Sans'; font-style: italic; font-weight: 400; src: url('../fonts/fira-sans-v17-latin_latin-ext-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */ } /* fira-sans-500 - latin_latin-ext */ @font-face { font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */ font-family: 'Fira Sans'; font-style: normal; font-weight: 500; src: url('../fonts/fira-sans-v17-latin_latin-ext-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */ } /* fira-sans-700 - latin_latin-ext */ @font-face { font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */ font-family: 'Fira Sans'; font-style: normal; font-weight: 700; src: url('../fonts/fira-sans-v17-latin_latin-ext-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */ } /* fira-sans-800 - latin_latin-ext */ @font-face { font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */ font-family: 'Fira Sans'; font-style: normal; font-weight: 800; src: url('../fonts/fira-sans-v17-latin_latin-ext-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */ } :root { --accent-color: #78c109; --blue-color: #046cc7; --blue-light-color: #1591ff; --fading-color: #b5b2b2; --the-fadest-color: #d7d7d7; --hr-color: #eee; --code-background: #e9e9e9b0; --code-font-color: #686969; --main-font: 'Fira Sans', 'Times New Roman', serif; --title-font: 'Fira Sans', 'Times New Roman', serif; --main-font-color: #404040; --heading-font-color: white; --header-color: #0093ff; --whitesmoke-color: #f5f5f5; --whitish-color: #838383; --navigation-font-color: #737373; } .btn-heading { --bs-btn-font-size: 1.3rem; } .btn-navigation { font-size: 1.2rem; text-decoration: none; font-weight: 300; } .btn-navigation:hover, .btn-navigation:active { text-decoration: underline; text-decoration-thickness: 0.1rem; border: none !important; } a.btn-smaller { --bs-btn-font-size: 0.8rem; --bs-btn-padding-x: 0.5rem; --bs-btn-padding-y: 0.175rem; background: white; color: #404040; border-color: #5b5b5b63; border-radius: 2px; } .btn-darker { --bs-btn-active-bg: var(--main-font-color); --bs-btn-hover-bg: var(--main-font-color); --bs-btn-active-border-color: var(--main-font-color); --bs-btn-hover-border-color: var(--main-font-color); --bs-btn-border-color: var(--main-font-color); --bs-btn-bg: var(--main-font-color); } .my-6 { margin-top: 3.5rem!important; margin-bottom: 3.5rem!important; } body { font-family: var(--main-font); font-size: 16px; font-weight: 300; color: var(--main-font-color); webkit-tap-highlight-color: var(--main-font-color); } p { line-height: 1.5; margin: 1em 0; } h1, h2, h3, h4, h5, h6 { font-family: var(--main-font); color: var(--main-font-color); font-weight: 500; } a { text-decoration: underline; color: var(--main-font-color); } a:hover, a:focus { text-decoration: underline; } a img:hover, a img:focus { cursor: zoom-in; } blockquote { color: #808080; font-style: italic; border-left: 1px solid #808080c9; padding: 3px 8px 3px; } blockquote p { margin: 0px; } .highlight { display: flex; flex-direction: column; align-items: stretch; } div.highlight > button { font-size: 13px; align-self: flex-end; background-color: var(--the-fadest-color); border-radius: 5px 5px 0px 0px; border: 0; margin-bottom: -2px; color: var(--main-font-color); } div.highlight > button:hover, div.highlight > button:focus { text-decoration: underline; } .wrap > pre { text-wrap: wrap; } code { color: var(--code-font-color); background-color: var(--code-background); border-radius: 3px; font-weight: 200; padding: 1px 2px; } pre { position: relative; font-size: 13px; padding: 10px !important; } pre code { background-color: transparent; } @media only screen and (min-width: 768px) { pre { font-size: 14px; padding: 15px; } } .navigation { min-height:40px; font-size: 1.1rem; } .dark-bg { background-color: var(--main-font-color); color: white; } .intro-header .main-heading hr { width: 35%; color:white; opacity:0.6; margin: 1.3em auto; } @media only screen and (min-width: 768px) { .intro-header .article-heading { padding: 1em 0px 0.5em; } } .intro-header .subheading, .intro-header .article-heading { font-size: 20px; line-height: 1.1; display: block; font-weight: 300; margin: 1.6rem 0.1rem; } .intro-header .subheading, .intro-header .meta { line-height: 1.1; display: block; } .intro-header .main-heading h3 { font-size: 26px; color: var(--heading-font-color); text-decoration: none; font-family: var(--main-font); font-weight: 600; text-shadow: 0 0 3px black; margin-top: 14px; margin-bottom: 0; padding: 10px 5px; } .intro-header .main-heading h1 { font-size: 70px; } .intro-header .article-heading h1 { font-size: 48px; margin-top: 0; margin-bottom: 0; font-family: var(--title-font); color: var(--main-font-color); } .intro-header .heading h1 { line-height: 120px; font-size: 85px; text-decoration: underline; } @media only screen and (min-width: 768px) { .intro-header .heading h1 { font-size: 110px; margin: 90px auto; } .intro-header .main-heading h1 { font-size: 110px; } .intro-header .article-heading h1 { font-size: 3.3rem; } .intro-header .heading h3 { margin-top: 30px; padding: 0 50px; font-size: 28px; } .intro-header .heading .subheading { font-size: 30px; } } .post-preview { line-height: 15px; margin: 0.5em auto; } .post-preview>a { color: #404040; text-decoration: none; } .post-preview>a:hover, .post-preview>a:focus { text-decoration: underline; } a>.post-title { font-size: 1.6em; margin-top: 1em; font-weight: 500; } @media only screen and (min-width: 768px) { a>.post-title { font-size: 2.2em; } } .post-preview>a>.post-subtitle { margin: 0; font-weight: 300; margin-bottom: 10px; } .post-preview .note-title { font-size: 1.6em; } @media only screen and (min-width: 768px) { .post-preview .note-title { font-size: 2.3em; } } .note-meta { margin: 0.3rem 0 !important; } .heading-meta { color: var(--fading-color) !important; font-size: 1.1rem; font-weight: 400; text-decoration: none; margin: 1.2rem 0; } .meta-element { color: var(--fading-color) !important; font-size: 0.9rem !important; font-weight: 300; text-decoration: none; margin-top: 1rem; margin-bottom: 1rem; } .meta-element > i { margin-right: 0.3em; } .nobr { white-space: nowrap } .meta-link a:hover, .meta-link a:focus { font-weight: 400; text-decoration: none; border-bottom: var(--main-font-color) solid 2px; } .tags a { margin-right: 3px; text-decoration: none; color: var(--fading-color) !important; } .tags a:hover, .tags a:focus { text-decoration: none; border-bottom: var(--fading-color) solid 1px; } .solid-link a { font-weight: 400; text-decoration: none; border-bottom: var(--fading-color) solid 1px; color: var(--main-font-color); } .solid-link a:hover, .solid-link a:focus { font-weight: 600; text-decoration: none; border-bottom: var(--main-font-color) solid 2px; } .disabled-link a { color: var(--the-fadest-color) !important; } .disabled-solid-link a:hover, .disabled-solid-link a:focus { text-decoration: none; color: var(--fading-color) !important; } .section-heading { font-size: 36px; margin-top: 60px; font-weight: 700; } .caption { text-align: center; font-size: 14px; padding: 10px; font-style: italic; margin: 0; display: block; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; } ::-moz-selection { color: white; text-shadow: none; background: #0085a1; } ::selection { color: white; text-shadow: none; background: #0085a1; } img { max-width: 100%; height: auto; width: auto\9; } img::selection { color: white; background: transparent; } img::-moz-selection { color: white; background: transparent; } .article-summary { font-size: 17px; margin: 0; } article { margin-top: 0.1rem; margin-bottom: 5rem; } article hr { max-width: 20%; margin: 1em auto; opacity: .15; } article + hr { margin-bottom: 1.5rem; } article:first-child p { margin-top: 0.2em; } article h1 { font-size: 2.4rem; } article h2 { font-size: 1.9rem; } article h3 { font-size: 1.6rem; } article h1, article h2, article h3, h4, h5 { margin: 1.5rem auto 1rem; } .section { margin-top: 3rem; margin-bottom: 1rem; } .section h1 { font-size: 2rem; font-weight: 400; } a.toclink { text-decoration: none !important; } a.toclink:hover, a.toclink:focus { text-decoration: none !important; font-weight: unset; } article tr { border-bottom: var(--fading-color) solid 1px; } hr { margin: 0.1rem auto; } hr.little { max-width: 20%; margin: 0.6em auto; opacity: .15; } hr.post-line { margin: 0.6em auto; opacity: .15; } hr.section-line { margin-bottom:1rem; opacity: .5; } .main-line { color: black; } .navigation-hr { margin: 0 auto !important; color: var(--main-font-color); border-top: 2px solid; } b, strong { font-weight: 500; } footer { z-index: 3; min-height: 120px; font-size: 14px; text-align: center; margin-top: 3rem; } .footer-links a { text-decoration: none; } .hide { opacity: 0 !important; } .list-inline { margin: 0.4rem; padding: 0; } .list-inline li { display: inline; margin-right: 0.3rem; margin-left: 0.3rem; } footer .copyright { font-size: 13px; color: #555555ba; } footer .copyright a { color: #000000ba; } .pagination-bar { margin: 3.2rem 0; } .pagination-bar a { font-size: 1.2em; } .related-posts h1 { font-size: 39px; margin-top: 20px; margin-bottom: 20px; text-decoration: none; font-family: var(--title-font); color: var(--main-font-color); text-shadow: 0 0 1px black; } .related-posts li { border-left: 1px solid var(--fading-color); list-style: none; padding-left: 1em; } .related-posts li .meta-elements { margin-top: 0.3em; } .related-posts ul { padding-left: 0.6em; } .tag-item { background: var(--code-background); margin: 0.2em 0.2em; padding: 0.1em 0.1em; border-radius: 3px; } .big-heading h1.big-title { text-decoration: underline; font-size: 4rem; text-align: center; margin-top: 0.5rem; margin-bottom: 0.5rem; } @media only screen and (min-width: 768px) { .big-heading h1.big-title { font-size: 5rem; margin-top: 1rem; margin-bottom: 1rem; } } .intro-header .big-heading { margin: 1rem auto !important; } .down-shadow { box-shadow: #d7d7d7 0 2px 3px 1px; } .up-shadow { box-shadow: #d7d7d7 0 -1px 5px 1px; } .light-button { font-size: 1.1rem !important; font-weight: 400; padding: 2px 4px; cursor: pointer; text-align: center; text-decoration: underline; text-decoration-color: #616161; } .light-button > a { text-decoration: none !important; font-weight: 500; } .light-button:hover, .light-button:active { text-decoration-thickness: 0.2rem; } .navigation-link { color: #fff; text-transform: uppercase; text-decoration: none; letter-spacing: 0.15em; padding: 10px 15px; position: relative; } .navigation-link:hover, .navigation-link:active { text-decoration: underline; text-decoration-color: #d7d7d7; text-decoration-thickness: 0.2rem; } .section-note { font-size: 0.7rem; margin-top: 4.5rem; }
+/* fira-sans-200 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 200;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-200italic - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: italic;
+  font-weight: 200;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-200italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-300 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-300italic - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: italic;
+  font-weight: 300;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-300italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-regular - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-italic - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-500 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-700 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* fira-sans-800 - latin_latin-ext */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Fira Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../fonts/fira-sans-v17-latin_latin-ext-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+ :root {
+     --accent-color: #78c109;
+     --blue-color: #046cc7;
+     --blue-light-color: #1591ff;
+     --fading-color: #b5b2b2;
+     --the-fadest-color: #d7d7d7;
+     --hr-color: #eee;
+     --code-background: #e9e9e9b0;
+     --code-font-color: #686969;
+     --main-font: 'Fira Sans', 'Times New Roman', serif;
+     --title-font: 'Fira Sans', 'Times New Roman', serif;
+     --main-font-color: #404040;
+     --heading-font-color: white;
+     --header-color: #0093ff;
+     --whitesmoke-color: #f5f5f5;
+     --whitish-color: #838383;
+     --navigation-font-color: #737373;
+
+}
+
+
+.btn-heading {
+    --bs-btn-font-size: 1.3rem;
+    border-radius: 3px;
+}
+
+.btn-navigation {
+font-size: 1.2rem;
+text-decoration: none;
+font-weight: 300;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.btn-navigation:hover,
+.btn-navigation:active
+ {
+text-decoration: underline;
+text-decoration-thickness: 0.1rem;
+}
+
+ @media only screen and (min-width: 768px) {
+     .btn-navigation {
+         font-size: 1rem;
+    }
+}
+
+
+a.btn-smaller {
+    --bs-btn-font-size: 0.8rem;
+    --bs-btn-padding-x: 0.5rem;
+    --bs-btn-padding-y: 0.175rem;
+    background: white;
+    color: #404040;
+    border-color: #5b5b5b63;
+    border-radius: 2px;
+}
+
+.btn-darker {
+     --bs-btn-active-bg: var(--main-font-color);
+     --bs-btn-hover-bg: var(--main-font-color);
+     --bs-btn-active-border-color: var(--main-font-color);
+     --bs-btn-hover-border-color: var(--main-font-color);
+    --bs-btn-border-color: var(--main-font-color);
+        --bs-btn-bg: var(--main-font-color);
+        }
+
+.my-6 {
+    margin-top: 3.5rem!important;
+    margin-bottom: 3.5rem!important;
+}
+
+ body {
+     font-family: var(--main-font);
+     font-size: 16px;
+     font-weight: 300;
+     color: var(--main-font-color);
+     webkit-tap-highlight-color: var(--main-font-color);
+}
+ p {
+     line-height: 1.5;
+     margin: 1em 0;
+}
+ h1, h2, h3, h4, h5, h6 {
+     font-family: var(--main-font);
+     color: var(--main-font-color);
+     font-weight: 500;
+}
+ a {
+     text-decoration: underline;
+   color: var(--main-font-color);
+}
+ a:hover, a:focus {
+     text-decoration: underline;
+}
+ a img:hover, a img:focus {
+     cursor: zoom-in;
+}
+ blockquote {
+     color: #808080;
+     font-style: italic;
+     border-left: 1px solid #808080c9;
+     padding: 3px 8px 3px;
+}
+ blockquote p {
+     margin: 0px;
+}
+
+.highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    }
+div.highlight > button {
+ font-size: 13px;
+align-self: flex-end;
+background-color: var(--the-fadest-color);
+border-radius: 5px 5px 0px 0px;
+border: 0;
+margin-bottom: -2px;
+color: var(--main-font-color);
+}
+
+div.highlight > button:hover,
+div.highlight > button:focus {
+
+text-decoration: underline;
+}
+
+.wrap > pre {
+
+text-wrap: wrap;
+
+}
+
+
+ code {
+     color: var(--code-font-color);
+     background-color: var(--code-background);
+     border-radius: 3px;
+     font-weight: 200;
+     padding: 1px 2px;
+}
+ pre {
+   position: relative;
+     font-size: 13px;
+     padding: 10px !important;
+}
+
+
+
+ pre code {
+     background-color: transparent;
+}
+ @media only screen and (min-width: 768px) {
+     pre {
+         font-size: 14px;
+         padding: 15px;
+    }
+}
+
+.navigation {
+
+min-height:40px;
+font-size: 1.1rem;
+
+}
+.dark-bg {
+background-color: var(--main-font-color);
+     color: white;
+
+}
+
+
+.intro-header .main-heading hr {
+
+ width: 35%;
+ color:white;
+ opacity:0.6;
+ margin: 1.3em auto;
+
+}
+
+ @media only screen and (min-width: 768px) {
+     .intro-header .article-heading {
+         padding: 1em 0px 0.5em;
+    }
+}
+
+ .intro-header .subheading, .intro-header .article-heading {
+     font-size: 20px;
+     line-height: 1.1;
+     display: block;
+     font-weight: 300;
+     margin: 1.6rem 0.1rem;
+}
+ .intro-header .subheading, .intro-header  .meta {
+     line-height: 1.1;
+     display: block;
+}
+
+
+ .intro-header .main-heading h3 {
+      font-size: 26px;
+       color: var(--heading-font-color);
+     text-decoration: none;
+     font-family: var(--main-font);
+     font-weight: 600;
+     text-shadow: 0 0 3px black;
+     margin-top: 14px;
+     margin-bottom: 0;
+     padding: 10px 5px;
+}
+
+ .intro-header .main-heading h1 {
+     font-size: 70px;
+}
+
+.intro-header .article-heading h1 {
+     font-size: 48px;
+     margin-top: 0;
+     margin-bottom: 0;
+     font-family: var(--title-font);
+      color: var(--main-font-color);
+
+}
+
+
+     .intro-header .heading h1 {
+          line-height: 120px;
+         font-size: 85px;
+         text-decoration: underline;
+    }
+
+ @media only screen and (min-width: 768px) {
+     .intro-header .heading h1 {
+         font-size: 110px;
+         margin: 90px auto;
+    }
+     .intro-header .main-heading h1 {
+         font-size: 110px;
+    }
+         .intro-header .article-heading h1 {
+         font-size: 3.3rem;
+    }
+      .intro-header .heading h3 {
+        margin-top: 30px;
+     padding: 0 50px;
+           font-size: 28px;
+}
+
+     .intro-header .heading .subheading {
+         font-size: 30px;
+    }
+}
+
+
+
+ .post-preview {
+     line-height: 15px;
+     margin: 0.5em auto;
+}
+ .post-preview>a {
+     color: #404040;
+          text-decoration: none;
+}
+ .post-preview>a:hover, .post-preview>a:focus {
+     text-decoration: underline;
+}
+
+
+a>.post-title {
+     font-size: 1.7em;
+    margin-top: 1em;
+     font-weight: 500;
+}
+ @media only screen and (min-width: 768px) {
+    a>.post-title {
+         font-size: 2.2em;
+    }
+}
+ .post-preview>a>.post-subtitle {
+     margin: 0;
+     font-weight: 300;
+     margin-bottom: 10px;
+}
+
+
+ .post-preview .note-title {
+     font-size: 1.6em;
+}
+ @media only screen and (min-width: 768px) {
+ .post-preview .note-title {
+         font-size: 2.3em;
+    }
+}
+
+.note-meta {
+margin: 0.3rem 0 !important;
+}
+
+.heading-meta {
+      color: var(--fading-color) !important;
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-decoration: none;
+    margin: 1.2rem 0;
+}
+
+.meta-element {
+    color: var(--fading-color) !important;
+    font-size: 0.9rem !important;
+    font-weight: 300;
+    text-decoration: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.meta-element > i {
+margin-right: 0.3em;
+}
+
+.nobr {
+white-space: nowrap
+}
+
+.meta-link a:hover,
+.meta-link a:focus {
+      font-weight: 400;
+          text-decoration: none;
+
+     border-bottom: var(--main-font-color) solid 2px;
+}
+
+
+.tags a {
+margin-right: 3px;
+    text-decoration: none;
+
+color: var(--fading-color) !important;
+}
+
+.tags a:hover,
+.tags a:focus {
+          text-decoration: none;
+     border-bottom: var(--fading-color) solid 1px;
+}
+
+.solid-link a {
+      font-weight: 400;
+    text-decoration: none;
+     border-bottom: var(--fading-color) solid 1px;
+color: var(--main-font-color);
+
+}
+
+.solid-link a:hover,
+.solid-link a:focus {
+      font-weight: 600;
+          text-decoration: none;
+
+     border-bottom: var(--main-font-color) solid 2px;
+}
+
+.disabled-link a {
+
+color: var(--the-fadest-color) !important;
+
+}
+
+.disabled-solid-link a:hover,
+.disabled-solid-link a:focus {
+          text-decoration: none;
+color: var(--fading-color) !important;
+}
+
+ .section-heading {
+     font-size: 36px;
+     margin-top: 60px;
+     font-weight: 700;
+}
+ .caption {
+     text-align: center;
+     font-size: 14px;
+     padding: 10px;
+     font-style: italic;
+     margin: 0;
+     display: block;
+     border-bottom-right-radius: 5px;
+     border-bottom-left-radius: 5px;
+}
+ ::-moz-selection {
+     color: white;
+     text-shadow: none;
+     background: #0085a1;
+}
+ ::selection {
+     color: white;
+     text-shadow: none;
+     background: #0085a1;
+}
+ img {
+     max-width: 100%;
+     height: auto;
+     width: auto\9;
+}
+ img::selection {
+     color: white;
+     background: transparent;
+}
+ img::-moz-selection {
+     color: white;
+     background: transparent;
+}
+ .article-summary {
+     font-size: 17px;
+     margin: 0;
+}
+ article {
+     margin-top: 0.1rem;
+     margin-bottom: 5rem;
+}
+ article hr {
+     max-width: 20%;
+     margin: 1em auto;
+          opacity: .15;
+
+}
+ article + hr {
+     margin-bottom: 1.5rem;
+}
+
+article:first-child p {
+  margin-top: 0.2em;
+}
+
+article h1 {
+font-size: 2.4rem;
+
+}
+
+article h2 {
+font-size: 1.9rem;
+}
+
+article h3 {
+font-size: 1.6rem;
+
+}
+
+article h1, article h2, article h3, h4, h5 {
+margin: 1.5rem auto 1rem;
+}
+
+.section {
+margin-top: 3rem;
+margin-bottom: 1rem;
+
+}
+.section h1 {
+font-size: 2rem;
+font-weight: 400;
+}
+
+a.toclink {
+
+text-decoration: none !important;
+}
+
+a.toclink:hover,
+a.toclink:focus
+ {
+text-decoration: none !important;
+font-weight: unset;
+}
+
+
+article tr {
+
+    border-bottom: var(--fading-color) solid 1px;
+    }
+
+ hr {
+     margin: 0.1rem auto;
+}
+
+hr.little {
+     max-width: 20%;
+     margin: 0.6em auto;
+          opacity: .15;
+          }
+
+hr.post-line {
+     margin: 0.6em auto;
+     opacity: .15;
+          }
+
+hr.section-line {
+  margin-bottom:1rem;
+  opacity: .5;
+}
+
+
+.main-line {
+     color: black;
+}
+
+.navigation-hr {
+     margin: 0 auto !important;
+         color: var(--main-font-color);
+    border-top: 2px solid;
+}
+
+b, strong {
+    font-weight: 500;
+}
+
+
+ footer {
+     z-index: 3;
+     min-height: 120px;
+     font-size: 14px;
+     text-align: center;
+     margin-top: 5rem;
+}
+
+
+.footer-links a {
+text-decoration: none;
+}
+
+.hide {
+opacity: 0 !important;
+}
+
+ .list-inline {
+     margin: 0.4rem;
+     padding: 0;
+}
+ .list-inline li {
+     display: inline;
+     margin-right: 0.3rem;
+     margin-left: 0.3rem;
+}
+ footer .copyright {
+     font-size: 13px;
+     color: #555555ba;
+}
+
+ footer .copyright a {
+     color: #000000ba;
+}
+
+ .pagination-bar {
+     margin: 3.2rem 0;
+}
+ .pagination-bar a {
+     font-size: 1.2em;
+}
+
+
+.related-posts h1 {
+font-size: 39px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    font-family: var(--title-font);
+    color: var(--main-font-color);
+         text-shadow: 0 0 1px black;
+
+
+}
+
+.related-posts li {
+border-left: 1px solid var(--fading-color);
+list-style: none;
+padding-left: 1em;
+}
+
+.related-posts li .meta-elements {
+margin-top: 0.3em;
+}
+
+.related-posts ul {
+padding-left: 0.6em;
+}
+
+
+.tag-item {
+  background: var(--code-background);
+  margin: 0.2em 0.2em;
+  padding: 0.1em 0.1em;
+  border-radius: 3px;
+  }
+
+
+.big-heading h1.big-title {
+text-decoration: underline;
+font-size: 4rem;
+text-align: center;
+margin-top: 0.5rem;
+margin-bottom: 0.5rem;
+}
+
+ @media only screen and (min-width: 768px) {
+.big-heading h1.big-title {
+font-size: 5rem;
+margin-top: 1rem;
+margin-bottom: 1rem;
+}
+}
+
+
+ .intro-header .big-heading {
+ margin: 1rem auto !important;
+
+ }
+
+
+.down-shadow {
+box-shadow: #d7d7d7 0 2px 3px 1px;
+}
+
+.up-shadow {
+box-shadow: #d7d7d7 0 -1px 5px 1px;
+}
+
+.light-button {
+font-size: 1.1rem !important;
+font-weight: 400;
+    padding: 2px 4px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: #616161;
+    }
+
+
+.light-button > a {
+    text-decoration: none !important;
+    font-weight: 500;
+}
+
+.light-button:hover,
+.light-button:active {
+      text-decoration-thickness: 0.2rem;
+}
+
+.navigation-link {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  padding: 10px 15px;
+  position: relative;
+}
+
+.navigation-link:hover,
+.navigation-link:active {
+      text-decoration: underline;
+      text-decoration-color: #d7d7d7;
+      text-decoration-thickness: 0.2rem;
+}
+
+
+
+.section-note {
+font-size: 0.7rem;
+margin-top: 4.5rem;
+}
+
+.note-card {
+
+border: none;
+
+}
+
+.card>hr {
+    margin-right: inherit;
+    margin-left: initial;
+}
+

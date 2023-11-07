@@ -1,43 +1,272 @@
-<!doctype html><html lang=en><meta charset=utf-8><meta content=IE=edge http-equiv=X-UA-Compatible><meta content=width=device-width,initial-scale=1 name=viewport><title>Kamil's Scratchpad - Poetry tree
-</title><link href=https://kanguros.github.io/theme/css/bootstrap.min.css rel=stylesheet><link href=https://kanguros.github.io/theme/css/bootstrap-icons.css rel=stylesheet><link href=https://kanguros.github.io/theme/css/code_blocks/darkly.css rel=stylesheet><link href=https://kanguros.github.io/theme/css/clean-blog.css rel=stylesheet><meta content="Poetry tree as graph." name=description><meta content=notes name=tags><meta content=poetry name=tags><meta content=graph name=tags><meta content=en property=og:locale><meta content="Kamil's Scratchpad" property=og:site_name><meta content=article property=og:type><meta content=https://kanguros.github.io/note/poetry-tree.html property=og:url><meta content=Poetry tree property=og:title><meta content="2023-07-10 00:00:00+02:00" property=article:published_time><meta content="Poetry tree as graph." property=og:description><meta content=https://kanguros.github.io/theme/images/post-bg.jpg property=og:image><body class="article-poetry-tree d-flex flex-column vh-100"><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><nav class="navbar navbar-expand-lg container px-2"><a class=navbar-brand href=https://kanguros.github.io><i class="bi bi-house"></i> KS</a><button aria-label="Toggle navigation" aria-controls=#navbarNav aria-expanded=false class=navbar-toggler data-bs-target=#navbarNav data-bs-toggle=collapse type=button><span class=navbar-toggler-icon></span></button><div class="collapse navbar-collapse justify-content-end" id=navbarNav><ul class="nav navbar-nav"><li class=nav-item><a class="btn btn-navigation mx-2 float-end" href=https://kanguros.github.io/articles.html>Articles</a><li class=nav-item><a class="btn btn-navigation mx-2 float-end" href=https://kanguros.github.io/notes.html>Notes</a><li class=nav-item><a class="btn btn-navigation mx-2 float-end" href=https://kanguros.github.io/about.html>About</a></ul></div></nav><hr class=section-line></div><header class=intro-header><div class=container><div class=row><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><div class=article-heading><a href=/note/poetry-tree.html rel=bookmark title=Poetry tree> <h1>Poetry tree</h1> </a><p class=meta-element><i class="bi bi-sticky"></i> Note <i class="bi bi-dot"></i> <i class="bi bi-calendar"></i> 2023-07-10 <i class="bi bi-dot"></i> <i class="bi bi-book"></i> 1 minute<div class="tags meta-element"><a href=/tags/notes rel=bookmark title=notes> #notes </a><a href=/tags/poetry rel=bookmark title=poetry> #poetry </a><a href=/tags/graph rel=bookmark title=graph> #graph </a></div></div></div></div></div></header><div class=container><div class=row><div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><article><p>This module provides functions to parse and work with a dependency tree output. The primary function, <code>parse_dependency_tree</code>, takes a tree-like output and converts it into a hierarchical data structure for further processing.<h2 id=dependency_parserpy><a class=toclink href=#dependency_parserpy><code>dependency_parser.py</code></a></h2><div class=highlight><pre><span></span><code><span class=k>def</span> <span class=nf>parse_dependency_tree</span><span class=p>(</span><span class=n>tree_output</span><span class=p>):</span>
-    <span class=n>tree_lines</span> <span class=o>=</span> <span class=n>tree_output</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=s2>"</span><span class=se>\n</span><span class=s2>"</span><span class=p>)</span>
-    <span class=n>dependencies</span> <span class=o>=</span> <span class=p>{}</span>
-    <span class=n>current_package</span> <span class=o>=</span> <span class=kc>None</span>
 
-    <span class=k>for</span> <span class=n>line</span> <span class=ow>in</span> <span class=n>tree_lines</span><span class=p>:</span>
-        <span class=k>if</span> <span class=n>line</span><span class=o>.</span><span class=n>endswith</span><span class=p>(</span><span class=s2>" "</span><span class=p>):</span>  <span class=c1># Indication of a dependency</span>
-            <span class=n>package_name</span> <span class=o>=</span> <span class=n>line</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span>
-            <span class=n>dependencies</span><span class=p>[</span><span class=n>package_name</span><span class=p>]</span> <span class=o>=</span> <span class=p>[]</span>
-            <span class=n>current_package</span> <span class=o>=</span> <span class=n>package_name</span>
-        <span class=k>elif</span> <span class=n>line</span><span class=o>.</span><span class=n>startswith</span><span class=p>(</span><span class=s2>"├── "</span><span class=p>)</span> <span class=ow>or</span> <span class=n>line</span><span class=o>.</span><span class=n>startswith</span><span class=p>(</span><span class=s2>"└── "</span><span class=p>):</span>  <span class=c1># Sub-dependency</span>
-            <span class=n>sub_dependency</span> <span class=o>=</span> <span class=n>line</span><span class=p>[</span><span class=mi>4</span><span class=p>:]</span><span class=o>.</span><span class=n>strip</span><span class=p>()</span>
-            <span class=k>if</span> <span class=n>current_package</span><span class=p>:</span>
-                <span class=n>dependencies</span><span class=p>[</span><span class=n>current_package</span><span class=p>]</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>sub_dependency</span><span class=p>)</span>
+<!DOCTYPE html>
+<html lang="en">
 
-    <span class=k>return</span> <span class=n>dependencies</span>
-</code></pre></div><h2 id=test_dependency_parserpy><a class=toclink href=#test_dependency_parserpy><code>test_dependency_parser.py</code></a></h2><div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>dependency_parser</span>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<span class=k>def</span> <span class=nf>test_parse_dependency_tree</span><span class=p>():</span>
-    <span class=n>tree_output</span> <span class=o>=</span> <span class=s2>"""</span>
-<span class=s2>    requests</span>
-<span class=s2>    ├── certifi</span>
-<span class=s2>    ├── charset-normalizer</span>
-<span class=s2>    ├── idna</span>
-<span class=s2>    └── urllib3</span>
-<span class=s2>    sqlalchemy</span>
-<span class=s2>    └── greenlet</span>
-<span class=s2>    celery</span>
-<span class=s2>    ├── billiard</span>
-<span class=s2>    ├── kombu</span>
-<span class=s2>    │   └── amqp</span>
-<span class=s2>    └── vine</span>
-<span class=s2>    """</span>
 
-    <span class=n>expected_dependencies</span> <span class=o>=</span> <span class=p>{</span>
-        <span class=s1>'requests'</span><span class=p>:</span> <span class=p>[</span><span class=s1>'certifi'</span><span class=p>,</span> <span class=s1>'charset-normalizer'</span><span class=p>,</span> <span class=s1>'idna'</span><span class=p>,</span> <span class=s1>'urllib3'</span><span class=p>],</span>
-        <span class=s1>'sqlalchemy'</span><span class=p>:</span> <span class=p>[</span><span class=s1>'greenlet'</span><span class=p>],</span>
-        <span class=s1>'celery'</span><span class=p>:</span> <span class=p>[</span><span class=s1>'billiard'</span><span class=p>,</span> <span class=p>{</span><span class=s1>'kombu'</span><span class=p>:</span> <span class=p>[</span><span class=s1>'amqp'</span><span class=p>]},</span> <span class=s1>'vine'</span><span class=p>]</span>
-    <span class=p>}</span>
+    <title>Kamil's Scratchpad - Poetry tree
+</title>
 
-    <span class=k>assert</span> <span class=n>dependency_parser</span><span class=o>.</span><span class=n>parse_dependency_tree</span><span class=p>(</span><span class=n>tree_output</span><span class=p>)</span> <span class=o>==</span> <span class=n>expected_dependencies</span>
-</code></pre></div></article><div class=related-posts><hr class=section-line><h1 class=subheading>Related posts</h1><ul><li><a href=https://kanguros.github.io/note/dynamic-click.html> Dynamic Click </a> <div class="d-flex justify-content-start meta-elements"><i class="bi bi-calendar"></i> 2023-07-10 <i class="bi bi-dot"></i><i class="bi bi-book"></i> 1 minute</div><li><a href=https://kanguros.github.io/note/pacli-wrapper.html> <span class=caps>PACLI</span> Wrapper </a> <div class="d-flex justify-content-start meta-elements"><i class="bi bi-calendar"></i> 2023-07-10 <i class="bi bi-dot"></i><i class="bi bi-book"></i> 1 minute</div></ul></div></div></div></div><footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1"><hr><p class="footer-links my-3"><a class=px-2 href=https://kanguros.github.io/articles.html> Articles </a> <a class=px-2 href=https://kanguros.github.io/notes.html> Notes </a> <a class=px-2 href=https://kanguros.github.io/about.html> About </a> <a class=px-2 href=https://kanguros.github.io/tags/index.html> Tags </a> <a class=px-2 href=https://kanguros.github.io/archive.html> Archive </a><hr class=little><p class=copyright>© Blog made by <a href=https://kanguros.github.io/about.html>Kamil Urbanek</a>, powered by <a href=http://getpelican.com>Pelican</a>, on modified <a href=https://github.com/BlackrockDigital/startbootstrap-clean-blog>Clean Blog</a> theme.</footer><script src=https://kanguros.github.io/theme/js/jquery.js></script><script src=https://kanguros.github.io/theme/js/bootstrap.js></script><script src=https://kanguros.github.io/theme/js/clean-blog.js></script>
+    <!-- Bootstrap and Clean Blog CSS -->
+    <link href="https://kanguros.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/code_blocks/darkly.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/clean-blog.css" rel="stylesheet">
+
+
+
+
+<meta name="description" content="Poetry tree as graph.">
+
+<meta name="tags" content="notes">
+<meta name="tags" content="poetry">
+<meta name="tags" content="graph">
+
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Kamil's Scratchpad">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kanguros.github.io/note/poetry-tree.html">
+<meta property="og:title" content="Poetry tree">
+<meta property="article:published_time" content="2023-07-10 00:00:00+02:00">
+<meta property="og:description" content="Poetry tree as graph.">
+
+<meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
+
+</head>
+
+<body class="article-poetry-tree d-flex flex-column vh-100">
+<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+
+
+    <nav class="navbar navbar-expand-lg container px-2 my-1">
+        <a class="navbar-brand" href="https://kanguros.github.io"><i class="bi bi-house"></i> KS</a>
+        <!-- Hamburger toggle button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible navigation links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="nav navbar-nav mt-2">
+                <li class="nav-item">
+                    <a class="btn-navigation mx-3 my-2 float-end"
+                       href="https://kanguros.github.io/articles.html"
+                       title="Articles"
+                       aria-label="Articles"
+                    >Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-3 my-2 float-end"
+                       href="https://kanguros.github.io/notes.html"
+                       title="Notes"
+                       aria-label="Notes"
+                    >Notes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-3 my-2 float-end"
+                       href="https://kanguros.github.io/tags.html"
+                       title="Tags"
+                       aria-label="Tags"
+                    >Tags</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-3 my-2 float-end"
+                       href="https://kanguros.github.io/about.html"
+                       title="About"
+                       aria-label="About"
+                    >About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <hr class="section-line">
+</div>
+
+
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="article-heading">
+                    <a href="/note/poetry-tree.html" rel="bookmark" title="Poetry tree">
+                        <h1>
+                            Poetry tree
+                        </h1>
+                    </a>
+                    <p class="meta-element">
+                        
+<i class="bi bi-sticky"></i>
+Note
+<i class="bi bi-dot"></i>
+
+
+                        
+<i class="bi bi-calendar"></i> 2023-07-10
+<i class="bi bi-dot"></i>
+<i class="bi bi-book"></i> 1 minute
+
+
+                    </p>
+                    
+<div class="tags meta-element">
+    <a href="/tags/notes.html"
+       rel="bookmark"
+       title="notes"
+       aria-label="notes"
+    >
+        #notes
+    </a>
+    <a href="/tags/poetry.html"
+       rel="bookmark"
+       title="poetry"
+       aria-label="poetry"
+    >
+        #poetry
+    </a>
+    <a href="/tags/graph.html"
+       rel="bookmark"
+       title="graph"
+       aria-label="graph"
+    >
+        #graph
+    </a>
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+<article>
+    <p>This module provides functions to parse and work with a dependency tree output. The primary
+function, <code>parse_dependency_tree</code>, takes a tree-like output and converts it into a hierarchical data structure for
+further&nbsp;processing.</p>
+<h2 id="dependency_parserpy"><a class="toclink" href="#dependency_parserpy"><code>dependency_parser.py</code></a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">parse_dependency_tree</span><span class="p">(</span><span class="n">tree_output</span><span class="p">):</span>
+    <span class="n">tree_lines</span> <span class="o">=</span> <span class="n">tree_output</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">dependencies</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">current_package</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">tree_lines</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">):</span>  <span class="c1"># Indication of a dependency</span>
+            <span class="n">package_name</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">dependencies</span><span class="p">[</span><span class="n">package_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="n">current_package</span> <span class="o">=</span> <span class="n">package_name</span>
+        <span class="k">elif</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;├── &quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;└── &quot;</span><span class="p">):</span>  <span class="c1"># Sub-dependency</span>
+            <span class="n">sub_dependency</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">current_package</span><span class="p">:</span>
+                <span class="n">dependencies</span><span class="p">[</span><span class="n">current_package</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_dependency</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">dependencies</span>
+</code></pre></div>
+
+<h2 id="test_dependency_parserpy"><a class="toclink" href="#test_dependency_parserpy"><code>test_dependency_parser.py</code></a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">dependency_parser</span>
+
+<span class="k">def</span> <span class="nf">test_parse_dependency_tree</span><span class="p">():</span>
+    <span class="n">tree_output</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">    requests</span>
+<span class="s2">    ├── certifi</span>
+<span class="s2">    ├── charset-normalizer</span>
+<span class="s2">    ├── idna</span>
+<span class="s2">    └── urllib3</span>
+<span class="s2">    sqlalchemy</span>
+<span class="s2">    └── greenlet</span>
+<span class="s2">    celery</span>
+<span class="s2">    ├── billiard</span>
+<span class="s2">    ├── kombu</span>
+<span class="s2">    │   └── amqp</span>
+<span class="s2">    └── vine</span>
+<span class="s2">    &quot;&quot;&quot;</span>
+
+    <span class="n">expected_dependencies</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;requests&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;certifi&#39;</span><span class="p">,</span> <span class="s1">&#39;charset-normalizer&#39;</span><span class="p">,</span> <span class="s1">&#39;idna&#39;</span><span class="p">,</span> <span class="s1">&#39;urllib3&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;sqlalchemy&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;greenlet&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;celery&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;billiard&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;kombu&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;amqp&#39;</span><span class="p">]},</span> <span class="s1">&#39;vine&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+
+    <span class="k">assert</span> <span class="n">dependency_parser</span><span class="o">.</span><span class="n">parse_dependency_tree</span><span class="p">(</span><span class="n">tree_output</span><span class="p">)</span> <span class="o">==</span> <span class="n">expected_dependencies</span>
+</code></pre></div>
+</article>
+<div class="related-posts">
+    <hr class="section-line">
+    <h1 class="subheading">Related posts</h1>
+    <ul>
+        <li>
+            <a href="https://kanguros.github.io/note/dynamic-click.html">
+                Dynamic&nbsp;Click
+            </a>
+            <div class="d-flex justify-content-start meta-elements">
+                <i class="bi bi-calendar"></i> 2023-07-10
+                <i class="bi bi-dot"></i>
+                <i class="bi bi-book"></i> 1 minute
+            </div>
+        </li>
+        <li>
+            <a href="https://kanguros.github.io/note/pacli-wrapper.html">
+                <span class="caps">PACLI</span>&nbsp;Wrapper
+            </a>
+            <div class="d-flex justify-content-start meta-elements">
+                <i class="bi bi-calendar"></i> 2023-07-10
+                <i class="bi bi-dot"></i>
+                <i class="bi bi-book"></i> 1 minute
+            </div>
+        </li>
+    </ul>
+</div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+    <hr class="section-line">
+
+    <p class="footer-links my-4">
+        <a href="https://kanguros.github.io" class="px-2">Index</a>
+        <a href="https://kanguros.github.io/articles.html" class="px-2">
+            Articles
+        </a>
+        <a href="https://kanguros.github.io/notes.html" class="px-2">
+            Notes
+        </a>
+        <a href="https://kanguros.github.io/tags.html" class="px-2">
+            Tags
+        </a>
+        <a href="https://kanguros.github.io/about.html" class="px-2">
+            About
+        </a>
+    </p>
+    <hr class="little">
+    <p class="copyright">
+        &copy; Blog made by <a href="https://kanguros.github.io/about.html">Kamil Urbanek</a>, powered by <a
+            href="http://getpelican.com">Pelican</a>,
+        on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
+        theme.
+    </p>
+
+
+</footer>
+
+
+<!-- JS Scripts -->
+<script src="https://kanguros.github.io/theme/js/jquery.js"></script>
+<script src="https://kanguros.github.io/theme/js/bootstrap.js"></script>
+<script src="https://kanguros.github.io/theme/js/clean-blog.js"></script>
+</body>
+
+</html>
