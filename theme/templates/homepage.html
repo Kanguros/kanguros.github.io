@@ -1,4 +1,4 @@
-{% from 'macros.j2' import big_note, primary_button, secondary_button, note_card %}
+{% from 'macros.j2' import big_note, primary_button, secondary_button, read_more_button %}
 {% extends "base.html" %}
 
 {% block header %}
@@ -16,13 +16,15 @@
                         {{ SITEINFO }}
                     </h3>
                     <div class="d-flex flex-wrap flex-lg-nowrap justify-content-evenly mt-5 mb-2">
-                        <a href="{{ SITEURL }}/about.html" class="btn btn-secondary btn-darker btn-heading"
+                        <a href="{{ SITEURL }}/about.html"
+                           class="btn btn-secondary btn-darker btn-heading"
                            title="About"
                            aria-label="About"
                         >
                             <i class="bi bi-file-person"></i> About
                         </a>
-                        <a href="{{ GIT_LINK }}" class="btn btn-secondary btn-darker btn-heading"
+                        <a href="{{ GIT_LINK }}"
+                           class="btn btn-secondary btn-darker btn-heading"
                            title="My GitHub"
                            aria-label="My GitHub"
                         >
@@ -43,7 +45,7 @@
 <div class="section">
     <div class="d-flex justify-content-between align-items-center section-title">
         <h1><i class="bi bi-file-post"></i> Articles</h1>
-        {{ secondary_button('article.html', 'All articles', 'arrow-right-short') }}
+        {{ secondary_button(CATEGORY_ARTICLES_URL, 'All articles', 'arrow-right-short') }}
     </div>
     <hr class="section-line">
     {% for article in articles if article.category == 'Article' %}
@@ -57,20 +59,44 @@
 <div class="section section-note">
     <div class="d-flex justify-content-between align-items-center">
         <h1><i class="bi bi-sticky"></i> Notes</h1>
-        {{ secondary_button('note.html', 'All notes', 'arrow-right-short') }}
+        {{ secondary_button(CATEGORY_NOTES_URL, 'All notes', 'arrow-right-short') }}
     </div>
     <hr class="section-line">
-    <div class="row row-cols-1 row-cols-xl-3">
+    <div class="row row-cols-1 g-0 row-cols-md-2 gx-md-4">
         {% for article in articles if article.category == 'Note' %}
-        {% if loop.index < 4 %}
-        <div class="col">
-            {{ note_card(article) }}
+        {% if loop.index < 5 %}
+        <div class="col py-1">
+            <div class="card note-card h-100">
+                <div class="card-body py-2 px-0">
+                    <h3 class="card-title">{{ article.title }}</h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="meta-element my-1">
+                            <div>
+                                <i class="bi bi-calendar"></i> {{ article.locale_date }}
+                            </div>
+                            <div class="tags">
+                                {% for t in article.tags %}
+                                <a href="{{ SITEURL }}/tags/{{ t }}.html"
+                                   rel="bookmark"
+                                   title="{{ t }}"
+                                   aria-label="{{ t }}"
+                                >#{{ t }}
+                                </a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div>
+                            {{ read_more_button(article) }}
+                        </div>
+                    </div>
+                </div>
+                <hr class="post-line">
+
+            </div>
         </div>
         {% endif %}
         {% endfor %}
     </div>
-
-
 </div>
 
 {% endblock content %}

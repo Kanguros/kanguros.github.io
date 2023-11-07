@@ -93,12 +93,16 @@
 
 .btn-heading {
     --bs-btn-font-size: 1.3rem;
+    border-radius: 3px;
 }
 
 .btn-navigation {
 font-size: 1.2rem;
 text-decoration: none;
 font-weight: 300;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
 }
 
 .btn-navigation:hover,
@@ -106,7 +110,12 @@ font-weight: 300;
  {
 text-decoration: underline;
 text-decoration-thickness: 0.1rem;
-border: none !important;
+}
+
+ @media only screen and (min-width: 768px) {
+     .btn-navigation {
+         font-size: 1rem;
+    }
 }
 
 
@@ -334,7 +343,7 @@ background-color: var(--main-font-color);
 
 
 a>.post-title {
-     font-size: 1.6em;
+     font-size: 1.7em;
     margin-top: 1em;
      font-weight: 500;
 }
@@ -585,7 +594,7 @@ b, strong {
      min-height: 120px;
      font-size: 14px;
      text-align: center;
-     margin-top: 3rem;
+     margin-top: 5rem;
 }
 
 
@@ -733,4 +742,14 @@ font-size: 0.7rem;
 margin-top: 4.5rem;
 }
 
+.note-card {
+
+border: none;
+
+}
+
+.card>hr {
+    margin-right: inherit;
+    margin-left: initial;
+}
 

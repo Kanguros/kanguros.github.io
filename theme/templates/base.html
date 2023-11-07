@@ -44,7 +44,7 @@
 <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
 
 
-    <nav class="navbar navbar-expand-lg container px-2">
+    <nav class="navbar navbar-expand-lg container px-2 my-1">
         <a class="navbar-brand" href="{{ SITEURL }}"><i class="bi bi-house"></i> {{ SITENAME_BRAND }}</a>
         <!-- Hamburger toggle button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -54,7 +54,7 @@
 
         <!-- Collapsible navigation links -->
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav mt-2">
                 {% for title, link, icon in NAV_LINKS %}
                 {% if icon == "github" %}
                 {% set nav_url = link %}
@@ -62,7 +62,11 @@
                 {% set nav_url = SITEURL + "/" + link %}
                 {% endif %}
                 <li class="nav-item">
-                    <a class="btn btn-navigation mx-2 float-end" href="{{ nav_url }}">{{ title }}</a>
+                    <a class="btn-navigation mx-3 my-2 float-end"
+                       href="{{ nav_url }}"
+                       title="{{ title }}"
+                       aria-label="{{ title }}"
+                    >{{ title }}</a>
                 </li>
                 {% endfor %}
             </ul>
@@ -85,9 +89,10 @@
 
 
 <footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-    <hr>
+    <hr class="section-line">
 
-    <p class="footer-links my-3">
+    <p class="footer-links my-4">
+        <a href="{{ SITEURL }}" class="px-2">Index</a>
         {% for title, link, icon in ALL_LINKS %}
         <a href="{{ SITEURL }}/{{ link }}" class="px-2">
             {{ title }}

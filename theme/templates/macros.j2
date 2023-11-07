@@ -26,25 +26,6 @@
 
 {% endmacro %}
 
-{% macro note_card(article) %}
-
-<div class="post-preview">
-    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
-        <h3 class="post-title">
-            {{ article.title }}
-        </h3>
-    </a>
-    <div class="d-flex justify-content-start meta-element">
-        {{ meta_elements(article) }}
-    </div>
-    <div class="d-flex justify-content-between align-self-center align-items-center">
-        {{ tags_list(article) }}
-        {{ read_more_button(article) }}
-    </div>
-    <hr class="post-line">
-</div>
-
-{% endmacro %}
 
 {% macro block_article(article) %}
 
@@ -127,7 +108,11 @@
 
 <div class="tags meta-element">
     {% for t in article.tags %}
-    <a href="{{ SITEURL }}/tags/{{ t }}" rel="bookmark" title="{{ t }}">
+    <a href="{{ SITEURL }}/tags/{{ t }}.html"
+       rel="bookmark"
+       title="{{ t }}"
+       aria-label="{{ t }}"
+    >
         #{{ t }}
     </a>
     {% endfor %}
@@ -171,7 +156,7 @@
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                 <div class="heading d-flex flex-wrap align-items-baseline justify-content-between">
                     <a href="{{ SITEURL }}/{{ url }}" rel="bookmark" title="{{ head_text }}" class="me-5">
-                        <h1 class="my-6">
+                        <h1 class="my-4">
                             {{ head_text }}
                         </h1>
                     </a>
@@ -184,7 +169,6 @@
             </div>
         </div>
     </div>
-    <hr class="navigation-hr">
 
 </header>
 {% endmacro %}

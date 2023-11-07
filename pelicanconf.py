@@ -12,8 +12,8 @@ PLUGINS = [
     'yaml_metadata',
     'similar_posts',
     'readtime',
-    # 'sitemap',
     'neighbors',
+    # 'sitemap',  In publishconf.py
     # 'minify',  In publishconf.py
 ]
 
@@ -91,8 +91,8 @@ PAGE_URL = '{slug}/'
 PAGE_SAVE_AS = '{slug}.html'
 
 TAG_URL = 'tags/{slug}.html'
-TAG_SAVE_AS = 'tags/{slug}/index.html'
-TAGS_SAVE_AS = 'tags/index.html'
+TAG_SAVE_AS = 'tags/{slug}.html'
+TAGS_SAVE_AS = 'tags.html'
 
 CATEGORY_URL = '{slug}s.html'
 CATEGORY_SAVE_AS = '{slug}s.html'
@@ -104,7 +104,6 @@ DEFAULT_CATEGORY = "Note"
 GIT_LINK = "https://github.com/Kanguros/"
 
 OTHER_LINKS = [
-    ('Tags', TAGS_SAVE_AS, 'tags'),
     ('Archive', ARCHIVES_SAVE_AS, 'archive'),
 
 ]
@@ -114,12 +113,12 @@ NAV_LINKS = [
     # ('Home', 'index.html', 'house'),
     ('Articles', CATEGORY_ARTICLES_URL, 'journal-code'),
     ('Notes', CATEGORY_NOTES_URL, 'file-code'),
+    ('Tags', TAGS_SAVE_AS, 'tags'),
     ('About', 'about.html', 'file-person'),
 ]
 
 ALL_LINKS = [
-    *NAV_LINKS,
-    *OTHER_LINKS
+    *NAV_LINKS
 ]
 
 MARKDOWN = {
