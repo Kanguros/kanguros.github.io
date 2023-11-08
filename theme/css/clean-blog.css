@@ -260,7 +260,7 @@ background-color: var(--main-font-color);
     }
 }
 
- .intro-header .subheading, .intro-header .article-heading {
+.subheading, .article-heading {
      font-size: 20px;
      line-height: 1.1;
      display: block;
@@ -570,6 +570,7 @@ hr.post-line {
 
 hr.section-line {
   margin-bottom:1rem;
+      margin-top: 0.5rem;
   opacity: .5;
 }
 
@@ -738,8 +739,15 @@ font-weight: 400;
 
 
 .section-note {
-font-size: 0.7rem;
 margin-top: 4.5rem;
+}
+
+.section-note > h1 {
+font-size: 0.7rem;
+}
+
+.section > small {
+color: var(--fading-color) !important;
 }
 
 .note-card {
