@@ -92,12 +92,26 @@
     <hr class="section-line">
 
     <p class="footer-links my-4">
-        <a href="{{ SITEURL }}" class="px-2">Index</a>
-        {% for title, link, icon in ALL_LINKS %}
-        <a href="{{ SITEURL }}/{{ link }}" class="px-2">
-            {{ title }}
+        <a href="{{ SITEURL }}"
+           class="px-2"
+           title="{{ SITENAME }}"
+           aria-label="{{ SITENAME }}">Index</a>
+        {% for title, link, icon in NAV_LINKS %}
+        <a href="{{ SITEURL }}/{{ link }}"
+           class="px-2"
+           title="{{ title }}"
+           aria-label="{{ title }}"
+        >{{ title }}
         </a>
         {% endfor %}
+    </p>
+    <p class="footer-links my-1">
+        <a href="{{ GIT_LINK }}"
+           class="px-2"
+           title="My GitHub"
+           aria-label="My GitHub"
+        ><i class="bi bi-github"></i>
+        </a>
     </p>
     <hr class="little">
     <p class="copyright">

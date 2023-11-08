@@ -1,4 +1,4 @@
-{% from 'macros.j2' import big_note, primary_button, secondary_button, read_more_button %}
+{% from 'macros.j2' import big_note, secondary_button, read_more_button %}
 {% extends "base.html" %}
 
 {% block header %}
@@ -12,11 +12,11 @@
                             {{ SITENAME }}
                         </h1>
                     </a>
-                    <h3 class="subheading">
+                    <h2 class="subheading">
                         {{ SITEINFO }}
-                    </h3>
+                    </h2>
                     <div class="d-flex flex-wrap flex-lg-nowrap justify-content-evenly mt-5 mb-2">
-                        <a href="{{ SITEURL }}/about.html"
+                        <a href="{{ SITEURL }}/{{ ABOUT_URL }}"
                            class="btn btn-secondary btn-darker btn-heading"
                            title="About"
                            aria-label="About"
@@ -30,8 +30,6 @@
                         >
                             <i class="bi bi-github"></i> GitHub
                         </a>
-
-
                     </div>
                 </div>
             </div>
@@ -45,8 +43,9 @@
 <div class="section">
     <div class="d-flex justify-content-between align-items-center section-title">
         <h1><i class="bi bi-file-post"></i> Articles</h1>
-        {{ secondary_button(CATEGORY_ARTICLES_URL, 'All articles', 'arrow-right-short') }}
+        {{ secondary_button(ARTICLES_URL, 'All articles', 'arrow-right-short') }}
     </div>
+    <small>{{ ARTICLES_DESCRIPTION }}</small>
     <hr class="section-line">
     {% for article in articles if article.category == 'Article' %}
     {% if loop.index < 4 %}
@@ -59,8 +58,9 @@
 <div class="section section-note">
     <div class="d-flex justify-content-between align-items-center">
         <h1><i class="bi bi-sticky"></i> Notes</h1>
-        {{ secondary_button(CATEGORY_NOTES_URL, 'All notes', 'arrow-right-short') }}
+        {{ secondary_button(NOTES_URL, 'All notes', 'arrow-right-short') }}
     </div>
+    <small>{{ NOTES_DESCRIPTION }}</small>
     <hr class="section-line">
     <div class="row row-cols-1 g-0 row-cols-md-2 gx-md-4">
         {% for article in articles if article.category == 'Note' %}
@@ -68,7 +68,7 @@
         <div class="col py-1">
             <div class="card note-card h-100">
                 <div class="card-body py-2 px-0">
-                    <h3 class="card-title">{{ article.title }}</h3>
+                    <h3 class="card-title note-title">{{ article.title }}</h3>
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="meta-element my-1">
                             <div>
