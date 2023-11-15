@@ -6,5 +6,8 @@
 {% endblock %}
 
 {% block header %}
-{{ page_header("#" +  tag.name , tag.url , "All articles with #" +  tag.name  + " tag.") }}
+
+{% set tag_meta = TAGS_DESCRIPTION[tag.name]|default("All posts with #" +  tag.name  + " tag.") %}
+
+{{ page_header("#" +  tag.name, tag.url, tag_meta) }}
 {% endblock header %}

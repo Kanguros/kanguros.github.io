@@ -1,19 +1,3 @@
-/* fira-sans-200 - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Fira Sans';
-  font-style: normal;
-  font-weight: 200;
-  src: url('../fonts/fira-sans-v17-latin_latin-ext-200.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* fira-sans-200italic - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Fira Sans';
-  font-style: italic;
-  font-weight: 200;
-  src: url('../fonts/fira-sans-v17-latin_latin-ext-200italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
 /* fira-sans-300 - latin_latin-ext */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -21,14 +5,6 @@
   font-style: normal;
   font-weight: 300;
   src: url('../fonts/fira-sans-v17-latin_latin-ext-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* fira-sans-300italic - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Fira Sans';
-  font-style: italic;
-  font-weight: 300;
-  src: url('../fonts/fira-sans-v17-latin_latin-ext-300italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* fira-sans-regular - latin_latin-ext */
 @font-face {
@@ -54,22 +30,6 @@
   font-weight: 500;
   src: url('../fonts/fira-sans-v17-latin_latin-ext-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-/* fira-sans-700 - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Fira Sans';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/fira-sans-v17-latin_latin-ext-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* fira-sans-800 - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Fira Sans';
-  font-style: normal;
-  font-weight: 800;
-  src: url('../fonts/fira-sans-v17-latin_latin-ext-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
  :root {
      --accent-color: #78c109;
      --blue-color: #046cc7;
@@ -87,9 +47,21 @@
      --whitesmoke-color: #f5f5f5;
      --whitish-color: #838383;
      --navigation-font-color: #737373;
-
 }
 
+
+.svg-container {
+ width: auto;
+ height: 50px;
+ resize: both;
+ overflow: auto;
+ fill: var(--main-font-color);
+}
+
+svg {
+ width: 95%;
+ height: 95%;
+}
 
 .btn-heading {
     --bs-btn-font-size: 1.3rem;
@@ -211,7 +183,7 @@ text-wrap: wrap;
      color: var(--code-font-color);
      background-color: var(--code-background);
      border-radius: 3px;
-     font-weight: 200;
+     font-weight: 300;
      padding: 1px 2px;
 }
  pre {
@@ -254,23 +226,24 @@ background-color: var(--main-font-color);
 
 }
 
- @media only screen and (min-width: 768px) {
-     .intro-header .article-heading {
-         padding: 1em 0px 0.5em;
-    }
-}
 
-.subheading, .article-heading {
-     font-size: 20px;
-     line-height: 1.1;
-     display: block;
-     font-weight: 300;
-     margin: 1.6rem 0.1rem;
+.article-heading, .heading {
+     margin: 1.3rem 0;
+          line-height: 1.1;
+
+
 }
  .intro-header .subheading, .intro-header  .meta {
      line-height: 1.1;
      display: block;
 }
+
+.subheading {
+    font-size: 20px;
+    line-height: 1.1;
+    font-weight: 300;
+    margin: 1.6rem 0.1rem;
+    }
 
 
  .intro-header .main-heading h3 {
@@ -278,7 +251,7 @@ background-color: var(--main-font-color);
        color: var(--heading-font-color);
      text-decoration: none;
      font-family: var(--main-font);
-     font-weight: 600;
+     font-weight: 500;
      text-shadow: 0 0 3px black;
      margin-top: 14px;
      margin-bottom: 0;
@@ -289,12 +262,11 @@ background-color: var(--main-font-color);
      font-size: 70px;
 }
 
-.intro-header .article-heading h1 {
-     font-size: 48px;
+.article-heading h1 {
+     font-size: 2.8rem;
      margin-top: 0;
      margin-bottom: 0;
-     font-family: var(--title-font);
-      color: var(--main-font-color);
+    text-shadow: 0 0 1px #00000091;
 
 }
 
@@ -375,7 +347,7 @@ margin: 0.3rem 0 !important;
 .heading-meta {
       color: var(--fading-color) !important;
     font-size: 1.1rem;
-    font-weight: 400;
+    font-weight: 300;
     text-decoration: none;
     margin: 1.2rem 0;
 }
@@ -419,21 +391,6 @@ color: var(--fading-color) !important;
      border-bottom: var(--fading-color) solid 1px;
 }
 
-.solid-link a {
-      font-weight: 400;
-    text-decoration: none;
-     border-bottom: var(--fading-color) solid 1px;
-color: var(--main-font-color);
-
-}
-
-.solid-link a:hover,
-.solid-link a:focus {
-      font-weight: 600;
-          text-decoration: none;
-
-     border-bottom: var(--main-font-color) solid 2px;
-}
 
 .disabled-link a {
 
@@ -447,11 +404,7 @@ color: var(--the-fadest-color) !important;
 color: var(--fading-color) !important;
 }
 
- .section-heading {
-     font-size: 36px;
-     margin-top: 60px;
-     font-weight: 700;
-}
+
  .caption {
      text-align: center;
      font-size: 14px;
@@ -525,6 +478,10 @@ article h1, article h2, article h3, h4, h5 {
 margin: 1.5rem auto 1rem;
 }
 
+article table {
+width:100%;
+}
+
 .section {
 margin-top: 3rem;
 margin-bottom: 1rem;
@@ -553,9 +510,6 @@ article tr {
     border-bottom: var(--fading-color) solid 1px;
     }
 
- hr {
-     margin: 0.1rem auto;
-}
 
 hr.little {
      max-width: 20%;
@@ -569,9 +523,15 @@ hr.post-line {
           }
 
 hr.section-line {
-  margin-bottom:1rem;
-      margin-top: 0.5rem;
+  margin:1rem auto 0.5rem;
+
   opacity: .5;
+}
+
+hr.nav-line {
+opacity: .5;
+margin: 0;
+
 }
 
 
@@ -579,11 +539,6 @@ hr.section-line {
      color: black;
 }
 
-.navigation-hr {
-     margin: 0 auto !important;
-         color: var(--main-font-color);
-    border-top: 2px solid;
-}
 
 b, strong {
     font-weight: 500;
@@ -619,6 +574,8 @@ opacity: 0 !important;
  footer .copyright {
      font-size: 13px;
      color: #555555ba;
+     padding-bottom: 1rem;
+     padding-top: 0.5rem;
 }
 
  footer .copyright a {
@@ -686,7 +643,7 @@ margin-bottom: 1rem;
 
 
  .intro-header .big-heading {
- margin: 1rem auto !important;
+ margin: 1.4rem auto !important;
 
  }
 
@@ -761,3 +718,18 @@ border: none;
     margin-left: initial;
 }
 
+
+.brand {
+font-size: 1.3rem;
+text-decoration: none;
+font-weight: 300;
+margin-left: 0.3rem;
+}
+
+.git-icon {
+font-size: 1.6rem;
+}
+
+.section-title > a {
+text-decoration: none;
+}

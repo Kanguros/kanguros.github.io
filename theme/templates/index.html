@@ -1,4 +1,4 @@
-{% from 'macros.j2' import big_note, primary_button %}
+{% from 'macros.j2' import main_post, primary_button %}
 {% extends "base.html" %}
 
 {% block header %}
@@ -30,7 +30,7 @@
 {% block content %}
 
 {% for article in articles_page.object_list %}
-{{ big_note(article) }}
+{{ main_post(article) }}
 {% endfor %}
 
 {% include "pagination.html" %}

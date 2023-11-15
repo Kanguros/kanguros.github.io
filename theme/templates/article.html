@@ -1,10 +1,9 @@
-{% from 'macros.j2' import article_header %}
-
+{% from 'macros.j2' import meta_category, meta_elements, tags_list %}
 {% extends "base.html" %}
+
 {% block title %}
 {{ SITENAME }} - {{ article.title|striptags }}
 {% endblock %}
-
 {% block head %}
 {{ super() }}
 
@@ -48,12 +47,40 @@
 {% endblock %}
 
 {% block header %}
-{{ article_header(article) }}
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="article-heading">
+                    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
+                        <h1>
+                            {{ article.title|striptags }}
+                        </h1>
+                    </a>
+                    {% if article.headline %}
+                    <h3 class="subheading">
+                        {{ article.headline }}
+                    </h3>
+                    {% endif %}
+                    <p class="meta-element">
+                        {{ meta_category(article) }}
+                        {{ meta_elements(article) }}
+                    </p>
+                    {{ tags_list(article) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
 {% endblock header %}
 
 {% block content %}
 <article>
     {{ article.content }}
 </article>
+
 {% include 'similar_posts.html' %}
+
 {% endblock content %}

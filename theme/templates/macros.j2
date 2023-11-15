@@ -1,4 +1,4 @@
-{% macro big_note(article) %}
+{% macro main_post(article) %}
 
 <div class="post-preview">
     <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
@@ -26,62 +26,6 @@
 
 {% endmacro %}
 
-
-{% macro block_article(article) %}
-
-<div class="post-preview">
-    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
-        <h2 class="post-title">
-            {{ article.title }}
-        </h2>
-    </a>
-    <div class="d-flex justify-content-start meta-element">
-        {{ meta_elements(article) }}
-    </div>
-    <p class="article-summary">
-        {% if article.has_summary %}
-        {{ article.summary }}
-        {% elif article.summary %}
-        {{ article.summary|striptags|truncate(200) }}
-        {% endif %}
-    </p>
-    <div class="d-flex justify-content-between">
-        {{ tags_list(article) }}
-        {{ read_more_button(article) }}
-    </div>
-</div>
-<hr>
-
-{% endmacro %}
-
-
-{% macro article_header(article) %}
-
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <div class="article-heading">
-                    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
-                        <h1>
-                            {{ article.title|striptags }}
-                        </h1>
-                    </a>
-                    {% if article.headline %}
-                    <h3 class="subheading">{{ article.headline }}</h3>
-                    {% endif %}
-                    <p class="meta-element">
-                        {{ meta_category(article) }}
-                        {{ meta_elements(article) }}
-                    </p>
-                    {{ tags_list(article) }}
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
-{% endmacro %}
 
 {% macro meta_elements(article) %}
 
@@ -147,6 +91,18 @@
 </a>
 {% endmacro %}
 
+{% macro main_button(uri, name, icon=False) %}
+<a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker nobr"
+   title="{{ name }}"
+   aria-label="{{ name }}"
+>
+    {{ name }}
+    {% if icon %}
+    <i class="bi bi-{{ icon }}"></i>
+    {% endif %}
+</a>
+{% endmacro %}
+
 
 {% macro page_header(head_text, url, meta_text='') %}
 
@@ -156,7 +112,7 @@
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                 <div class="heading d-flex flex-wrap align-items-baseline justify-content-between">
                     <a href="{{ SITEURL }}/{{ url }}" rel="bookmark" title="{{ head_text }}" class="me-5">
-                        <h1 class="my-4">
+                        <h1 class="my-3">
                             {{ head_text }}
                         </h1>
                     </a>

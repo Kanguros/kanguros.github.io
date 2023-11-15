@@ -2,9 +2,14 @@
 {% extends "index.html" %}
 
 {% block title %}
-{{ SITENAME }} - All {{ category.name }}s
+{{ SITENAME }} - Posts
 {% endblock %}
 
 {% block header %}
-{{ page_header(category.name + 's', category.url, 'All ' + category.name + 's') }}
+{{ page_header("Posts", POSTS_URL, "List of all posts.") }}
 {% endblock header %}
+
+{% block content %}
+{{ super() }}
+{% endblock content %}
+
