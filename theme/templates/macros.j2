@@ -18,7 +18,34 @@
         {% endif %}
     </p>
     <div class="d-flex justify-content-between align-self-center align-items-center">
-        {{ tags_list(article) }}
+        {{ read_more_button(article) }}
+    </div>
+    <hr class="post-line">
+</div>
+
+{% endmacro %}
+
+
+{% macro private_post(article) %}
+
+<div class="post-preview">
+    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
+        <h2 class="post-title">
+            {{ article.title }}
+        </h2>
+    </a>
+    <div class="d-flex justify-content-start meta-element">
+        <i class="bi bi-calendar"></i> {{ article.locale_date }}
+    </div>
+
+    <p class="article-summary">
+        {% if article.has_summary %}
+        {{ article.summary }}
+        {% elif article.summary %}
+        {{ article.summary|striptags|truncate(200) }}
+        {% endif %}
+    </p>
+    <div class="d-flex justify-content-end mt-2">
         {{ read_more_button(article) }}
     </div>
     <hr class="post-line">

@@ -1,18 +1,18 @@
-{% from 'macros.j2' import small_note, page_header %}
+{% from 'macros.j2' import private_post, page_header %}
 {% extends "base.html" %}
 
 {% block title %}
-{{ SITENAME }} - Notes
+{{ SITENAME }} - Private
 {% endblock %}
 
 {% block header %}
-{{ page_header("Notes", NOTES_URL, "Private notes make public. You read at your own risk") }}
+{{ page_header("Privates", DRAFTS_URL, "Private memos, meant to be shared with familly.") }}
 {% endblock header %}
 
 {% block content %}
 
 {% for article in drafts|sort(attribute="date", reverse=True) %}
-{{ small_note(article) }}
+{{ private_post(article) }}
 {% endfor %}
 
 {% endblock content %}

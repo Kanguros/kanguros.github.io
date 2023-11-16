@@ -51,6 +51,7 @@ DIRECT_TEMPLATES = [
     'tags',
     'under_construction',
     'homepage',
+    'privates',
 ]
 
 DEFAULT_PAGINATION = 5
@@ -77,16 +78,17 @@ ARCHIVES_SAVE_AS = 'archive.html'
 ABOUT_URL = "about.html"
 AUTHOR_SAVE_AS = ""
 
-ARTICLE_PATHS = ['posts', 'notes']
+ARTICLE_PATHS = ['posts', 'notes', 'privates']
 ARTICLE_URL = '{category}/{slug}.html'
 ARTICLE_SAVE_AS = '{category}/{slug}.html'
 ARTICLE_ORDER_BY = 'reversed-date'
 
-DRAFT_URL = 'drafts/{slug}.html'
-DRAFT_SAVE_AS = 'drafts/{slug}.html'
+DRAFTS_URL = "privates.html"
+DRAFT_URL = 'private/{slug}.html'
+DRAFT_SAVE_AS = 'private/{slug}.html'
 
 PAGE_PATHS = ['pages']
-PAGE_URL = '{slug}/'
+PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
 
 TAG_URL = 'tags/{slug}.html'
