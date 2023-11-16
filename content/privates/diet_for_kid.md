@@ -1,45 +1,105 @@
 Title: Dieta dla 5 latki  
 Date: 2023-11-16
 Status: draft
-Summary: Szczegółowa dieta dla 5 letniej dziewczynki
+Category: Private
+Summary: Zalecenia żywieniowe oraz przykładowy plan posiłków dla 5-letniej dziewczynki. Omówione są kluczowe aspekty diety, takie jak błonnik, nawodnienie, zdrowe tłuszcze, oraz ograniczenie cukru i produktów powodujących wzdęcia. Ponadto, szczegółowo przedstawione są wartości odżywcze popularnych przekąsek i przykładowe posiłki na pięć dni.
 
+## Ogólne zalecenia
 
-## Zalecenia Dietetyczne
-
-1. **Bogactwo Błonnika:** Wprowadzenie do diety produktów bogatych w błonnik, takich jak warzywa, pełnoziarniste
+1. **Bogactwo błonnika:** Wprowadzenie do diety produktów bogatych w błonnik, takich jak warzywa, pełnoziarniste
    produkty zbożowe, i nasiona.
-2. **Ograniczenie Owoców i Słodkości:** Wybór owoców o niskim indeksie glikemicznym i ograniczenie słodkości.
+2. **Ograniczenie wooców i słodkości:** Wybór owoców o niskim indeksie glikemicznym i ograniczenie słodkości.
 3. **Nawodnienie:** Zachęcanie do picia odpowiedniej ilości wody.
-4. **Regularne Posiłki:** Spożywanie mniejszych, ale regularnych posiłków.
-5. **Zdrowe Tłuszcze:** Wprowadzenie zdrowych tłuszczów, jak oliwa z oliwek czy awokado.
+4. **Regularne posiłki:** Spożywanie mniejszych, ale regularnych posiłków.
+5. **Zdrowe tłuszcze:** Wprowadzenie zdrowych tłuszczów, jak oliwa z oliwek czy awokado.
 
-## Referencyjne wartości spożycia
+## Referencyjne wartości
 
-| **Składnik odżywczy**         | **Referencyjna procentowa wartość spożycia**    | **Referencyjna ilościowa wartość spożycia** |
-|-------------------------------|-------------------------------------------------|---------------------------------------------|
-| **Wartość energetyczna**      | -                                               | Około 1400-1600 kcal/dzień                  |
-| **Tłuszcz**                   | 35-40% całkowitej wartości energetycznej        | Około 55-70 g/dzień                         |
-| **Kwasy tłuszczowe nasycone** | Mniej niż 10% całkowitej wartości energetycznej | Mniej niż 17 g/dzień                        |
-| **Węglowodany**               | 45-65% całkowitej wartości energetycznej        | Około 158-260 g/dzień                       |
-| **Cukry**                     | Mniej niż 10% całkowitej wartości energetycznej | Mniej niż 40 g/dzień                        |
-| **Białko**                    | 10-30% całkowitej wartości energetycznej        | Około 35-120 g/dzień                        |
-| **Sól**                       | -                                               | Mniej niż 5 g/dzień                         |
+Poniżej znajdują się referencyjne wartości spożycia poszczególnych składników odżywczych, zarówno w procentach jak i
+ilościowo dla 5 letniego dziecka.
 
-## Przykłady słodkości
+| **Składnik odżywczy**         | **Procent**                                     | **Ilość**                  |
+|-------------------------------|-------------------------------------------------|----------------------------|
+| **Wartość energetyczna**      | -                                               | Około 1400-1600 kcal/dzień |
+| **Tłuszcz**                   | 35-40% całkowitej wartości energetycznej        | Około 55-70 g/dzień        |
+| **Kwasy tłuszczowe nasycone** | Mniej niż 10% całkowitej wartości energetycznej | Mniej niż 17 g/dzień       |
+| **Węglowodany**               | 45-65% całkowitej wartości energetycznej        | Około 158-260 g/dzień      |
+| **Cukry**                     | Mniej niż 10% całkowitej wartości energetycznej | Mniej niż 40 g/dzień       |
+| **Białko**                    | 10-30% całkowitej wartości energetycznej        | Około 35-120 g/dzień       |
+| **Sól**                       | -                                               | Mniej niż 5 g/dzień        |
 
-| Produkt                    | Kalorie (kcal) | Tłuszcz (g) | Kwasy nasycone (g) | Węglowodany (g) | Cukry (g) | Białko (g) |
-|----------------------------|----------------|-------------|------------------------------|-----------------|-----------|------------|
-| Jogurt Waniliowy (150g)    | 100-150        | 2-4         | 1-2                          | 15-25           | 13-20     | 4-6        |
-| Kromka z Dżemem            | 100-120        | 1-2         | 0,2-0,5                      | 20-25           | 5-10      | 3-5        |
-| Baton Czekoladowy (40-50g) | 200-250        | 10-15       | 5-8                          | 25-35           | 20-30     | 2-4        |
+## Cukier w diecie
 
+Generalnie, zalecane jest, aby cukry dodane czyli **słodkości**, stanowiły mniej niż 10% całkowitej dziennej
+wartości energetycznej. Przy przyjęciu, że dziecko tego wieku powinno spożywać około 1400-1600 kcal dziennie, 10%
+stanowiłoby około **140-160 kcal**. Jednak w przypadku dzieci z problemami zdrowotnymi, warto
+ograniczyć ilość cukrów dodanych jeszcze bardziej.
 
+Oto zawartość składników odżywczych w niektórych typowych słodkich przekąskach. Warto zaznaczyć że: **jeden jogurt lub
+jeden baton zawiera ponad połowe całkowitego dziennego zapotrzebowania na cukier.**
 
+### Jogurt Waniliowy (150g)
 
-**Jeden jogurt lub jeden baton zawiera ponad połowe całkowitego dziennego zapotrzebowania na cukier.**
+| Kalorie      | Tłuszcz | Kwasy nasycone | Węglowodany | Cukry  | Białko |
+|--------------|---------|----------------|-------------|--------|--------|
+| 100-150 kcal | 2-4g    | 1-2g           | 15-25g      | 13-20g | 4-6g   |
 
+### Kromka z Dżemem
+
+| Kalorie      | Tłuszcz | Kwasy nasycone | Węglowodany | Cukry | Białko |
+|--------------|---------|----------------|-------------|-------|--------|
+| 100-120 kcal | 1-2g    | 0,2-0,5g       | 20-25g      | 5-10g | 3-5g   |
+
+### Baton Czekoladowy (40-50g)
+
+| Kalorie      | Tłuszcz | Kwasy nasycone | Węglowodany | Cukry  | Białko |
+|--------------|---------|----------------|-------------|--------|--------|
+| 200-250 kcal | 10-15g  | 5-8g           | 25-35g      | 20-30g | 2-4g   |
+
+### Jabłko (średniej wielkości, około 182g)
+
+| Kalorie | Tłuszcz | Kwasy nasycone | Węglowodany | Cukry | Białko |
+|---------|---------|----------------|-------------|-------|--------|
+| 95 kcal | 0,3g    | 0,1g           | 25g         | 19g   | 0,5g   |
+
+### Banan (średniej wielkości, około 118g)
+
+| Kalorie  | Tłuszcz | Kwasy nasycone | Węglowodany | Cukry | Białko |
+|----------|---------|----------------|-------------|-------|--------|
+| 105 kcal | 0,4g    | 0,1g           | 27g         | 14g   | 1,3g   |
+
+### Paczka Żelek (standardowa porcja, około 40g)
+
+| Kalorie      | Tłuszcz | Kwasy nasycone | Węglowodany | Cukry  | Białko |
+|--------------|---------|----------------|-------------|--------|--------|
+| 130-160 kcal | 0g      | 0g             | 30-40g      | 20-30g | 0g     |
+
+### Chrupki Kukurydziane (standardowa porcja, około 30g)
+
+| Kalorie      | Tłuszcz | Kwasy nasycone | Węglowodany | Cukry | Białko |
+|--------------|---------|----------------|-------------|-------|--------|
+| 110-130 kcal | 0,5-1g  | 0g             | 25-28g      | 0-2g  | 2-3g   |
+
+## Wzdęcia, czego unikać
+
+Oto lista produktów i rodzajów posiłków, których unikanie może pomóc w łagodzeniu wzdęć i gazów:
+
+1. **Warzywa strączkowe**: Fasola, soczewica, ciecierzyca, groch. Te produkty zawierają oligosacharydy, które mogą
+   powodować gazy.
+2. **Niektóre warzywa i owoce**: Brokuły, kapusta, kalafior, brukselka, cebula, czosnek, gruszki, jabłka. Zawierają
+   fruktany i sorbitol, które mogą powodować wzdęcia.
+3. **Pełnoziarniste produkty zbożowe**: Chociaż są zdrowe, mogą powodować dyskomfort u osób wrażliwych na gluten lub
+   mających trudności z trawieniem dużych ilości błonnika.
+4. **Napojów gazowanych i słodzonych napojów**: Sody i inne słodzone napoje mogą zwiększać wzdęcia i gazy.
+5. **Produkty mleczne**: Mleko, ser, jogurt – u osób z nietolerancją laktozy mogą powodować wzdęcia, gazy i ból brzucha.
+6. **Sztuczne słodziki**: Sorbitol, ksylitol, mannitol znajdujące się w gumach do żucia i niektórych słodyczach mogą
+   powodować wzdęcia.
+7. **Tłuste potrawy**: Ciężkostrawne, tłuste jedzenie, takie jak fast foody, mogą spowalniać trawienie, co przyczynia
+   się do wzdęć.
 
 ## Przykładowa diet
+
+Wszystkie posiłki są dostosowane do potrzeb dietetycznych dziecka z ograniczeniem słodkości i owoców.
 
 ### Dzień 1
 

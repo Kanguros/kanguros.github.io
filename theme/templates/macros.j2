@@ -18,6 +18,7 @@
         {% endif %}
     </p>
     <div class="d-flex justify-content-between align-self-center align-items-center">
+        {{ tags_list(article) }}
         {{ read_more_button(article) }}
     </div>
     <hr class="post-line">
@@ -57,21 +58,22 @@
 {% macro meta_elements(article) %}
 
 <i class="bi bi-calendar"></i> {{ article.locale_date }}
+{% if article.readtime_string %}
 <i class="bi bi-dot"></i>
 <i class="bi bi-book"></i> {{ article.readtime_string }}
+{% endif %}
 
 {% endmacro %}
 
 {% macro meta_category(article) %}
 
 {% if article.category == 'Article' %}
-<i class="bi bi-file-post"></i>
-{% else %}
-<i class="bi bi-sticky"></i>
-{% endif %}
-{{ article.category }}
+<i class="bi bi-file-post"></i> {{ article.category }}
 <i class="bi bi-dot"></i>
-
+{% elif article.category == 'Note' %}
+<i class="bi bi-sticky"></i> {{ article.category }}
+<i class="bi bi-dot"></i>
+{% endif %}
 {% endmacro %}
 
 

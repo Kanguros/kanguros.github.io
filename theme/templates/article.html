@@ -78,6 +78,9 @@
 
 {% block content %}
 <article>
+    {% if article.summary %}
+    {{ article.summary }}
+    {% endif %}
     {{ article.content }}
 </article>
 
