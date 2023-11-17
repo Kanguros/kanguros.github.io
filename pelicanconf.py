@@ -73,7 +73,7 @@ EXTRA_PATH_METADATA = {
 }
 
 TEMPLATE_PAGES = {'homepage.html': 'index.html'}
-INDEX_SAVE_AS = "all_posts.html"
+INDEX_SAVE_AS = "posts.html"
 ARCHIVES_SAVE_AS = 'archive.html'
 ABOUT_URL = "about.html"
 AUTHOR_SAVE_AS = ""

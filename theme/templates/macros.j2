@@ -3,11 +3,28 @@
 <div class="post-preview">
     <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
         <h2 class="post-title">
+            {% if article.category == 'Article' %}
+            <i class="bi bi-file-post"></i>
+            {% elif article.category == 'Note' %}
+            <i class="bi bi-sticky"></i>
+            {% endif %}
             {{ article.title }}
         </h2>
     </a>
     <div class="d-flex justify-content-start meta-element">
-        {{ meta_elements(article) }}
+        {% if article.category == 'Article' %}
+        <i class="bi bi-file-post"></i> {{ article.category }}
+        <i class="bi bi-dot"></i>
+        {% elif article.category == 'Note' %}
+        <i class="bi bi-sticky"></i> {{ article.category }}
+        <i class="bi bi-dot"></i>
+        {% endif %}
+
+        <i class="bi bi-calendar"></i> {{ article.locale_date }}
+        {% if article.readtime_string %}
+        <i class="bi bi-dot"></i>
+        <i class="bi bi-book"></i> {{ article.readtime_string }}
+        {% endif %}
     </div>
 
     <p class="article-summary">
@@ -36,6 +53,7 @@
         </h2>
     </a>
     <div class="d-flex justify-content-start meta-element">
+
         <i class="bi bi-calendar"></i> {{ article.locale_date }}
     </div>
 
