@@ -311,7 +311,7 @@ background-color: var(--main-font-color);
 
 a>.post-title {
      font-size: 1.7em;
-    margin-top: 1em;
+    margin-top: 1.5em;
      font-weight: 500;
 }
  @media only screen and (min-width: 768px) {
@@ -478,13 +478,9 @@ width:100%;
 }
 
 .section {
-margin-top: 3rem;
+margin-top: 4rem;
 margin-bottom: 1rem;
 
-}
-.section h1 {
-font-size: 2rem;
-font-weight: 400;
 }
 
 a.toclink {
@@ -624,15 +620,15 @@ padding-left: 0.6em;
 text-decoration: underline;
 font-size: 4rem;
 text-align: center;
-margin-top: 0.5rem;
+margin-top: 1rem;
 margin-bottom: 0.5rem;
 }
 
  @media only screen and (min-width: 768px) {
 .big-heading h1.big-title {
 font-size: 5rem;
-margin-top: 1rem;
-margin-bottom: 1rem;
+margin-top: 5rem;
+margin-bottom: 3rem;
 }
 }
 
@@ -651,26 +647,6 @@ box-shadow: #d7d7d7 0 2px 3px 1px;
 box-shadow: #d7d7d7 0 -1px 5px 1px;
 }
 
-.light-button {
-font-size: 1.1rem !important;
-font-weight: 400;
-    padding: 2px 4px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: underline;
-    text-decoration-color: #616161;
-    }
-
-
-.light-button > a {
-    text-decoration: none !important;
-    font-weight: 500;
-}
-
-.light-button:hover,
-.light-button:active {
-      text-decoration-thickness: 0.2rem;
-}
 
 .navigation-link {
   color: #fff;
@@ -727,4 +703,23 @@ font-size: 1.6rem;
 
 .section-title > a {
 text-decoration: none;
+}
+
+.light-button {
+
+    background: white;
+    color: #404040;
+    border-color: #5b5b5b63;
+    border-radius: 2px;
+    padding: 4px 6px;
+    cursor: pointer;
+    text-align: center;
+    }
+
+.bigger-text {
+font-size: 1.1rem;
+}
+
+.bottom-buttons{
+margin-top: 5rem;
 }
