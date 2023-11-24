@@ -8,8 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-    <title>{% block title %}{{ SITENAME }}{% if SITESUBTITLE and SHOW_SITESUBTITLE_IN_HTML %} - {{ SITESUBTITLE }}{%
-        endif %}{% endblock title %}</title>
+    <title>
+        {% block title %}
+        {{ SITENAME }}
+        {% if SITESUBTITLE and SHOW_SITESUBTITLE_IN_HTML %} - {{ SITESUBTITLE }}
+        {% endif %}
+        {% endblock title %}
+    </title>
 
     <!-- Bootstrap and Clean Blog CSS -->
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" rel="stylesheet">
@@ -126,8 +131,8 @@
 
 
 <!-- JS Scripts -->
-<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.js"></script>
-<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.js"></script>
+<!--<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.js"></script>-->
+<!--<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.js"></script>-->
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.js"></script>
 </body>
 

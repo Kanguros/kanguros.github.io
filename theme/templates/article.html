@@ -29,6 +29,7 @@
 <meta property="og:url" content="{{ SITEURL }}/{{ article.url }}">
 <meta property="og:title" content="{{ article.title|striptags }}">
 <meta property="article:published_time" content="{{ article.date }}">
+
 {% if article.headline %}
 <meta property="og:description" content="{{ article.headline }}">
 {% elif article.summary %}

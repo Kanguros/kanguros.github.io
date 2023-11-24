@@ -3,23 +3,11 @@
 <div class="post-preview">
     <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
         <h2 class="post-title">
-            {% if article.category == 'Article' %}
-            <i class="bi bi-file-post"></i>
-            {% elif article.category == 'Note' %}
-            <i class="bi bi-sticky"></i>
-            {% endif %}
             {{ article.title }}
         </h2>
     </a>
     <div class="d-flex justify-content-start meta-element">
-        {% if article.category == 'Article' %}
-        <i class="bi bi-file-post"></i> {{ article.category }}
-        <i class="bi bi-dot"></i>
-        {% elif article.category == 'Note' %}
-        <i class="bi bi-sticky"></i> {{ article.category }}
-        <i class="bi bi-dot"></i>
-        {% endif %}
-
+        {{ meta_category(article) }}
         <i class="bi bi-calendar"></i> {{ article.locale_date }}
         {% if article.readtime_string %}
         <i class="bi bi-dot"></i>
@@ -53,7 +41,6 @@
         </h2>
     </a>
     <div class="d-flex justify-content-start meta-element">
-
         <i class="bi bi-calendar"></i> {{ article.locale_date }}
     </div>
 
@@ -86,12 +73,23 @@
 {% macro meta_category(article) %}
 
 {% if article.category == 'Article' %}
-<i class="bi bi-file-post"></i> {{ article.category }}
+<a href="{{ SITEURL }}/{{ ARTICLES_URL }}"
+   title="All posts in Articles category"
+   aria-label="All posts in Articles category"
+   class="meta-word"
+><i class="bi bi-file-post"></i> {{ article.category }}
+</a>
 <i class="bi bi-dot"></i>
 {% elif article.category == 'Note' %}
-<i class="bi bi-sticky"></i> {{ article.category }}
+<a href="{{ SITEURL }}/{{ NOTES_URL }}"
+   title="All posts in Notes category"
+   aria-label="All posts in Notes category"
+   class="meta-word"
+><i class="bi bi-sticky"></i> {{ article.category }}
+</a>
 <i class="bi bi-dot"></i>
 {% endif %}
+
 {% endmacro %}
 
 
@@ -101,10 +99,9 @@
     {% for t in article.tags %}
     <a href="{{ SITEURL }}/tags/{{ t }}.html"
        rel="bookmark"
-       title="{{ t }}"
-       aria-label="{{ t }}"
-    >
-        #{{ t }}
+       title="Posts with #{{ t }} tag"
+       aria-label="Posts with #{{ t }} tag"
+    >#{{ t }}
     </a>
     {% endfor %}
 </div>
