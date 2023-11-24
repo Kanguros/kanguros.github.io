@@ -270,14 +270,13 @@ background-color: var(--main-font-color);
 
 
      .intro-header .heading h1 {
-          line-height: 120px;
-         font-size: 85px;
+         font-size: 75px;
          text-decoration: underline;
     }
 
  @media only screen and (min-width: 768px) {
      .intro-header .heading h1 {
-         font-size: 110px;
+         font-size: 90px;
          margin: 90px auto;
     }
      .intro-header .main-heading h1 {
@@ -358,6 +357,13 @@ margin: 0.3rem 0 !important;
 
 .meta-element > i {
 margin-right: 0.3em;
+}
+
+.meta-word {
+    color: var(--fading-color) !important;
+    font-size: 0.9rem !important;
+    font-weight: 300;
+    text-decoration: none;
 }
 
 .nobr {
@@ -575,6 +581,9 @@ opacity: 0 !important;
 
  .pagination-bar {
      margin: 3.2rem 0;
+     display: flex;
+    padding-left: 0;
+    list-style: none;
 }
  .pagination-bar a {
      font-size: 1.2em;
