@@ -6,8 +6,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
     <title>
         {% block title %}
         {{ SITENAME }}
@@ -47,8 +45,6 @@
 {% endif %}
 <body class="{{ body_class }} d-flex flex-column vh-100">
 <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-
-
     <nav class="navbar navbar-expand-lg container align-items-center px-2 mt-2 mb-1">
         <a class="brand" href="{{ SITEURL }}">
             Kamil's Scratchpad
@@ -82,18 +78,25 @@
     <hr class="nav-line">
 </div>
 
-
-{% block header %}
-{% endblock header %}
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                {% block header %}
+                {% endblock header %}
+            </div>
+        </div>
+    </div>
+</header>
 
 <div class="container">
     <div class="row">
         <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-            {% block content %}{% endblock content %}
+            {% block content %}
+            {% endblock content %}
         </div>
     </div>
 </div>
-
 
 <footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
     <hr class="section-line">
@@ -125,14 +128,7 @@
         on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
         theme.
     </p>
-
-
 </footer>
-
-
-<!-- JS Scripts -->
-<!--<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.js"></script>-->
-<!--<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.js"></script>-->
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.js"></script>
 </body>
 

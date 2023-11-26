@@ -48,33 +48,23 @@
 {% endblock %}
 
 {% block header %}
-
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                <div class="article-heading">
-                    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
-                        <h1>
-                            {{ article.title|striptags }}
-                        </h1>
-                    </a>
-                    {% if article.headline %}
-                    <h3 class="subheading">
-                        {{ article.headline }}
-                    </h3>
-                    {% endif %}
-                    <p class="meta-element">
-                        {{ meta_category(article) }}
-                        {{ meta_elements(article) }}
-                    </p>
-                    {{ tags_list(article) }}
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-
+<div class="article-heading">
+    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
+        <h1>
+            {{ article.title|striptags }}
+        </h1>
+    </a>
+    {% if article.headline %}
+    <h3 class="subheading">
+        {{ article.headline }}
+    </h3>
+    {% endif %}
+    <p class="meta-element">
+        {{ meta_category(article) }}
+        {{ meta_elements(article) }}
+    </p>
+    {{ tags_list(article) }}
+</div>
 {% endblock header %}
 
 {% block content %}
