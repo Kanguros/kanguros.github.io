@@ -31,64 +31,25 @@
   src: url('../fonts/fira-sans-v17-latin_latin-ext-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
  :root {
+      --main-font: 'Fira Sans', 'Times New Roman', serif;
+     --title-font: 'Fira Sans', 'Times New Roman', serif;
      --accent-color: #78c109;
-     --blue-color: #046cc7;
-     --blue-light-color: #1591ff;
-     --fading-color: #b5b2b2;
+     --fading-color: #979797;
      --the-fadest-color: #d7d7d7;
      --hr-color: #eee;
      --code-background: #e9e9e9b0;
      --code-font-color: #686969;
-     --main-font: 'Fira Sans', 'Times New Roman', serif;
-     --title-font: 'Fira Sans', 'Times New Roman', serif;
      --main-font-color: #404040;
      --heading-font-color: white;
      --header-color: #0093ff;
-     --whitesmoke-color: #f5f5f5;
-     --whitish-color: #838383;
-     --navigation-font-color: #737373;
 }
 
-
-.svg-container {
- width: auto;
- height: 50px;
- resize: both;
- overflow: auto;
- fill: var(--main-font-color);
-}
-
-svg {
- width: 95%;
- height: 95%;
-}
 
 .btn-heading {
     --bs-btn-font-size: 1.3rem;
     border-radius: 3px;
 }
 
-.btn-navigation {
-font-size: 1.2rem;
-text-decoration: none;
-font-weight: 300;
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
-}
-
-.btn-navigation:hover,
-.btn-navigation:active
- {
-text-decoration: underline;
-text-decoration-thickness: 0.1rem;
-}
-
- @media only screen and (min-width: 768px) {
-     .btn-navigation {
-         font-size: 1rem;
-    }
-}
 
 
 a.btn-smaller {
@@ -101,6 +62,7 @@ a.btn-smaller {
     border-radius: 2px;
 }
 
+
 .btn-darker {
      --bs-btn-active-bg: var(--main-font-color);
      --bs-btn-hover-bg: var(--main-font-color);
@@ -109,6 +71,19 @@ a.btn-smaller {
     --bs-btn-border-color: var(--main-font-color);
         --bs-btn-bg: var(--main-font-color);
         }
+
+.btn.disabled,
+.btn.disabled:hover,
+.btn.disabled:active
+ {
+
+    --bs-btn-disabled-color: var(--fading-color);
+    pointer-events: none;
+    --bs-btn-disabled-bg: white;
+    --bs-btn-disabled-border-color: var(--fading-color);
+    --bs-btn-disabled-opacity: 0.4;
+
+    }
 
 .my-6 {
     margin-top: 3.5rem!important;
@@ -393,17 +368,6 @@ color: var(--fading-color) !important;
 }
 
 
-.disabled-link a {
-
-color: var(--the-fadest-color) !important;
-
-}
-
-.disabled-solid-link a:hover,
-.disabled-solid-link a:focus {
-          text-decoration: none;
-color: var(--fading-color) !important;
-}
 
 
  .caption {
@@ -419,17 +383,17 @@ color: var(--fading-color) !important;
  ::-moz-selection {
      color: white;
      text-shadow: none;
-     background: #0085a1;
+     background: var(--main-font-color);
 }
  ::selection {
      color: white;
      text-shadow: none;
-     background: #0085a1;
+     background: var(--main-font-color);
 }
  img {
      max-width: 100%;
      height: auto;
-     width: auto\9;
+     width: auto;
 }
  img::selection {
      color: white;
@@ -475,7 +439,9 @@ font-size: 1.6rem;
 
 }
 
-article h1, article h2, article h3, h4, h5 {
+article h1,
+article h2,
+article h3 {
 margin: 2rem auto 1rem;
 }
 
@@ -492,6 +458,7 @@ margin-bottom: 1rem;
 a.toclink {
 
 text-decoration: none !important;
+
 }
 
 a.toclink:hover,
@@ -625,18 +592,18 @@ padding-left: 0.6em;
   }
 
 
-.big-heading h1.big-title {
+h1.big-title {
 text-decoration: underline;
-font-size: 4rem;
+font-size: 3rem;
 text-align: center;
-margin-top: 1rem;
-margin-bottom: 0.5rem;
+margin-top: 2rem;
+margin-bottom: 2rem;
 }
 
  @media only screen and (min-width: 768px) {
-.big-heading h1.big-title {
-font-size: 5rem;
-margin-top: 5rem;
+h1.big-title {
+font-size: 4rem;
+margin-top: 4rem;
 margin-bottom: 3rem;
 }
 }
@@ -647,31 +614,6 @@ margin-bottom: 3rem;
 
  }
 
-
-.down-shadow {
-box-shadow: #d7d7d7 0 2px 3px 1px;
-}
-
-.up-shadow {
-box-shadow: #d7d7d7 0 -1px 5px 1px;
-}
-
-
-.navigation-link {
-  color: #fff;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 0.15em;
-  padding: 10px 15px;
-  position: relative;
-}
-
-.navigation-link:hover,
-.navigation-link:active {
-      text-decoration: underline;
-      text-decoration-color: #d7d7d7;
-      text-decoration-thickness: 0.2rem;
-}
 
 
 
@@ -731,4 +673,26 @@ font-size: 1.1rem;
 
 .bottom-buttons{
 margin-top: 5rem;
+}
+
+.btn-navigation {
+font-size: 1.2rem;
+text-decoration: none;
+font-weight: 300;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.btn-navigation:hover,
+.btn-navigation:active
+ {
+text-decoration: underline;
+text-decoration-thickness: 0.1rem;
+}
+
+ @media only screen and (min-width: 768px) {
+     .btn-navigation {
+         font-size: 1rem;
+    }
 }
