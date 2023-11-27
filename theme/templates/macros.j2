@@ -6,7 +6,7 @@
             {{ article.title }}
         </h2>
     </a>
-    <div class="d-flex justify-content-start meta-element">
+    <div class="d-flex justify-content-start meta-element margin-y">
         {{ meta_category(article) }}
         <i class="bi bi-calendar"></i> {{ article.locale_date }}
         {% if article.readtime_string %}
@@ -22,7 +22,7 @@
         {{ article.summary|striptags|truncate(200) }}
         {% endif %}
     </p>
-    <div class="d-flex justify-content-between align-self-center align-items-center">
+    <div class="d-flex justify-content-between align-self-center align-items-center margin-y">
         {{ tags_list(article) }}
         {{ read_more_button(article) }}
     </div>
@@ -40,7 +40,7 @@
             {{ article.title }}
         </h2>
     </a>
-    <div class="d-flex justify-content-start meta-element">
+    <div class="d-flex justify-content-start meta-element margin-y">
         <i class="bi bi-calendar"></i> {{ article.locale_date }}
     </div>
 
@@ -51,7 +51,7 @@
         {{ article.summary|striptags|truncate(200) }}
         {% endif %}
     </p>
-    <div class="d-flex justify-content-end mt-2">
+    <div class="d-flex justify-content-end margin-y">
         {{ read_more_button(article) }}
     </div>
     <hr class="post-line">

@@ -113,6 +113,7 @@ NAV_LINKS = [
     ('Notes', NOTES_URL, 'file-code'),
     ('Tags', TAGS_SAVE_AS, 'tags'),
     ('About', ABOUT_URL, 'file-person'),
+    ('Git', GIT_LINK, 'github'),
     # ('Archive', ARCHIVES_SAVE_AS, 'archive'),
 
 ]
