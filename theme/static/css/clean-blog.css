@@ -273,7 +273,8 @@ background-color: var(--main-font-color);
 
  .post-preview {
      line-height: 15px;
-     margin: 0.5em auto;
+     margin-top: 2em;
+     margin-bottom: 3em;
 }
  .post-preview>a {
      color: #404040;
@@ -286,7 +287,6 @@ background-color: var(--main-font-color);
 
 a>.post-title {
      font-size: 1.7em;
-    margin-top: 1.5em;
      font-weight: 500;
 }
  @media only screen and (min-width: 768px) {
@@ -523,6 +523,14 @@ text-decoration: none;
      color: var(--very-light-color);
           font-size: 14px;
 }
+
+.footer-links a:hover,
+.footer-links a:active
+ {
+text-decoration: underline;
+
+ }
+
 
 .hide {
 opacity: 0 !important;

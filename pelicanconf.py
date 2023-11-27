@@ -130,6 +130,7 @@ MARKDOWN = {
             'permalink': 'false',
             'anchorlink': 'true',
             'toc_depth': 3,
+            'title': 'Content'
         },
         'pymdownx.progressbar': {},
         'pymdownx.blocks.tab': {},
