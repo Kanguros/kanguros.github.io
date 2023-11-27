@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+Kamil's Scratchpad - Pytest cheatsheet
+    </title>
+
+    <!-- Bootstrap and Clean Blog CSS -->
+    <link href="https://kanguros.github.io/theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/code_blocks/darkly.css" rel="stylesheet">
+    <link href="https://kanguros.github.io/theme/css/clean-blog.css" rel="stylesheet">
+
+
+
+
+<meta name="description" content="The cheatsheet provides a solid foundation for implementing tests in Python using pytest, including basic test structures, fixtures,...">
+
+<meta name="tags" content="pytest">
+<meta name="tags" content="cheatsheet">
+
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Kamil's Scratchpad">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kanguros.github.io/note/pytest-cheatsheet.html">
+<meta property="og:title" content="Pytest cheatsheet">
+<meta property="article:published_time" content="2023-11-04 00:00:00+01:00">
+
+<meta property="og:description" content="The cheatsheet provides a solid foundation for implementing tests in Python using pytest, including basic test structures, fixtures,...">
+
+<meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
+
+</head>
+
+<body class="article-pytest-cheatsheet d-flex flex-column vh-100">
+<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+    <nav class="navbar navbar-expand-lg container align-items-center px-2 mt-2 mb-1">
+        <a class="brand" href="https://kanguros.github.io">
+            Kamil's Scratchpad
+        </a>
+        <!-- Hamburger toggle button -->
+        <button class="navbar-toggler mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="#navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible navigation links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://kanguros.github.io/articles.html"
+                       title="Articles"
+                       aria-label="Articles"
+                    >Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://kanguros.github.io/notes.html"
+                       title="Notes"
+                       aria-label="Notes"
+                    >Notes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://kanguros.github.io/tags.html"
+                       title="Tags"
+                       aria-label="Tags"
+                    >Tags</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://kanguros.github.io/about.html"
+                       title="About"
+                       aria-label="About"
+                    >About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://github.com/Kanguros/"
+                       title="Git"
+                       aria-label="Git"
+                    >Git</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <hr class="nav-line">
+</div>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+<div class="article-heading">
+    <a href="https://kanguros.github.io/note/pytest-cheatsheet.html" rel="bookmark" title="Pytest cheatsheet">
+        <h1>
+            Pytest cheatsheet
+        </h1>
+    </a>
+    <p class="meta-element">
+        
+<a href="/"
+   title="All posts in Notes category"
+   aria-label="All posts in Notes category"
+   class="meta-word"
+><i class="bi bi-sticky"></i> Note
+</a>
+<i class="bi bi-dot"></i>
+
+
+        
+<i class="bi bi-calendar"></i> 2023-11-04
+<i class="bi bi-dot"></i>
+<i class="bi bi-book"></i> 3 minutes
+
+
+    </p>
+    
+<div class="tags meta-element">
+    <a href="/tags/pytest.html"
+       rel="bookmark"
+       title="Posts with #pytest tag"
+       aria-label="Posts with #pytest tag"
+    >#pytest
+    </a>
+    <a href="/tags/cheatsheet.html"
+       rel="bookmark"
+       title="Posts with #cheatsheet tag"
+       aria-label="Posts with #cheatsheet tag"
+    >#cheatsheet
+    </a>
+</div>
+
+
+</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+<article>
+    <p>The cheatsheet provides a solid foundation for implementing tests in Python using <code>pytest</code>, including basic test structures, fixtures, parameterization, and using <code>monkeypatch</code> for temporary modifications during&nbsp;tests.</p>
+    <div class="toc">
+<ul>
+<li><a href="#basic-test">Basic&nbsp;test</a></li>
+<li><a href="#use-fixture-for-setup-and-teardown">Use fixture for setup and&nbsp;teardown</a></li>
+<li><a href="#parametrize-tests">Parametrize&nbsp;tests</a></li>
+<li><a href="#use-fixtures-with-parameters">Use fixtures with&nbsp;parameters</a></li>
+<li><a href="#group-tests-in-class">Group tests in&nbsp;class</a></li>
+<li><a href="#skip-a-test">Skip a&nbsp;test</a></li>
+<li><a href="#expect-an-exception">Expect an&nbsp;Exception</a></li>
+<li><a href="#override-a-value">Override a&nbsp;value</a></li>
+<li><a href="#override-environment-variable">Override environment&nbsp;variable</a></li>
+<li><a href="#mock-a-function-or-method">Mock a function or&nbsp;method</a></li>
+</ul>
+</div>
+<h2 id="basic-test"><a class="toclink" href="#basic-test">Basic&nbsp;test</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_example</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
+</code></pre></div>
+
+<p>Defines a simple test function. <code>pytest</code> identifies any function prefixed with <code>test_</code> as a&nbsp;test.</p>
+<h2 id="use-fixture-for-setup-and-teardown"><a class="toclink" href="#use-fixture-for-setup-and-teardown">Use fixture for setup and&nbsp;teardown</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span>
+<span class="k">def</span> <span class="nf">sample_resource</span><span class="p">():</span>
+    <span class="c1"># Setup code</span>
+    <span class="n">resource</span> <span class="o">=</span> <span class="s2">&quot;some resource&quot;</span>
+    <span class="k">yield</span> <span class="n">resource</span>
+    <span class="c1"># Teardown code</span>
+
+
+<span class="k">def</span> <span class="nf">test_resource</span><span class="p">(</span><span class="n">sample_resource</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">sample_resource</span> <span class="o">==</span> <span class="s2">&quot;some resource&quot;</span>
+</code></pre></div>
+
+<p>Creates a fixture <code>sample_resource</code> for use in tests, handling setup and teardown&nbsp;automatically.</p>
+<h2 id="parametrize-tests"><a class="toclink" href="#parametrize-tests">Parametrize&nbsp;tests</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">&quot;input,expected&quot;</span><span class="p">,</span> <span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)])</span>
+<span class="k">def</span> <span class="nf">test_increment</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">expected</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="nb">input</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">expected</span>
+</code></pre></div>
+
+<p>Runs the same test function with different sets of&nbsp;parameters.</p>
+<h2 id="use-fixtures-with-parameters"><a class="toclink" href="#use-fixtures-with-parameters">Use fixtures with&nbsp;parameters</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">fixture</span><span class="p">(</span><span class="n">params</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">number</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">request</span><span class="o">.</span><span class="n">param</span>
+
+
+<span class="k">def</span> <span class="nf">test_numbers</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
+    <span class="k">assert</span> <span class="n">number</span> <span class="o">&lt;</span> <span class="mi">4</span>
+</code></pre></div>
+
+<p>Creates a fixture that is called multiple times with different&nbsp;parameters.</p>
+<h2 id="group-tests-in-class"><a class="toclink" href="#group-tests-in-class">Group tests in&nbsp;class</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">TestExample</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">test_one</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">2</span>
+
+    <span class="k">def</span> <span class="nf">test_two</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">4</span>
+</code></pre></div>
+
+<p>Groups related tests within a test&nbsp;class.</p>
+<h2 id="skip-a-test"><a class="toclink" href="#skip-a-test">Skip a&nbsp;test</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">skipif</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">reason</span><span class="o">=</span><span class="s2">&quot;requires python3.7 or higher&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_feature</span><span class="p">():</span>
+    <span class="o">...</span>
+</code></pre></div>
+
+<p>Skips the test if the condition (Python version &lt; 3.7 in this case) is&nbsp;true.</p>
+<h2 id="expect-an-exception"><a class="toclink" href="#expect-an-exception">Expect an&nbsp;Exception</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pytest</span>
+
+<span class="k">def</span> <span class="nf">test_exception</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Tests that a <code>ValueError</code> is raised within the context&nbsp;block.</p>
+<h2 id="override-a-value"><a class="toclink" href="#override-a-value">Override a&nbsp;value</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_change_dict</span><span class="p">(</span><span class="n">monkeypatch</span><span class="p">):</span>
+    <span class="n">mock_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;mock_value&quot;</span><span class="p">}</span>
+    <span class="n">monkeypatch</span><span class="o">.</span><span class="n">setattr</span><span class="p">(</span><span class="s2">&quot;module.dict_name&quot;</span><span class="p">,</span> <span class="n">mock_dict</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="n">dict_name</span>
+    <span class="k">assert</span> <span class="n">dict_name</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;mock_value&quot;</span>
+</code></pre></div>
+
+<p>Uses <code>monkeypatch</code> to override a dictionary in a module temporarily for the&nbsp;test.</p>
+<h2 id="override-environment-variable"><a class="toclink" href="#override-environment-variable">Override environment&nbsp;variable</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test_env_var</span><span class="p">(</span><span class="n">monkeypatch</span><span class="p">):</span>
+    <span class="n">monkeypatch</span><span class="o">.</span><span class="n">setenv</span><span class="p">(</span><span class="s2">&quot;ENV_VAR&quot;</span><span class="p">,</span> <span class="s2">&quot;mock_value&quot;</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;ENV_VAR&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;mock_value&quot;</span>
+</code></pre></div>
+
+<p>Sets an environment variable for the duration of the&nbsp;test.</p>
+<h2 id="mock-a-function-or-method"><a class="toclink" href="#mock-a-function-or-method">Mock a function or&nbsp;method</a></h2>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">mock_function</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s2">&quot;mocked!&quot;</span>
+
+<span class="k">def</span> <span class="nf">test_mock_function</span><span class="p">(</span><span class="n">monkeypatch</span><span class="p">):</span>
+    <span class="n">monkeypatch</span><span class="o">.</span><span class="n">setattr</span><span class="p">(</span><span class="s2">&quot;module.function_name&quot;</span><span class="p">,</span> <span class="n">mock_function</span><span class="p">)</span>
+    <span class="kn">from</span> <span class="nn">module</span> <span class="kn">import</span> <span class="n">function_name</span>
+    <span class="k">assert</span> <span class="n">function_name</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;mocked!&quot;</span>
+</code></pre></div>
+
+<p>Replaces a function in a module with a mock&nbsp;function.</p>
+</article>
+
+<div class="related-posts">
+    <hr class="section-line">
+    <h1 class="subheading">Related posts</h1>
+    <ul>
+        <li>
+            <a href="https://kanguros.github.io/note/requests-using-pytest.html">
+                Requests using&nbsp;pytest
+            </a>
+            <div class="d-flex justify-content-start meta-elements">
+                <i class="bi bi-calendar"></i> 2023-11-04
+                <i class="bi bi-dot"></i>
+                <i class="bi bi-book"></i> 3 minutes
+            </div>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    </div>
+</div>
+
+<footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+    <hr class="section-line">
+    <p class="footer-links mt-3 mb-1">
+        <a href="https://kanguros.github.io"
+           class="px-2"
+           title="Kamil's Scratchpad"
+           aria-label="Kamil's Scratchpad">Index</a>
+        <a href="https://kanguros.github.io/articles.html"
+           class="px-2"
+           title="Articles"
+           aria-label="Articles"
+        >Articles
+        </a>
+        <a href="https://kanguros.github.io/notes.html"
+           class="px-2"
+           title="Notes"
+           aria-label="Notes"
+        >Notes
+        </a>
+        <a href="https://kanguros.github.io/tags.html"
+           class="px-2"
+           title="Tags"
+           aria-label="Tags"
+        >Tags
+        </a>
+        <a href="https://kanguros.github.io/about.html"
+           class="px-2"
+           title="About"
+           aria-label="About"
+        >About
+        </a>
+        <a href="https://kanguros.github.io/https://github.com/Kanguros/"
+           class="px-2"
+           title="Git"
+           aria-label="Git"
+        >Git
+        </a>
+    </p>
+    <p class="copyright">
+        &copy; Blog made by <a href="https://kanguros.github.io/about.html">Kamil Urbanek</a>, powered by <a
+            href="http://getpelican.com">Pelican</a>,
+        on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
+        theme.
+    </p>
+</footer>
+<script src="https://kanguros.github.io/theme/js/clean-blog.js"></script>
+</body>
+</html>
