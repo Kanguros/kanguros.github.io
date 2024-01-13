@@ -143,6 +143,13 @@ MARKDOWN = {
     'output_format': 'html5'
 }
 
+
+def breaking_spaces(value):
+    return value.replace("\u00A0", " ")
+
+
+JINJA_FILTERS = {"breaking_spaces": breaking_spaces}
+
 # RSS and ATOM feeds
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None

@@ -204,7 +204,7 @@ background-color: var(--main-font-color);
 
 
 .article-heading, .heading {
-     margin: 1.7rem 0 1rem;
+     margin: 1.4rem 0 1rem;
           line-height: 1.1;
 
 
@@ -239,9 +239,27 @@ background-color: var(--main-font-color);
 }
 
 .article-heading h1 {
-     font-size: 2.8rem;
+     font-size: 2.6rem;
      margin-top: 0;
      margin-bottom: 0;
+     overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.article-heading a {
+text-decoration: none;
+
+}
+
+.article-heading a:hover,
+.article-heading a:active {
+text-decoration: underline;
 }
 
 

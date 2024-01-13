@@ -51,7 +51,7 @@
 <div class="article-heading">
     <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
         <h1>
-            {{ article.title|striptags }}
+            {{ article.title|striptags|breaking_spaces }}
         </h1>
     </a>
     {% if article.headline %}
