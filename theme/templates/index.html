@@ -1,15 +1,15 @@
-{% from 'macros.j2' import main_post, index_header, page_header %}
+{% from 'macros.j2' import main_post, page_header %}
 {% extends "base.html" %}
 
 {% block header %}
 
 {% if output_file == 'index.html' %}
 <div class="article-heading big-heading">
-    <a href="{{ SITEURL }}" rel="bookmark" title="{{ SITENAME }}">
-        <h1 class="big-title">
-            {{ SITENAME }}
-        </h1>
-    </a>
+    <!--    <a href="{{ SITEURL }}" rel="bookmark" title="{{ SITENAME }}">-->
+    <!--        <h1 class="big-title">-->
+    <!--            {{ SITENAME }}-->
+    <!--        </h1>-->
+    <!--    </a>-->
     <h2 class="subheading">
         {{ SITEINFO }}
     </h2>

@@ -78,15 +78,20 @@
     <hr class="nav-line">
 </div>
 
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                {% block header %}
-                {% endblock header %}
-            </div>
-        </div>
-    </div>
+<header class="intro-header col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+    <!--    <div class="container">-->
+    <!--        <div class="row">-->
+    <!--            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">-->
+    {% block header %}
+    {% endblock header %}
+    <hr class="section-line">
+    <!--            </div>-->
+
+
+    <!--        </div>-->
+
+    <!--    </div>-->
+
 </header>
 
 <div class="container">
@@ -104,9 +109,15 @@
         <a href="{{ SITEURL }}"
            class="px-2"
            title="{{ SITENAME }}"
-           aria-label="{{ SITENAME }}">Index</a>
+           aria-label="{{ SITENAME }}"
+        >Index</a>
         {% for title, link, icon in NAV_LINKS %}
-        <a href="{{ SITEURL }}/{{ link }}"
+        {% if icon == "github" %}
+        {% set nav_url = link %}
+        {% else %}
+        {% set nav_url = SITEURL + "/" + link %}
+        {% endif %}
+        <a href="{{ nav_url }}"
            class="px-2"
            title="{{ title }}"
            aria-label="{{ title }}"
@@ -114,10 +125,10 @@
         {% endfor %}
     </p>
     <p class="copyright">
-        &copy; Blog made by <a href="{{ SITEURL }}/about.html">Kamil Urbanek</a>, powered by <a
-            href="http://getpelican.com">Pelican</a>,
-        on modified <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a>
-        theme.
+        &copy; Blog made by
+        <a href="{{ SITEURL }}/{{ ABOUT_URL }}">Kamil Urbanek</a>, powered by
+        <a href="https://getpelican.com">Pelican</a>,on modified
+        <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a> theme.
     </p>
 </footer>
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.js"></script>

@@ -114,7 +114,6 @@ NAV_LINKS = [
     ('Tags', TAGS_SAVE_AS, 'tags'),
     ('About', ABOUT_URL, 'file-person'),
     ('Git', GIT_LINK, 'github'),
-    # ('Archive', ARCHIVES_SAVE_AS, 'archive'),
 
 ]
 
@@ -159,4 +158,4 @@ AUTHOR_FEED_RSS = None
 # CACHING
 CACHE_CONTENT = False
 LOAD_CONTENT_CACHE = False
-DELETE_OUTPUT_DIRECTORY = True
+DELETE_OUTPUT_DIRECTORY = False

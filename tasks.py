@@ -1,4 +1,4 @@
-2  # -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 import os
 import shlex
@@ -7,6 +7,7 @@ import sys
 
 from invoke import task
 from invoke.main import program
+from livereload import Server
 from pelican import main as pelican_main
 from pelican.server import ComplexHTTPRequestHandler, RootedHTTPServer
 from pelican.settings import DEFAULT_CONFIG, get_settings_from_file
@@ -90,21 +91,14 @@ def reserve(c, d=False):
 @task
 def l(c, d=False, v=False):
     """Automatically reload browser tab upon file modification."""
-    from livereload import Server
-    debug = " --debug " if d else d
-    verbose = " --verbose" if v else v
+    cmd = '-s {settings_base} -e CACHE_CONTENT=true LOAD_CONTENT_CACHE=true'.format(**CONFIG)
+    if d:
+        cmd = f"--debug {cmd}"
+    if v:
+        cmd = f"--verbose {cmd}"
+    build_func = lambda: pelican_run(cmd)
+    build_func()
 
-    def cached_build(inner_debug="", inner_verbose=""):
-        cmd = '-s {settings_base} -e CACHE_CONTENT=true LOAD_CONTENT_CACHE=true'
-        # cmd = '-s {settings_base} -e CACHE_CONTENT=true LOAD_CONTENT_CACHE=true --verbose --debug'
-        # if inner_debug:
-        #     cmd = inner_debug + cmd
-        # if inner_verbose:
-        #     cmd = inner_verbose + cmd
-        # print(cmd)
-        pelican_run(cmd.format(**CONFIG))
-
-    cached_build(debug, verbose)
     server = Server()
     theme_path = SETTINGS['THEME']
     watched_globs = [
@@ -125,12 +119,12 @@ def l(c, d=False, v=False):
         watched_globs.append(static_file_glob)
 
     for glob in watched_globs:
-        server.watch(glob, cached_build)
+        server.watch(glob, build_func)
 
     if OPEN_BROWSER_ON_SERVE:
         # Open site in default browser
         import webbrowser
-        webbrowser.open("http://{host}:{port}".format(**CONFIG))
+        webbrowser.open("{host}:{port}".format(**CONFIG))
 
     server.serve(host=CONFIG['host'], port=CONFIG['port'], root=CONFIG['deploy_path'])
 
