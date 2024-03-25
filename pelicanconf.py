@@ -30,11 +30,11 @@ SIMILAR_POSTS_ENABLED = True
 SIMILAR_POSTS_MAX_COUNT = 3
 SIMILAR_POSTS_MIN_SCORE = 0.0001
 
-# Plugin - minify
-CSS_MIN = True
-HTML_MIN = True
-INLINE_CSS_MIN = True
-INLINE_JS_MIN = False
+# # Plugin - minify
+# CSS_MIN = True
+# HTML_MIN = True
+# INLINE_CSS_MIN = True
+# INLINE_JS_MIN = False
 
 SITENAME = "Kamil's Scratchpad"
 SITENAME_BRAND = "KS"
