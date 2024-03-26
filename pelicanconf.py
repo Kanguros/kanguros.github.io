@@ -109,6 +109,7 @@ DEFAULT_CATEGORY = "Note"
 
 GIT_LINK = "https://github.com/Kanguros/"
 NAV_LINKS = [
+    ('Index', "", 'home'),
     ('Articles', ARTICLES_URL, 'journal-code'),
     ('Notes', NOTES_URL, 'file-code'),
     ('Tags', TAGS_SAVE_AS, 'tags'),

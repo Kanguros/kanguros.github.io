@@ -77,11 +77,18 @@
     </nav>
     <hr class="nav-line">
 </div>
-
-<header class="intro-header col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-    {% block header %}
-    {% endblock header %}
-    <hr class="section-line">
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                {% block header %}
+                {% endblock header %}
+                {% if not article %}
+                <hr class="section-line">
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </header>
 
 <div class="container">
@@ -96,11 +103,6 @@
 <footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
     <hr class="section-line">
     <p class="footer-links mt-3 mb-1">
-        <a href="{{ SITEURL }}"
-           class="px-2"
-           title="{{ SITENAME }}"
-           aria-label="{{ SITENAME }}"
-        >Index</a>
         {% for title, link, icon in NAV_LINKS %}
         {% if icon == "github" %}
         {% set nav_url = link %}
@@ -115,10 +117,9 @@
         {% endfor %}
     </p>
     <p class="copyright">
-        &copy; Blog made by
+        &copy; Made by
         <a href="{{ SITEURL }}/{{ ABOUT_URL }}">Kamil Urbanek</a>, powered by
-        <a href="https://getpelican.com">Pelican</a>,on modified
-        <a href="https://github.com/BlackrockDigital/startbootstrap-clean-blog">Clean Blog</a> theme.
+        <a href="https://getpelican.com">Pelican</a>
     </p>
 </footer>
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.js"></script>
