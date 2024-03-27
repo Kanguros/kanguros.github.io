@@ -1,35 +1,45 @@
-/* fira-sans-300 - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Fira Sans';
-  font-style: normal;
+.fira-sans-light {
+  font-family: "Fira Sans", sans-serif;
   font-weight: 300;
-  src: url('../fonts/fira-sans-v17-latin_latin-ext-300.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* fira-sans-regular - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Fira Sans';
   font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/fira-sans-v17-latin_latin-ext-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-/* fira-sans-italic - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Fira Sans';
-  font-style: italic;
+
+.fira-sans-regular {
+  font-family: "Fira Sans", sans-serif;
   font-weight: 400;
-  src: url('../fonts/fira-sans-v17-latin_latin-ext-italic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* fira-sans-500 - latin_latin-ext */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Fira Sans';
   font-style: normal;
+}
+
+.fira-sans-medium {
+  font-family: "Fira Sans", sans-serif;
   font-weight: 500;
-  src: url('../fonts/fira-sans-v17-latin_latin-ext-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  font-style: normal;
 }
+
+.fira-sans-semibold {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.fira-sans-light-italic {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.fira-sans-regular-italic {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.fira-sans-medium-italic {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
  :root {
       --main-font: 'Fira Sans', 'Times New Roman', serif;
      --title-font: 'Fira Sans', 'Times New Roman', serif;
@@ -43,6 +53,8 @@
      --very-light-color: #555555ba;
      --heading-font-color: white;
      --header-color: #0093ff;
+     --button-radius: 0.1rem;
+     --bs-navbar-toggler-border-radius: 0.1rem;
 }
 
 
@@ -60,7 +72,7 @@ a.btn-smaller {
     background: white;
     color: #404040;
     border-color: #5b5b5b63;
-    border-radius: 2px;
+    border-radius: var(--button-radius);
 }
 
 

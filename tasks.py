@@ -12,7 +12,7 @@ from pelican import main as pelican_main
 from pelican.server import ComplexHTTPRequestHandler, RootedHTTPServer
 from pelican.settings import DEFAULT_CONFIG, get_settings_from_file
 
-OPEN_BROWSER_ON_SERVE = True
+OPEN_BROWSER_ON_SERVE = False
 
 SETTINGS_FILE_BASE = 'pelicanconf.py'
 SETTINGS = {}
@@ -91,11 +91,15 @@ def reserve(c, d=False):
 @task
 def l(c, d=False, v=False):
     """Automatically reload browser tab upon file modification."""
+    clean(c)
     cmd = '-s {settings_base} -e CACHE_CONTENT=true LOAD_CONTENT_CACHE=true'.format(**CONFIG)
+    print("Building site")
     if d:
         cmd = f"--debug {cmd}"
+        print("With debug option")
     if v:
         cmd = f"--verbose {cmd}"
+        print("With verobse option")
     build_func = lambda: pelican_run(cmd)
     build_func()
 
@@ -126,7 +130,9 @@ def l(c, d=False, v=False):
         import webbrowser
         webbrowser.open("{host}:{port}".format(**CONFIG))
 
-    server.serve(host=CONFIG['host'], port=CONFIG['port'], root=CONFIG['deploy_path'])
+    root_path = CONFIG['deploy_path']
+    print(f"Serving {root_path}")
+    server.serve(host=CONFIG['host'], port=CONFIG['port'], root=root_path)
 
 
 @task

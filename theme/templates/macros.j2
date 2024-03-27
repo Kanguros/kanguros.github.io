@@ -13,7 +13,6 @@
            aria-label="All posts in Articles category"
            class="meta-word"
         ><i class="bi bi-file-post"></i> {{ article.category }} </a>
-        <i class="bi bi-dot"></i>
         {% elif article.category == 'Note' %}
         <a href="{{ SITEURL }}/{{ NOTES_URL }}"
            title="All posts in Notes category"
@@ -39,7 +38,7 @@
     </p>
     <div class="d-flex justify-content-between align-self-center align-items-center margin-y">
         {{ tags_list(article) }}
-        {{ read_more_button(article) }}
+        {{ secondary_button(article.url, 'Read more', 'arrow-right-short') }}
     </div>
     <hr class="post-line">
 </div>
@@ -67,7 +66,7 @@
         {% endif %}
     </p>
     <div class="d-flex justify-content-end margin-y">
-        {{ read_more_button(article) }}
+        {{ secondary_button(article.url, 'Read more', 'arrow-right-short') }}
     </div>
     <hr class="post-line">
 </div>
@@ -86,7 +85,6 @@
 {% endmacro %}
 
 {% macro meta_category(article) %}
-
 {% if article.category == 'Article' %}
 <a href="{{ SITEURL }}/{{ ARTICLES_URL }}"
    title="All posts in Articles category"
@@ -104,12 +102,10 @@
 </a>
 <i class="bi bi-dot"></i>
 {% endif %}
-
 {% endmacro %}
 
 
 {% macro tags_list(article) %}
-
 <div class="tags meta-element">
     {% for t in article.tags %}
     <a href="{{ SITEURL }}/tags/{{ t }}.html"
@@ -119,21 +115,13 @@
     >#{{ t }}</a>
     {% endfor %}
 </div>
-
-{% endmacro %}
-
-{% macro read_more_button(art) %}
-
-{{ secondary_button(art.url, 'Read more', 'arrow-right-short') }}
-
 {% endmacro %}
 
 {% macro primary_button(uri, name, icon=False) %}
 <a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker btn-heading"
    title="{{ name }}"
    aria-label="{{ name }}"
->
-    {{ name }}
+>{{ name }}
 </a>
 {% endmacro %}
 
@@ -141,20 +129,7 @@
 <a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker btn-smaller nobr"
    title="{{ name }}"
    aria-label="{{ name }}"
->
-    {{ name }}
-    {% if icon %}
-    <i class="bi bi-{{ icon }}"></i>
-    {% endif %}
-</a>
-{% endmacro %}
-
-{% macro main_button(uri, name, icon=False) %}
-<a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker nobr"
-   title="{{ name }}"
-   aria-label="{{ name }}"
->
-    {{ name }}
+>{{ name }}
     {% if icon %}
     <i class="bi bi-{{ icon }}"></i>
     {% endif %}
@@ -176,4 +151,3 @@
     {% endif %}
 </div>
 {% endmacro %}
-
