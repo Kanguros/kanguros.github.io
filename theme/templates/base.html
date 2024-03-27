@@ -74,7 +74,7 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="nav navbar-nav">
-                {% for title, link, icon in NAV_LINKS %}
+                {% for title, link, icon in NAV_LINKS if title != 'Index' %}
                 {% if icon == "github" %}
                 {% set nav_url = link %}
                 {% else %}
