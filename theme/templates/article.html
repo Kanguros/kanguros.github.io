@@ -1,4 +1,4 @@
-{% from 'macros.j2' import meta_category, meta_elements, tags_list %}
+{% from 'macros.j2' import meta_elements, tags_list %}
 {% extends "base.html" %}
 
 {% block title %}
@@ -60,7 +60,6 @@
     </h3>
     {% endif %}
     <p class="meta-element">
-        {{ meta_category(article) }}
         {{ meta_elements(article) }}
     </p>
     {{ tags_list(article) }}
