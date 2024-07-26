@@ -173,7 +173,7 @@
      margin: 1.3em auto;
 }
  .article-heading, .heading {
-     margin: 1.4rem 0 2.5rem;
+     margin: 1.7rem 0 2.5rem;
      line-height: 1.1;
 }
  .intro-header .subheading, .intro-header .meta {
@@ -227,7 +227,7 @@
      .intro-header .heading h1 {
          font-size: 55px;
          margin: 90px auto;
-         font-weight: 300;
+         font-weight: 300;wh
     }
      .intro-header .main-heading h1 {
          font-size: 90px;
