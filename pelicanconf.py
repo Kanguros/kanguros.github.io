@@ -104,9 +104,13 @@ DEFAULT_CATEGORY = "post"
 
 GIT_LINK = "https://github.com/Kanguros/"
 NAV_LINKS = [
-    ('Index', "", 'home'),
     ('Tags', TAGS_SAVE_AS, 'tags'),
     ('About', ABOUT_URL, 'file-person'),
+]
+
+FOOTER_LINKS = [
+    ('Index', "", 'home'),
+    *NAV_LINKS,
     ('Git', GIT_LINK, 'github'),
 
 ]

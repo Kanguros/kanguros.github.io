@@ -504,7 +504,9 @@
     }
 }
  .intro-header .big-heading {
-     margin: 1.4rem auto !important;
+    margin-top: 1.4rem !important;
+    margin-bottom: 3rem !important;
+
 }
  .section-note {
      margin-top: 4.5rem;

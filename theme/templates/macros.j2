@@ -14,7 +14,7 @@
         {% endif %}
     </div>
 
-    <p class="article-summary">k
+    <p class="article-summary">
         {% if article.has_summary %}
         {{ article.summary }}
         {% elif article.summary %}
@@ -70,7 +70,7 @@
 {% macro tags_list(article) %}
 <div class="tags meta-element">
     {% for t in article.tags %}
-    <a href="{{ SITEURL }}/tags/{{ t }}.html"
+    <a href="{{ SITEURL }}/tag/{{ t }}.html"
        rel="bookmark"
        title="Posts with #{{ t }} tag"
        aria-label="Posts with #{{ t }} tag"
