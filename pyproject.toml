@@ -6,9 +6,9 @@ authors = ["Kamil Urbanek <urbanek.kamil@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8.1"
-pelican = { extras = ["markdown"], version = "^4.9" }
-typogrify = "^2.0"
-pymdown-extensions = "^10.7"
+pelican = { extras = ["markdown"], version = "4.9.1" }
+typogrify = "2.0"
+pymdown-extensions = "10.9"
 invoke = "^2.1"
 livereload = "^2.6"
 
