@@ -38,9 +38,7 @@ SIMILAR_POSTS_MIN_SCORE = 0.0001
 
 SITENAME = "Kamil's Scratchpad"
 SITENAME_BRAND = "KS"
-SITEINFO = """Welcome to my digital notepad. 
-Space where <strong>I share</strong> my <strong>notes and thoughts</strong> on <strong>programming, pipelines, automation,</strong> and an array of other, yet to be discovered, fancy stuff.
-"""
+SITEINFO = "Welcome to my digital notepad. Space where <strong>I share</strong> my <strong>notes and thoughts</strong> on <strong>programming, pipelines, automation,</strong> and an array of other, yet to be discovered, fancy stuff."
 
 THEME_STATIC_DIR = THEME = "theme"
 COLOR_SCHEME_CSS = "darkly.css"
@@ -50,6 +48,7 @@ TYPOGRIFY = True
 DIRECT_TEMPLATES = [
     'index',
     'archives',
+    'categories',
     'tags',
     'under_construction',
     'privates',
@@ -59,6 +58,7 @@ DEFAULT_PAGINATION = 5
 PAGINATED_TEMPLATES = {
     'index': None,
     'tag': None,
+    'category': None,
 }
 
 STATIC_PATHS = [
@@ -72,18 +72,15 @@ EXTRA_PATH_METADATA = {
     'extra/.nojekyll': {'path': '.nojekyll'},
 }
 
-INDEX_SAVE_AS = 'index.html'
 ARCHIVES_SAVE_AS = 'archive.html'
 ABOUT_URL = "about.html"
-
 AUTHOR_SAVE_AS = ""
-CATEGORY_SAVE_AS = ""
-CATEGORIES_SAVE_AS = ""
 
-ARTICLE_PATHS = ['private', 'posts']
-ARTICLE_URL = 'post/{slug}.html'
-ARTICLE_SAVE_AS = 'post/{slug}.html'
+ARTICLE_PATHS = ['posts', 'notes', 'private']
+ARTICLE_URL = '{category}/{slug}.html'
+ARTICLE_SAVE_AS = '{category}/{slug}.html'
 ARTICLE_ORDER_BY = 'reversed-date'
+
 DRAFTS_URL = "privates.html"
 DRAFT_URL = 'private/{slug}.html'
 DRAFT_SAVE_AS = 'private/{slug}.html'
@@ -100,17 +97,23 @@ TAGS_DESCRIPTION = {
     "cheatsheet": "Shortcut of tips and tricks."
 }
 
-DEFAULT_CATEGORY = "post"
+CATEGORY_URL = '{slug}s.html'
+CATEGORY_SAVE_AS = '{slug}s.html'
+CATEGORIES_SAVE_AS = 'categories.html'
+
+ARTICLES_URL = "articles.html"
+ARTICLES_DESCRIPTION = "Private notes turned public: straightforward and full of unexpected insights."
+NOTES_URL = "notes.html"
+NOTES_DESCRIPTION = "Private notes make public. You read at your own risk"
+DEFAULT_CATEGORY = "Note"
 
 GIT_LINK = "https://github.com/Kanguros/"
 NAV_LINKS = [
+    ('Index', "", 'home'),
+    ('Articles', ARTICLES_URL, 'journal-code'),
+    ('Notes', NOTES_URL, 'file-code'),
     ('Tags', TAGS_SAVE_AS, 'tags'),
     ('About', ABOUT_URL, 'file-person'),
-]
-
-FOOTER_LINKS = [
-    ('Index', "", 'home'),
-    *NAV_LINKS,
     ('Git', GIT_LINK, 'github'),
 
 ]

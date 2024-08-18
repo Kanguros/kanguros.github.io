@@ -40,17 +40,9 @@ def clean(c):
     if os.path.isdir(path):
         print(f"Removing directory: {path}")
         shutil.rmtree(path)
-    os.makedirs(path, exist_ok=True)
-
-
-@task
-def remove_cache(c):
-    """Remove generated files"""
-    path = CONFIG['deploy_path']
-    if os.path.isdir(path):
-        print(f"Removing directory: {path}")
-        shutil.rmtree(path)
-    os.makedirs(path, exist_ok=True)
+        print(f"Creating a empty folder: {path}")
+        os.makedirs(path)
+    print(f"No directory as: {path}")
 
 
 @task

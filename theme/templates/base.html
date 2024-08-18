@@ -59,14 +59,27 @@
 {% endif %}
 <body class="{{ body_class }} d-flex flex-column vh-100">
 <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-    <nav class="navbar navbar-expand container align-items-center px-2 mt-2 mb-1">
+    <nav class="navbar navbar-expand-lg container align-items-center px-2 mt-2 mb-1">
         <a class="brand" href="{{ SITEURL }}">
             {{ SITENAME }}
         </a>
-        <div class="navbar-collapse justify-content-end">
+        <button class="navbar-toggler mb-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="#navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="nav navbar-nav">
-                {% for title, link, icon in NAV_LINKS %}
+                {% for title, link, icon in NAV_LINKS if title != 'Index' %}
+                {% if icon == "github" %}
+                {% set nav_url = link %}
+                {% else %}
                 {% set nav_url = SITEURL + "/" + link %}
+                {% endif %}
                 <li class="nav-item">
                     <a class="btn-navigation mx-2 my-2 float-end"
                        href="{{ nav_url }}"
@@ -86,6 +99,9 @@
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                 {% block header %}
                 {% endblock header %}
+                {% if not article %}
+                <hr class="section-line">
+                {% endif %}
             </div>
         </div>
     </div>
@@ -103,11 +119,9 @@
 <footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
     <hr class="section-line">
     <p class="footer-links mt-3 mb-1">
-        {% for title, link, icon in FOOTER_LINKS %}
+        {% for title, link, icon in NAV_LINKS %}
         {% if icon == "github" %}
         {% set nav_url = link %}
-        {% elif not link %}
-        {% set nav_url = SITEURL %}
         {% else %}
         {% set nav_url = SITEURL + "/" + link %}
         {% endif %}

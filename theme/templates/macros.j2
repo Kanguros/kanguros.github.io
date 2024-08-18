@@ -7,6 +7,21 @@
         </h2>
     </a>
     <div class="d-flex justify-content-start meta-element margin-y">
+        {% if article.category == 'Article' %}
+        <a href="{{ SITEURL }}/{{ ARTICLES_URL }}"
+           title="All posts in Articles category"
+           aria-label="All posts in Articles category"
+           class="meta-word"
+        ><i class="bi bi-file-post"></i> {{ article.category }} </a>
+        {% elif article.category == 'Note' %}
+        <a href="{{ SITEURL }}/{{ NOTES_URL }}"
+           title="All posts in Notes category"
+           aria-label="All posts in Notes category"
+           class="meta-word"
+        ><i class="bi bi-sticky"></i> {{ article.category }}
+        </a>
+        {% endif %}
+        <i class="bi bi-dot"></i>
         <i class="bi bi-calendar"></i> {{ article.locale_date }}
         {% if article.readtime_string %}
         <i class="bi bi-dot"></i>
@@ -42,6 +57,7 @@
     <div class="d-flex justify-content-start meta-element margin-y">
         <i class="bi bi-calendar"></i> {{ article.locale_date }}
     </div>
+
     <p class="article-summary">
         {% if article.has_summary %}
         {{ article.summary }}
@@ -59,10 +75,32 @@
 
 
 {% macro meta_elements(article) %}
+
 <i class="bi bi-calendar"></i> {{ article.locale_date }}
 {% if article.readtime_string %}
 <i class="bi bi-dot"></i>
 <i class="bi bi-book"></i> {{ article.readtime_string }}
+{% endif %}
+
+{% endmacro %}
+
+{% macro meta_category(article) %}
+{% if article.category == 'Article' %}
+<a href="{{ SITEURL }}/{{ ARTICLES_URL }}"
+   title="All posts in Articles category"
+   aria-label="All posts in Articles category"
+   class="meta-word"
+><i class="bi bi-file-post"></i> {{ article.category }}
+</a>
+<i class="bi bi-dot"></i>
+{% elif article.category == 'Note' %}
+<a href="{{ SITEURL }}/{{ NOTES_URL }}"
+   title="All posts in Notes category"
+   aria-label="All posts in Notes category"
+   class="meta-word"
+><i class="bi bi-sticky"></i> {{ article.category }}
+</a>
+<i class="bi bi-dot"></i>
 {% endif %}
 {% endmacro %}
 
@@ -70,7 +108,7 @@
 {% macro tags_list(article) %}
 <div class="tags meta-element">
     {% for t in article.tags %}
-    <a href="{{ SITEURL }}/tag/{{ t }}.html"
+    <a href="{{ SITEURL }}/tags/{{ t }}.html"
        rel="bookmark"
        title="Posts with #{{ t }} tag"
        aria-label="Posts with #{{ t }} tag"
