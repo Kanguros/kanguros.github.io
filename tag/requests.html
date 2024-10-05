@@ -37,12 +37,35 @@ Kamil's Scratchpad - #requests
 
 <body class="tag-requests d-flex flex-column vh-100">
 <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-    <nav class="navbar navbar-expand container align-items-center px-2 mt-2 mb-1">
+    <nav class="navbar navbar-expand-lg container align-items-center px-2 mt-2 mb-1">
         <a class="brand" href="https://kanguros.github.io">
             Kamil's Scratchpad
         </a>
-        <div class="navbar-collapse justify-content-end">
+        <button class="navbar-toggler mb-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="#navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://kanguros.github.io/articles.html"
+                       title="Articles"
+                       aria-label="Articles"
+                    >Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://kanguros.github.io/notes.html"
+                       title="Notes"
+                       aria-label="Notes"
+                    >Notes</a>
+                </li>
                 <li class="nav-item">
                     <a class="btn-navigation mx-2 my-2 float-end"
                        href="https://kanguros.github.io/tags.html"
@@ -56,6 +79,13 @@ Kamil's Scratchpad - #requests
                        title="About"
                        aria-label="About"
                     >About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://github.com/Kanguros/"
+                       title="Git"
+                       aria-label="Git"
+                    >Git</a>
                 </li>
             </ul>
         </div>
@@ -77,6 +107,7 @@ Kamil's Scratchpad - #requests
     </p>
 </div>
 
+                <hr class="section-line">
             </div>
         </div>
     </div>
@@ -88,12 +119,19 @@ Kamil's Scratchpad - #requests
 
 
 <div class="post-preview">
-    <a href="/post/requests-using-pytest.html" rel="bookmark" title="Requests using pytest">
+    <a href="/note/requests-using-pytest.html" rel="bookmark" title="Requests using pytest">
         <h2 class="post-title">
             Requests using&nbsp;pytest
         </h2>
     </a>
     <div class="d-flex justify-content-start meta-element margin-y">
+        <a href="/"
+           title="All posts in Notes category"
+           aria-label="All posts in Notes category"
+           class="meta-word"
+        ><i class="bi bi-sticky"></i> Note
+        </a>
+        <i class="bi bi-dot"></i>
         <i class="bi bi-calendar"></i> 2023-09-02
         <i class="bi bi-dot"></i>
         <i class="bi bi-book"></i> 7 minutes
@@ -104,24 +142,24 @@ Kamil's Scratchpad - #requests
     </p>
     <div class="d-flex justify-content-between align-self-center align-items-center margin-y">
         <div class="tags meta-element">
-    <a href="/tag/pytest.html"
+    <a href="/tags/pytest.html"
        rel="bookmark"
        title="Posts with #pytest tag"
        aria-label="Posts with #pytest tag"
     >#pytest</a>
-    <a href="/tag/requests.html"
+    <a href="/tags/requests.html"
        rel="bookmark"
        title="Posts with #requests tag"
        aria-label="Posts with #requests tag"
     >#requests</a>
-    <a href="/tag/python.html"
+    <a href="/tags/python.html"
        rel="bookmark"
        title="Posts with #python tag"
        aria-label="Posts with #python tag"
     >#python</a>
 </div>
 
-        <a href="/post/requests-using-pytest.html" class="btn btn-secondary btn-darker btn-smaller nobr"
+        <a href="/note/requests-using-pytest.html" class="btn btn-secondary btn-darker btn-smaller nobr"
    title="Read more"
    aria-label="Read more"
 >Read more
@@ -142,11 +180,21 @@ Kamil's Scratchpad - #requests
 <footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
     <hr class="section-line">
     <p class="footer-links mt-3 mb-1">
-        <a href="https://kanguros.github.io"
+        <a href="https://kanguros.github.io/"
            class="px-2"
            title="Index"
            aria-label="Index"
         >Index</a>
+        <a href="https://kanguros.github.io/articles.html"
+           class="px-2"
+           title="Articles"
+           aria-label="Articles"
+        >Articles</a>
+        <a href="https://kanguros.github.io/notes.html"
+           class="px-2"
+           title="Notes"
+           aria-label="Notes"
+        >Notes</a>
         <a href="https://kanguros.github.io/tags.html"
            class="px-2"
            title="Tags"

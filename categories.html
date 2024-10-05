@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-Welcome - Kamil's Scratchpad
-    </title>
+Kamil's Scratchpad - Categories    </title>
 
     <!-- Bootstrap and Clean Blog CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,34 +29,42 @@ Welcome - Kamil's Scratchpad
           href="https://kanguros.github.io/theme/css/clean-blog.css"
     >
 
-
-
-<meta name="description" content="You are on my blog dedicated loosely joined development, automation and network.">
-
-<meta name="tags" content="personal">
-
     <meta property="og:locale" content="en">
     <meta property="og:site_name" content="Kamil's Scratchpad">
 
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://kanguros.github.io/post/welcome.html">
-<meta property="og:title" content="Welcome">
-<meta property="article:published_time" content="2023-06-01 00:00:00+02:00">
-
-<meta property="og:description" content="You are on my blog dedicated loosely joined development, automation and network.">
-
-<meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
-
 </head>
 
-<body class="article-welcome d-flex flex-column vh-100">
+<body class=" d-flex flex-column vh-100">
 <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-    <nav class="navbar navbar-expand container align-items-center px-2 mt-2 mb-1">
+    <nav class="navbar navbar-expand-lg container align-items-center px-2 mt-2 mb-1">
         <a class="brand" href="https://kanguros.github.io">
             Kamil's Scratchpad
         </a>
-        <div class="navbar-collapse justify-content-end">
+        <button class="navbar-toggler mb-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="#navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://kanguros.github.io/articles.html"
+                       title="Articles"
+                       aria-label="Articles"
+                    >Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://kanguros.github.io/notes.html"
+                       title="Notes"
+                       aria-label="Notes"
+                    >Notes</a>
+                </li>
                 <li class="nav-item">
                     <a class="btn-navigation mx-2 my-2 float-end"
                        href="https://kanguros.github.io/tags.html"
@@ -72,6 +79,13 @@ Welcome - Kamil's Scratchpad
                        aria-label="About"
                     >About</a>
                 </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://github.com/Kanguros/"
+                       title="Git"
+                       aria-label="Git"
+                    >Git</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -81,27 +95,7 @@ Welcome - Kamil's Scratchpad
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-<div class="article-heading">
-    <a href="https://kanguros.github.io/post/welcome.html" rel="bookmark" title="Welcome">
-        <h1>
-            Welcome
-        </h1>
-    </a>
-    <p class="meta-element">
-        <i class="bi bi-calendar"></i> 2023-06-01
-<i class="bi bi-dot"></i>
-<i class="bi bi-book"></i> 0 minutes
-
-    </p>
-    <div class="tags meta-element">
-    <a href="/tag/personal.html"
-       rel="bookmark"
-       title="Posts with #personal tag"
-       aria-label="Posts with #personal tag"
-    >#personal</a>
-</div>
-
-</div>
+                <hr class="section-line">
             </div>
         </div>
     </div>
@@ -110,12 +104,11 @@ Welcome - Kamil's Scratchpad
 <div class="container">
     <div class="row">
         <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-<article>
-    <p>You are on my blog dedicated loosely joined development, automation and&nbsp;network.</p>
-    <p>You are on my blog dedicated loosely joined development, automation and&nbsp;network.</p>
-</article>
-
-
+    <h2>Categories on Kamil's Scratchpad</h2>
+    <ul>
+        <li><a href="https://kanguros.github.io/articles.html">Article</a> (5)</li>
+        <li><a href="https://kanguros.github.io/notes.html">Note</a> (9)</li>
+    </ul>
         </div>
     </div>
 </div>
@@ -123,11 +116,21 @@ Welcome - Kamil's Scratchpad
 <footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
     <hr class="section-line">
     <p class="footer-links mt-3 mb-1">
-        <a href="https://kanguros.github.io"
+        <a href="https://kanguros.github.io/"
            class="px-2"
            title="Index"
            aria-label="Index"
         >Index</a>
+        <a href="https://kanguros.github.io/articles.html"
+           class="px-2"
+           title="Articles"
+           aria-label="Articles"
+        >Articles</a>
+        <a href="https://kanguros.github.io/notes.html"
+           class="px-2"
+           title="Notes"
+           aria-label="Notes"
+        >Notes</a>
         <a href="https://kanguros.github.io/tags.html"
            class="px-2"
            title="Tags"

@@ -37,12 +37,35 @@
 
 <body class=" d-flex flex-column vh-100">
 <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-    <nav class="navbar navbar-expand container align-items-center px-2 mt-2 mb-1">
+    <nav class="navbar navbar-expand-lg container align-items-center px-2 mt-2 mb-1">
         <a class="brand" href="https://kanguros.github.io">
             Kamil's Scratchpad
         </a>
-        <div class="navbar-collapse justify-content-end">
+        <button class="navbar-toggler mb-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="#navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://kanguros.github.io/articles.html"
+                       title="Articles"
+                       aria-label="Articles"
+                    >Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://kanguros.github.io/notes.html"
+                       title="Notes"
+                       aria-label="Notes"
+                    >Notes</a>
+                </li>
                 <li class="nav-item">
                     <a class="btn-navigation mx-2 my-2 float-end"
                        href="https://kanguros.github.io/tags.html"
@@ -57,6 +80,13 @@
                        aria-label="About"
                     >About</a>
                 </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://github.com/Kanguros/"
+                       title="Git"
+                       aria-label="Git"
+                    >Git</a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -67,15 +97,19 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
 
-<!--<div class="heading d-flex flex-wrap align-items-baseline justify-content-between">
+<div class="heading d-flex flex-wrap align-items-baseline justify-content-between">
     <a href="/index.html" rel="bookmark" title="Posts" class="me-5">
         <h1 class="my-3">
             Posts
         </h1>
     </a>
+    <p class="heading-meta">
+        All Articles and Notes
+    </p>
 </div>
--->
 
+
+                <hr class="section-line">
             </div>
         </div>
     </div>
@@ -87,12 +121,18 @@
 
 
 <div class="post-preview">
-    <a href="/post/keywords-with-chatgpt.html" rel="bookmark" title="Keywords with ChatGPT">
+    <a href="/article/keywords-with-chatgpt.html" rel="bookmark" title="Keywords with ChatGPT">
         <h2 class="post-title">
             Keywords with&nbsp;ChatGPT
         </h2>
     </a>
     <div class="d-flex justify-content-start meta-element margin-y">
+        <a href="/"
+           title="All posts in Articles category"
+           aria-label="All posts in Articles category"
+           class="meta-word"
+        ><i class="bi bi-file-post"></i> Article </a>
+        <i class="bi bi-dot"></i>
         <i class="bi bi-calendar"></i> 2023-06-20
         <i class="bi bi-dot"></i>
         <i class="bi bi-book"></i> 7 minutes
@@ -103,14 +143,14 @@
     </p>
     <div class="d-flex justify-content-between align-self-center align-items-center margin-y">
         <div class="tags meta-element">
-    <a href="/tag/ai.html"
+    <a href="/tags/ai.html"
        rel="bookmark"
        title="Posts with #ai tag"
        aria-label="Posts with #ai tag"
     >#ai</a>
 </div>
 
-        <a href="/post/keywords-with-chatgpt.html" class="btn btn-secondary btn-darker btn-smaller nobr"
+        <a href="/article/keywords-with-chatgpt.html" class="btn btn-secondary btn-darker btn-smaller nobr"
    title="Read more"
    aria-label="Read more"
 >Read more
@@ -124,12 +164,18 @@
 
 
 <div class="post-preview">
-    <a href="/post/behind-curtains.html" rel="bookmark" title="Behind curtains">
+    <a href="/article/behind-curtains.html" rel="bookmark" title="Behind curtains">
         <h2 class="post-title">
             Behind&nbsp;curtains
         </h2>
     </a>
     <div class="d-flex justify-content-start meta-element margin-y">
+        <a href="/"
+           title="All posts in Articles category"
+           aria-label="All posts in Articles category"
+           class="meta-word"
+        ><i class="bi bi-file-post"></i> Article </a>
+        <i class="bi bi-dot"></i>
         <i class="bi bi-calendar"></i> 2023-06-15
         <i class="bi bi-dot"></i>
         <i class="bi bi-book"></i> 0 minutes
@@ -140,24 +186,24 @@
     </p>
     <div class="d-flex justify-content-between align-self-center align-items-center margin-y">
         <div class="tags meta-element">
-    <a href="/tag/webdev.html"
+    <a href="/tags/webdev.html"
        rel="bookmark"
        title="Posts with #webdev tag"
        aria-label="Posts with #webdev tag"
     >#webdev</a>
-    <a href="/tag/pelican.html"
+    <a href="/tags/pelican.html"
        rel="bookmark"
        title="Posts with #pelican tag"
        aria-label="Posts with #pelican tag"
     >#pelican</a>
-    <a href="/tag/markdown.html"
+    <a href="/tags/markdown.html"
        rel="bookmark"
        title="Posts with #markdown tag"
        aria-label="Posts with #markdown tag"
     >#markdown</a>
 </div>
 
-        <a href="/post/behind-curtains.html" class="btn btn-secondary btn-darker btn-smaller nobr"
+        <a href="/article/behind-curtains.html" class="btn btn-secondary btn-darker btn-smaller nobr"
    title="Read more"
    aria-label="Read more"
 >Read more
@@ -171,12 +217,18 @@
 
 
 <div class="post-preview">
-    <a href="/post/markdown-in-pelican.html" rel="bookmark" title="Markdown in Pelican">
+    <a href="/article/markdown-in-pelican.html" rel="bookmark" title="Markdown in Pelican">
         <h2 class="post-title">
             Markdown in&nbsp;Pelican
         </h2>
     </a>
     <div class="d-flex justify-content-start meta-element margin-y">
+        <a href="/"
+           title="All posts in Articles category"
+           aria-label="All posts in Articles category"
+           class="meta-word"
+        ><i class="bi bi-file-post"></i> Article </a>
+        <i class="bi bi-dot"></i>
         <i class="bi bi-calendar"></i> 2023-06-15
         <i class="bi bi-dot"></i>
         <i class="bi bi-book"></i> 2 minutes
@@ -187,24 +239,24 @@
     </p>
     <div class="d-flex justify-content-between align-self-center align-items-center margin-y">
         <div class="tags meta-element">
-    <a href="/tag/webdev.html"
+    <a href="/tags/webdev.html"
        rel="bookmark"
        title="Posts with #webdev tag"
        aria-label="Posts with #webdev tag"
     >#webdev</a>
-    <a href="/tag/markdown.html"
+    <a href="/tags/markdown.html"
        rel="bookmark"
        title="Posts with #markdown tag"
        aria-label="Posts with #markdown tag"
     >#markdown</a>
-    <a href="/tag/pelican.html"
+    <a href="/tags/pelican.html"
        rel="bookmark"
        title="Posts with #pelican tag"
        aria-label="Posts with #pelican tag"
     >#pelican</a>
 </div>
 
-        <a href="/post/markdown-in-pelican.html" class="btn btn-secondary btn-darker btn-smaller nobr"
+        <a href="/article/markdown-in-pelican.html" class="btn btn-secondary btn-darker btn-smaller nobr"
    title="Read more"
    aria-label="Read more"
 >Read more
@@ -218,12 +270,18 @@
 
 
 <div class="post-preview">
-    <a href="/post/welcome.html" rel="bookmark" title="Welcome">
+    <a href="/article/welcome.html" rel="bookmark" title="Welcome">
         <h2 class="post-title">
             Welcome
         </h2>
     </a>
     <div class="d-flex justify-content-start meta-element margin-y">
+        <a href="/"
+           title="All posts in Articles category"
+           aria-label="All posts in Articles category"
+           class="meta-word"
+        ><i class="bi bi-file-post"></i> Article </a>
+        <i class="bi bi-dot"></i>
         <i class="bi bi-calendar"></i> 2023-06-01
         <i class="bi bi-dot"></i>
         <i class="bi bi-book"></i> 0 minutes
@@ -234,14 +292,14 @@
     </p>
     <div class="d-flex justify-content-between align-self-center align-items-center margin-y">
         <div class="tags meta-element">
-    <a href="/tag/personal.html"
+    <a href="/tags/personal.html"
        rel="bookmark"
        title="Posts with #personal tag"
        aria-label="Posts with #personal tag"
     >#personal</a>
 </div>
 
-        <a href="/post/welcome.html" class="btn btn-secondary btn-darker btn-smaller nobr"
+        <a href="/article/welcome.html" class="btn btn-secondary btn-darker btn-smaller nobr"
    title="Read more"
    aria-label="Read more"
 >Read more
@@ -287,11 +345,21 @@
 <footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
     <hr class="section-line">
     <p class="footer-links mt-3 mb-1">
-        <a href="https://kanguros.github.io"
+        <a href="https://kanguros.github.io/"
            class="px-2"
            title="Index"
            aria-label="Index"
         >Index</a>
+        <a href="https://kanguros.github.io/articles.html"
+           class="px-2"
+           title="Articles"
+           aria-label="Articles"
+        >Articles</a>
+        <a href="https://kanguros.github.io/notes.html"
+           class="px-2"
+           title="Notes"
+           aria-label="Notes"
+        >Notes</a>
         <a href="https://kanguros.github.io/tags.html"
            class="px-2"
            title="Tags"

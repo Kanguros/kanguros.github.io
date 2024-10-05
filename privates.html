@@ -37,12 +37,35 @@ Kamil's Scratchpad - Private
 
 <body class=" d-flex flex-column vh-100">
 <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-    <nav class="navbar navbar-expand container align-items-center px-2 mt-2 mb-1">
+    <nav class="navbar navbar-expand-lg container align-items-center px-2 mt-2 mb-1">
         <a class="brand" href="https://kanguros.github.io">
             Kamil's Scratchpad
         </a>
-        <div class="navbar-collapse justify-content-end">
+        <button class="navbar-toggler mb-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="#navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="nav navbar-nav">
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://kanguros.github.io/articles.html"
+                       title="Articles"
+                       aria-label="Articles"
+                    >Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://kanguros.github.io/notes.html"
+                       title="Notes"
+                       aria-label="Notes"
+                    >Notes</a>
+                </li>
                 <li class="nav-item">
                     <a class="btn-navigation mx-2 my-2 float-end"
                        href="https://kanguros.github.io/tags.html"
@@ -56,6 +79,13 @@ Kamil's Scratchpad - Private
                        title="About"
                        aria-label="About"
                     >About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="btn-navigation mx-2 my-2 float-end"
+                       href="https://github.com/Kanguros/"
+                       title="Git"
+                       aria-label="Git"
+                    >Git</a>
                 </li>
             </ul>
         </div>
@@ -77,6 +107,7 @@ Kamil's Scratchpad - Private
     </p>
 </div>
 
+                <hr class="section-line">
             </div>
         </div>
     </div>
@@ -88,6 +119,33 @@ Kamil's Scratchpad - Private
 
 
 <div class="post-preview">
+    <a href="/private/appweb-on-gcp.html" rel="bookmark" title="AppWeb on GCP">
+        <h2 class="post-title">
+            AppWeb on <span class="caps">GCP</span>
+        </h2>
+    </a>
+    <div class="d-flex justify-content-start meta-element margin-y">
+        <i class="bi bi-calendar"></i> 2024-10-05
+    </div>
+
+    <p class="article-summary">
+        Web application developed in Flask deployed on Google Cloud Platform.
+    </p>
+    <div class="d-flex justify-content-end margin-y">
+        <a href="/private/appweb-on-gcp.html" class="btn btn-secondary btn-darker btn-smaller nobr"
+   title="Read more"
+   aria-label="Read more"
+>Read more
+    <i class="bi bi-arrow-right-short"></i>
+</a>
+
+    </div>
+    <hr class="post-line">
+</div>
+
+
+
+<div class="post-preview">
     <a href="/private/dieta-dla-5-latki.html" rel="bookmark" title="Dieta dla 5 latki">
         <h2 class="post-title">
             Dieta dla 5&nbsp;latki
@@ -96,6 +154,7 @@ Kamil's Scratchpad - Private
     <div class="d-flex justify-content-start meta-element margin-y">
         <i class="bi bi-calendar"></i> 2023-11-16
     </div>
+
     <p class="article-summary">
         Zalecenia żywieniowe oraz przykładowy plan posiłków dla 5-letniej dziewczynki. Omówione są kluczowe aspekty
     </p>
@@ -122,6 +181,7 @@ Kamil's Scratchpad - Private
     <div class="d-flex justify-content-start meta-element margin-y">
         <i class="bi bi-calendar"></i> 2023-08-24
     </div>
+
     <p class="article-summary">
         Generated diet for a woman by ChatGPT.
     </p>
@@ -148,6 +208,7 @@ Kamil's Scratchpad - Private
     <div class="d-flex justify-content-start meta-element margin-y">
         <i class="bi bi-calendar"></i> 2023-08-08
     </div>
+
     <p class="article-summary">
         This Python script allows you to modify Word documents by performing specific actions on their content. The script uses the python-docx library to work with Word documents. Features The script...
     </p>
@@ -174,6 +235,7 @@ Kamil's Scratchpad - Private
     <div class="d-flex justify-content-start meta-element margin-y">
         <i class="bi bi-calendar"></i> 2022-03-28
     </div>
+
     <p class="article-summary">
         Few personal thoughts I do not remember Well, I tried, still trying to. The results vary. I think, the only solution for now, which has an acceptable results is: No need to remember. My goal is to...
     </p>
@@ -198,11 +260,21 @@ Kamil's Scratchpad - Private
 <footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
     <hr class="section-line">
     <p class="footer-links mt-3 mb-1">
-        <a href="https://kanguros.github.io"
+        <a href="https://kanguros.github.io/"
            class="px-2"
            title="Index"
            aria-label="Index"
         >Index</a>
+        <a href="https://kanguros.github.io/articles.html"
+           class="px-2"
+           title="Articles"
+           aria-label="Articles"
+        >Articles</a>
+        <a href="https://kanguros.github.io/notes.html"
+           class="px-2"
+           title="Notes"
+           aria-label="Notes"
+        >Notes</a>
         <a href="https://kanguros.github.io/tags.html"
            class="px-2"
            title="Tags"
