@@ -37,20 +37,19 @@ def pelican_run(cmd):
 def clean(c):
     """Remove generated files"""
     path = CONFIG['deploy_path']
+    print(f"[{path}] Removing deploy directory")
     if os.path.isdir(path):
-        print(f"Removing directory: {path}")
         shutil.rmtree(path)
-    os.makedirs(path, exist_ok=True)
+        print(f"[{path}] Creating a empty folder")
+        os.makedirs(path)
+    else:
+        print(f"[{path}] No directory")
 
-
-@task
-def remove_cache(c):
-    """Remove generated files"""
-    path = CONFIG['deploy_path']
+    cache_path = "cache"
+    print(f"[{cache_path}] Removing cache directory")
     if os.path.isdir(path):
-        print(f"Removing directory: {path}")
         shutil.rmtree(path)
-    os.makedirs(path, exist_ok=True)
+        print(f"[{cache_path}] Removed")
 
 
 @task

@@ -14,6 +14,12 @@ repos:
     hooks:
       - id: djhtml
       - id: djcss
-        files: ["theme/static/css/resume.css", "theme/static/css/clean-blog.css"]
+        files: [ "theme/static/css/resume.css", "theme/static/css/clean-blog.css" ]
       - id: djjs
-        files: ["theme/static/js/clean-blog.js"]
+        files: [ "theme/static/js/clean-blog.js" ]
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v2.5.1
+    hooks:
+      - id: prettier
+        files: \.(js|css|md|yaml)$

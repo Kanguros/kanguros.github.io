@@ -84,6 +84,7 @@ ARTICLE_PATHS = ['private', 'posts']
 ARTICLE_URL = 'post/{slug}.html'
 ARTICLE_SAVE_AS = 'post/{slug}.html'
 ARTICLE_ORDER_BY = 'reversed-date'
+
 DRAFTS_URL = "privates.html"
 DRAFT_URL = 'private/{slug}.html'
 DRAFT_SAVE_AS = 'private/{slug}.html'
@@ -106,12 +107,12 @@ GIT_LINK = "https://github.com/Kanguros/"
 NAV_LINKS = [
     ('Tags', TAGS_SAVE_AS, 'tags'),
     ('About', ABOUT_URL, 'file-person'),
+    ('Git', GIT_LINK, 'github'),
 ]
 
 FOOTER_LINKS = [
     ('Index', "", 'home'),
     *NAV_LINKS,
-    ('Git', GIT_LINK, 'github'),
 
 ]
 
