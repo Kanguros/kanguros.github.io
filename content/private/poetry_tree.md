@@ -1,7 +1,7 @@
 Title: Poetry tree  
 Date: 2023-07-10  
 Tags: notes, poetry, graph  
-Category: Note  
+Status: draft  
 Summary: Poetry tree as graph.
 
 This module provides functions to parse and work with a dependency tree output. The primary

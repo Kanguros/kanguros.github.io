@@ -1,7 +1,6 @@
 Title: Dieta dla 5 latki  
 Date: 2023-11-16
 Status: draft
-Category: Private
 Summary: Zalecenia żywieniowe oraz przykładowy plan posiłków dla 5-letniej dziewczynki. Omówione są kluczowe aspekty
 diety, takie jak błonnik, nawodnienie, zdrowe tłuszcze, oraz ograniczenie cukru i produktów powodujących wzdęcia.
 Ponadto, szczegółowo przedstawione są wartości odżywcze popularnych przekąsek i przykładowe posiłki na pięć dni.
