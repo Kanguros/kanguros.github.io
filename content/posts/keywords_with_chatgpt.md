@@ -4,8 +4,6 @@ Tags: ai
 Summary: I playaround with ChatGPT and create a glossary of IT keywords. Take a look.
 Category: Article
 
-
-
 I playaround with ChatGPT and create a glossary of IT keywords. Take a look.
 
 ---
@@ -46,38 +44,38 @@ trigger:
 
 jobs:
   - job: BuildTestPackage
-    displayName: 'Build, Test, and Package'
+    displayName: "Build, Test, and Package"
     pool:
-      vmImage: 'ubuntu-latest'
+      vmImage: "ubuntu-latest"
 
     steps:
       - task: UsePythonVersion@0
         inputs:
-          versionSpec: '3.x'
-        displayName: 'Use Python 3.x'
+          versionSpec: "3.x"
+        displayName: "Use Python 3.x"
 
       - script: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-        displayName: 'Install dependencies'
+        displayName: "Install dependencies"
 
       - script: |
           python -m unittest discover tests
-        displayName: 'Run tests'
+        displayName: "Run tests"
 
       - script: |
           flake8 --ignore=E501 .
-        displayName: 'Lint code'
+        displayName: "Lint code"
 
       - script: |
           python setup.py sdist bdist_wheel
-        displayName: 'Build package'
+        displayName: "Build package"
 
       - task: PublishPipelineArtifact@1
         inputs:
-          targetPath: '$(Pipeline.Workspace)/dist'
-          artifact: 'package'
-        displayName: 'Publish package artifact'
+          targetPath: "$(Pipeline.Workspace)/dist"
+          artifact: "package"
+        displayName: "Publish package artifact"
 ```
 
 ## Programming and Development

@@ -1,124 +1,94 @@
 :root {
-
---line-color: #d1d1d1;
---bullet-color: #737373;
---icon-color: #abaaaa;
+  --line-color: #d1d1d1;
+  --bullet-color: #737373;
+  --icon-color: #abaaaa;
 }
 
 .resume .padding-less {
-
-    margin: 0 0 !important;
+  margin: 0 0 !important;
 }
-
-
 
 .summary p {
-margin: 0 auto !important;
+  margin: 0 auto !important;
 }
 
-.resume article > h2, h3, h4 {
-margin: 1rem auto 0.5rem;
+.resume article > h2,
+h3,
+h4 {
+  margin: 1rem auto 0.5rem;
 }
-
 
 .contacts a {
-margin: 2px 0px;
-color: var(--icon-color) !important;
-font-size: 1rem;
-
+  margin: 2px 0px;
+  color: var(--icon-color) !important;
+  font-size: 1rem;
 }
 
-
 .resume h4 {
-
-    font-family: var(--title-font);
-        font-weight: 500;
-
-    }
-
-
+  font-family: var(--title-font);
+  font-weight: 500;
+}
 
 .resume h3 {
-
-font-size: 1.7rem;
-margin-bottom: 0.2em;
-    font-family: var(--title-font);
-    font-weight: 600;
-    text-align: left;
-    color: #595050;
+  font-size: 1.7rem;
+  margin-bottom: 0.2em;
+  font-family: var(--title-font);
+  font-weight: 600;
+  text-align: left;
+  color: #595050;
 }
 
 .resume h2 {
-
-border-bottom: 2px solid #595050;
-
+  border-bottom: 2px solid #595050;
 }
-
-
-
-
 
 .resume .highlight {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
-
 .resume .skills-col {
-
-margin-top: 0 !important;
-
+  margin-top: 0 !important;
 }
 
 .resume .skill-tag {
   background: var(--code-background);
-margin: 0.2em 0.1em;
-    padding: 0.1em 0.2em;
-    border-radius: 3px;
-  }
-
-
-
-
+  margin: 0.2em 0.1em;
+  padding: 0.1em 0.2em;
+  border-radius: 3px;
+}
 
 .resume ul.carret-list {
-
-padding-left: 0.8rem;
-list-style-type: none;
+  padding-left: 0.8rem;
+  list-style-type: none;
 }
 
 .resume ul.carret-list > li {
-    padding: 0.3rem 0 0 0.3rem;
+  padding: 0.3rem 0 0 0.3rem;
 }
 
 .resume ul.carret-list > li::marker {
-content: "\f231";
+  content: "\f231";
   font-family: "bootstrap-icons";
   color: var(--bullet-color);
   font-size: 1rem;
 }
 
 .resume ul.bullet-list {
-padding-left: 0.8rem;
-list-style-type: none;
-
-
+  padding-left: 0.8rem;
+  list-style-type: none;
 }
 
 .resume ul.bullet-list > li {
-    padding: 0.3rem 0 0 0.3rem;
-
-
+  padding: 0.3rem 0 0 0.3rem;
 }
 
 .resume ul.bullet-list > li::marker {
-content: "\F309";
+  content: "\F309";
   font-family: "bootstrap-icons";
   color: var(--bullet-color);
   font-size: 1rem;
 }
 
 .resume .more-padding {
-
-padding-top: 0.7rem !important;
-
+  padding-top: 0.7rem !important;
 }

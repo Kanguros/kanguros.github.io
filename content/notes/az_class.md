@@ -23,17 +23,17 @@ easy to fetch closed User Stories and manage active Pull Requests.
 
 2. **Pull Requests:**
 
-    - Active Pull Requests by Repository Prefix:
+   - Active Pull Requests by Repository Prefix:
 
-      ```python
-      active_pulls_by_repo = azure_devops.get_active_pull_requests_by_repo_prefix(prefix)
-      ```
+     ```python
+     active_pulls_by_repo = azure_devops.get_active_pull_requests_by_repo_prefix(prefix)
+     ```
 
-    - Active Pull Requests by Authors:
+   - Active Pull Requests by Authors:
 
-      ```python
-      active_pulls_by_authors = azure_devops.get_active_pull_requests_by_authors(authors)
-      ```
+     ```python
+     active_pulls_by_authors = azure_devops.get_active_pull_requests_by_authors(authors)
+     ```
 
 ## Getting Started
 
@@ -71,7 +71,7 @@ class AzureDevOps:
 
     def _create_azure_devops_connection(self) -> Connection:
         """Create an Azure DevOps connection instance.
-        
+
         Returns:
             Connection: An instance of the Azure DevOps connection.
         """
@@ -81,12 +81,12 @@ class AzureDevOps:
 
     def get_closed_user_stories(self, days: int, tag: str, area_path: str) -> List[Dict[str, Any]]:
         """Get closed User Stories filtered by days, tag, and area path.
-        
+
         Args:
             days (int): Number of days to consider for closed User Stories.
             tag (str): Tag to filter User Stories.
             area_path (str): Area path to filter User Stories.
-            
+
         Returns:
             list: List of closed User Stories matching the criteria. Each User Story is represented as a dictionary with detailed fields.
                 Each dictionary includes the following keys:
@@ -113,7 +113,7 @@ class AzureDevOps:
 
     def get_git_repositories(self) -> List[Dict[str, Any]]:
         """Get a list of Git repositories.
-        
+
         Returns:
             list: List of Git repositories. Each repository is represented as a dictionary with information including 'id', 'name', and 'url'.
         """
@@ -122,10 +122,10 @@ class AzureDevOps:
 
     def get_active_pull_requests_by_repo_prefix(self, prefix: str) -> List[Dict[str, Any]]:
         """Get active Pull Requests from Repositories with a given prefix.
-        
+
         Args:
             prefix (str): Prefix of the repository name.
-            
+
         Returns:
             list: List of active Pull Requests matching the criteria. Each Pull Request is represented as a dictionary with detailed fields.
                 Each dictionary includes the following keys:
@@ -147,10 +147,10 @@ class AzureDevOps:
 
     def get_active_pull_requests_by_authors(self, persons: List[str]) -> List[Dict[str, Any]]:
         """Get active Pull Requests from Repositories created by specific persons.
-        
+
         Args:
             persons (list): List of persons' names who created the Pull Requests.
-            
+
         Returns:
             list: List of active Pull Requests matching the criteria. Each Pull Request is represented as a dictionary with detailed fields.
                 Each dictionary includes the following keys:

@@ -1,12 +1,10 @@
-Title: Pytest cheatsheet 
+Title: Pytest cheatsheet
 Date: 2023-11-04
-Tags: pytest, cheatsheet 
+Tags: pytest, cheatsheet
 Category: Note  
 Summary: The cheatsheet provides a solid foundation for implementing tests in Python using `pytest`, including basic test structures, fixtures, parameterization, and using `monkeypatch` for temporary modifications during tests.
-  
 
 [TOC]
-
 
 ## Basic test
 

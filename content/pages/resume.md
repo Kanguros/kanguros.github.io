@@ -54,26 +54,26 @@ projects:
 jobs:
   - name: ING Hubs Poland
     info: "Former ING Business Shared Service B.V."
-    positions:  
+    positions:
       - name: Senior DevOps Engineer
         team: IAAS Network
-        startDate: '01/2021'
-        endDate: 'Present'
+        startDate: "01/2021"
+        endDate: "Present"
         highlights:
           - Spearheaded the automation of diverse network processes, significantly boosting operational efficiency and minimizing manual errors.
           - Led the implementation of infrastructure as code (IaC) practices, resulting in heightened infrastructure consistency.
           - Contributed to the creation of documentation and knowledge-sharing resources, enhancing team productivity and ensuring consistent best practices.
       - name: DevOps Engineer
-        team: Network Stack   
-        startDate: '05/2018'
-        endDate: '01/2021'
+        team: Network Stack
+        startDate: "05/2018"
+        endDate: "01/2021"
         highlights:
           - Provided essential support to the Network Product Owner in fulfilling their responsibilities.
           - Managed the customer experience for an international client, addressing inquiries, resolving issues, and ensuring their satisfaction with services provided.
       - name: IT Engineer
-        team: Master Control Room         
-        startDate: '08/2015'
-        endDate: '05/2018'
+        team: Master Control Room
+        startDate: "08/2015"
+        endDate: "05/2018"
         highlights:
           - Monitored and managed critical IT systems in a high-pressure environment, ensuring uninterrupted service availability and rapid response to incidents.
           - Conducted training sessions for new team members, contributing to their successful onboarding and integration into the team.
@@ -82,8 +82,8 @@ educations:
     url: gwsh.pl
     area: Computer science, forensics science speciality
     studyType: Bachelor
-    startDate: '01-09-2013'
-    endDate: '01-09-2015'
+    startDate: "01-09-2013"
+    endDate: "01-09-2015"
 interests:
   - woodworking
   - handcrafting

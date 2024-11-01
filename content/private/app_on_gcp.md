@@ -7,7 +7,7 @@ Summary: Web application developed in Flask deployed on Google Cloud Platform.
 To modify values from the web, there has to be somekind of database.
 Code will have to be modified in order to handle it. It shouldn't be difficult.
 
-## How to in Python 
+## How to in Python
 
 ```python
 # Imports the Google Cloud client library
@@ -60,9 +60,9 @@ name: Deploy to GAE
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -72,20 +72,20 @@ jobs:
   deploy:
     name: Deploying to Google Cloud
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-    - name: Deploy to App Engine
-      id: deploy
-      uses: google-github-actions/deploy-appengine@v0.2.0
-      with:
-        deliverables: app.yaml cron.yaml
-        version: v1
-        project_id: ${{ secrets.GCP_PROJECT }}
-        credentials: ${{ secrets.GCP_CREDENTIALS }}
+      - name: Deploy to App Engine
+        id: deploy
+        uses: google-github-actions/deploy-appengine@v0.2.0
+        with:
+          deliverables: app.yaml cron.yaml
+          version: v1
+          project_id: ${{ secrets.GCP_PROJECT }}
+          credentials: ${{ secrets.GCP_CREDENTIALS }}
 
-    - name: Test
-      run: curl "${{ steps.deploy.outputs.url }}"
+      - name: Test
+        run: curl "${{ steps.deploy.outputs.url }}"
 ```

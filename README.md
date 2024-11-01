@@ -70,8 +70,7 @@ Each _Article_ has to match template below:
 
 ### PyCharm File Template
 
-To easy myself, I've prepared a [`PyCharm's File Template`](
-https://www.jetbrains.com/help/pycharm/using-file-and-code-templates.html) definition below.
+To easy myself, I've prepared a [`PyCharm's File Template`](https://www.jetbrains.com/help/pycharm/using-file-and-code-templates.html) definition below.
 
 _Settings -> Editor -> File and Code Templates_
 

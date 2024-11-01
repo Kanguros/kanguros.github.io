@@ -2,17 +2,17 @@
 {% extends "base.html" %}
 
 {% block title %}
-{{ SITENAME }} - Private
+    {{ SITENAME }} - Private
 {% endblock %}
 
 {% block header %}
-{{ page_header("Privates", DRAFTS_URL, "Private memos, meant to be shared with closed ones.") }}
+    {{ page_header("Privates", DRAFTS_URL, "Private memos, meant to be shared with closed ones.") }}
 {% endblock header %}
 
 {% block content %}
 
-{% for article in drafts|sort(attribute="date", reverse=True) %}
-{{ private_post(article) }}
-{% endfor %}
+    {% for article in drafts|sort(attribute="date", reverse=True) %}
+        {{ private_post(article) }}
+    {% endfor %}
 
 {% endblock content %}

@@ -1,6 +1,6 @@
 Title: Markdown in Pelican
 Date: 2023-06-15
-Category: Article   
+Category: Article  
 Tags: webdev, markdown, pelican
 Summary: Examples of Markdown formatting available in Pelican.
 
@@ -99,7 +99,7 @@ How to create new article.
 
 ## Filename
 
-In folder `content/posts/` create new file according to [template](#template) with *.md extension.
+In folder `content/posts/` create new file according to [template](#template) with \*.md extension.
 
 ## Template
 
@@ -108,9 +108,9 @@ In folder `content/posts/` create new file according to [template](#template) wi
 > **Author**: Required. One of the `Name Surname` defined authors.  
 > **Category**: Optional. By default, it gets an `General` Category.  
 > **Cover**: Optional. Path to header image. If not provided, default one will be used.  
-> **Summary**: Optional. Short description of the article.    
+> **Summary**: Optional. Short description of the article.  
 > **Save_as**: Optional. File name of article.  
-> **Slug**: Optional, article ID/REF (?). Used in URL creation. If not provided, it takes normalized title.    
+> **Slug**: Optional, article ID/REF (?). Used in URL creation. If not provided, it takes normalized title.  
 > **Template**: Optional, filepath to `Jinja2` template used for generating html representation.  
 > **Tags**: Optional
 >

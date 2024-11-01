@@ -36,76 +36,76 @@
             >
         {% endblock head %}
 
-    {% block opengraph %}
-    <meta property="og:locale" content="{{ DEFAULT_LANG }}">
-    <meta property="og:site_name" content="{{ SITENAME }}">
-    {% endblock opengraph %}
+        {% block opengraph %}
+            <meta property="og:locale" content="{{ DEFAULT_LANG }}">
+            <meta property="og:site_name" content="{{ SITENAME }}">
+        {% endblock opengraph %}
 
-    {% if FAVICON %}
-    <link rel="icon" href="/{{FAVICON}}">
+        {% if FAVICON %}
+            <link rel="icon" href="/{{FAVICON}}">
+        {% endif %}
+    </head>
+
+    {% if page %}
+        {% set body_class = "page-" + page.slug %}
+    {% elif article %}
+        {% set body_class = "article-" + article.slug %}
+    {% elif category %}
+        {% set body_class = "category-" + category.slug %}
+    {% elif tag %}
+        {% set body_class = "tag-" + tag.slug %}
+    {% else %}
+        {% set body_class = "" %}
     {% endif %}
-</head>
-
-{% if page %}
-{% set body_class = "page-" + page.slug %}
-{% elif article %}
-{% set body_class = "article-" + article.slug %}
-{% elif category %}
-{% set body_class = "category-" + category.slug %}
-{% elif tag %}
-{% set body_class = "tag-" + tag.slug %}
-{% else %}
-{% set body_class = "" %}
-{% endif %}
-<body class="{{ body_class }} d-flex flex-column vh-100">
-<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-    <nav class="navbar navbar-expand-lg container align-items-center px-2 mt-2 mb-1">
-        <a class="brand" href="{{ SITEURL }}">
-            {{ SITENAME }}
-        </a>
-        <button class="navbar-toggler mb-2"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav"
-                aria-controls="#navbarNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="nav navbar-nav">
-                {% for title, link, icon in NAV_LINKS if title != 'Index' %}
-                {% if icon == "github" %}
-                {% set nav_url = link %}
-                {% else %}
-                {% set nav_url = SITEURL + "/" + link %}
-                {% endif %}
-                <li class="nav-item">
-                    <a class="btn-navigation mx-2 my-2 float-end"
-                       href="{{ nav_url }}"
-                       title="{{ title }}"
-                       aria-label="{{ title }}"
-                    >{{ title }}</a>
-                </li>
-                {% endfor %}
-            </ul>
+    <body class="{{ body_class }} d-flex flex-column vh-100">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+            <nav class="navbar navbar-expand-lg container align-items-center px-2 mt-2 mb-1">
+                <a class="brand" href="{{ SITEURL }}">
+                    {{ SITENAME }}
+                </a>
+                <button class="navbar-toggler mb-2"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="#navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="nav navbar-nav">
+                        {% for title, link, icon in NAV_LINKS if title != 'Index' %}
+                            {% if icon == "github" %}
+                                {% set nav_url = link %}
+                            {% else %}
+                                {% set nav_url = SITEURL + "/" + link %}
+                            {% endif %}
+                            <li class="nav-item">
+                                <a class="btn-navigation mx-2 my-2 float-end"
+                                   href="{{ nav_url }}"
+                                   title="{{ title }}"
+                                   aria-label="{{ title }}"
+                                >{{ title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </nav>
+            <hr class="nav-line">
         </div>
-    </nav>
-    <hr class="nav-line">
-</div>
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                {% block header %}
-                {% endblock header %}
-                {% if not article %}
-                <hr class="section-line">
-                {% endif %}
+        <header class="intro-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                        {% block header %}
+                        {% endblock header %}
+                        {% if not article %}
+                            <hr class="section-line">
+                        {% endif %}
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</header>
+        </header>
 
         <div class="container">
             <div class="row">

@@ -23,7 +23,7 @@ Poniżej znajdują się referencyjne wartości spożycia poszczególnych składn
 ilościowo dla 5 letniego dziecka.
 
 | **Składnik odżywczy**         | **Procent**                                     | **Ilość**                  |
-|-------------------------------|-------------------------------------------------|----------------------------|
+| ----------------------------- | ----------------------------------------------- | -------------------------- |
 | **Wartość energetyczna**      | -                                               | Około 1400-1600 kcal/dzień |
 | **Tłuszcz**                   | 35-40% całkowitej wartości energetycznej        | Około 55-70 g/dzień        |
 | **Kwasy tłuszczowe nasycone** | Mniej niż 10% całkowitej wartości energetycznej | Mniej niż 17 g/dzień       |
@@ -64,43 +64,43 @@ jeden baton zawiera ponad połowe całkowitego dziennego zapotrzebowania na cuki
 #### Jogurt Waniliowy (150g)
 
 | Kalorie      | Tłuszcz | Kwasy nasycone | Węglowodany | Cukry  | Białko |
-|--------------|---------|----------------|-------------|--------|--------|
+| ------------ | ------- | -------------- | ----------- | ------ | ------ |
 | 100-150 kcal | 2-4g    | 1-2g           | 15-25g      | 13-20g | 4-6g   |
 
 #### Kromka z Dżemem
 
 | Kalorie      | Tłuszcz | Kwasy nasycone | Węglowodany | Cukry | Białko |
-|--------------|---------|----------------|-------------|-------|--------|
+| ------------ | ------- | -------------- | ----------- | ----- | ------ |
 | 100-120 kcal | 1-2g    | 0,2-0,5g       | 20-25g      | 5-10g | 3-5g   |
 
 #### Baton Czekoladowy (40-50g)
 
 | Kalorie      | Tłuszcz | Kwasy nasycone | Węglowodany | Cukry  | Białko |
-|--------------|---------|----------------|-------------|--------|--------|
+| ------------ | ------- | -------------- | ----------- | ------ | ------ |
 | 200-250 kcal | 10-15g  | 5-8g           | 25-35g      | 20-30g | 2-4g   |
 
 #### Jabłko (średniej wielkości, około 182g)
 
 | Kalorie | Tłuszcz | Kwasy nasycone | Węglowodany | Cukry | Białko |
-|---------|---------|----------------|-------------|-------|--------|
+| ------- | ------- | -------------- | ----------- | ----- | ------ |
 | 95 kcal | 0,3g    | 0,1g           | 25g         | 19g   | 0,5g   |
 
 #### Banan (średniej wielkości, około 118g)
 
 | Kalorie  | Tłuszcz | Kwasy nasycone | Węglowodany | Cukry | Białko |
-|----------|---------|----------------|-------------|-------|--------|
+| -------- | ------- | -------------- | ----------- | ----- | ------ |
 | 105 kcal | 0,4g    | 0,1g           | 27g         | 14g   | 1,3g   |
 
 #### Paczka Żelek (standardowa porcja, około 40g)
 
 | Kalorie      | Tłuszcz | Kwasy nasycone | Węglowodany | Cukry  | Białko |
-|--------------|---------|----------------|-------------|--------|--------|
+| ------------ | ------- | -------------- | ----------- | ------ | ------ |
 | 130-160 kcal | 0g      | 0g             | 30-40g      | 20-30g | 0g     |
 
 #### Chrupki Kukurydziane (standardowa porcja, około 30g)
 
 | Kalorie      | Tłuszcz | Kwasy nasycone | Węglowodany | Cukry | Białko |
-|--------------|---------|----------------|-------------|-------|--------|
+| ------------ | ------- | -------------- | ----------- | ----- | ------ |
 | 110-130 kcal | 0,5-1g  | 0g             | 25-28g      | 0-2g  | 2-3g   |
 
 ### Przykładowa diet

@@ -1,5 +1,5 @@
 Title: Requests using pytest
-Date: 2023-09-02     
+Date: 2023-09-02  
 Tags: pytest, requests, python  
 Category: Note  
 Summary: Small setup for testing HTTP requests using pytest
@@ -9,27 +9,27 @@ Summary: Small setup for testing HTTP requests using pytest
 This module provides a pytest fixture to mock HTTP requests.
 It provide custom responses based on response files.
 
-## Response files 
+## Response files
 
 Response files are organized in the 'tests/responses' directory.
 
-Each response file is placed within a subdirectory named after the URI of the URL being tested. 
+Each response file is placed within a subdirectory named after the URI of the URL being tested.
 This ensures responses are matched accurately with test URLs.
 
-### File naming 
+### File naming
 
 Response files should be named based on the following convention:
 
-``` .text
+```.text
 HTTP_METHOD_query_parameters.txt
 ```
 
 - HTTP_METHOD represents the HTTP method to be mocked (e.g., GET, POST).
-- query_parameters represent query parameters, separated by underscores (_) if there are multiple.
+- query*parameters represent query parameters, separated by underscores (*) if there are multiple.
 
 ## Running Tests
 
-When a test function is executed, it uses the `http_request_fixture` to intercept HTTP requests and 
+When a test function is executed, it uses the `http_request_fixture` to intercept HTTP requests and
 It return custom responses based on the corresponding response file.
 
 ## Adding new response
@@ -41,25 +41,24 @@ It return custom responses based on the corresponding response file.
 
    HTTP_METHOD with the HTTP method (e.g., GET, POST).
    query_parameters with the query parameters, separated by underscores if multiple.
+
 4. Open the file and format it like this:
 
-``` text
+```text
 # status code: STATUS_CODE
 # reason: REASON
 BODY
 ```
 
 5. Replace:
-    - `STATUS_CODE` with the desired HTTP status code (e.g., 200, 404).
-    - `REASON` with the reason for the status code (e.g., "OK", "Not Found").
-    - `BODY` with the response content to mock.
+   - `STATUS_CODE` with the desired HTTP status code (e.g., 200, 404).
+   - `REASON` with the reason for the status code (e.g., "OK", "Not Found").
+   - `BODY` with the response content to mock.
 6. Save the file.
-
 
 ### Example
 
-
-``` python
+```python
 import pytest
 import requests
 
@@ -86,10 +85,9 @@ def test_http_request(http_request_fixture):
 
 ```
 
-
 **Mock file path**
 
-``` .shell
+```.shell
 |- tests
    |- responses
       |- path_to_resource
@@ -98,20 +96,18 @@ def test_http_request(http_request_fixture):
 
 **Mock file content**
 
-``` { .text }
+```{ .text }
 --8<-- "code/pytest_requests/mock_file.txt"
 ```
 
-
 ## Code
 
-``` { .python }
+```{ .python }
 --8<-- "code/pytest_requests/tests.py"
 ```
 
-
 ## Extracting Responses from actual API
 
-``` { .python }
+```{ .python }
 --8<-- "code/pytest_requests/extract.py"
 ```
