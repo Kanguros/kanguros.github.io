@@ -1,6 +1,6 @@
 # CHANELOG
 
-List of changes for site deployment process. 
+List of changes for site deployment process.
 
 
 

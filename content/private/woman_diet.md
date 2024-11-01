@@ -150,4 +150,3 @@ Display the results in Markdown format.
 | Obiad            | Filet z dorsza z ryżem i warzywami   | 150 g filetu z dorsza, 100 g ugotowanego ryżu, 100 g mieszanych warzyw (np. brokuły, marchew), 10 g oliwy z oliwek |
 | Podwieczorek     | Jabłko z masłem orzechowym           | 1 jabłko, 10 g masła orzechowego                                                                                   |
 | Kolacja          | Tofu w warzywnej potrawce            | 150 g tofu, 100 g mieszanych warzyw (np. brokuły, marchew, cebula), 10 g sosu sojowego                             |
-

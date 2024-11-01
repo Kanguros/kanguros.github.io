@@ -62,4 +62,3 @@ def test_parse_dependency_tree():
     assert dependency_parser.parse_dependency_tree(tree_output) == expected_dependencies
 
 ```
-

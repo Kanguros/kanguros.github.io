@@ -1,6 +1,6 @@
 # [kanguros.github.io](https://kanguros.github.io)
 
-My personal blog with all of its content. 
+My personal blog with all of its content.
 Build and deployed using `pelican` library, with adjusted theme `Clean Blog`.
 
 ## Prerequisits
@@ -16,7 +16,7 @@ code snippet below:
 ```shell
 git clone https://github.com/Kanguros/kanguros.github.io.git
 cd kanguros.github.io
-poetry install 
+poetry install
 ```
 
 ## Usage
@@ -32,7 +32,7 @@ Website generated locally is saved to `./local_output` folder
 
 ## Theme
 
-Currently used theme is [Clean Blog Theme](https://github.com/BlackrockDigital/startbootstrap-clean-blog). 
+Currently used theme is [Clean Blog Theme](https://github.com/BlackrockDigital/startbootstrap-clean-blog).
 Many modifications have been applied, in templates and css files.
 
 ## Workflow
@@ -57,12 +57,12 @@ Each article has to be placed in `content/posts/` directory as an `*.md` file ty
 
 Each _Article_ has to match template below:
 
-> **Title**: Required; Main header of the article.  
-> **Date**: Required; Data of posting.  
-> **Author**: Required; One of the `Name Surname` defined authors.  
-> **Summary**: Required. Short description of the article.    
-> **Category**: Optional; By default, it gets an `General` Category.  
-> **Tags**: Optional.   
+> **Title**: Required; Main header of the article.
+> **Date**: Required; Data of posting.
+> **Author**: Required; One of the `Name Surname` defined authors.
+> **Summary**: Required. Short description of the article.
+> **Category**: Optional; By default, it gets an `General` Category.
+> **Tags**: Optional.
 > **Cover**: Optional; If not provided, default header image one will be used.
 >
 > [MAIN CONTENT]
@@ -78,10 +78,10 @@ _Settings -> Editor -> File and Code Templates_
 Template to Copy/Paste
 
 ```
-Title: ${FILE_NAME}  
-Date: ${DATE}  
+Title: ${FILE_NAME}
+Date: ${DATE}
 Author: Kamil Urbanek
-Category: [TOFILL] 
+Category: [TOFILL]
 
 [MAIN CONTENT]
 ```
@@ -91,5 +91,3 @@ Category: [TOFILL]
 - https://docs.getpelican.com/en/latest/ - Pelican documentation.
 - https://github.com/peaceiris/actions-gh-pages - GitHub Action for deploying static website.
 - https://github.com/BlackrockDigital/startbootstrap-clean-blog - Clean Blog theme.
-
-

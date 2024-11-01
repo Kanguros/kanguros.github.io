@@ -2,14 +2,13 @@
 {% extends "index.html" %}
 
 {% block title %}
-{{ SITENAME }} - Posts
+    {{ SITENAME }} - Posts
 {% endblock %}
 
 {% block header %}
-{{ page_header("Posts", POSTS_URL, "List of all posts.") }}
+    {{ page_header("Posts", POSTS_URL, "List of all posts.") }}
 {% endblock header %}
 
 {% block content %}
-{{ super() }}
+    {{ super() }}
 {% endblock content %}
-

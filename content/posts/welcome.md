@@ -4,4 +4,3 @@ Category: Article
 Tags: personal
 
 You are on my blog dedicated loosely joined development, automation and network.
-

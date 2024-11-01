@@ -1,129 +1,129 @@
 <!DOCTYPE html>
 <html lang="{{ DEFAULT_LANG }}">
 
-<head>
-    {% block head %}
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        {% block title %}
-        {{ SITENAME }}
-        {% if SITESUBTITLE and SHOW_SITESUBTITLE_IN_HTML %} - {{ SITESUBTITLE }}
-        {% endif %}
-        {% endblock title %}
-    </title>
+    <head>
+        {% block head %}
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>
+                {% block title %}
+                    {{ SITENAME }}
+                    {% if SITESUBTITLE and SHOW_SITESUBTITLE_IN_HTML %} - {{ SITESUBTITLE }}
+                    {% endif %}
+                {% endblock title %}
+            </title>
 
     <!-- Bootstrap and Clean Blog CSS -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap"
-          rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap"
+                  rel="stylesheet">
 
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-          crossorigin="anonymous"
-    >
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-    >
-    <link rel="stylesheet"
-          href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/{{ COLOR_SCHEME_CSS }}"
-    >
-    <link rel="stylesheet"
-          href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/clean-blog.css"
-    >
-    {% endblock head %}
+            <link rel="stylesheet"
+                  href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+                  integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+                  crossorigin="anonymous"
+            >
+            <link rel="stylesheet"
+                  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+            >
+            <link rel="stylesheet"
+                  href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/{{ COLOR_SCHEME_CSS }}"
+            >
+            <link rel="stylesheet"
+                  href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/clean-blog.css"
+            >
+        {% endblock head %}
 
-    {% block opengraph %}
-    <meta property="og:locale" content="{{ DEFAULT_LANG }}">
-    <meta property="og:site_name" content="{{ SITENAME }}">
-    {% endblock opengraph %}
+        {% block opengraph %}
+            <meta property="og:locale" content="{{ DEFAULT_LANG }}">
+            <meta property="og:site_name" content="{{ SITENAME }}">
+        {% endblock opengraph %}
 
-    {% if FAVICON %}
-    <link rel="icon" href="/{{FAVICON}}">
+        {% if FAVICON %}
+            <link rel="icon" href="/{{FAVICON}}">
+        {% endif %}
+    </head>
+
+    {% if page %}
+        {% set body_class = "page-" + page.slug %}
+    {% elif article %}
+        {% set body_class = "article-" + article.slug %}
+    {% elif category %}
+        {% set body_class = "category-" + category.slug %}
+    {% elif tag %}
+        {% set body_class = "tag-" + tag.slug %}
+    {% else %}
+        {% set body_class = "" %}
     {% endif %}
-</head>
+    <body class="{{ body_class }} d-flex flex-column vh-100">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+            <nav class="navbar navbar-expand container align-items-center px-2 mt-2 mb-1">
+                <a class="brand" href="{{ SITEURL }}">
+                    {{ SITENAME }}
+                </a>
+                <div class="navbar-collapse justify-content-end">
+                    <ul class="nav navbar-nav">
+                        {% for title, link, icon in NAV_LINKS %}
+                            {% set nav_url = SITEURL + "/" + link %}
+                            <li class="nav-item">
+                                <a class="btn-navigation mx-2 my-2 float-end"
+                                   href="{{ nav_url }}"
+                                   title="{{ title }}"
+                                   aria-label="{{ title }}"
+                                >{{ title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </nav>
+            <hr class="nav-line">
+        </div>
+        <header class="intro-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                        {% block header %}
+                        {% endblock header %}
+                    </div>
+                </div>
+            </div>
+        </header>
 
-{% if page %}
-{% set body_class = "page-" + page.slug %}
-{% elif article %}
-{% set body_class = "article-" + article.slug %}
-{% elif category %}
-{% set body_class = "category-" + category.slug %}
-{% elif tag %}
-{% set body_class = "tag-" + tag.slug %}
-{% else %}
-{% set body_class = "" %}
-{% endif %}
-<body class="{{ body_class }} d-flex flex-column vh-100">
-<div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-    <nav class="navbar navbar-expand container align-items-center px-2 mt-2 mb-1">
-        <a class="brand" href="{{ SITEURL }}">
-            {{ SITENAME }}
-        </a>
-        <div class="navbar-collapse justify-content-end">
-            <ul class="nav navbar-nav">
-                {% for title, link, icon in NAV_LINKS %}
-                {% set nav_url = SITEURL + "/" + link %}
-                <li class="nav-item">
-                    <a class="btn-navigation mx-2 my-2 float-end"
-                       href="{{ nav_url }}"
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+            </div>
+        </div>
+
+        <footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+            <hr class="section-line">
+            <p class="footer-links mt-3 mb-1">
+                {% for title, link, icon in FOOTER_LINKS %}
+                    {% if icon == "github" %}
+                        {% set nav_url = link %}
+                    {% elif not link %}
+                        {% set nav_url = SITEURL %}
+                    {% else %}
+                        {% set nav_url = SITEURL + "/" + link %}
+                    {% endif %}
+                    <a href="{{ nav_url }}"
+                       class="px-2"
                        title="{{ title }}"
                        aria-label="{{ title }}"
                     >{{ title }}</a>
-                </li>
                 {% endfor %}
-            </ul>
-        </div>
-    </nav>
-    <hr class="nav-line">
-</div>
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                {% block header %}
-                {% endblock header %}
-            </div>
-        </div>
-    </div>
-</header>
-
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-            {% block content %}
-            {% endblock content %}
-        </div>
-    </div>
-</div>
-
-<footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-    <hr class="section-line">
-    <p class="footer-links mt-3 mb-1">
-        {% for title, link, icon in FOOTER_LINKS %}
-        {% if icon == "github" %}
-        {% set nav_url = link %}
-        {% elif not link %}
-        {% set nav_url = SITEURL %}
-        {% else %}
-        {% set nav_url = SITEURL + "/" + link %}
-        {% endif %}
-        <a href="{{ nav_url }}"
-           class="px-2"
-           title="{{ title }}"
-           aria-label="{{ title }}"
-        >{{ title }}</a>
-        {% endfor %}
-    </p>
-    <p class="copyright">
-        &copy; Made by
-        <a href="{{ SITEURL }}/{{ ABOUT_URL }}">Kamil Urbanek</a>, powered by
-        <a href="https://getpelican.com">Pelican</a>
-    </p>
-</footer>
-<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.js"></script>
-</body>
+            </p>
+            <p class="copyright">
+                &copy; Made by
+                <a href="{{ SITEURL }}/{{ ABOUT_URL }}">Kamil Urbanek</a>, powered by
+                <a href="https://getpelican.com">Pelican</a>
+            </p>
+        </footer>
+        <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.js"></script>
+    </body>
 </html>

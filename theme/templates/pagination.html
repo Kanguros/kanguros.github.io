@@ -1,49 +1,49 @@
 {% if DEFAULT_PAGINATION and articles_paginator.num_pages > 1 %}
-<nav aria-label="...">
-    <ul class="pagination justify-content-evenly align-items-center pagination-bar">
-        {% if articles_page.has_previous() %}
-        <li>
-            <a href="{{ SITEURL }}/{{ articles_previous_page.url }}"
-               class="btn btn-secondary btn-darker btn-smaller nobr"
-               title="Previous"
-               aria-label="Previous"
-            ><i class="bi bi-arrow-left"></i> Prev
-            </a>
-        </li>
-        {% else %}
-        <li>
-            <a class="btn btn-secondary btn-darker btn-smaller nobr disabled"
-               title="Previous"
-               aria-label="Previous"
-               aria-disabled="true"
-            ><i class="bi bi-arrow-left"></i> Prev
-            </a>
-        </li>
-        {% endif %}
-        <li>
-            {{ articles_page.number }} of {{ articles_paginator.num_pages }}
-        </li>
+    <nav aria-label="...">
+        <ul class="pagination justify-content-evenly align-items-center pagination-bar">
+            {% if articles_page.has_previous() %}
+                <li>
+                    <a href="{{ SITEURL }}/{{ articles_previous_page.url }}"
+                       class="btn btn-secondary btn-darker btn-smaller nobr"
+                       title="Previous"
+                       aria-label="Previous"
+                    ><i class="bi bi-arrow-left"></i> Prev
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a class="btn btn-secondary btn-darker btn-smaller nobr disabled"
+                       title="Previous"
+                       aria-label="Previous"
+                       aria-disabled="true"
+                    ><i class="bi bi-arrow-left"></i> Prev
+                    </a>
+                </li>
+            {% endif %}
+            <li>
+                {{ articles_page.number }} of {{ articles_paginator.num_pages }}
+            </li>
 
-        {% if articles_page.has_next() %}
-        <li>
-            <a href="{{ SITEURL }}/{{ articles_next_page.url }}"
-               class="btn btn-secondary btn-darker btn-smaller nobr"
-               title="Next"
-               aria-label="Next"
-            >Next <i class="bi bi-arrow-right"></i>
-            </a>
-        </li>
-        {% else %}
-        <li>
-            <a class="btn btn-secondary btn-darker btn-smaller nobr disabled"
-               title="Next"
-               aria-label="Next"
-               aria-disabled="true"
-            >Next <i class="bi bi-arrow-right"></i>
-            </a>
-        </li>
-        {% endif %}
-    </ul>
-</nav>
+            {% if articles_page.has_next() %}
+                <li>
+                    <a href="{{ SITEURL }}/{{ articles_next_page.url }}"
+                       class="btn btn-secondary btn-darker btn-smaller nobr"
+                       title="Next"
+                       aria-label="Next"
+                    >Next <i class="bi bi-arrow-right"></i>
+                    </a>
+                </li>
+            {% else %}
+                <li>
+                    <a class="btn btn-secondary btn-darker btn-smaller nobr disabled"
+                       title="Next"
+                       aria-label="Next"
+                       aria-disabled="true"
+                    >Next <i class="bi bi-arrow-right"></i>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
 
 {% endif %}

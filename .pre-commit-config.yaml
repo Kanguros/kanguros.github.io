@@ -7,8 +7,6 @@ repos:
       - id: check-yaml
       - id: detect-private-key
       - id: end-of-file-fixer
-      - id: forbid-new-submodules
-      - id: trailing-whitespace
 
 
   - repo: https://github.com/rtts/djhtml
@@ -16,4 +14,6 @@ repos:
     hooks:
       - id: djhtml
       - id: djcss
+        files: ["theme/static/css/resume.css", "theme/static/css/clean-blog.css"]
       - id: djjs
+        files: ["theme/static/js/clean-blog.js"]

@@ -2,15 +2,15 @@
 {% extends "index.html" %}
 
 {% block title %}
-{{ page.title }} - {{ SITENAME }}
+    {{ page.title }} - {{ SITENAME }}
 {% endblock title %}
 
 {% block header %}
-{{ page_header(page.title, page.url) }}
+    {{ page_header(page.title, page.url) }}
 {% endblock header %}
 
 {% block content %}
-<article>
-    {{ page.content }}
-</article>
+    <article>
+        {{ page.content }}
+    </article>
 {% endblock content %}

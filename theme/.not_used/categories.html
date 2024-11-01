@@ -11,22 +11,22 @@
     {% else %}
         <header class="intro-header" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.png')">
     {% endif %}
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-                    <div class="heading">
-                        <h1>{{ SITENAME }} - Categories</h1>
-                    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+                <div class="heading">
+                    <h1>{{ SITENAME }} - Categories</h1>
                 </div>
             </div>
         </div>
+    </div>
     </header>
 {% endblock header %}
 
 {% block content %}
     <ul>
-    {% for category, articles in categories %}
-        <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
-    {% endfor %}
+        {% for category, articles in categories %}
+            <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
+        {% endfor %}
     </ul>
 {% endblock content %}

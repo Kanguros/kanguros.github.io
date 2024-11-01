@@ -382,4 +382,3 @@ Generate a compliance audit report for the IT department:
 ``` 
 Generated compliance audit report with findings and recommendations.
 ```
-

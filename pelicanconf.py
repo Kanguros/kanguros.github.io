@@ -38,7 +38,7 @@ SIMILAR_POSTS_MIN_SCORE = 0.0001
 
 SITENAME = "Kamil's Scratchpad"
 SITENAME_BRAND = "KS"
-SITEINFO = """Welcome to my digital notepad. 
+SITEINFO = """Welcome to my digital notepad.
 Space where <strong>I share</strong> my <strong>notes and thoughts</strong> on <strong>programming, pipelines, automation,</strong> and an array of other, yet to be discovered, fancy stuff.
 """
 

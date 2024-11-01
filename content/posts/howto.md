@@ -116,5 +116,3 @@ In folder `content/posts/` create new file according to [template](#template) wi
 >
 > [MAIN CONTENT]
 > Article's content written in Markdown.
-
-

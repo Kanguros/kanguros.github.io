@@ -1,22 +1,22 @@
 {% if SIMILAR_POSTS_ENABLED %}
-{% if article.similar_posts %}
-<div class="related-posts">
-    <hr class="section-line">
-    <h1 class="subheading">Related posts</h1>
-    <ul>
-        {% for similar_article in article.similar_posts %}
-        <li>
-            <a href="{{ SITEURL }}/{{ similar_article.url }}">
-                {{ similar_article.title }}
-            </a>
-            <div class="d-flex justify-content-start meta-elements">
-                <i class="bi bi-calendar"></i> {{ article.locale_date }}
-                <i class="bi bi-dot"></i>
-                <i class="bi bi-book"></i> {{ article.readtime_string }}
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
-{% endif %}
+    {% if article.similar_posts %}
+        <div class="related-posts">
+            <hr class="section-line">
+            <h1 class="subheading">Related posts</h1>
+            <ul>
+                {% for similar_article in article.similar_posts %}
+                    <li>
+                        <a href="{{ SITEURL }}/{{ similar_article.url }}">
+                            {{ similar_article.title }}
+                        </a>
+                        <div class="d-flex justify-content-start meta-elements">
+                            <i class="bi bi-calendar"></i> {{ article.locale_date }}
+                            <i class="bi bi-dot"></i>
+                            <i class="bi bi-book"></i> {{ article.readtime_string }}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
 {% endif %}

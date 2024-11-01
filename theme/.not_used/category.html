@@ -2,9 +2,9 @@
 {% extends "index.html" %}
 
 {% block title %}
-{{ SITENAME }} - All {{ category.name }}s
+    {{ SITENAME }} - All {{ category.name }}s
 {% endblock %}
 
 {% block header %}
-{{ page_header(category.name + 's', category.url, 'All ' + category.name + 's') }}
+    {{ page_header(category.name + 's', category.url, 'All ' + category.name + 's') }}
 {% endblock header %}

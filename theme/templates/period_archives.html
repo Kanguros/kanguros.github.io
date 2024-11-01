@@ -2,19 +2,19 @@
 {% extends "base.html" %}
 
 {% block title %}
-{{ SITENAME }} - Posts for {{ period | reverse | join (' ') }}
+    {{ SITENAME }} - Posts for {{ period | reverse | join (' ') }}
 {% endblock %}
 
 {% block header %}
-{{ page_header("Posts for {{ period | reverse | join (' ') }}", "archive.html") }}
+    {{ page_header("Posts for {{ period | reverse | join (' ') }}", "archive.html") }}
 {% endblock header %}
 
 {% block content %}
-<dl>
-    {% for article in dates %}
-    <dt>{{ article.locale_date }}</dt>
-    <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
-    {% endfor %}
-    <hr>
-</dl>
+    <dl>
+        {% for article in dates %}
+            <dt>{{ article.locale_date }}</dt>
+            <dd><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></dd>
+        {% endfor %}
+        <hr>
+    </dl>
 {% endblock content %}
