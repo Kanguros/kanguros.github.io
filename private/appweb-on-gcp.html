@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+        <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-AppWeb on GCP - Kamil's Scratchpad
+    AppWeb on GCP - Kamil's Scratchpad
     </title>
 
     <!-- Bootstrap and Clean Blog CSS -->
@@ -32,20 +32,20 @@ AppWeb on GCP - Kamil's Scratchpad
 
 
 
-<meta name="description" content="Web application developed in Flask deployed on Google Cloud Platform.">
+        <meta name="description" content="Web application developed in Flask deployed on Google Cloud Platform.">
 
 
-    <meta property="og:locale" content="en">
+        <meta property="og:locale" content="en">
     <meta property="og:site_name" content="Kamil's Scratchpad">
 
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://kanguros.github.io/private/appweb-on-gcp.html">
-<meta property="og:title" content="AppWeb on GCP">
-<meta property="article:published_time" content="2024-10-05 00:00:00+02:00">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kanguros.github.io/private/appweb-on-gcp.html">
+    <meta property="og:title" content="AppWeb on GCP">
+    <meta property="article:published_time" content="2024-10-05 00:00:00+02:00">
 
-<meta property="og:description" content="Web application developed in Flask deployed on Google Cloud Platform.">
+        <meta property="og:description" content="Web application developed in Flask deployed on Google Cloud Platform.">
 
-<meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
+        <meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
 
 </head>
 
@@ -66,20 +66,6 @@ AppWeb on GCP - Kamil's Scratchpad
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="nav navbar-nav">
-                <li class="nav-item">
-                    <a class="btn-navigation mx-2 my-2 float-end"
-                       href="https://kanguros.github.io/articles.html"
-                       title="Articles"
-                       aria-label="Articles"
-                    >Articles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn-navigation mx-2 my-2 float-end"
-                       href="https://kanguros.github.io/notes.html"
-                       title="Notes"
-                       aria-label="Notes"
-                    >Notes</a>
-                </li>
                 <li class="nav-item">
                     <a class="btn-navigation mx-2 my-2 float-end"
                        href="https://kanguros.github.io/tags.html"
@@ -110,23 +96,22 @@ AppWeb on GCP - Kamil's Scratchpad
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-<div class="article-heading">
-    <a href="https://kanguros.github.io/private/appweb-on-gcp.html" rel="bookmark" title="AppWeb on GCP">
-        <h1>
-            AppWeb on GCP
-        </h1>
-    </a>
-    <p class="meta-element">
-        
-        
+    <div class="article-heading">
+        <a href="https://kanguros.github.io/private/appweb-on-gcp.html" rel="bookmark" title="AppWeb on GCP">
+            <h1>
+                AppWeb on GCP
+            </h1>
+        </a>
+        <p class="meta-element">
+            
 <i class="bi bi-calendar"></i> 2024-10-05
 
 
-    </p>
-    <div class="tags meta-element">
+        </p>
+        <div class="tags meta-element">
 </div>
 
-</div>
+    </div>
             </div>
         </div>
     </div>
@@ -135,9 +120,9 @@ AppWeb on GCP - Kamil's Scratchpad
 <div class="container">
     <div class="row">
         <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-<article>
-    <p>Web application developed in Flask deployed on Google Cloud&nbsp;Platform.</p>
-    <p>To modify values from the web, there has to be somekind of database.
+    <article>
+            <p>Web application developed in Flask deployed on Google Cloud&nbsp;Platform.</p>
+        <p>To modify values from the web, there has to be somekind of database.
 Code will have to be modified in order to handle it. It shouldn&#8217;t be&nbsp;difficult.</p>
 <h2 id="how-to-in-python"><a class="toclink" href="#how-to-in-python">How to in&nbsp;Python</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># Imports the Google Cloud client library</span>
@@ -180,9 +165,9 @@ Code will have to be modified in order to handle it. It shouldn&#8217;t be&nbsp;
 <span class="nt">on</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># Triggers the workflow on push or pull request events but only for the main branch</span>
 <span class="w">  </span><span class="nt">push</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
 <span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">main</span><span class="p p-Indicator">]</span>
 
 <span class="w">  </span><span class="c1"># Allows you to run this workflow manually from the Actions tab</span>
 <span class="w">  </span><span class="nt">workflow_dispatch</span><span class="p">:</span>
@@ -194,22 +179,22 @@ Code will have to be modified in order to handle it. It shouldn&#8217;t be&nbsp;
 <span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
 
 <span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to App Engine</span>
-<span class="w">      </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy</span>
-<span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">google-github-actions/deploy-appengine@v0.2.0</span>
-<span class="w">      </span><span class="nt">with</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">deliverables</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app.yaml cron.yaml</span>
-<span class="w">        </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
-<span class="w">        </span><span class="nt">project_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GCP_PROJECT }}</span>
-<span class="w">        </span><span class="nt">credentials</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GCP_CREDENTIALS }}</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy to App Engine</span>
+<span class="w">        </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">deploy</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">google-github-actions/deploy-appengine@v0.2.0</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">deliverables</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">app.yaml cron.yaml</span>
+<span class="w">          </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="w">          </span><span class="nt">project_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GCP_PROJECT }}</span>
+<span class="w">          </span><span class="nt">credentials</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${{ secrets.GCP_CREDENTIALS }}</span>
 
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test</span>
-<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl &quot;${{ steps.deploy.outputs.url }}&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Test</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">curl &quot;${{ steps.deploy.outputs.url }}&quot;</span>
 </code></pre></div>
-</article>
+    </article>
 
 
         </div>
@@ -219,21 +204,11 @@ Code will have to be modified in order to handle it. It shouldn&#8217;t be&nbsp;
 <footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
     <hr class="section-line">
     <p class="footer-links mt-3 mb-1">
-        <a href="https://kanguros.github.io/"
+        <a href="https://kanguros.github.io"
            class="px-2"
            title="Index"
            aria-label="Index"
         >Index</a>
-        <a href="https://kanguros.github.io/articles.html"
-           class="px-2"
-           title="Articles"
-           aria-label="Articles"
-        >Articles</a>
-        <a href="https://kanguros.github.io/notes.html"
-           class="px-2"
-           title="Notes"
-           aria-label="Notes"
-        >Notes</a>
         <a href="https://kanguros.github.io/tags.html"
            class="px-2"
            title="Tags"

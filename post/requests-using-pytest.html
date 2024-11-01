@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+        <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-Requests using pytest - Kamil's Scratchpad
+    Requests using pytest - Kamil's Scratchpad
     </title>
 
     <!-- Bootstrap and Clean Blog CSS -->
@@ -32,23 +32,23 @@ Requests using pytest - Kamil's Scratchpad
 
 
 
-<meta name="description" content="Small setup for testing HTTP requests using pytest">
+        <meta name="description" content="Small setup for testing HTTP requests using pytest">
 
-<meta name="tags" content="pytest">
-<meta name="tags" content="requests">
-<meta name="tags" content="python">
+        <meta name="tags" content="pytest">
+        <meta name="tags" content="requests">
+        <meta name="tags" content="python">
 
-    <meta property="og:locale" content="en">
+        <meta property="og:locale" content="en">
     <meta property="og:site_name" content="Kamil's Scratchpad">
 
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://kanguros.github.io/note/requests-using-pytest.html">
-<meta property="og:title" content="Requests using pytest">
-<meta property="article:published_time" content="2023-09-02 00:00:00+02:00">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kanguros.github.io/post/requests-using-pytest.html">
+    <meta property="og:title" content="Requests using pytest">
+    <meta property="article:published_time" content="2023-09-02 00:00:00+02:00">
 
-<meta property="og:description" content="Small setup for testing HTTP requests using pytest">
+        <meta property="og:description" content="Small setup for testing HTTP requests using pytest">
 
-<meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
+        <meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
 
 </head>
 
@@ -69,20 +69,6 @@ Requests using pytest - Kamil's Scratchpad
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="nav navbar-nav">
-                <li class="nav-item">
-                    <a class="btn-navigation mx-2 my-2 float-end"
-                       href="https://kanguros.github.io/articles.html"
-                       title="Articles"
-                       aria-label="Articles"
-                    >Articles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn-navigation mx-2 my-2 float-end"
-                       href="https://kanguros.github.io/notes.html"
-                       title="Notes"
-                       aria-label="Notes"
-                    >Notes</a>
-                </li>
                 <li class="nav-item">
                     <a class="btn-navigation mx-2 my-2 float-end"
                        href="https://kanguros.github.io/tags.html"
@@ -113,47 +99,39 @@ Requests using pytest - Kamil's Scratchpad
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-<div class="article-heading">
-    <a href="https://kanguros.github.io/note/requests-using-pytest.html" rel="bookmark" title="Requests using pytest">
-        <h1>
-            Requests using pytest
-        </h1>
-    </a>
-    <p class="meta-element">
-        <a href="/"
-   title="All posts in Notes category"
-   aria-label="All posts in Notes category"
-   class="meta-word"
-><i class="bi bi-sticky"></i> Note
-</a>
-<i class="bi bi-dot"></i>
-
-        
+    <div class="article-heading">
+        <a href="https://kanguros.github.io/post/requests-using-pytest.html" rel="bookmark" title="Requests using pytest">
+            <h1>
+                Requests using pytest
+            </h1>
+        </a>
+        <p class="meta-element">
+            
 <i class="bi bi-calendar"></i> 2023-09-02
 <i class="bi bi-dot"></i>
 <i class="bi bi-book"></i> 7 minutes
 
 
-    </p>
-    <div class="tags meta-element">
-    <a href="/tags/pytest.html"
+        </p>
+        <div class="tags meta-element">
+    <a href="/tag/pytest.html"
        rel="bookmark"
        title="Posts with #pytest tag"
        aria-label="Posts with #pytest tag"
     >#pytest</a>
-    <a href="/tags/requests.html"
+    <a href="/tag/requests.html"
        rel="bookmark"
        title="Posts with #requests tag"
        aria-label="Posts with #requests tag"
     >#requests</a>
-    <a href="/tags/python.html"
+    <a href="/tag/python.html"
        rel="bookmark"
        title="Posts with #python tag"
        aria-label="Posts with #python tag"
     >#python</a>
 </div>
 
-</div>
+    </div>
             </div>
         </div>
     </div>
@@ -162,14 +140,14 @@ Requests using pytest - Kamil's Scratchpad
 <div class="container">
     <div class="row">
         <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-<article>
-    <p>Small setup for testing <span class="caps">HTTP</span> requests using&nbsp;pytest</p>
-    <h1 id="pytest-and-requests"><a class="toclink" href="#pytest-and-requests">Pytest and&nbsp;requests</a></h1>
+    <article>
+            <p>Small setup for testing <span class="caps">HTTP</span> requests using&nbsp;pytest</p>
+        <h1 id="pytest-and-requests"><a class="toclink" href="#pytest-and-requests">Pytest and&nbsp;requests</a></h1>
 <p>This module provides a pytest fixture to mock <span class="caps">HTTP</span> requests.
 It provide custom responses based on response&nbsp;files.</p>
 <h2 id="response-files"><a class="toclink" href="#response-files">Response&nbsp;files</a></h2>
 <p>Response files are organized in the &#8216;tests/responses&#8217;&nbsp;directory.</p>
-<p>Each response file is placed within a subdirectory named after the <span class="caps">URI</span> of the <span class="caps">URL</span> being tested. 
+<p>Each response file is placed within a subdirectory named after the <span class="caps">URI</span> of the <span class="caps">URL</span> being tested.
 This ensures responses are matched accurately with test&nbsp;URLs.</p>
 <h3 id="file-naming"><a class="toclink" href="#file-naming">File&nbsp;naming</a></h3>
 <p>Response files should be named based on the following&nbsp;convention:</p>
@@ -178,10 +156,10 @@ This ensures responses are matched accurately with test&nbsp;URLs.</p>
 
 <ul>
 <li>HTTP_METHOD represents the <span class="caps">HTTP</span> method to be mocked (e.g., <span class="caps">GET</span>, <span class="caps">POST</span>).</li>
-<li>query_parameters represent query parameters, separated by underscores (_) if there are&nbsp;multiple.</li>
+<li>query<em>parameters represent query parameters, separated by underscores (</em>) if there are&nbsp;multiple.</li>
 </ul>
 <h2 id="running-tests"><a class="toclink" href="#running-tests">Running&nbsp;Tests</a></h2>
-<p>When a test function is executed, it uses the <code>http_request_fixture</code> to intercept <span class="caps">HTTP</span> requests and 
+<p>When a test function is executed, it uses the <code>http_request_fixture</code> to intercept <span class="caps">HTTP</span> requests and
 It return custom responses based on the corresponding response&nbsp;file.</p>
 <h2 id="adding-new-response"><a class="toclink" href="#adding-new-response">Adding new&nbsp;response</a></h2>
 <ol>
@@ -191,20 +169,20 @@ It return custom responses based on the corresponding response&nbsp;file.</p>
    <code>HTTP_METHOD_query_parameters.txt</code></li>
 </ol>
 <p>HTTP_METHOD with the <span class="caps">HTTP</span> method (e.g., <span class="caps">GET</span>, <span class="caps">POST</span>).
-   query_parameters with the query parameters, separated by underscores if multiple.
-4. Open the file and format it like&nbsp;this:</p>
+   query_parameters with the query parameters, separated by underscores if&nbsp;multiple.</p>
+<ol>
+<li>Open the file and format it like&nbsp;this:</li>
+</ol>
 <div class="highlight"><pre><span></span><code># status code: STATUS_CODE
 # reason: REASON
 BODY
 </code></pre></div>
 
 <ol>
-<li>Replace:<ul>
+<li>Replace:</li>
 <li><code>STATUS_CODE</code> with the desired <span class="caps">HTTP</span> status code (e.g., 200,&nbsp;404).</li>
 <li><code>REASON</code> with the reason for the status code (e.g., &#8220;<span class="caps">OK</span>&#8221;, &#8220;Not&nbsp;Found&#8221;).</li>
 <li><code>BODY</code> with the response content to&nbsp;mock.</li>
-</ul>
-</li>
 <li>Save the&nbsp;file.</li>
 </ol>
 <h3 id="example"><a class="toclink" href="#example">Example</a></h3>
@@ -404,44 +382,44 @@ Response body content for 404 status code
     <span class="n">responses</span> <span class="o">=</span> <span class="n">execute_and_save_responses</span><span class="p">(</span><span class="n">api</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Responses saved successfully! </span><span class="si">{</span><span class="n">responses</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
-</article>
+    </article>
 
-<div class="related-posts">
-    <hr class="section-line">
-    <h1 class="subheading">Related posts</h1>
-    <ul>
-        <li>
-            <a href="https://kanguros.github.io/note/pytest-cheatsheet.html">
-                Pytest&nbsp;cheatsheet
-            </a>
-            <div class="d-flex justify-content-start meta-elements">
-                <i class="bi bi-calendar"></i> 2023-09-02
-                <i class="bi bi-dot"></i>
-                <i class="bi bi-book"></i> 7 minutes
-            </div>
-        </li>
-        <li>
-            <a href="https://kanguros.github.io/note/azure-devops-class.html">
-                Azure Devops&nbsp;Class
-            </a>
-            <div class="d-flex justify-content-start meta-elements">
-                <i class="bi bi-calendar"></i> 2023-09-02
-                <i class="bi bi-dot"></i>
-                <i class="bi bi-book"></i> 7 minutes
-            </div>
-        </li>
-        <li>
-            <a href="https://kanguros.github.io/note/pacli-wrapper.html">
-                <span class="caps">PACLI</span>&nbsp;Wrapper
-            </a>
-            <div class="d-flex justify-content-start meta-elements">
-                <i class="bi bi-calendar"></i> 2023-09-02
-                <i class="bi bi-dot"></i>
-                <i class="bi bi-book"></i> 7 minutes
-            </div>
-        </li>
-    </ul>
-</div>
+        <div class="related-posts">
+            <hr class="section-line">
+            <h1 class="subheading">Related posts</h1>
+            <ul>
+                    <li>
+                        <a href="https://kanguros.github.io/post/word-file-modifier.html">
+                            Word file&nbsp;modifier
+                        </a>
+                        <div class="d-flex justify-content-start meta-elements">
+                            <i class="bi bi-calendar"></i> 2023-09-02
+                            <i class="bi bi-dot"></i>
+                            <i class="bi bi-book"></i> 7 minutes
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://kanguros.github.io/post/pytest-cheatsheet.html">
+                            Pytest&nbsp;cheatsheet
+                        </a>
+                        <div class="d-flex justify-content-start meta-elements">
+                            <i class="bi bi-calendar"></i> 2023-09-02
+                            <i class="bi bi-dot"></i>
+                            <i class="bi bi-book"></i> 7 minutes
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://kanguros.github.io/post/azure-devops-class.html">
+                            Azure Devops&nbsp;Class
+                        </a>
+                        <div class="d-flex justify-content-start meta-elements">
+                            <i class="bi bi-calendar"></i> 2023-09-02
+                            <i class="bi bi-dot"></i>
+                            <i class="bi bi-book"></i> 7 minutes
+                        </div>
+                    </li>
+            </ul>
+        </div>
 
         </div>
     </div>
@@ -450,21 +428,11 @@ Response body content for 404 status code
 <footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
     <hr class="section-line">
     <p class="footer-links mt-3 mb-1">
-        <a href="https://kanguros.github.io/"
+        <a href="https://kanguros.github.io"
            class="px-2"
            title="Index"
            aria-label="Index"
         >Index</a>
-        <a href="https://kanguros.github.io/articles.html"
-           class="px-2"
-           title="Articles"
-           aria-label="Articles"
-        >Articles</a>
-        <a href="https://kanguros.github.io/notes.html"
-           class="px-2"
-           title="Notes"
-           aria-label="Notes"
-        >Notes</a>
         <a href="https://kanguros.github.io/tags.html"
            class="px-2"
            title="Tags"

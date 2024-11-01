@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+        <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-Azure Devops Class - Kamil's Scratchpad
+    Azure Devops Class - Kamil's Scratchpad
     </title>
 
     <!-- Bootstrap and Clean Blog CSS -->
@@ -32,22 +32,22 @@ Azure Devops Class - Kamil's Scratchpad
 
 
 
-<meta name="description" content="Short wrapper for Azure Devops API. Based on azure-core.">
+        <meta name="description" content="Short wrapper for Azure Devops API. Based on azure-core.">
 
-<meta name="tags" content="azure-devops">
-<meta name="tags" content="python">
+        <meta name="tags" content="azure-devops">
+        <meta name="tags" content="python">
 
-    <meta property="og:locale" content="en">
+        <meta property="og:locale" content="en">
     <meta property="og:site_name" content="Kamil's Scratchpad">
 
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://kanguros.github.io/note/azure-devops-class.html">
-<meta property="og:title" content="Azure Devops Class">
-<meta property="article:published_time" content="2023-09-01 00:00:00+02:00">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kanguros.github.io/post/azure-devops-class.html">
+    <meta property="og:title" content="Azure Devops Class">
+    <meta property="article:published_time" content="2023-09-01 00:00:00+02:00">
 
-<meta property="og:description" content="Short wrapper for Azure Devops API. Based on azure-core.">
+        <meta property="og:description" content="Short wrapper for Azure Devops API. Based on azure-core.">
 
-<meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
+        <meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
 
 </head>
 
@@ -68,20 +68,6 @@ Azure Devops Class - Kamil's Scratchpad
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="nav navbar-nav">
-                <li class="nav-item">
-                    <a class="btn-navigation mx-2 my-2 float-end"
-                       href="https://kanguros.github.io/articles.html"
-                       title="Articles"
-                       aria-label="Articles"
-                    >Articles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn-navigation mx-2 my-2 float-end"
-                       href="https://kanguros.github.io/notes.html"
-                       title="Notes"
-                       aria-label="Notes"
-                    >Notes</a>
-                </li>
                 <li class="nav-item">
                     <a class="btn-navigation mx-2 my-2 float-end"
                        href="https://kanguros.github.io/tags.html"
@@ -112,42 +98,34 @@ Azure Devops Class - Kamil's Scratchpad
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-<div class="article-heading">
-    <a href="https://kanguros.github.io/note/azure-devops-class.html" rel="bookmark" title="Azure Devops Class">
-        <h1>
-            Azure Devops Class
-        </h1>
-    </a>
-    <p class="meta-element">
-        <a href="/"
-   title="All posts in Notes category"
-   aria-label="All posts in Notes category"
-   class="meta-word"
-><i class="bi bi-sticky"></i> Note
-</a>
-<i class="bi bi-dot"></i>
-
-        
+    <div class="article-heading">
+        <a href="https://kanguros.github.io/post/azure-devops-class.html" rel="bookmark" title="Azure Devops Class">
+            <h1>
+                Azure Devops Class
+            </h1>
+        </a>
+        <p class="meta-element">
+            
 <i class="bi bi-calendar"></i> 2023-09-01
 <i class="bi bi-dot"></i>
 <i class="bi bi-book"></i> 6 minutes
 
 
-    </p>
-    <div class="tags meta-element">
-    <a href="/tags/azure-devops.html"
+        </p>
+        <div class="tags meta-element">
+    <a href="/tag/azure-devops.html"
        rel="bookmark"
        title="Posts with #azure-devops tag"
        aria-label="Posts with #azure-devops tag"
     >#azure-devops</a>
-    <a href="/tags/python.html"
+    <a href="/tag/python.html"
        rel="bookmark"
        title="Posts with #python tag"
        aria-label="Posts with #python tag"
     >#python</a>
 </div>
 
-</div>
+    </div>
             </div>
         </div>
     </div>
@@ -156,9 +134,9 @@ Azure Devops Class - Kamil's Scratchpad
 <div class="container">
     <div class="row">
         <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-<article>
-    <p>Short wrapper for Azure Devops <span class="caps">API</span>. Based on <code>azure-core</code>.</p>
-    <p>Here you will find a Python utility class, <code>AzureDevOps</code>, to streamline Azure DevOps interactions. The class makes it
+    <article>
+            <p>Short wrapper for Azure Devops <span class="caps">API</span>. Based on <code>azure-core</code>.</p>
+        <p>Here you will find a Python utility class, <code>AzureDevOps</code>, to streamline Azure DevOps interactions. The class makes it
 easy to fetch closed User Stories and manage active Pull&nbsp;Requests.</p>
 <h2 id="features"><a class="toclink" href="#features">Features</a></h2>
 <ul>
@@ -178,16 +156,16 @@ easy to fetch closed User Stories and manage active Pull&nbsp;Requests.</p>
 <ol>
 <li>
 <p><strong>Pull&nbsp;Requests:</strong></p>
-<ul>
-<li>Active Pull Requests by Repository&nbsp;Prefix:</li>
-</ul>
+</li>
+<li>
+<p>Active Pull Requests by Repository&nbsp;Prefix:</p>
 <p><code>python
-  active_pulls_by_repo = azure_devops.get_active_pull_requests_by_repo_prefix(prefix)</code></p>
-<ul>
-<li>Active Pull Requests by&nbsp;Authors:</li>
-</ul>
+ active_pulls_by_repo = azure_devops.get_active_pull_requests_by_repo_prefix(prefix)</code></p>
+</li>
+<li>
+<p>Active Pull Requests by&nbsp;Authors:</p>
 <p><code>python
-  active_pulls_by_authors = azure_devops.get_active_pull_requests_by_authors(authors)</code></p>
+ active_pulls_by_authors = azure_devops.get_active_pull_requests_by_authors(authors)</code></p>
 </li>
 </ol>
 <h2 id="getting-started"><a class="toclink" href="#getting-started">Getting&nbsp;Started</a></h2>
@@ -342,34 +320,44 @@ easy to fetch closed User Stories and manage active Pull&nbsp;Requests.</p>
     <span class="n">authors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;person1&quot;</span><span class="p">,</span> <span class="s2">&quot;person2&quot;</span><span class="p">]</span>
     <span class="n">active_pulls_by_authors</span> <span class="o">=</span> <span class="n">azure_devops</span><span class="o">.</span><span class="n">get_active_pull_requests_by_authors</span><span class="p">(</span><span class="n">authors</span><span class="p">)</span>
 </code></pre></div>
-</article>
+    </article>
 
-<div class="related-posts">
-    <hr class="section-line">
-    <h1 class="subheading">Related posts</h1>
-    <ul>
-        <li>
-            <a href="https://kanguros.github.io/note/requests-using-pytest.html">
-                Requests using&nbsp;pytest
-            </a>
-            <div class="d-flex justify-content-start meta-elements">
-                <i class="bi bi-calendar"></i> 2023-09-01
-                <i class="bi bi-dot"></i>
-                <i class="bi bi-book"></i> 6 minutes
-            </div>
-        </li>
-        <li>
-            <a href="https://kanguros.github.io/note/pacli-wrapper.html">
-                <span class="caps">PACLI</span>&nbsp;Wrapper
-            </a>
-            <div class="d-flex justify-content-start meta-elements">
-                <i class="bi bi-calendar"></i> 2023-09-01
-                <i class="bi bi-dot"></i>
-                <i class="bi bi-book"></i> 6 minutes
-            </div>
-        </li>
-    </ul>
-</div>
+        <div class="related-posts">
+            <hr class="section-line">
+            <h1 class="subheading">Related posts</h1>
+            <ul>
+                    <li>
+                        <a href="https://kanguros.github.io/post/word-file-modifier.html">
+                            Word file&nbsp;modifier
+                        </a>
+                        <div class="d-flex justify-content-start meta-elements">
+                            <i class="bi bi-calendar"></i> 2023-09-01
+                            <i class="bi bi-dot"></i>
+                            <i class="bi bi-book"></i> 6 minutes
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://kanguros.github.io/post/requests-using-pytest.html">
+                            Requests using&nbsp;pytest
+                        </a>
+                        <div class="d-flex justify-content-start meta-elements">
+                            <i class="bi bi-calendar"></i> 2023-09-01
+                            <i class="bi bi-dot"></i>
+                            <i class="bi bi-book"></i> 6 minutes
+                        </div>
+                    </li>
+                    <li>
+                        <a href="https://kanguros.github.io/post/pacli-wrapper.html">
+                            <span class="caps">PACLI</span>&nbsp;Wrapper
+                        </a>
+                        <div class="d-flex justify-content-start meta-elements">
+                            <i class="bi bi-calendar"></i> 2023-09-01
+                            <i class="bi bi-dot"></i>
+                            <i class="bi bi-book"></i> 6 minutes
+                        </div>
+                    </li>
+            </ul>
+        </div>
 
         </div>
     </div>
@@ -378,21 +366,11 @@ easy to fetch closed User Stories and manage active Pull&nbsp;Requests.</p>
 <footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
     <hr class="section-line">
     <p class="footer-links mt-3 mb-1">
-        <a href="https://kanguros.github.io/"
+        <a href="https://kanguros.github.io"
            class="px-2"
            title="Index"
            aria-label="Index"
         >Index</a>
-        <a href="https://kanguros.github.io/articles.html"
-           class="px-2"
-           title="Articles"
-           aria-label="Articles"
-        >Articles</a>
-        <a href="https://kanguros.github.io/notes.html"
-           class="px-2"
-           title="Notes"
-           aria-label="Notes"
-        >Notes</a>
         <a href="https://kanguros.github.io/tags.html"
            class="px-2"
            title="Tags"

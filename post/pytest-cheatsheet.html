@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+        <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-Pytest cheatsheet - Kamil's Scratchpad
+    Pytest cheatsheet - Kamil's Scratchpad
     </title>
 
     <!-- Bootstrap and Clean Blog CSS -->
@@ -32,22 +32,22 @@ Pytest cheatsheet - Kamil's Scratchpad
 
 
 
-<meta name="description" content="The cheatsheet provides a solid foundation for implementing tests in Python using pytest, including basic test structures, fixtures,...">
+        <meta name="description" content="The cheatsheet provides a solid foundation for implementing tests in Python using pytest, including basic test structures, fixtures,...">
 
-<meta name="tags" content="pytest">
-<meta name="tags" content="cheatsheet">
+        <meta name="tags" content="pytest">
+        <meta name="tags" content="cheatsheet">
 
-    <meta property="og:locale" content="en">
+        <meta property="og:locale" content="en">
     <meta property="og:site_name" content="Kamil's Scratchpad">
 
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://kanguros.github.io/note/pytest-cheatsheet.html">
-<meta property="og:title" content="Pytest cheatsheet">
-<meta property="article:published_time" content="2023-11-04 00:00:00+01:00">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kanguros.github.io/post/pytest-cheatsheet.html">
+    <meta property="og:title" content="Pytest cheatsheet">
+    <meta property="article:published_time" content="2023-11-04 00:00:00+01:00">
 
-<meta property="og:description" content="The cheatsheet provides a solid foundation for implementing tests in Python using pytest, including basic test structures, fixtures,...">
+        <meta property="og:description" content="The cheatsheet provides a solid foundation for implementing tests in Python using pytest, including basic test structures, fixtures,...">
 
-<meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
+        <meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
 
 </head>
 
@@ -68,20 +68,6 @@ Pytest cheatsheet - Kamil's Scratchpad
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="nav navbar-nav">
-                <li class="nav-item">
-                    <a class="btn-navigation mx-2 my-2 float-end"
-                       href="https://kanguros.github.io/articles.html"
-                       title="Articles"
-                       aria-label="Articles"
-                    >Articles</a>
-                </li>
-                <li class="nav-item">
-                    <a class="btn-navigation mx-2 my-2 float-end"
-                       href="https://kanguros.github.io/notes.html"
-                       title="Notes"
-                       aria-label="Notes"
-                    >Notes</a>
-                </li>
                 <li class="nav-item">
                     <a class="btn-navigation mx-2 my-2 float-end"
                        href="https://kanguros.github.io/tags.html"
@@ -112,42 +98,34 @@ Pytest cheatsheet - Kamil's Scratchpad
     <div class="container">
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-<div class="article-heading">
-    <a href="https://kanguros.github.io/note/pytest-cheatsheet.html" rel="bookmark" title="Pytest cheatsheet">
-        <h1>
-            Pytest cheatsheet
-        </h1>
-    </a>
-    <p class="meta-element">
-        <a href="/"
-   title="All posts in Notes category"
-   aria-label="All posts in Notes category"
-   class="meta-word"
-><i class="bi bi-sticky"></i> Note
-</a>
-<i class="bi bi-dot"></i>
-
-        
+    <div class="article-heading">
+        <a href="https://kanguros.github.io/post/pytest-cheatsheet.html" rel="bookmark" title="Pytest cheatsheet">
+            <h1>
+                Pytest cheatsheet
+            </h1>
+        </a>
+        <p class="meta-element">
+            
 <i class="bi bi-calendar"></i> 2023-11-04
 <i class="bi bi-dot"></i>
 <i class="bi bi-book"></i> 3 minutes
 
 
-    </p>
-    <div class="tags meta-element">
-    <a href="/tags/pytest.html"
+        </p>
+        <div class="tags meta-element">
+    <a href="/tag/pytest.html"
        rel="bookmark"
        title="Posts with #pytest tag"
        aria-label="Posts with #pytest tag"
     >#pytest</a>
-    <a href="/tags/cheatsheet.html"
+    <a href="/tag/cheatsheet.html"
        rel="bookmark"
        title="Posts with #cheatsheet tag"
        aria-label="Posts with #cheatsheet tag"
     >#cheatsheet</a>
 </div>
 
-</div>
+    </div>
             </div>
         </div>
     </div>
@@ -156,9 +134,9 @@ Pytest cheatsheet - Kamil's Scratchpad
 <div class="container">
     <div class="row">
         <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
-<article>
-    <p>The cheatsheet provides a solid foundation for implementing tests in Python using <code>pytest</code>, including basic test structures, fixtures, parameterization, and using <code>monkeypatch</code> for temporary modifications during&nbsp;tests.</p>
-    <div class="toc"><span class="toctitle">Content</span><ul>
+    <article>
+            <p>The cheatsheet provides a solid foundation for implementing tests in Python using <code>pytest</code>, including basic test structures, fixtures, parameterization, and using <code>monkeypatch</code> for temporary modifications during&nbsp;tests.</p>
+        <div class="toc"><span class="toctitle">Content</span><ul>
 <li><a href="#basic-test">Basic&nbsp;test</a></li>
 <li><a href="#use-fixture-for-setup-and-teardown">Use fixture for setup and&nbsp;teardown</a></li>
 <li><a href="#parametrize-tests">Parametrize&nbsp;tests</a></li>
@@ -270,24 +248,24 @@ Pytest cheatsheet - Kamil's Scratchpad
 </code></pre></div>
 
 <p>Replaces a function in a module with a mock&nbsp;function.</p>
-</article>
+    </article>
 
-<div class="related-posts">
-    <hr class="section-line">
-    <h1 class="subheading">Related posts</h1>
-    <ul>
-        <li>
-            <a href="https://kanguros.github.io/note/requests-using-pytest.html">
-                Requests using&nbsp;pytest
-            </a>
-            <div class="d-flex justify-content-start meta-elements">
-                <i class="bi bi-calendar"></i> 2023-11-04
-                <i class="bi bi-dot"></i>
-                <i class="bi bi-book"></i> 3 minutes
-            </div>
-        </li>
-    </ul>
-</div>
+        <div class="related-posts">
+            <hr class="section-line">
+            <h1 class="subheading">Related posts</h1>
+            <ul>
+                    <li>
+                        <a href="https://kanguros.github.io/post/requests-using-pytest.html">
+                            Requests using&nbsp;pytest
+                        </a>
+                        <div class="d-flex justify-content-start meta-elements">
+                            <i class="bi bi-calendar"></i> 2023-11-04
+                            <i class="bi bi-dot"></i>
+                            <i class="bi bi-book"></i> 3 minutes
+                        </div>
+                    </li>
+            </ul>
+        </div>
 
         </div>
     </div>
@@ -296,21 +274,11 @@ Pytest cheatsheet - Kamil's Scratchpad
 <footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
     <hr class="section-line">
     <p class="footer-links mt-3 mb-1">
-        <a href="https://kanguros.github.io/"
+        <a href="https://kanguros.github.io"
            class="px-2"
            title="Index"
            aria-label="Index"
         >Index</a>
-        <a href="https://kanguros.github.io/articles.html"
-           class="px-2"
-           title="Articles"
-           aria-label="Articles"
-        >Articles</a>
-        <a href="https://kanguros.github.io/notes.html"
-           class="px-2"
-           title="Notes"
-           aria-label="Notes"
-        >Notes</a>
         <a href="https://kanguros.github.io/tags.html"
            class="px-2"
            title="Tags"
