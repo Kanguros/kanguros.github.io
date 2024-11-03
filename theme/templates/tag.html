@@ -2,10 +2,10 @@
 {% extends "index.html" %}
 
 {% block title %}
-    {{ SITENAME }} - #{{ tag.name }}
+{{ SITENAME }} - #{{ tag.name }}
 {% endblock %}
 
 {% block header %}
-    {% set tag_meta = TAGS_DESCRIPTION[tag.name]|default("All posts with #" +  tag.name  + " tag.") %}
-    {{ page_header("#" +  tag.name, tag.url, tag_meta) }}
+{% set tag_meta = TAGS_DESCRIPTION[tag.name]|default("All posts with #" +  tag.name  + " tag.") %}
+{{ page_header("#" +  tag.name, tag.url, tag_meta, with_hr=True) }}
 {% endblock header %}

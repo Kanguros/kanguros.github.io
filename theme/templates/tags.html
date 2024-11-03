@@ -2,23 +2,23 @@
 {% extends "base.html" %}
 
 {% block title %}
-    {{ SITENAME }} - Tags
+Tags - {{ SITENAME }}
 {% endblock %}
 
 {% block header %}
-    {{ page_header("Tags", TAGS_SAVE_AS, "List of all used tags.") }}
+{{ page_header("Tags", TAGS_SAVE_AS, "List of all used tags.", with_hr=True) }}
 {% endblock header %}
 
 {% block content %}
-    <div class="d-flex flex-wrap justify-content-center mt-2">
-        <div class="tags meta-element">
-            {% for tag, articles in tags|sort %}
-                <h3 class="btn btn-outline-secondary">
-                    <a href="{{ SITEURL }}/{{ tag.url }}" rel="bookmark" title="{{ tag }}">
-                        {{ tag }} ({{ articles|count }})
-                    </a>
-                </h3>
-            {% endfor %}
-        </div>
+<div class="d-flex flex-wrap justify-content-center mt-2">
+    <div class="tags meta-element">
+        {% for tag, articles in tags|sort %}
+        <h3 class="btn btn-outline-secondary">
+            <a href="{{ SITEURL }}/{{ tag.url }}" rel="bookmark" title="{{ tag }}">
+                {{ tag }} ({{ articles|count }})
+            </a>
+        </h3>
+        {% endfor %}
     </div>
+</div>
 {% endblock content %}

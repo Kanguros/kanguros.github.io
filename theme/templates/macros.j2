@@ -102,7 +102,7 @@
 {% endmacro %}
 
 
-{% macro page_header(head_text, url, meta_text='') %}
+{% macro page_header(head_text, url, meta_text='', with_hr=False) %}
 <div class="heading d-flex flex-wrap align-items-baseline justify-content-between">
     <a href="{{ SITEURL }}/{{ url }}" rel="bookmark" title="{{ head_text }}" class="me-5">
         <h1 class="my-3">
@@ -115,4 +115,7 @@
     </p>
     {% endif %}
 </div>
+{% if with_hr %}
+<hr class="post-line">
+{% endif %}
 {% endmacro %}
