@@ -18,6 +18,7 @@ PLUGINS = [
     'similar_posts',
     'readtime',
     'neighbors',
+    "pelican.plugins.jinja_filters",
     # 'sitemap',  In publishconf.py
     # 'minify',  In publishconf.py
 ]
@@ -61,6 +62,8 @@ PAGINATED_TEMPLATES = {
     'tag': None,
 }
 
+TEMPLATE_PAGES = {'privates.html': 'private/index.html'}
+
 STATIC_PATHS = [
     'images',
     'code',
@@ -85,7 +88,7 @@ ARTICLE_URL = 'post/{slug}.html'
 ARTICLE_SAVE_AS = 'post/{slug}.html'
 ARTICLE_ORDER_BY = 'reversed-date'
 
-DRAFTS_URL = "privates.html"
+DRAFTS_URL = "private/index.html"
 DRAFT_URL = 'private/{slug}.html'
 DRAFT_SAVE_AS = 'private/{slug}.html'
 
@@ -95,7 +98,7 @@ PAGE_SAVE_AS = '{slug}.html'
 
 TAG_URL = 'tag/{slug}.html'
 TAG_SAVE_AS = 'tag/{slug}.html'
-TAGS_SAVE_AS = 'tags.html'
+TAGS_SAVE_AS = 'tag/index.html'
 TAGS_DESCRIPTION = {
     "python": "Knowledge of Python",
     "cheatsheet": "Shortcut of tips and tricks."
@@ -141,13 +144,6 @@ MARKDOWN = {
     'output_format': 'html5'
 }
 
-
-def breaking_spaces(value):
-    return value.replace("\u00A0", " ")
-
-
-JINJA_FILTERS = {"breaking_spaces": breaking_spaces}
-
 # RSS and ATOM feeds
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
@@ -155,6 +151,8 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 # CACHING
-CACHE_CONTENT = False
-LOAD_CONTENT_CACHE = False
+
+CACHE_CONTENT = True
+LOAD_CONTENT_CACHE = True
+GZIP_CACHE = False
 DELETE_OUTPUT_DIRECTORY = False

@@ -3,38 +3,38 @@
 
 {% block header %}
 
-    {% if output_file == 'index.html' %}
-        <div class="article-heading big-heading">
-            <h2 class="subheading">
-                {{ SITEINFO }}
-            </h2>
-            <div class="d-flex flex-wrap flex-lg-nowrap justify-content-evenly mt-5 mb-2">
-                <a href="{{ SITEURL }}/{{ ABOUT_URL }}"
-                   class="btn btn-secondary btn-darker btn-heading"
-                   title="About"
-                   aria-label="About"
-                ><i class="bi bi-file-person"></i> About
-                </a>
-                <a href="{{ GIT_LINK }}"
-                   class="btn btn-secondary btn-darker btn-heading"
-                   title="My GitHub"
-                   aria-label="My GitHub"
-                ><i class="bi bi-github"></i> GitHub
-                </a>
-            </div>
-        </div>
-        <hr class="post-line">
-    {% endif %}
+{% if output_file == 'index.html' %}
+<div class="article-heading big-heading">
+    <h2 class="subheading">
+        {{ SITEINFO }}
+    </h2>
+    <div class="d-flex flex-wrap flex-lg-nowrap justify-content-evenly mt-5 mb-5">
+        <a href="{{ SITEURL }}/{{ ABOUT_URL }}"
+           class="btn btn-secondary btn-darker btn-heading"
+           title="About"
+           aria-label="About"
+        ><i class="bi bi-file-person"></i> About
+        </a>
+        <a href="{{ GIT_LINK }}"
+           class="btn btn-secondary btn-darker btn-heading"
+           title="My GitHub"
+           aria-label="My GitHub"
+        ><i class="bi bi-github"></i> GitHub
+        </a>
+    </div>
+</div>
+<hr class="post-line">
+{% endif %}
 
 {% endblock header %}
 
 
 {% block content %}
 
-    {% for article in articles_page.object_list %}
-        {{ main_post(article) }}
-    {% endfor %}
+{% for article in articles_page.object_list %}
+{{ main_post(article) }}
+{% endfor %}
 
-    {% include "pagination.html" %}
+{% include "pagination.html" %}
 
 {% endblock content %}

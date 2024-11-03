@@ -257,7 +257,7 @@ pre code {
 .post-preview {
   line-height: 15px;
   margin-top: 2em;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
 .post-preview > a {
   color: #404040;
@@ -424,7 +424,7 @@ hr.little {
   opacity: 0.15;
 }
 hr.post-line {
-  margin: 0.6em auto;
+  margin: 1.5em auto 0.5em;
   opacity: 0.15;
 }
 hr.section-line {
@@ -572,7 +572,7 @@ h1.big-title {
   margin-top: 5rem;
 }
 .btn-navigation {
-  font-size: 1.2rem;
+  font-size: 1rem;
   text-decoration: none;
   font-weight: 300;
   text-align: center;
@@ -586,7 +586,7 @@ h1.big-title {
 }
 @media only screen and (min-width: 768px) {
   .btn-navigation {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 }
 .margin-y {
@@ -595,4 +595,12 @@ h1.big-title {
 }
 .navbar-toggler {
   border-radius: var(--button-radius);
+}
+
+.nav {
+  --bs-nav-link-color: var(--bs-navbar-color);
+  --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+  --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+  --bs-nav-link-padding-x: 0.5rem;
+  --bs-nav-link-padding-y: 0.2rem;
 }

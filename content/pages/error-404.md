@@ -1,4 +1,4 @@
-Title: Not found
+Title: Not found  
 Save_as: 404.html  
 Slug: 404
 

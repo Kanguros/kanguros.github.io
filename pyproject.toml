@@ -20,6 +20,8 @@ pelican-readtime = "^0.2.0"
 pelican-minify = "^2.0.0"
 Pygments = "^2.17.1"
 pre-commit = "^3.8.0"
+pelican-jinja-filters = "^2.1.1"
+markdown-mermaidjs = "^1.0.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
