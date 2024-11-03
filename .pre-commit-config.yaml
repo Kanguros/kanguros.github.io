@@ -18,5 +18,5 @@ repos:
     rev: "v0.13.1"
     hooks:
       - id: curlylint
-        files: \.(html|sls)$
+        files: \.(html|j2)$
         exclude: ^theme/.not_used/
