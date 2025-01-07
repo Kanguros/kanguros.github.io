@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "kanguros.github.io"
-version = "0.2.2"
+version = "0.2.3"
 description = ""
 authors = ["Kamil Urbanek <urbanek.kamil@gmail.com>"]
 

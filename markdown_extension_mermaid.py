@@ -51,7 +51,7 @@ class InlineMermaidPreprocessor(Preprocessor):
 
     def _find_mmdc(self):
         exec_path = shutil.which("mmdc")
-        if exec_path:
+        if exec_path is not None:
             return Path(exec_path)
         raise ValueError(f"Unable to get path to 'mmdc' executable.")
 
@@ -86,25 +86,21 @@ class InlineMermaidPreprocessor(Preprocessor):
                     )
                 except Exception as e:
                     return (
-                            "<pre>Failed to invoke mmdc command</pre>"
-                            "<pre>Error : " + str(e) + "</pre>"
-                                                       "<pre>Type : " + str(e.__class__) + "</pre>"
-                                                                                           "<pre>Args : " + str(
-                        args) + "</pre>"
-                                "<pre>" + content + "</pre>"
+                        "<pre>Failed to invoke mmdc command</pre>"
+                        f"<pre>Error : {str(e)} </pre>"
+                        f"<pre>Type : {str(e.__class__)}</pre>"
+                        f"<pre>Args : {str(args)}</pre>"
+                        f"<pre>{content}</pre>"
                     ).split("\n")
 
                 try:
-
-                    print(f"Subprocess output {res}")
-
                     if not tmp_svg_path.is_file():
                         return (
-                                "<pre>Error : Image not created</pre>"
-                                "<pre>Args : " + str(args) + "</pre>"
-                                                             "<pre>stdout : " + res.stdout + "</pre>"
-                                                                                             "<pre>stderr : " + res.stderr + "</pre>"
-                                                                                                                             "<pre>graph code : " + content + "</pre>"
+                            "<pre>Error : Image not created</pre>"
+                            f"<pre>Args :{str(args)}</pre>"
+                            f"<pre>stdout : {res.stdout} </pre>"
+                            f"<pre>stderr : {res.stderr}</pre>"
+                            f"<pre>graph code : {content}</pre>"
                         ).split("\n")
 
                     with tmp_svg_path.open("rb") as f:
@@ -121,11 +117,10 @@ class InlineMermaidPreprocessor(Preprocessor):
 
                 except Exception as e:
                     return (
-                            "<pre>Error : " + str(e) + "</pre>"
-                                                       "<pre>Type : " + str(e.__class__) + "</pre>"
-                                                                                           "<pre>Args : " + str(
-                        args) + "</pre>"
-                                "<pre>" + content + "</pre>"
+                        f"<pre>Error : {str(e)} </pre>"
+                        f"<pre>Type : {str(e.__class__)} </pre>"
+                        f"<pre>Args : {str(args)} </pre>"
+                        f"<pre>{content}</pre>"
                     ).split("\n")
 
         return text.split("\n")
