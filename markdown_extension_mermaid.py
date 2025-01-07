@@ -75,6 +75,17 @@ class InlineMermaidPreprocessor(Preprocessor):
                         text=True,
                         check=True
                     )
+                except Exception as e:
+                    return (
+                            "<pre>Failed to invoke mmdc command</pre>"
+                            "<pre>Error : " + str(e) + "</pre>"
+                                                       "<pre>Type : " + str(e.__class__) + "</pre>"
+                                                                                           "<pre>Args : " + str(
+                        args) + "</pre>"
+                                "<pre>" + content + "</pre>"
+                    ).split("\n")
+
+                try:
 
                     print(f"Subprocess output {res}")
 
