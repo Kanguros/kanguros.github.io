@@ -62,7 +62,7 @@ class InlineMermaidPreprocessor(Preprocessor):
                 tmp_svg_path = tmp_dir / "out.svg"
 
                 puppeteer_config = tmp_dir / "puppeteer-config.json"
-                with puppeteer_config.open("w") as f:
+                with puppeteer_config.open("w+") as f:
                     f.write(puppeteer_config_content)
 
                 args = ["mmdc", "-p", str(puppeteer_config), "-o", str(tmp_svg_path)]
@@ -73,9 +73,10 @@ class InlineMermaidPreprocessor(Preprocessor):
                         input=content,
                         capture_output=True,
                         text=True,
+                        check=True
                     )
 
-                    logger.debug(f"Subprocess output {res}")
+                    print(f"Subprocess output {res}")
 
                     if not tmp_svg_path.is_file():
                         return (
@@ -101,8 +102,8 @@ class InlineMermaidPreprocessor(Preprocessor):
                 except Exception as e:
                     return (
                             "<pre>Error : " + str(e) + "</pre>"
-                                                       "<pre>Type : " + str(type(e)) + "</pre>"
-                                                                                       "<pre>Args : " + str(
+                                                       "<pre>Type : " + str(e.__class__) + "</pre>"
+                                                                                           "<pre>Args : " + str(
                         args) + "</pre>"
                                 "<pre>" + content + "</pre>"
                     ).split("\n")
