@@ -1,6 +1,8 @@
-Title: Markdown in Pelican  
-Date: 2023-06-15  
+---
+Title: Markdown in Pelican
+Date: 2023-06-15
 Status: draft
+---
 
 Examples of Markdown formatting available in Pelican.
 

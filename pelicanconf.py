@@ -143,7 +143,7 @@ MARKDOWN = {
             'base_path': "content"
         },
         'pymdownx.magiclink': {},
-        'markdown_inline_mermaid': {},
+        'markdown_extension_mermaid': {},
         # "markdown_mermaidjs": {},
     },
     'output_format': 'html5'
