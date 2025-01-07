@@ -39,8 +39,11 @@ SIMILAR_POSTS_MIN_SCORE = 0.0001
 
 SITENAME = "Kamil's Scratchpad"
 SITENAME_BRAND = "KS"
-SITEINFO = """Welcome to my digital notepad.
-Space where <strong>I share</strong> my <strong>notes and thoughts</strong> on <strong>programming, pipelines, automation,</strong> and an array of other, yet to be discovered, fancy stuff.
+SITEINFO = """
+<p>Welcome to my digital notepad.</p>
+<p>Space where <strong>I share</strong> my <strong>notes and thoughts</strong> on 
+<strong>programming, pipelines, automation,</strong> 
+and an array of other, yet to be discovered, fancy stuff.</p>
 """
 
 THEME_STATIC_DIR = THEME = "theme"
@@ -140,6 +143,7 @@ MARKDOWN = {
             'base_path': "content"
         },
         'pymdownx.magiclink': {},
+        "markdown_mermaidjs": {},
     },
     'output_format': 'html5'
 }
