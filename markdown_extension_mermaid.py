@@ -19,6 +19,7 @@ Inspired by cesaremorel/markdown-inline-graphviz (http://github.com/cesaremorel/
 import base64
 import logging
 import re
+import shutil
 import subprocess
 import tempfile
 from pathlib import Path
@@ -47,6 +48,13 @@ class InlineMermaidExtension(Extension):
 
 
 class InlineMermaidPreprocessor(Preprocessor):
+
+    def _find_mmdc(self):
+        exec_path = shutil.which("mmdc")
+        if exec_path:
+            return Path(exec_path)
+        raise ValueError(f"Unable to get path to 'mmdc' executable.")
+
     def run(self, lines):
         """Match and generate mermaid code blocks."""
 
@@ -65,7 +73,8 @@ class InlineMermaidPreprocessor(Preprocessor):
                 with puppeteer_config.open("w+") as f:
                     f.write(puppeteer_config_content)
 
-                args = ["mmdc", "-p", str(puppeteer_config), "-o", str(tmp_svg_path)]
+                mmdc = self._find_mmdc()
+                args = [str(mmdc), "-p", str(puppeteer_config), "-o", str(tmp_svg_path)]
 
                 try:
                     res = subprocess.run(
@@ -73,7 +82,7 @@ class InlineMermaidPreprocessor(Preprocessor):
                         input=content,
                         capture_output=True,
                         text=True,
-                        check=True
+                        check=True,
                     )
                 except Exception as e:
                     return (

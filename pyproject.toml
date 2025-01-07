@@ -6,11 +6,11 @@ authors = ["Kamil Urbanek <urbanek.kamil@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pelican = { extras = ["markdown"], version = "^4.9.1" }
+pelican = { extras = ["markdown"], version = "^4.9" }
 typogrify = "^2.0"
-pymdown-extensions = "10.9"
+pymdown-extensions = "^10"
 invoke = "^2.1"
-livereload = "^2.6"
+livereload = "^2"
 
 pelican-yaml-metadata = "^2.1.2"
 pelican-similar-posts = "^1.0.0"
@@ -21,8 +21,6 @@ pelican-minify = "^2.0.0"
 Pygments = "^2.17.1"
 pre-commit = "^3.8.0"
 pelican-jinja-filters = "^2.1.1"
-markdown-mermaidjs = "^1.0.0"
-markdown-inline-mermaid = "^1.0.4"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

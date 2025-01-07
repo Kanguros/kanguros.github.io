@@ -144,7 +144,6 @@ MARKDOWN = {
         },
         'pymdownx.magiclink': {},
         'markdown_extension_mermaid': {},
-        # "markdown_mermaidjs": {},
     },
     'output_format': 'html5'
 }
