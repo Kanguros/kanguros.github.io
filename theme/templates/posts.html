@@ -1,0 +1,17 @@
+{% from 'macros.j2' import main_post, page_header %}
+{% extends "base.html" %}
+
+{% block header %}
+
+{% endblock header %}
+
+
+{% block content %}
+
+{% for article in articles_page.object_list %}
+{{ main_post(article) }}
+{% endfor %}
+
+{% include "pagination.html" %}
+
+{% endblock content %}

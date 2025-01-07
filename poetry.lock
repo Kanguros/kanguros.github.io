@@ -194,6 +194,17 @@ docs = ["mdx-gh-links (>=0.2)", "mkdocs (>=1.5)", "mkdocs-gen-files", "mkdocs-li
 testing = ["coverage", "pyyaml"]
 
 [[package]]
+name = "markdown-inline-mermaid"
+version = "1.0.4"
+description = "Render inline graphs with Markdown and Mermaid"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Markdown = ">=2.3.1"
+
+[[package]]
 name = "markdown-it-py"
 version = "3.0.0"
 description = "Python port of markdown-it. Markdown parsing, done right!"
@@ -667,7 +678,7 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "a34f2b75837648e8a3d9461b1682d767c6b8fe8157ec9eb9c6af1100e10d8aaa"
+content-hash = "ffec96fbf59d3a9c8123d5536d3377c605dbf92847b103151a238527a4a87049"
 
 [metadata.files]
 anyio = [
@@ -757,6 +768,9 @@ livereload = [
 Markdown = [
     {file = "Markdown-3.7-py3-none-any.whl", hash = "sha256:7eb6df5690b81a1d7942992c97fad2938e956e79df20cbc6186e9c3a77b1c803"},
     {file = "markdown-3.7.tar.gz", hash = "sha256:2ae2471477cfd02dbbf038d5d9bc226d40def84b4fe2986e49b59b6b472bbed2"},
+]
+markdown-inline-mermaid = [
+    {file = "markdown_inline_mermaid-1.0.4.tar.gz", hash = "sha256:3b354b830bec391d992caaa93f34949d97dc82d6aeb1d2d70cede3cb57ba7426"},
 ]
 markdown-it-py = [
     {file = "markdown-it-py-3.0.0.tar.gz", hash = "sha256:e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"},

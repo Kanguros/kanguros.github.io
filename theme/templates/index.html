@@ -31,10 +31,9 @@
 
 {% block content %}
 
-{% for article in articles_page.object_list %}
+{% for article in articles %}
 {{ main_post(article) }}
 {% endfor %}
 
-{% include "pagination.html" %}
 
 {% endblock content %}

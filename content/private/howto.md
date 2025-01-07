@@ -1,12 +1,12 @@
-Title: Markdown in Pelican
-Date: 2023-06-15
+Title: Markdown in Pelican  
+Date: 2023-06-15  
 Status: draft
-Summary: Examples of Markdown formatting available in Pelican.
+
+Examples of Markdown formatting available in Pelican.
 
 ## Typography
 
 ```
-# First level
 
 ## Second level
 
@@ -14,8 +14,6 @@ Summary: Examples of Markdown formatting available in Pelican.
 
 #### Forth level
 ```
-
-# First level
 
 ## Second level
 
@@ -158,9 +156,6 @@ flowchart LR
 Class
 
 ```mermaid
----
-title: Animal example
----
 classDiagram
     note "From Duck till Zebra"
     Animal <-- Duck
