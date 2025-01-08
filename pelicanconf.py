@@ -50,7 +50,7 @@ THEME_STATIC_DIR = THEME = "theme"
 COLOR_SCHEME_CSS = "darkly.css"
 SUMMARY_END_SUFFIX = ''
 TYPOGRIFY = True
-TYPOGRIFY_IGNORE_TAGS = ["pre","code","svg","img","style"]
+TYPOGRIFY_IGNORE_TAGS = ["pre", "code", "svg", "img", "style"]
 
 DIRECT_TEMPLATES = [
     'index',
@@ -144,7 +144,7 @@ MARKDOWN = {
             'base_path': "content"
         },
         'pymdownx.magiclink': {},
-'pymdownx.saneheaders':{}
+        'pymdownx.saneheaders': {},
         'markdown_extension_mermaid': {},
     },
     'output_format': 'html5'
