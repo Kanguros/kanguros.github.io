@@ -101,13 +101,14 @@ class InlineMermaidPreprocessor(Preprocessor):
                                 f"<pre>graph code : {content}</pre>"
                             ).split("\n")
 
-                        with tmp_svg_path.open("rb") as f:
+                        with tmp_svg_path.open("rb") as fb:
+                            svg_bytes_content = fb.read()
+                            encoded_image_content = base64.b64encode(svg_bytes_content).decode("utf-8")
+                            img_tag = f'<img src="data:image/svg+xml;base64,{encoded_image_content}">'
+
+                        with tmp_svg_path.open("r") as f:
                             svg_content = f.read()
-
-                        svg_tag = f'<div>{svg_content.decode('utf-8')}</div>'
-
-                        encoded_image_content = base64.b64encode(svg_content).decode("utf-8")
-                        img_tag = f'<img src="data:image/svg+xml;base64,{encoded_image_content}">'
+                            svg_tag = svg_content
 
                         text = "{}\n{}\n{}\n{}".format(
                             text[: m.start()],
