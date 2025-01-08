@@ -102,16 +102,19 @@ class InlineMermaidPreprocessor(Preprocessor):
                             ).split("\n")
 
                         with tmp_svg_path.open("rb") as f:
-                            encoded_image_content = base64.b64encode(f.read()).decode(
-                                "utf-8"
-                            )
-                            img = f'<img src="data:image/svg+xml;base64,{encoded_image_content}">'
+                            svg_content = f.read()
 
-                            text = "{}\n{}\n{}".format(
-                                text[: m.start()],
-                                self.md.htmlStash.store(img),
-                                text[m.end():],
-                            )
+                        svg_tag = f'<div>{svg_content}</div>'
+
+                        encoded_image_content = base64.b64encode(svg_content).decode("utf-8")
+                        img_tag = f'<img src="data:image/svg+xml;base64,{encoded_image_content}">'
+
+                        text = "{}\n{}\n{}\n{}".format(
+                            text[: m.start()],
+                            self.md.htmlStash.store(img_tag),
+                            self.md.htmlStash.store(svg_tag),
+                            text[m.end():],
+                        )
 
                     except Exception as e:
                         return (
