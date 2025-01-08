@@ -104,7 +104,7 @@ class InlineMermaidPreprocessor(Preprocessor):
                         with tmp_svg_path.open("rb") as f:
                             svg_content = f.read()
 
-                        svg_tag = f'<div>{svg_content}</div>'
+                        svg_tag = f'<div>{svg_content.decode('utf-8')}</div>'
 
                         encoded_image_content = base64.b64encode(svg_content).decode("utf-8")
                         img_tag = f'<img src="data:image/svg+xml;base64,{encoded_image_content}">'
