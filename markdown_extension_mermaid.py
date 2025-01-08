@@ -48,7 +48,7 @@ class InlineMermaidExtension(Extension):
     def extendMarkdown(self, md):
         """Add InlineMermaidPreprocessor to the Markdown instance."""
         md.registerExtension(self)
-        md.preprocessors.register(InlineMermaidPreprocessor(md), "mermaid_block", 90)
+        md.preprocessors.register(InlineMermaidPreprocessor(md), "mermaid_block", 27)
 
 
 class InlineMermaidPreprocessor(Preprocessor):
@@ -109,7 +109,6 @@ class InlineMermaidPreprocessor(Preprocessor):
                         with tmp_svg_path.open("r") as f:
                             svg_content = f.read()
                             svg_tag = svg_content
-                            print(svg_content)
 
                         text = "{}\n{}\n{}\n{}".format(
                             text[: m.start()],
