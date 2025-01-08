@@ -53,6 +53,8 @@ class InlineMermaidExtension(Extension):
 
 class InlineMermaidPreprocessor(Preprocessor):
 
+    def _generate_svg(self, content):
+
     def run(self, lines):
         """Match and generate mermaid code blocks."""
 
@@ -101,19 +103,18 @@ class InlineMermaidPreprocessor(Preprocessor):
                                 f"<pre>graph code : {content}</pre>"
                             ).split("\n")
 
-                        with tmp_svg_path.open("rb") as fb:
-                            svg_bytes_content = fb.read()
-                            encoded_image_content = base64.b64encode(svg_bytes_content).decode("utf-8")
-                            img_tag = f'<img src="data:image/svg+xml;base64,{encoded_image_content}">'
+                        # with tmp_svg_path.open("rb") as fb:
+                        #     svg_bytes_content = fb.read()
+                        #     encoded_image_content = base64.b64encode(svg_bytes_content).decode("utf-8")
+                        #     img_tag = f'<img src="data:image/svg+xml;base64,{encoded_image_content}">'
 
                         with tmp_svg_path.open("r") as f:
                             svg_content = f.read()
-                            svg_tag = svg_content
 
-                        text = "{}\n{}\n{}\n{}".format(
+                        text = "{}\n{}\n{}".format(
                             text[: m.start()],
-                            self.md.htmlStash.store(img_tag),
-                            self.md.htmlStash.store(svg_tag),
+                            # self.md.htmlStash.store(img_tag),
+                            self.md.htmlStash.store(svg_content),
                             text[m.end():],
                         )
 
