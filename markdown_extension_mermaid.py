@@ -16,7 +16,6 @@ Requires the mermaid cli (https://github.com/mermaid-js/mermaid-cli)
 Inspired by cesaremorel/markdown-inline-graphviz (http://github.com/cesaremorel/markdown-inline-graphviz)
 """
 
-import base64
 import re
 import shutil
 import subprocess
@@ -52,8 +51,6 @@ class InlineMermaidExtension(Extension):
 
 
 class InlineMermaidPreprocessor(Preprocessor):
-
-    def _generate_svg(self, content):
 
     def run(self, lines):
         """Match and generate mermaid code blocks."""
