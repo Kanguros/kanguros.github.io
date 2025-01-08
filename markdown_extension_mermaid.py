@@ -17,7 +17,6 @@ Inspired by cesaremorel/markdown-inline-graphviz (http://github.com/cesaremorel/
 """
 
 import base64
-import logging
 import re
 import shutil
 import subprocess
@@ -37,7 +36,12 @@ puppeteer_config_content = """{
 }
 """
 
-logger = logging.getLogger('MARKDOWN')
+
+def find_mmdc():
+    exec_path = shutil.which("mmdc")
+    if exec_path is not None:
+        return Path(exec_path)
+    raise ValueError(f"Unable to get path to 'mmdc' executable.")
 
 
 class InlineMermaidExtension(Extension):
@@ -49,79 +53,75 @@ class InlineMermaidExtension(Extension):
 
 class InlineMermaidPreprocessor(Preprocessor):
 
-    def _find_mmdc(self):
-        exec_path = shutil.which("mmdc")
-        if exec_path is not None:
-            return Path(exec_path)
-        raise ValueError(f"Unable to get path to 'mmdc' executable.")
-
     def run(self, lines):
         """Match and generate mermaid code blocks."""
+
+        mmdc = find_mmdc()
 
         text = "\n".join(lines)
         while 1:
             m = BLOCK_RE.search(text)
-            if not m:
-                break
-            content = m.group("content")
+            if m:
+                content = m.group("content")
 
-            with tempfile.TemporaryDirectory() as tmp:
-                tmp_dir = Path(tmp)
-                tmp_svg_path = tmp_dir / "out.svg"
+                with tempfile.TemporaryDirectory() as tmp:
+                    tmp_dir = Path(tmp)
+                    tmp_svg_path = tmp_dir / "out.svg"
 
-                puppeteer_config = tmp_dir / "puppeteer-config.json"
-                with puppeteer_config.open("w+") as f:
-                    f.write(puppeteer_config_content)
+                    puppeteer_config = tmp_dir / "puppeteer-config.json"
+                    with puppeteer_config.open("w+") as f:
+                        f.write(puppeteer_config_content)
 
-                mmdc = self._find_mmdc()
-                args = [str(mmdc), "-p", str(puppeteer_config), "-o", str(tmp_svg_path)]
+                    args = [str(mmdc), "-p", str(puppeteer_config), "-o", str(tmp_svg_path)]
 
-                try:
-                    res = subprocess.run(
-                        args,
-                        input=content,
-                        capture_output=True,
-                        text=True,
-                        check=True,
-                    )
-                except Exception as e:
-                    return (
-                        "<pre>Failed to invoke mmdc command</pre>"
-                        f"<pre>Error : {str(e)} </pre>"
-                        f"<pre>Type : {str(e.__class__)}</pre>"
-                        f"<pre>Args : {str(args)}</pre>"
-                        f"<pre>{content}</pre>"
-                    ).split("\n")
-
-                try:
-                    if not tmp_svg_path.is_file():
+                    try:
+                        res = subprocess.run(
+                            args,
+                            input=content,
+                            capture_output=True,
+                            text=True,
+                            check=True,
+                        )
+                    except Exception as e:
                         return (
-                            "<pre>Error : Image not created</pre>"
-                            f"<pre>Args :{str(args)}</pre>"
-                            f"<pre>stdout : {res.stdout} </pre>"
-                            f"<pre>stderr : {res.stderr}</pre>"
-                            f"<pre>graph code : {content}</pre>"
+                            "<pre>Failed to invoke mmdc command</pre>"
+                            f"<pre>Error : {str(e)} </pre>"
+                            f"<pre>Type : {str(e.__class__)}</pre>"
+                            f"<pre>Args : {str(args)}</pre>"
+                            f"<pre>{content}</pre>"
                         ).split("\n")
 
-                    with tmp_svg_path.open("rb") as f:
-                        encoded_image_content = base64.b64encode(f.read()).decode(
-                            "utf-8"
-                        )
-                        img = f'<img src="data:image/svg+xml;base64,{encoded_image_content}">'
+                    try:
+                        if not tmp_svg_path.is_file():
+                            return (
+                                "<pre>Error : Image not created</pre>"
+                                f"<pre>Args :{str(args)}</pre>"
+                                f"<pre>stdout : {res.stdout} </pre>"
+                                f"<pre>stderr : {res.stderr}</pre>"
+                                f"<pre>graph code : {content}</pre>"
+                            ).split("\n")
 
-                        text = "{}\n{}\n{}".format(
-                            text[: m.start()],
-                            self.md.htmlStash.store(img),
-                            text[m.end():],
-                        )
+                        with tmp_svg_path.open("rb") as f:
+                            encoded_image_content = base64.b64encode(f.read()).decode(
+                                "utf-8"
+                            )
+                            img = f'<img src="data:image/svg+xml;base64,{encoded_image_content}">'
 
-                except Exception as e:
-                    return (
-                        f"<pre>Error : {str(e)} </pre>"
-                        f"<pre>Type : {str(e.__class__)} </pre>"
-                        f"<pre>Args : {str(args)} </pre>"
-                        f"<pre>{content}</pre>"
-                    ).split("\n")
+                            text = "{}\n{}\n{}".format(
+                                text[: m.start()],
+                                self.md.htmlStash.store(img),
+                                text[m.end():],
+                            )
+
+                    except Exception as e:
+                        return (
+                            f"<pre>Error : {str(e)} </pre>"
+                            f"<pre>Type : {str(e.__class__)} </pre>"
+                            f"<pre>Args : {str(args)} </pre>"
+                            f"<pre>{content}</pre>"
+                        ).split("\n")
+            else:
+                break
 
         return text.split("\n")
 
