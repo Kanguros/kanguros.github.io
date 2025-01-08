@@ -125,7 +125,7 @@ FOOTER_LINKS = [
 MARKDOWN = {
     'extension_configs': {
         'markdown.extensions.extra': {},
-        'markdown.extensions.attr_list': {},
+        # 'markdown.extensions.attr_list': {},
         'markdown.extensions.admonition': {},
         'markdown.extensions.codehilite': {
             'css_class': 'highlight'
