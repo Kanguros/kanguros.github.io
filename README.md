@@ -3,6 +3,7 @@
 My personal blog with all of its content.
 Build and deployed using `pelican` library, with adjusted theme `Clean Blog`.
 
+[_TOC_]
 ## Prerequisits
 
 - Python
@@ -90,3 +91,5 @@ Category: [TOFILL]
 - https://docs.getpelican.com/en/latest/ - Pelican documentation.
 - https://github.com/peaceiris/actions-gh-pages - GitHub Action for deploying static website.
 - https://github.com/BlackrockDigital/startbootstrap-clean-blog - Clean Blog theme.
+
+
