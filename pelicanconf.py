@@ -59,6 +59,7 @@ DIRECT_TEMPLATES = [
     'tags',
     'under_construction',
     'privates',
+    # 'posts'
 ]
 
 DEFAULT_PAGINATION = 5
@@ -67,7 +68,9 @@ PAGINATED_TEMPLATES = {
     'tag': None,
 }
 
-TEMPLATE_PAGES = {'privates.html': 'private/index.html'}
+TEMPLATE_PAGES = {
+    'privates.html': 'private/index.html'
+}
 
 STATIC_PATHS = [
     'images',
@@ -80,7 +83,7 @@ EXTRA_PATH_METADATA = {
     'extra/.nojekyll': {'path': '.nojekyll'},
 }
 
-INDEX_SAVE_AS = 'index.html'
+INDEX_SAVE_AS = 'post/index.html'
 ARCHIVES_SAVE_AS = 'archive.html'
 ABOUT_URL = "about.html"
 
@@ -115,7 +118,7 @@ GIT_LINK = "https://github.com/Kanguros/"
 NAV_LINKS = [
     ('Tags', TAGS_SAVE_AS, 'tags'),
     ('About', ABOUT_URL, 'file-person'),
-    ('Git', GIT_LINK, 'github'),
+    # ('Git', GIT_LINK, 'github'),
 ]
 
 FOOTER_LINKS = [

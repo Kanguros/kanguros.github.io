@@ -115,9 +115,7 @@
     <hr class="section-line">
     <p class="footer-links mt-3 mb-1">
         {% for title, link, icon in FOOTER_LINKS %}
-        {% if icon == "github" %}
-        {% set nav_url = link %}
-        {% elif not link %}
+        {% if not link %}
         {% set nav_url = SITEURL %}
         {% else %}
         {% set nav_url = SITEURL + "/" + link %}
@@ -128,6 +126,13 @@
            aria-label="{{ title }}"
         >{{ title }}</a>
         {% endfor %}
+    </p>
+    <p>
+        <a href="{{ GIT_LINK }}"
+           class="px-2 gitlink"
+           title="Github"
+           aria-label="Github link"
+        ><i class="bi bi-github"></i></a>
     </p>
     <p class="copyright">
         &copy; Made by

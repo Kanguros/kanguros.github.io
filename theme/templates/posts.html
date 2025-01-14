@@ -1,12 +1,18 @@
 {% from 'macros.j2' import main_post, page_header %}
 {% extends "base.html" %}
 
-{% block header %}
+{% block title %}
+{{ SITENAME }} - Posts
+{% endblock %}
 
+{% block header %}
+{{ page_header("Posts", INDEX_SAVE_AS, " ", with_hr=True) }}
 {% endblock header %}
 
 
 {% block content %}
+
+{% include "pagination.html" %}
 
 {% for article in articles_page.object_list %}
 {{ main_post(article) }}
