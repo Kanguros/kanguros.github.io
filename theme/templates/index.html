@@ -6,13 +6,11 @@
 {% endblock %}
 
 {% block header %}
-{{ page_header("Posts", INDEX_SAVE_AS, " ", with_hr=True) }}
+{{ page_header("Posts", POSTS_URL, " ", with_hr=True) }}
 {% endblock header %}
 
 
 {% block content %}
-
-{% include "pagination.html" %}
 
 {% for article in articles_page.object_list %}
 {{ main_post(article) }}

@@ -73,7 +73,7 @@
 {% macro tags_list(article) %}
 <div class="tags meta-element">
     {% for t in article.tags %}
-    <a href="{{ SITEURL }}/tag/{{ t }}.html"
+    <a href="{{ SITEURL }}/tag/{{ t }}/index.html"
        rel="bookmark"
        title="Posts with #{{ t }} tag"
        aria-label="Posts with #{{ t }} tag"

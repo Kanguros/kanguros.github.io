@@ -2,9 +2,8 @@
 {% extends "base.html" %}
 
 {% block header %}
-
-{% if output_file == 'index.html' %}
 <div class="article-heading big-heading">
+    {{ page.content }}
     <div class="d-flex flex-wrap flex-lg-nowrap justify-content-evenly mt-5 mb-5">
         <a href="{{ SITEURL }}/{{ ABOUT_URL }}"
            class="btn btn-secondary btn-darker btn-heading"
@@ -21,8 +20,6 @@
     </div>
 </div>
 <hr class="post-line">
-{% endif %}
-
 {% endblock header %}
 
 
@@ -34,10 +31,6 @@
 {% for article in articles|slice(3) %}
 {{ main_post(article) }}
 {% endfor %}
-
-<!--<h2 class="subheading">-->
-<!--    Latest posts-->
-<!--</h2>-->
 
 
 {% endblock content %}
