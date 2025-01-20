@@ -159,7 +159,7 @@ MARKDOWN = {
         },
         "pymdownx.magiclink": {},
         # "pymdownx.saneheaders": {},
-        "markdown_extension_mermaid": {},
+        # "markdown_extension_mermaid": {},
     },
     "output_format": "html5"
 }
