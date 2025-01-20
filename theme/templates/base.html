@@ -69,16 +69,15 @@
 <body class="{{ body_class }} d-flex flex-column vh-100">
 <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
     <nav class="navbar container align-items-center px-2 mt-2 mb-1">
-        <a class="brand" href="{{ SITEURL }}">
-            {{ SITENAME }}
+        <a class="brand"
+           href="{{ SITEURL }}"
+           title="{{ SITENAME }}"
+           aria-label="{{ SITENAME }}">
+            {{ SVG_HOME_K }}
         </a>
         <ul class="nav">
             {% for title, link, icon in NAV_LINKS if title != 'Index' %}
-            {% if icon == "github" %}
-            {% set nav_url = link %}
-            {% else %}
             {% set nav_url = SITEURL + "/" + link %}
-            {% endif %}
             <li class="nav-item">
                 <a class="btn-navigation my-2 float-end nav-link"
                    href="{{ nav_url }}"
