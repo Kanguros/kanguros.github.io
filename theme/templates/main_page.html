@@ -11,12 +11,12 @@
            aria-label="About"
         >{{ SVG_PERSON }} About
         </a>
-        <a href="{{ SITEURL }}/{{ POSTS_URL }}"
-           class="btn btn-secondary btn-darker btn-heading"
-           title="All posts"
-           aria-label="All posts"
-        >{{ SVG_POST }} Posts
-        </a>
+        <!--        <a href="{{ SITEURL }}/{{ POSTS_URL }}"-->
+        <!--           class="btn btn-secondary btn-darker btn-heading"-->
+        <!--           title="All posts"-->
+        <!--           aria-label="All posts"-->
+        <!--        >{{ SVG_POST }} Posts-->
+        <!--        </a>-->
         <a href="{{ GIT_LINK }}"
            class="btn btn-secondary btn-darker btn-heading"
            title="My GitHub"
@@ -32,8 +32,15 @@
 {% block content %}
 <div class="d-flex justify-content-between align-self-center align-items-center margin-y">
     <h2>
-        <a href="#latest-posts" class="toclink">Latest posts</a></h2>
-    <small><a href="{{ SITEURL }}/{{ POSTS_URL }}">All posts</a></small>
+        <a href="#latest-posts" class="toclink">Latest posts</a>
+    </h2>
+    <small>
+        <a href="{{ SITEURL }}/{{ POSTS_URL }}" class="btn btn-secondary btn-darker btn-smaller nobr"
+           title="All posts"
+           aria-label="All posts"
+        >All posts {{ SVG_ARROW_RIGHT }}
+        </a>
+    </small>
 
 </div>
 

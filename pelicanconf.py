@@ -165,8 +165,7 @@ MARKDOWN = {
 }
 
 SVG_HOME_K = """
-<svg width="40" height="40" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 8px;">
-    <!-- Outer border -->
+<svg width="35" height="35" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; margin-right: 8px;">
     <rect x="5" y="5" width="90" height="90" rx="15" fill="var(--main-font-color)" stroke="#404040" stroke-width="4"></rect>
     <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="70" fill="#fff" text-anchor="middle" alignment-baseline="central">K</text>
   </svg>

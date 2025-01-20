@@ -8,7 +8,7 @@
     </h3>
 
     <div class="d-flex justify-content-start meta-element margin-y">
-        <span>{{ SVG_CALENDAR }}</span> {{ article.locale_date }}
+        <small>{{ SVG_CALENDAR }} {{ article.locale_date }}</small>
     </div>
 
     <p class="article-summary">
@@ -38,7 +38,7 @@
     </h3>
 
     <div class="d-flex justify-content-start meta-element margin-y">
-        {{ SVG_CALENDAR }} {{ article.locale_date }}
+        <small>{{ SVG_CALENDAR }} {{ article.locale_date }}</small>
     </div>
 
     <p class="article-summary">
@@ -53,12 +53,6 @@
     </div>
     <hr class="post-line">
 </div>
-
-{% endmacro %}
-
-
-{% macro meta_elements(article) %}
-
 
 {% endmacro %}
 
