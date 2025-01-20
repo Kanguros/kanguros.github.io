@@ -49,7 +49,7 @@
   --button-radius: 0.15rem;
 }
 .btn-heading {
-  font-size: calc(1rem + 0.5vw);
+  font-size: calc(1.2rem + 0.5vw);
   border-radius: 3px;
 }
 a.btn-smaller {
@@ -106,16 +106,25 @@ h6 {
 }
 
 h2 {
-  font-size: calc(1.325rem + 1.5vw);
+  font-size: 1.8rem;
 }
+
+h3 {
+  font-size: 1.6rem;
+}
+
 a {
   text-decoration: underline;
   color: var(--main-font-color);
+  text-decoration-thickness: 0.01rem;
+  text-decoration-color: var(--main-font-color);
 }
 a:hover,
 a:focus {
   text-decoration: underline;
+  text-decoration-thickness: 0.1rem;
   color: var(--main-font-color);
+  text-decoration-color: #2b2727;
 }
 a img:hover,
 a img:focus {
@@ -188,7 +197,7 @@ pre code {
 }
 .article-heading,
 .heading {
-  margin: 1.4rem 0 2.5rem;
+  margin: 1.4rem 0 1rem;
   line-height: 1.1;
 }
 .intro-header .subheading,
@@ -263,7 +272,7 @@ pre code {
 }
 .post-preview {
   line-height: 15px;
-  margin-top: 2em;
+  margin-top: 1em;
   margin-bottom: 2em;
 }
 .post-preview > a {
@@ -423,7 +432,7 @@ hr.little {
   opacity: 0.15;
 }
 hr.post-line {
-  margin: 1.5em auto 0.5em;
+  margin: 0.5em auto 0.5em;
   opacity: 0.15;
 }
 hr.section-line {
@@ -516,7 +525,7 @@ footer .copyright {
 
 .big-heading h1 {
   font-size: 2.4rem;
-  margin: 1.5rem auto 1.5rem;
+  margin: 2rem auto 1.5rem;
 }
 h1.big-title {
   text-decoration: underline;

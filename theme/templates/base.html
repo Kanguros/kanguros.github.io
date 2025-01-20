@@ -79,7 +79,7 @@
             {% for title, link, icon in NAV_LINKS if title != 'Index' %}
             {% set nav_url = SITEURL + "/" + link %}
             <li class="nav-item">
-                <a class="btn-navigation my-2 float-end nav-link"
+                <a class="btn-navigation float-end nav-link"
                    href="{{ nav_url }}"
                    title="{{ title }}"
                    aria-label="{{ title }}"
@@ -131,7 +131,7 @@
            class="px-2 gitlink"
            title="Github"
            aria-label="Github link"
-        >{{ SVG_GITHUB }}</a>
+        >{{ SVG_GITHUB_BIGGER }}</a>
     </p>
     <p class="copyright">
         &copy; Made by

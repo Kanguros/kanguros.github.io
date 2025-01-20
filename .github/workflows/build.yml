@@ -10,19 +10,31 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Install Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.8
       - name: Checkout master branch
         id: checkout-master
         uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - name: Install dependencies
+        run: |
+          npm install
+      - name: Install Mermaid CLI
+        run: npm install -g @mermaid-js/mermaid-cli
+
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
       - name: Install poetry
         run: |
           pip install -v poetry
       - name: Install site dependencies
         run: |
           poetry install -vv
+
       - name: Generate site
         id: run-pelican
         run: |
@@ -36,6 +48,7 @@ jobs:
           publish_dir: ./output
           user_name: 'deploy-bot'
           user_email: 'deploy-bot@noreply.github.io'
+
       - name: Notice
         if: ${{ success() }}
         run: |
