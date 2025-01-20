@@ -49,7 +49,8 @@
   --button-radius: 0.15rem;
 }
 .btn-heading {
-  --bs-btn-font-size: 1.3rem;
+
+  font-size: calc(1rem + 0.5vw);
   border-radius: 3px;
 }
 a.btn-smaller {
@@ -103,6 +104,10 @@ h6 {
   font-family: var(--main-font);
   color: var(--main-font-color);
   font-weight: 500;
+}
+
+h2 {
+  font-size: calc(1.325rem + 1.5vw);
 }
 a {
   text-decoration: underline;
@@ -213,7 +218,7 @@ pre code {
   font-size: 70px;
 }
 .article-heading h1 {
-  font-size: 2.6rem;
+  font-size: 2.2rem;
   margin-top: 0;
   margin-bottom: 0;
   overflow-wrap: break-word;
@@ -254,6 +259,9 @@ pre code {
     font-size: 30px;
   }
 }
+.post-title > a {
+  text-decoration: none;
+}
 .post-preview {
   line-height: 15px;
   margin-top: 2em;
@@ -267,15 +275,7 @@ pre code {
 .post-preview > a:focus {
   text-decoration: underline;
 }
-a > .post-title {
-  font-size: 1.7em;
-  font-weight: 500;
-}
-@media only screen and (min-width: 768px) {
-  a > .post-title {
-    font-size: 2.2em;
-  }
-}
+
 .post-preview > a > .post-subtitle {
   margin: 0;
   font-weight: 300;
@@ -473,8 +473,11 @@ footer .copyright a,
 footer .copyright {
   font-size: 13px !important;
   padding-bottom: 1rem;
-  padding-top: 0.5rem;
   color: var(--very-light-color);
+}
+
+.gitlink {
+  font-size: 1.5rem;
 }
 .pagination-bar {
   margin: 3.2rem 0;
@@ -510,6 +513,11 @@ footer .copyright {
   margin: 0.2em 0.2em;
   padding: 0.1em 0.1em;
   border-radius: 3px;
+}
+
+.big-heading h1 {
+font-size: 2.4rem;
+margin: 1.5rem auto 1.5rem;
 }
 h1.big-title {
   text-decoration: underline;
@@ -586,7 +594,7 @@ h1.big-title {
 }
 @media only screen and (min-width: 768px) {
   .btn-navigation {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 .margin-y {

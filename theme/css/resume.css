@@ -2,6 +2,7 @@
   --line-color: #d1d1d1;
   --bullet-color: #737373;
   --icon-color: #abaaaa;
+  --text-color: #595050;
 }
 
 .resume .padding-less {
@@ -15,7 +16,14 @@
 .resume article > h2,
 h3,
 h4 {
-  margin: 1rem auto 0.5rem;
+  margin: 0.5rem auto 0.5rem;
+  color: var(--text-color);
+}
+
+article h1,
+article h2,
+article h3 {
+  margin: 1rem auto 1rem;
 }
 
 .contacts a {
@@ -35,7 +43,6 @@ h4 {
   font-family: var(--title-font);
   font-weight: 600;
   text-align: left;
-  color: #595050;
 }
 
 .resume h2 {
