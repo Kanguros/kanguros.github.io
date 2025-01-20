@@ -9,28 +9,49 @@
            class="btn btn-secondary btn-darker btn-heading"
            title="About"
            aria-label="About"
-        ><i class="bi bi-file-person"></i> About
+        >{{ SVG_PERSON }} About
+        </a>
+        <a href="{{ SITEURL }}/{{ POSTS_URL }}"
+           class="btn btn-secondary btn-darker btn-heading"
+           title="All posts"
+           aria-label="All posts"
+        >{{ SVG_POST }} Posts
         </a>
         <a href="{{ GIT_LINK }}"
            class="btn btn-secondary btn-darker btn-heading"
            title="My GitHub"
            aria-label="My GitHub"
-        ><i class="bi bi-github"></i> GitHub
+        >{{ SVG_GITHUB }} GitHub
         </a>
     </div>
 </div>
-<hr class="post-line">
+
 {% endblock header %}
 
 
 {% block content %}
-<h2 class="subheading">
-    Latest posts
-</h2>
+<div class="d-flex justify-content-between align-self-center align-items-center margin-y">
+    <h2>
+        <a href="#latest-posts" class="toclink">Latest posts</a></h2>
+    <small><a href="{{ SITEURL }}/{{ POSTS_URL }}">All posts</a></small>
 
-{% for article in articles|slice(3) %}
+</div>
+
+<hr class="post-line">
+
+{% for article in articles[:INDEX_POSTS_COUNT] %}
 {{ main_post(article) }}
 {% endfor %}
 
+<!--<h2>Tags</h2>-->
+<!--<hr class="post-line">-->
+
+<!--{% for tag, articles in tags[:INDEX_TAGS_COUNT]|sort %}-->
+<!--<h3 class="btn btn-outline-secondary">-->
+<!--    <a href="{{ SITEURL }}/{{ tag.url }}" rel="bookmark" title="{{ tag }}">-->
+<!--        {{ tag }}-->
+<!--    </a>-->
+<!--</h3>-->
+<!--{% endfor %}-->
 
 {% endblock content %}

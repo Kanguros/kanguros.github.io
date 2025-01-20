@@ -1,17 +1,14 @@
 {% macro main_post(article) %}
 
 <div class="post-preview">
-    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
-        <h2 class="post-title">
+    <h3 class="post-title">
+        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
             {{ article.title }}
-        </h2>
-    </a>
+        </a>
+    </h3>
+
     <div class="d-flex justify-content-start meta-element margin-y">
-        <i class="bi bi-calendar"></i> {{ article.locale_date }}
-        {% if article.readtime_string %}
-        <i class="bi bi-dot"></i>
-        <i class="bi bi-book"></i> {{ article.readtime_string }}
-        {% endif %}
+        <span>{{ SVG_CALENDAR }}</span> {{ article.locale_date }}
     </div>
 
     <p class="article-summary">
@@ -34,13 +31,14 @@
 {% macro private_post(article) %}
 
 <div class="post-preview">
-    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
-        <h2 class="post-title">
+    <h3 class="post-title">
+        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
             {{ article.title }}
-        </h2>
-    </a>
+        </a>
+    </h3>
+
     <div class="d-flex justify-content-start meta-element margin-y">
-        <i class="bi bi-calendar"></i> {{ article.locale_date }}
+        {{ SVG_CALENDAR }} {{ article.locale_date }}
     </div>
 
     <p class="article-summary">
@@ -61,11 +59,6 @@
 
 {% macro meta_elements(article) %}
 
-<i class="bi bi-calendar"></i> {{ article.locale_date }}
-{% if article.readtime_string %}
-<i class="bi bi-dot"></i>
-<i class="bi bi-book"></i> {{ article.readtime_string }}
-{% endif %}
 
 {% endmacro %}
 

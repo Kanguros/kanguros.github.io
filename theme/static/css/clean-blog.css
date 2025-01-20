@@ -104,6 +104,10 @@ h6 {
   color: var(--main-font-color);
   font-weight: 500;
 }
+
+h2 {
+  font-size: calc(1.525rem + 0.9vw);
+}
 a {
   text-decoration: underline;
   color: var(--main-font-color);
@@ -213,7 +217,7 @@ pre code {
   font-size: 70px;
 }
 .article-heading h1 {
-  font-size: 2.6rem;
+  font-size: 2.2rem;
   margin-top: 0;
   margin-bottom: 0;
   overflow-wrap: break-word;
@@ -254,6 +258,9 @@ pre code {
     font-size: 30px;
   }
 }
+.post-title > a {
+  text-decoration: none;
+}
 .post-preview {
   line-height: 15px;
   margin-top: 2em;
@@ -267,15 +274,7 @@ pre code {
 .post-preview > a:focus {
   text-decoration: underline;
 }
-a > .post-title {
-  font-size: 1.7em;
-  font-weight: 500;
-}
-@media only screen and (min-width: 768px) {
-  a > .post-title {
-    font-size: 2.2em;
-  }
-}
+
 .post-preview > a > .post-subtitle {
   margin: 0;
   font-weight: 300;
@@ -589,7 +588,7 @@ h1.big-title {
 }
 @media only screen and (min-width: 768px) {
   .btn-navigation {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 }
 .margin-y {

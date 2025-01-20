@@ -12,6 +12,8 @@
 
 {% block content %}
 
+{% include "pagination.html" %}
+
 {% for article in articles_page.object_list %}
 {{ main_post(article) }}
 {% endfor %}
