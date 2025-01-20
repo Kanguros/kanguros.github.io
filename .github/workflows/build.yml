@@ -30,7 +30,7 @@ jobs:
           pip install -v poetry
       - name: Install site dependencies
         run: |
-          poetry install -vv
+          poetry install -vv --no-root
 
       - name: Generate site
         id: run-pelican
