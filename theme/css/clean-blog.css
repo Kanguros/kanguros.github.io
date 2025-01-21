@@ -272,7 +272,7 @@ pre code {
 }
 .post-preview {
   line-height: 15px;
-  margin-top: 1em;
+  margin-top: 2em;
   margin-bottom: 2em;
 }
 .post-preview > a {
@@ -442,6 +442,7 @@ hr.section-line {
 hr.nav-line {
   opacity: 0.5;
   margin: 0;
+  border-top: 1.5px solid;
 }
 .main-line {
   color: black;
