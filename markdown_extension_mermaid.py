@@ -58,72 +58,74 @@ class InlineMermaidPreprocessor(Preprocessor):
         mmdc = find_mmdc()
 
         text = "\n".join(lines)
-        while 1:
+        while True:
             m = BLOCK_RE.search(text)
-            if m:
-                content = m.group("content")
-
-                with tempfile.TemporaryDirectory() as tmp:
-                    tmp_dir = Path(tmp)
-                    tmp_svg_path = tmp_dir / "out.svg"
-
-                    puppeteer_config = tmp_dir / "puppeteer-config.json"
-                    with puppeteer_config.open("w+") as f:
-                        f.write(puppeteer_config_content)
-
-                    args = [str(mmdc), "-p", str(puppeteer_config), "-o", str(tmp_svg_path)]
-
-                    try:
-                        res = subprocess.run(
-                            args,
-                            input=content,
-                            capture_output=True,
-                            text=True,
-                            check=True,
-                        )
-                    except Exception as e:
-                        return (
-                            "<pre>Failed to invoke mmdc command</pre>"
-                            f"<pre>Error : {str(e)} </pre>"
-                            f"<pre>Type : {str(e.__class__)}</pre>"
-                            f"<pre>Args : {str(args)}</pre>"
-                            f"<pre>{content}</pre>"
-                        ).split("\n")
-
-                    try:
-                        if not tmp_svg_path.is_file():
-                            return (
-                                "<pre>Error : Image not created</pre>"
-                                f"<pre>Args :{str(args)}</pre>"
-                                f"<pre>stdout : {res.stdout} </pre>"
-                                f"<pre>stderr : {res.stderr}</pre>"
-                                f"<pre>graph code : {content}</pre>"
-                            ).split("\n")
-
-                        # with tmp_svg_path.open("rb") as fb:
-                        #     svg_bytes_content = fb.read()
-                        #     encoded_image_content = base64.b64encode(svg_bytes_content).decode("utf-8")
-                        #     img_tag = f'<img src="data:image/svg+xml;base64,{encoded_image_content}">'
-
-                        with tmp_svg_path.open("r") as f:
-                            svg_content = f.read()
-
-                        text = "{}\n{}\n{}".format(
-                            text[: m.start()],
-                            # self.md.htmlStash.store(img_tag),
-                            self.md.htmlStash.store(svg_content),
-                            text[m.end():],
-                        )
-
-                    except Exception as e:
-                        return (
-                            f"<pre>Error : {str(e)} </pre>"
-                            f"<pre>Type : {str(e.__class__)} </pre>"
-                            f"<pre>Args : {str(args)} </pre>"
-                            f"<pre>{content}</pre>"
-                        ).split("\n")
-            else:
+            if not m:
                 break
+
+            content = m.group("content")
+
+            with tempfile.TemporaryDirectory() as tmp:
+                tmp_dir = Path(tmp)
+                tmp_svg_path = tmp_dir / "out.svg"
+
+                puppeteer_config = tmp_dir / "puppeteer-config.json"
+                with puppeteer_config.open("w+") as f:
+                    f.write(puppeteer_config_content)
+
+                args = [str(mmdc),
+                        "--theme", "neutral",
+                        "--backgroundColor", "transparent",
+                        "-p", str(puppeteer_config),
+                        "-o", str(tmp_svg_path)
+                        ]
+
+                try:
+                    res = subprocess.run(
+                        args,
+                        input=content,
+                        capture_output=True,
+                        text=True,
+                        check=True,
+                    )
+                except Exception as e:
+                    return (
+                        "<pre>Failed to invoke mmdc command</pre>"
+                        f"<pre>Error : {str(e)} </pre>"
+                        f"<pre>Type : {str(e.__class__)}</pre>"
+                        f"<pre>Args : {str(args)}</pre>"
+                        f"<pre>{content}</pre>"
+                    ).split("\n")
+
+                if not tmp_svg_path.is_file():
+                    return (
+                        "<pre>Error : Image not created</pre>"
+                        f"<pre>Args :{str(args)}</pre>"
+                        f"<pre>stdout : {res.stdout} </pre>"
+                        f"<pre>stderr : {res.stderr}</pre>"
+                        f"<pre>graph code : {content}</pre>"
+                    ).split("\n")
+
+                # with tmp_svg_path.open("rb") as fb:
+                #     svg_bytes_content = fb.read()
+                #     encoded_image_content = base64.b64encode(svg_bytes_content).decode("utf-8")
+                #     img_tag = f'<img src="data:image/svg+xml;base64,{encoded_image_content}">'
+
+                with tmp_svg_path.open("r") as f:
+                    svg_content = f.read()
+                if not svg_content:
+                    return (
+                        f"<pre>Error : Content of a {tmp_svg_path} is empty</pre>"
+                        f"<pre>Args : {str(args)} </pre>"
+                        f"<pre>{content}</pre>"
+                    ).split("\n")
+
+                text = "{}\n{}\n{}".format(
+                    text[: m.start()],
+                    # self.md.htmlStash.store(img_tag),
+                    self.md.htmlStash.store(svg_content),
+                    text[m.end():],
+                )
 
         return text.split("\n")
 
