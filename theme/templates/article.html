@@ -49,11 +49,11 @@
 
 {% block header %}
 <div class="article-heading">
-    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
-        <h1>
-            {{ article.title|striptags|breaking_spaces }}
-        </h1>
-    </a>
+    <h1>
+        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}"
+        >{{ article.title|striptags|breaking_spaces }}</a>
+    </h1>
+
     {% if article.headline %}
     <h2 class="subheading">
         {{ article.headline }}

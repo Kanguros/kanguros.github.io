@@ -5,11 +5,6 @@
 {{ SITENAME }} - Posts
 {% endblock %}
 
-{% block header %}
-{{ page_header("Posts", POSTS_URL, " ", with_hr=True) }}
-{% endblock header %}
-
-
 {% block content %}
 
 {% for article in articles_page.object_list %}

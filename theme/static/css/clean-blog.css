@@ -114,21 +114,25 @@ h3 {
 }
 
 a {
-  text-decoration: underline;
   color: var(--main-font-color);
-  text-decoration-thickness: 0.01rem;
-  text-decoration-color: var(--main-font-color);
+  text-decoration-thickness: 1px;
 }
 a:hover,
 a:focus {
-  text-decoration: underline;
-  text-decoration-thickness: 0.1rem;
   color: var(--main-font-color);
+  text-decoration: underline;
+  text-decoration-thickness: 1.3px;
   text-decoration-color: #2b2727;
 }
+
 a img:hover,
 a img:focus {
   cursor: zoom-in;
+}
+
+a.btn:hover,
+a.btn:focus {
+  text-decoration: none;
 }
 blockquote {
   color: #808080;
@@ -228,7 +232,7 @@ pre code {
 .article-heading h1 {
   font-size: 2.2rem;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
   overflow-wrap: break-word;
   word-wrap: break-word;
   -ms-word-break: break-all;
@@ -249,10 +253,13 @@ pre code {
   font-size: 38px;
   text-decoration: underline;
 }
+
+.intro-header .heading h1 > a {
+  text-decoration: none;
+}
 @media only screen and (min-width: 768px) {
   .intro-header .heading h1 {
     font-size: 55px;
-    margin: 90px auto;
     font-weight: 300;
   }
   .intro-header .main-heading h1 {
@@ -305,7 +312,7 @@ pre code {
   font-size: 1.1rem;
   font-weight: 300;
   text-decoration: none;
-  margin: 1.2rem 0;
+  margin: 0 0 1.2rem;
 }
 .meta-element {
   color: var(--fading-color) !important;
@@ -384,8 +391,8 @@ article {
   margin-bottom: 5rem;
 }
 article hr {
-  max-width: 20%;
-  margin: 1em auto;
+  max-width: 40%;
+  margin: 1.4em auto;
   opacity: 0.15;
 }
 article + hr {
@@ -442,7 +449,7 @@ hr.section-line {
 hr.nav-line {
   opacity: 0.5;
   margin: 0;
-  border-top: 1.5px solid;
+  border-top: 1px solid;
 }
 .main-line {
   color: black;
@@ -561,12 +568,18 @@ h1.big-title {
   margin-right: inherit;
   margin-left: initial;
 }
-.brand {
+a.brand {
   font-size: 1.3rem;
   text-decoration: none;
   font-weight: 300;
   margin-left: 0.3rem;
 }
+
+a.brand > svg {
+  height: 2.2rem;
+  width: 2.2rem;
+}
+
 .git-icon {
   font-size: 1.6rem;
 }

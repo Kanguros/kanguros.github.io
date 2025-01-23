@@ -2,8 +2,8 @@
 title: Resume
 date: 01/06/2023
 template: resume
-save_as: resume.html
-category: resume
+save_as: cv/index.html
+url: cv
 name: Kamil Urbanek
 label: DevOps Engineer
 
