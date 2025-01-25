@@ -7,6 +7,6 @@ Template: main_page
 
 Welcome to my digital notepad.
 
-Space where I share my notes and thoughts
-on **programming**, **pipelines**, **automation**,
+Space where I share my thoughts and notes
+on [**#python**]({tag}python), [**#pipeline**]({tag}pipeline), automation,
 and an array of other, yet to be discovered, fancy stuff.

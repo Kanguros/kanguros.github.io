@@ -76,9 +76,10 @@ STATIC_PATHS = [
     # "slides",
 
 ]
+FAVICON = "favicon.ico"
 EXTRA_PATH_METADATA = {
     "extra/.nojekyll": {"path": ".nojekyll"},
-    "extra/favicon.ico": {"path": "favicon.ico"},
+    f"extra/{FAVICON}": {"path": FAVICON},
 }
 
 INDEX_SAVE_AS = POSTS_SAVE_AS = "posts/index.html"
@@ -167,8 +168,8 @@ MARKDOWN = {
 SVG_HOME_K = """
 <svg viewBox="0 0 100 100" width="100" height="auto" xmlns="http://www.w3.org/2000/svg"
      style="vertical-align: middle;">
-  <rect x="3" y="3" width="94" height="94" rx="20" fill="#f5f5f5" stroke="#404040" stroke-width="5"></rect>
-  <text x="50" y="50" font-family="Arial, sans-serif" font-size="80" fill="rgb(64, 64, 64)" text-anchor="middle" alignment-baseline="central" style="font-size: 80px; fill: rgb(64, 64, 64);">K
+  <rect x="3" y="3" width="94" height="94" rx="20" fill="rgb(64, 64, 64)" stroke="#404040" stroke-width="5"></rect>
+  <text x="50" y="50" font-family="Arial, sans-serif" font-size="80" fill="#fff" text-anchor="middle" alignment-baseline="central">K
     </text>
 </svg>
 """

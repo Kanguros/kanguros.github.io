@@ -2,6 +2,7 @@
 Title: Markdown in Pelican
 Date: 2023-06-15
 Status: draft
+Summary: Examples of Markdown syntax and its rendered output.
 ---
 
 Examples of Markdown formatting available in Pelican.
