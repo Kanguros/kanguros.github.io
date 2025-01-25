@@ -6,15 +6,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://kanguros.github.io/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/404.html</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
-<changefreq>monthly</changefreq>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -27,7 +27,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://kanguros.github.io/archive/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -36,6 +36,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <loc>https://kanguros.github.io/cv/</loc>
 <lastmod>2023-01-06T00:00:00+01:00</lastmod>
 <changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://kanguros.github.io/error.html</loc>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
+<changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -118,147 +125,140 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://kanguros.github.io/posts/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/posts/2/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/posts/3/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/private.html</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/private/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/tag/ai/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://kanguros.github.io/tag/azure-devops/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/tag/click/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/tag/markdown/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/tag/pacli/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/tag/pelican/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/tag/personal/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>https://kanguros.github.io/tag/pipelines/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<loc>https://kanguros.github.io/tag/pipeline/</loc>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/tag/prompts/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/tag/pwv/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/tag/pytest/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/tag/python/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/tag/requests/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/tag/webdev/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/tags/</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://kanguros.github.io/under_construction.html</loc>
-<lastmod>2025-01-25T16:46:49-00:00</lastmod>
+<lastmod>2025-01-25T19:32:33-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
