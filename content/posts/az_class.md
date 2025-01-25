@@ -1,6 +1,6 @@
 Title: Azure Devops Class
 Date: 2023-09-01
-Tags: azure-devops, python  
+Tags: pipeline, python  
 Summary: Short wrapper for Azure Devops API. Based on `azure-core`.
 
 Here you will find a Python utility class, `AzureDevOps`, to streamline Azure DevOps interactions. The class makes it

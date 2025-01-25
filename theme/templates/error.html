@@ -1,0 +1,17 @@
+{% from 'macros.j2' import page_header %}
+{% extends "base.html" %}
+
+{% block title %}
+Not found - {{ SITENAME }}
+{% endblock title %}
+
+{% block header %}
+<div class="heading d-flex flex-wrap align-items-baseline justify-content-between">
+    <h1 class="my-3 me-5">
+        {{ SVG_X_ERROR }}Not found
+    </h1>
+    <h2>
+        The content you were trying to reach does not exist.
+    </h2>
+</div>
+{% endblock header %}

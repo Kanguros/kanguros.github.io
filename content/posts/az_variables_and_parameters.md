@@ -1,7 +1,6 @@
 Title: Variables and parameters in Azure Pipeline  
 Date: 2023-07-15  
-Tags: pipelines  
-Category: Article  
+Tags: pipeline
 Summary: Short and brief information about **variables** and **parameters** in **Azure Pipeline**.
 
 ## Variables
