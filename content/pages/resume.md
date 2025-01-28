@@ -9,13 +9,12 @@ label: DevOps Engineer
 
 phone: 518-755-XXX
 location: "Katowice, PL"
-icons:
-  - name: kanguros
-    url: https://kanguros.github.io/
-    bi: github
-  - name: urbanek.kamil<i class="bi bi-at"></i>gmail.com
-    url: "mailto:urbanek.kamil@gmail.com"
-    bi: envelope-at-fill
+email:
+  label: "urbanek.kamil at gmail.com"
+  href: "mailto:urbanek.kamil@gmail.com"
+github:
+  label: kanguros
+  href: https://kanguros.github.io/
 skills:
   - name: Python
     keywords:

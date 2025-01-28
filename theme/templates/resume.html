@@ -10,12 +10,12 @@
 <div class="article-heading d-flex flex-wrap align-items-center justify-content-between">
     <h1 class="flex-grow">{{ page.name }}</h1>
     <div class="contacts d-flex flex-row flex-md-column pe-2">
-        {% for icon in page.icons %}
-        <a class="py-1 pe-3" href="{{ icon.url }}">
-            <i class="bi bi-{{ icon.bi }}"></i>
-            {{ icon.name }}
+        <a class="py-1 pe-3" href="{{ github.href }}">
+            {{ github.label }}
         </a>
-        {% endfor %}
+        <a class="py-1 pe-3" href="{{ email.href }}">
+            {{ email.label }}
+        </a>
     </div>
 </div>
 {% endblock header %}

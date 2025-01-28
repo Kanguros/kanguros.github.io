@@ -80,7 +80,7 @@ STATIC_PATHS = [
 FAVICON = "favicon.ico"
 EXTRA_PATH_METADATA = {
     "extra/.nojekyll": {"path": ".nojekyll"},
-    f"extra/{FAVICON}": {"path": FAVICON},
+    f"extra/favicon.ico": {"path": "favicon.ico"},
 }
 
 INDEX_SAVE_AS = POSTS_SAVE_AS = "posts/index.html"
