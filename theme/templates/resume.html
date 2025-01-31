@@ -10,11 +10,11 @@
 <div class="article-heading d-flex flex-wrap align-items-center justify-content-between">
     <h1 class="flex-grow">{{ page.name }}</h1>
     <div class="contacts d-flex flex-row flex-md-column pe-2">
-        <a class="py-1 pe-3" href="{{ github.href }}">
-            {{ github.label }}
+        <a class="py-1 pe-3" href="{{ page.github.href }}">
+            {{ SVG_GITHUB_BIGGER }} {{ page.github.label }}
         </a>
-        <a class="py-1 pe-3" href="{{ email.href }}">
-            {{ email.label }}
+        <a class="py-1 pe-3" href="{{ page.email.href }}">
+            {{ SVG_EMAIL }} {{ page.email.label }}
         </a>
     </div>
 </div>

@@ -7,6 +7,7 @@ from pelicanconf import *
 SITEURL = "https://kanguros.github.io"
 RELATIVE_URLS = False
 PLUGINS = PLUGINS + ['sitemap']
+GOOGLE_ANALYTICS = True
 
 # Plugin - minify
 CSS_MIN = True
