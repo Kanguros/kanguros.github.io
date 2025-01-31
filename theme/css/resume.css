@@ -32,6 +32,10 @@ article h3 {
   font-size: 1rem;
 }
 
+.contacts a > svg {
+  width: 0.9em;
+}
+
 .resume h4 {
   font-family: var(--title-font);
   font-weight: 500;
@@ -74,8 +78,7 @@ article h3 {
 }
 
 .resume ul.carret-list > li::marker {
-  content: "\f231";
-  font-family: "bootstrap-icons";
+  content: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(89,80,80)" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg>');
   color: var(--bullet-color);
   font-size: 1rem;
 }
@@ -90,8 +93,7 @@ article h3 {
 }
 
 .resume ul.bullet-list > li::marker {
-  content: "\F309";
-  font-family: "bootstrap-icons";
+  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(89,80,80)" viewBox="0 0 16 16"><path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/></svg>');
   color: var(--bullet-color);
   font-size: 1rem;
 }
