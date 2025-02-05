@@ -40,7 +40,7 @@ def find_mmdc():
     exec_path = shutil.which("mmdc")
     if exec_path is not None:
         return Path(exec_path)
-    raise ValueError(f"Unable to get path to 'mmdc' executable.")
+    raise ValueError(f"Unable to get path to Mermaid CLI 'mmdc' executable.")
 
 
 class InlineMermaidExtension(Extension):
