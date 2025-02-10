@@ -1,8 +1,8 @@
-
-Title: Lab  
-Date: 2024-02-08
-Status: draft
-
+---
+title: Lab  
+date: 2024-02-08
+status: draft
+---
 
 | Badanie | Parametr | Wynik | Jednostka | L | H | Norma |
 |---------|---------|-------|----------|---|---|-------|
