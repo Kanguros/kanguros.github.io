@@ -2,6 +2,7 @@
 title: Lab  
 date: 2024-02-08
 status: draft
+summary: Lab
 ---
 
 | Badanie | Parametr | Wynik | Jednostka | L | H | Norma |
