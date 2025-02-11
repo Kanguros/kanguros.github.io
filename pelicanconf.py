@@ -150,7 +150,6 @@ MARKDOWN = {
             "permalink": "false",
             "anchorlink": "true",
             "toc_depth": 3,
-            "title": "Content"
         },
         "pymdownx.progressbar": {},
         "pymdownx.blocks.tab": {},
@@ -159,7 +158,6 @@ MARKDOWN = {
             "base_path": "content"
         },
         "pymdownx.magiclink": {},
-        # "pymdownx.saneheaders": {},
         "markdown_extension.inline_mermaid": {},
     },
     "output_format": "html5"
