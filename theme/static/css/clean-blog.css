@@ -421,6 +421,13 @@ article h3 {
 }
 article table {
   width: 100%;
+  overflow-x: auto;
+  display: block;
+}
+
+article table td,
+article table th {
+  padding: 1px 0.4rem;
 }
 .section {
   margin-top: 4rem;
