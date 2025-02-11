@@ -5,24 +5,30 @@ status: draft
 summary: Babcia
 ---
 
+[TOC]
+
 ## 28.12.2024
 
-## Leki
+Do czasu pójscia na Murcki.
 
-| Lek                           | Dawkowanie | Uwagi    |
-| ----------------------------- | ---------- | -------- |
-| Feroplex 40 mg                | 2xtyg      |          |
-| Euthyrox N 75 µg              | 1-0-0      | Na czczo |
-| Kalium 600 mg                 | 1-0-0      |          |
-| Pradaxa 110 mg                | 1-0-1      |          |
-| Siofor 850 mg                 | ½-½-½      |          |
-| Bisoratio 5 mg                | 1-0-0      |          |
-| Spironol 25 mg                | 1-0-0      |          |
-| Captopril HCT 16 mg + 12,5 mg | 1-0-0      |          |
-| Atrovesterol 20 mg            | 0-0-1      |          |
-| Magne B6 forte                | 1-0-0      |          |
+### Leki
+
+| Lek                           | Dawkowanie | Uwagi                   |
+| ----------------------------- | ---------- | ----------------------- |
+| Feroplex 40 mg                | 2xtyg      |                         |
+| Euthyrox N 75 µg              | 1-0-0      | Na czczo                |
+| Kalium 600 mg                 | 1-0-0      |                         |
+| Pradaxa 110 mg                | 1-0-1      |                         |
+| Siofor 850 mg                 | ½-½-½      |                         |
+| Bisoratio 5 mg                | 1-0-0      |                         |
+| Spironol 25 mg                | 1-0-0      |                         |
+| Captopril HCT 16 mg + 12,5 mg | 1-0-0      |                         |
+| Atrox 20 mg                   | 0-0-1      | Zamiennik: Atrovesterol |
+| Magne B6                      | 1-0-0      |                         |
 
 ## 04.01.2025
+
+Po wyjściu z Murcek.
 
 ### Leki
 
@@ -33,7 +39,7 @@ summary: Babcia
 | Atrox 20 mg          | 0-0-1      |                           |
 | Pradaxa 110 mg       | 1-0-0      |                           |
 | Spironol 25 mg       | 0-1-0      |                           |
-| Feroplex             | 0-1-0      |                           |
+| Feroplex 40 mg       | 0-1-0      |                           |
 | Siofor 500 mg        | 1-1-1      |                           |
 | Prestarium 5 mg      | 0-0-1      |                           |
 | Metocard ZK 100      | 1-0-0      |                           |
@@ -43,18 +49,20 @@ summary: Babcia
 
 ## 02.02.2025
 
+Po konsultacjach z kardiologiem.
+
 ### Leki
 
 | Lek                  | Dawkowanie     | Uwagi                     |
 | -------------------- | -------------- | ------------------------- |
-| Euthyrox 70/100      | 1-0-0          | Na czczo                  |
+| Euthyrox 70/100 µg   | 1-0-0          | Na czczo                  |
 | IPP 40 mg            | 1-0-0          | Przed śniadaniem          |
 | Atrox 20 mg          | 0-0-1          |                           |
 | Pradaxa 110 mg       | 1-0-1          |                           |
 | Siofor 500 mg        | 1-1-0          | + dobranie                |
 | Carzap HCT 16,5/12,5 | 1-0-0          |                           |
-| Metocard             | ½-0-0 co 2 dni |                           |
-| Feroplex             | 2xtyg          |                           |
+| Metocard ZK          | ½-0-0 co 2 dni |                           |
+| Feroplex 40 mg       | 2xtyg          |                           |
 | Magne B6             | 0-0-1          |                           |
 | Digoxin 100 mg       | 0-1-0          |                           |
 | Kalium 600 mg        | 0-1-0 co 2 dni |                           |
@@ -62,18 +70,20 @@ summary: Babcia
 
 ## 10.02.2025
 
+Po wizycie geriatry.
+
 ### Leki
 
 | Lek                  | Dawkowanie     | Uwagi                     |
 | -------------------- | -------------- | ------------------------- |
-| Euthyrox 75          | 1-0-0          | Na czczo                  |
+| Euthyrox 75 µg       | 1-0-0          | Na czczo                  |
 | IPP 40 mg            | 1-0-0          | Przed śniadaniem          |
 | Atrox 20 mg          | 0-0-1          |                           |
 | Pradaxa 110 mg       | 1-0-1          |                           |
 | Siofor 500 mg        | 1-1-0          | + dobranie                |
 | Carzap HCT 16,5/12,5 | ½-0-0          |                           |
 | Lacpil 2mg           | 0-(½ lub 1)-0  |                           |
-| Feroplex             | 2xtyg          |                           |
+| Feroplex 40 mg       | 2xtyg          |                           |
 | Magne B6             | 0-0-1          |                           |
 | Digoxin 100 mg       | 0-1-0          |                           |
 | Kalium 600 mg        | 0-1-0 co 2 dni |                           |
