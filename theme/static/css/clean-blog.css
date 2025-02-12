@@ -423,11 +423,18 @@ article table {
   width: 100%;
   overflow-x: auto;
   display: block;
+  white-space: nowrap;
 }
 
 article table td,
 article table th {
-  padding: 1px 0.4rem;
+  padding: 2px 0.3rem;
+}
+
+article table td + td {
+  border-left-color: inherit;
+  border-left-style: solid;
+  border-left-width: 1px;
 }
 .section {
   margin-top: 4rem;
@@ -442,7 +449,7 @@ a.toclink:focus {
   font-weight: unset;
 }
 article tr {
-  border-bottom: var(--fading-color) solid 1px;
+  border-bottom: var(--fading-color) solid 2px;
 }
 hr.little {
   max-width: 20%;
