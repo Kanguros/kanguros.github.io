@@ -1,3 +1,5 @@
+SITENAME = "Kamil's Scratchpad"
+SITENAME_BRAND = "KS"
 URL = "http://localhost"
 PORT = "8080"
 SITEURL = f"{URL}:{PORT}"
@@ -7,11 +9,10 @@ TIMEZONE = "Europe/Warsaw"
 AUTHOR = "Kamil Urbanek"
 DEFAULT_LANG = "en"
 DEFAULT_DATE_FORMAT = "%Y-%m-%d"
-
-# Paths and other files
+THEME_STATIC_DIR = THEME = "theme"
+COLOR_SCHEME_CSS = "darkly.css"
 PATH = "content"
 OUTPUT_PATH = "_output/"
-
 # Plugins
 PLUGINS = [
     "yaml_metadata",
@@ -22,10 +23,22 @@ PLUGINS = [
     # "sitemap",  In publishconf.py
     # "minify",  In publishconf.py
 ]
-
+# Plugin - sitemap
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.6,
+        'indexes': 0.5,
+        'pages': 0.4
+    },
+    'changefreqs': {
+        'articles': 'weekly',
+        'indexes': 'weekly',
+        'pages': 'monthly'
+    }
+}
 # Plugin - readtime
 LANG_SETTINGS = 120
-
 # Plugin - similarposts
 SIMILAR_POSTS_ENABLED = False
 SIMILAR_POSTS_MAX_COUNT = 3
@@ -37,13 +50,7 @@ SIMILAR_POSTS_MIN_SCORE = 0.0001
 # INLINE_CSS_MIN = True
 # INLINE_JS_MIN = False
 
-SITENAME = "Kamil's Scratchpad"
-SITENAME_BRAND = "KS"
-
-THEME_STATIC_DIR = THEME = "theme"
-COLOR_SCHEME_CSS = "darkly.css"
 SUMMARY_END_SUFFIX = ""
-# TYPOGRIFY = False
 TYPOGRIFY = True
 TYPOGRIFY_IGNORE_TAGS = ["pre", "code", "svg", "img", "style"]
 
@@ -72,13 +79,16 @@ STATIC_PATHS = [
     "code",
     "extra/.nojekyll",
     "extra/favicon.ico",
+    "extra/robots.txt"
     # "slides",
 
 ]
 FAVICON = "favicon.ico"
 EXTRA_PATH_METADATA = {
     "extra/.nojekyll": {"path": ".nojekyll"},
-    f"extra/favicon.ico": {"path": "favicon.ico"},
+    "extra/favicon.ico": {"path": "favicon.ico"},
+    'extra/robots.txt': {'path': '/robots.txt'}
+
 }
 
 INDEX_SAVE_AS = POSTS_SAVE_AS = "posts/index.html"
