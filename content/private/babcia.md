@@ -11,6 +11,19 @@ summary: Układ chronologiczny od najnowyszych u góry do najstarszych na dole.
 
 Po wizycie geriatry.
 
+### Choroby przewlekłe 
+
+- Niewydolność serca z łagodnie zmniejszoną frakcją wyrzutową (EF 45%)
+- Migotanie przedsionków o nieznanym czasie trwania
+- Niedomykalność mitralna małego stopnia
+- Nadciśnienie tętnicze
+- Miażdżyca uogólniona
+- Cukrzyca typu 2
+- Niedokrwistość
+- Niedoczynność tarczycy
+- Stan po cholecystektomii
+- Zmiany zwyrodnieniowo-wytwórcze kręgosłupa
+
 ### Leki
 
 | Lek                  | Dawkowanie     | Uwagi                                       |
@@ -32,6 +45,8 @@ Po wizycie geriatry.
 | Telfexo              | doraźnie       | Na świąd                                    |
 
 ### Badania
+
+#### Krew 
 
 | Badanie                              | Wynik       | Min   | Max   | Jednostka          |
 | ------------------------------------ | ----------- | ----- | ----- | ------------------ |
@@ -117,6 +132,62 @@ Po wizycie geriatry.
 | Próby wątrobowe GGTP                 | 21,1        | 0     | 38    | U/l                |
 | AFP                                  | 2,32        | 0,89  | 8,78  | ng/ml              |
 | Ferrytyna                            | 261,5       | 4,63  | 204   | ng/ml              |
+
+#### Gastroskopia diagnostyczna z testem ureazowym 
+
+- Przełyk nieregularny, prawidłowy.
+- Linia Z uniesiona, z pojedynczą językowatą wypustką.
+- Wpust w osi, z inwersją z cechami niewielkiej nieszczelności.
+- Żołądek podatny na insuflację, treść śluzowa w żołądku.
+- Dno i okolica wpustu prawidłowe.
+- Ściana trzonu prawidłowa.
+- Okolica Antrum śluzówka zaczerwieniona.
+- Odźwiernik zaczerwieniony.
+- Opuszka dwunastnicy prawidłowa.
+- Część pozaopuszkowa prawidłowa.
+- Pobrano wycinek na test ureazowy – wynik ujemny.
+
+#### USG - Jamy brzusznej i przestrzeni zaotrzewnej
+
+- Wątroba niepowiększona, o dość jednorodnej strukturze echa.
+- Stan po cholecystektomii.
+- PŻW wielkości 8 mm.
+- Prawa nerka prawidłowej wielkości, obrysów, bez zastoju moczu.
+- Lewa nerka prawidłowej wielkości, obrysów, bez zastoju moczu.
+- Śledziona niepowiększona.
+- Trzustka w uwidocznionym zakresie niepowiększona o jednorodnej strukturze echa.
+- Aorta brzuszna nieposzerzona, ze zwapnieniami.
+- Pęcherz moczowy pusty (cewnik nie został oceniony).
+
+#### Echokardiografia
+
+- LVOT (ujście aortalne): 17 mm
+- Opuszka aorty: 32 mm
+- Rozwarcie płatków: 13 mm
+- Aorta wstępująca: 34 mm
+- Lewy przedsionek A-P: 43 mm, Area 20,5 cm²
+- Prawy przedsionek: Area 19,6 cm²
+- Grubość przegrody: 11 mm
+- Grubość ściany tylnej: 10 mm
+- EDD: 41 mm
+- Kurczliwość lewej komory: upośledzenie kurczliwości w części podstawnej i ściany bocznej.
+
+Wnioski:
+
+- Niemiarowość w trakcie badania.
+- Upośledzenie funkcji skurczowej lewej komory.
+- Upośledzenie kurczliwości w części podstawnej i ściany bocznej.
+- Powiększenie obu przedsionków.
+- Niedomykalność mitralna małego stopnia.
+
+#### RTG - Klp. rutynowe
+
+- Pola płucne bez zagęszczeń ogniskowych.
+- Sylwetka serca bez powiększenia, aorta wydłużona z blaszką miażdżycową w łuku.
+- Kąty przeponowo-żebrowe wolne.
+- Zmiany zwyrodnieniowo-wytwórcze kręgosłupa.
+
+
 
 ## 02.02.2025
 
