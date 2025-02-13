@@ -87,7 +87,7 @@ FAVICON = "favicon.ico"
 EXTRA_PATH_METADATA = {
     "extra/.nojekyll": {"path": ".nojekyll"},
     "extra/favicon.ico": {"path": "favicon.ico"},
-    'extra/robots.txt': {'path': '/robots.txt'}
+    'extra/robots.txt': {'path': 'robots.txt'}
 
 }
 

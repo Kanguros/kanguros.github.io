@@ -1,4 +1,7 @@
 User-agent: *
 Disallow: /private/
+Disallow: /404.html
+Disallow: /error.html
+Disallow: /under_construction.html
 
 Sitemap: https://kanguros.github.io/sitemap.xml
