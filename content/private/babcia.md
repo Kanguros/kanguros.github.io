@@ -2,29 +2,72 @@
 title: Babcia
 date: 2025-02-10
 status: draft
-summary: Układ chronologiczny od najnowyszych u góry do najstarszych na dole.
+summary: Aktualne informacje o stanie zdrowia babci.
 ---
 
 [TOC]
 
 ## Aktualnie
 
-Po wizycie geriatry.
+### Objawy
 
-### Choroby przewlekłe 
-
-- Niewydolność serca z łagodnie zmniejszoną frakcją wyrzutową (EF 45%)
-- Migotanie przedsionków o nieznanym czasie trwania
-- Niedomykalność mitralna małego stopnia
-- Nadciśnienie tętnicze
-- Miażdżyca uogólniona
-- Cukrzyca typu 2
-- Niedokrwistość
-- Niedoczynność tarczycy
-- Stan po cholecystektomii
-- Zmiany zwyrodnieniowo-wytwórcze kręgosłupa
+- Wyraźna poprawa w zachowaniu. Coraz mniej mylenia czy halucynacje. 
+- Brak wybudzeń w nocy.
+- Apetyt dalej wątpliwy.
 
 ### Leki
+
+| Lek                  | Dawkowanie     | Uwagi                                       |
+| -------------------- | -------------- | ------------------------------------------- |
+| Euthyrox N 75 µg     | 1-0-0          | Na czczo                                    |
+| IPP 40 mg            | 1-0-0          | Przed śniadaniem                            |
+| Atrox 20 mg          | 0-0-1          |                                             |
+| Pradaxa 110 mg       | 1-0-1          |                                             |
+| Siofor 500 mg        | 1-1-0          | + dobranie                                  |
+| Carzap HCT 16,5/12,5 | ½-0-0          |                                             |
+| Lacipil 2mg          | 0-½-0  | Dawka zależna od potrzeb i skoków ciśnienia |
+| Memantin 10mg        | ½-0-0          |                                             |
+| Asentra 5mg          | ½-0-0          |                                             |
+| Feroplex 40 mg       | 2xtyg          |                                             |
+| Magne B6             | 0-0-1          |                                             |
+| Digoxin 100 mg       | 0-1-0          |                                             |
+| Kalium 600 mg        | 0-1-0 co 2 dni |                                             |
+| Gaviscon syrop 10 ml | 1-0-1          | Po śniadaniu i przed snem                   |
+| Telfexo              | doraźnie       | Na świąd                                    |
+| Rapacholin C         | doraźnie       | Na zaparcia                                 |
+
+---
+
+Układ chronologiczny od najnowyszych u góry do najstarszych na dole.
+
+## 10.02.2025
+
+### Objawy
+
+- Splątanie, dezorientacja, zagubienie. 
+	- Mylenie przeszłości z teraźniejszością.
+	- Mylenie osób.
+	- Halucynacje, przewidzenia.
+- Bol w lewym boku brzucha, poniżej żeber.
+- Brak apetytu.
+- Uporczywe odbijanie i niestrawnosc po jedzeniu.
+- Blada skóra.
+- Zatwardzenia.
+
+### Opinia geriatry
+
+- Ból w lewym boku może sugerować powiększoną śledzione.
+- Powiększona śledziona, przekroczone normy eozynofili, brak apetytu może sugerować obecność pasożyta. 
+- Objawy demencji mogą być skutkiem
+	- wachania ciśnienia, 
+	- leków,
+	- degeneracji mózgu.
+- Dla poprawy pracy mózgu: Memantine
+- Dla aktywizacji i poprawy samopoczucia: Asentra
+
+### Leki
+
+Po wizycie geriatry.
 
 | Lek                  | Dawkowanie     | Uwagi                                       |
 | -------------------- | -------------- | ------------------------------------------- |
@@ -43,10 +86,115 @@ Po wizycie geriatry.
 | Kalium 600 mg        | 0-1-0 co 2 dni |                                             |
 | Gaviscon syrop 10 ml | 1-0-1          | Po śniadaniu i przed snem                   |
 | Telfexo              | doraźnie       | Na świąd                                    |
+| Rapacholin C         | doraźnie       | Na zaparcia                                 |
 
-### Badania
 
-#### Krew 
+## 02.02.2025
+
+### Leki
+
+Po konsultacjach z kardiologiem.
+
+| Lek                  | Dawkowanie     | Uwagi                     |
+| -------------------- | -------------- | ------------------------- |
+| Euthyrox N 70/100 µg | 1-0-0          | Na czczo                  |
+| IPP 40 mg            | 1-0-0          | Przed śniadaniem          |
+| Atrox 20 mg          | 0-0-1          |                           |
+| Pradaxa 110 mg       | 1-0-1          |                           |
+| Siofor 500 mg        | 1-1-0          | + dobranie                |
+| Carzap HCT 16,5/12,5 | 1-0-0          |                           |
+| Metocard ZK 100      | ½-0-0 co 2 dni |                           |
+| Feroplex 40 mg       | 2xtyg          |                           |
+| Magne B6             | 0-0-1          |                           |
+| Digoxin 100 mg       | 0-1-0          |                           |
+| Kalium 600 mg        | 0-1-0 co 2 dni |                           |
+| Gaviscon 10 ml       | 1-0-1          | Po posiłkach i przed snem |
+
+
+## 14.01.2025
+
+### Leki
+
+Po wizycie geriatry.
+
+| Lek               | Dawkowanie | Uwagi                     |
+| ----------------- | ---------- | ------------------------- |
+| Euthyrox N 100 µg | 1-0-0      | Na czczo                  |
+| IPP 40 mg         | 1-0-0      | Przed śniadaniem          |
+| Atrox 20 mg       | 0-0-1      |                           |
+| Vessel Due F      | 1-0-1      | W miejsce Pradaxa 110 mg  |
+| Spironol 25 mg    | 0-1-0      |                           |
+| Siofor 500 mg     | 1-1-0      |                           |
+| Prestarium 5 mg   | 1-0-½      |                           |
+| Peritol 5 mg      | 0-0-½      | Na apetyt                 |
+| Metocard ZK 100   | ½-0-0      |                           |
+| Digoxin 100 mg    | 0-1-0      |                           |
+| Famogast          | 0-0-1      |                           |
+| Gaviscon 10 ml    | 1-1-1-1    | Po posiłkach i przed snem |
+| Cetix 400 mg      | Co 12h     | Przez 5 dni               |
+| Enterol           | 0-1-0      | Przez 10 dni              |
+
+
+## 04.01.2025
+
+### Leki
+
+Po wyjściu z Murcek.
+
+| Lek               | Dawkowanie | Uwagi                     |
+| ----------------- | ---------- | ------------------------- |
+| Euthyrox N 100 µg | 1-0-0      | Na czczo                  |
+| IPP 40 mg         | 1-0-0      | Przed śniadaniem          |
+| Atrox 20 mg       | 0-0-1      |                           |
+| Pradaxa 110 mg    | 1-0-0      |                           |
+| Spironol 25 mg    | 0-1-0      |                           |
+| Feroplex 40 mg    | 0-1-0      |                           |
+| Siofor 500 mg     | 1-1-1      |                           |
+| Prestarium 5 mg   | 0-0-1      |                           |
+| Metocard ZK 100   | 1-0-0      |                           |
+| Digoxin 100 mg    | 1-0-0      |                           |
+| Magne B6          | 1-1-1      |                           |
+| Gaviscon 10 ml    | 1-1-1-1    | Po posiłkach i przed snem |
+
+
+## 28.12.2024
+
+### Leki
+
+Do czasu pójscia na Murcki.
+
+| Lek                           | Dawkowanie | Uwagi                   |
+| ----------------------------- | ---------- | ----------------------- |
+| Feroplex 40 mg                | 2xtyg      |                         |
+| Euthyrox N 75 µg              | 1-0-0      | Na czczo                |
+| Kalium 600 mg                 | 1-0-0      |                         |
+| Pradaxa 110 mg                | 1-0-1      |                         |
+| Siofor 850 mg                 | ½-½-½      |                         |
+| Bisoratio 5 mg                | 1-0-0      |                         |
+| Spironol 25 mg                | 1-0-0      |                         |
+| Captopril HCT 16 mg + 12,5 mg | 1-0-0      |                         |
+| Atrox 20 mg                   | 0-0-1      | Zamiennik: Atrovesterol |
+| Magne B6                      | 1-0-0      |                         |
+
+---
+
+## Choroby przewlekłe 
+
+- Niewydolność serca z łagodnie zmniejszoną frakcją wyrzutową (EF 45%)
+- Migotanie przedsionków o nieznanym czasie trwania
+- Niedomykalność mitralna małego stopnia
+- Nadciśnienie tętnicze
+- Miażdżyca uogólniona
+- Cukrzyca typu 2
+- Niedokrwistość
+- Niedoczynność tarczycy
+- Stan po cholecystektomii
+- Zmiany zwyrodnieniowo-wytwórcze kręgosłupa
+
+
+## Badania
+
+### Krew - 08.02.2025
 
 | Badanie                              | Wynik       | Min   | Max   | Jednostka          |
 | ------------------------------------ | ----------- | ----- | ----- | ------------------ |
@@ -59,7 +207,7 @@ Po wizycie geriatry.
 | MCHC                                 | 33,2        | 32,2  | 35,5  | g/dl               |
 | Płytki krwi                          | 335         | 125,3 | 396,2 | tys/µl             |
 | RDW-SD                               | 46,7        | 36,4  | 46,3  | fl                 |
-| RDW-CV                               | 13,1        | 11,7  | 14,4  | %                  |
+| RDW-CV                               | 13,1        | 11,7  | 14,4  | %       |
 | PDW                                  | 15,3        | 9,8   | 16,2  | fl                 |
 | MPV                                  | 11,8        | 9,4   | 12,5  | fl                 |
 | P-LCR                                | 40,8        | 19,1  | 46,6  | %                  |
@@ -101,23 +249,6 @@ Po wizycie geriatry.
 | anty-TPO                             | <3,00       | 0     | 5,61  | IU/ml              |
 | anty-TG                              | <3,00       | 0     | 4,11  | IU/ml              |
 | TRAb                                 | <0,70       | 0     | 1,99  | IU/l               |
-| Mocz - Przejrzystość                 | lekko mętny | -     | -     | -                  |
-| Mocz - Barwa                         | słomkowy    | -     | -     | -                  |
-| Mocz - Ciężar właściwy               | 1,01        | 1,003 | 1,03  | g/ml               |
-| Mocz - pH                            | <=5,0       | 5     | 7,5   | -                  |
-| Mocz - Glukoza                       | nieobecna   | -     | -     | mg/dl              |
-| Mocz - Ketony                        | nieobecne   | -     | -     | mg/dl              |
-| Mocz - Urobilinogen                  | w normie    | -     | -     | -                  |
-| Mocz - Bilirubina                    | nieobecna   | -     | -     | -                  |
-| Mocz - Białko                        | nieobecne   | -     | -     | mg/dl              |
-| Mocz - Azotyny                       | nieobecne   | -     | -     | -                  |
-| Mocz - Erytrocyty                    | nie wykryto | -     | -     | -                  |
-| Mocz - Leukocyty                     | wykryto     | -     | -     | -                  |
-| Osad moczu - Nabłonki płaskie        | dość liczne | -     | -     | -                  |
-| Osad moczu - Leukocyty               | 21          | 0     | 8     | wpw                |
-| Osad moczu - Erytrocyty świeże       | 1           | 0     | 3     | wpw                |
-| Osad moczu - Bakterie                | nieliczne   | -     | -     | -                  |
-| Osad moczu - Wałeczki szkliste       | nieliczne   | -     | -     | -                  |
 | Fibrynogen                           | 408,2       | 170   | 420   | mg/dl              |
 | Dehydrogenaza mleczanowa LDH         | 216         | 125   | 220   | U/l                |
 | Elektrolity - Sód                    | 140,86      | 136   | 145   | mmol/l             |
@@ -133,7 +264,31 @@ Po wizycie geriatry.
 | AFP                                  | 2,32        | 0,89  | 8,78  | ng/ml              |
 | Ferrytyna                            | 261,5       | 4,63  | 204   | ng/ml              |
 
-#### Gastroskopia diagnostyczna z testem ureazowym 
+
+### Mocz - 08.02.2025
+
+| Badanie                              | Wynik       | Min   | Max   | Jednostka          |
+| ------------------------------------ | ----------- | ----- | ----- | ------------------ |
+| Przejrzystość                 | lekko mętny | -     | -     | -                  |
+| Barwa                         | słomkowy    | -     | -     | -                  |
+| Ciężar właściwy               | 1,01        | 1,003 | 1,03  | g/ml               |
+| pH                            | <=5,0       | 5     | 7,5   | -                  |
+| Glukoza                       | nieobecna   | -     | -     | mg/dl              |
+| Ketony                        | nieobecne   | -     | -     | mg/dl              |
+| Urobilinogen                  | w normie    | -     | -     | -                  |
+| Bilirubina                    | nieobecna   | -     | -     | -                  |
+| Białko                        | nieobecne   | -     | -     | mg/dl              |
+| Azotyny                       | nieobecne   | -     | -     | -                  |
+| Erytrocyty                    | nie wykryto | -     | -     | -                  |
+| Leukocyty                     | wykryto     | -     | -     | -                  |
+| Osad - Nabłonki płaskie        | dość liczne | -     | -     | -                  |
+| Osad - Leukocyty               | 21          | 0     | 8     | wpw                |
+| Osad - Erytrocyty świeże       | 1           | 0     | 3     | wpw                |
+| Osad - Bakterie                | nieliczne   | -     | -     | -                  |
+| Osad - Wałeczki szkliste       | nieliczne   | -     | -     | -                  |
+
+
+### Gastroskopia diagnostyczna z testem ureazowym - 05.01.2025
 
 - Przełyk nieregularny, prawidłowy.
 - Linia Z uniesiona, z pojedynczą językowatą wypustką.
@@ -147,7 +302,8 @@ Po wizycie geriatry.
 - Część pozaopuszkowa prawidłowa.
 - Pobrano wycinek na test ureazowy – wynik ujemny.
 
-#### USG - Jamy brzusznej i przestrzeni zaotrzewnej
+
+### USG - Jamy brzusznej i przestrzeni zaotrzewnej - 05.01.2025
 
 - Wątroba niepowiększona, o dość jednorodnej strukturze echa.
 - Stan po cholecystektomii.
@@ -159,7 +315,8 @@ Po wizycie geriatry.
 - Aorta brzuszna nieposzerzona, ze zwapnieniami.
 - Pęcherz moczowy pusty (cewnik nie został oceniony).
 
-#### Echokardiografia
+
+### Echokardiografia - 05.01.2025
 
 - LVOT (ujście aortalne): 17 mm
 - Opuszka aorty: 32 mm
@@ -180,95 +337,10 @@ Wnioski:
 - Powiększenie obu przedsionków.
 - Niedomykalność mitralna małego stopnia.
 
-#### RTG - Klp. rutynowe
+
+### RTG klatki piersiowej rutynowe - 05.01.2025
 
 - Pola płucne bez zagęszczeń ogniskowych.
 - Sylwetka serca bez powiększenia, aorta wydłużona z blaszką miażdżycową w łuku.
 - Kąty przeponowo-żebrowe wolne.
 - Zmiany zwyrodnieniowo-wytwórcze kręgosłupa.
-
-
-
-## 02.02.2025
-
-Po konsultacjach z kardiologiem.
-
-### Leki
-
-| Lek                  | Dawkowanie     | Uwagi                     |
-| -------------------- | -------------- | ------------------------- |
-| Euthyrox N 70/100 µg | 1-0-0          | Na czczo                  |
-| IPP 40 mg            | 1-0-0          | Przed śniadaniem          |
-| Atrox 20 mg          | 0-0-1          |                           |
-| Pradaxa 110 mg       | 1-0-1          |                           |
-| Siofor 500 mg        | 1-1-0          | + dobranie                |
-| Carzap HCT 16,5/12,5 | 1-0-0          |                           |
-| Metocard ZK 100      | ½-0-0 co 2 dni |                           |
-| Feroplex 40 mg       | 2xtyg          |                           |
-| Magne B6             | 0-0-1          |                           |
-| Digoxin 100 mg       | 0-1-0          |                           |
-| Kalium 600 mg        | 0-1-0 co 2 dni |                           |
-| Gaviscon 10 ml       | 1-0-1          | Po posiłkach i przed snem |
-
-## 14.01.2025
-
-Po wizycie geriatry.
-
-### Leki
-
-| Lek               | Dawkowanie | Uwagi                     |
-| ----------------- | ---------- | ------------------------- |
-| Euthyrox N 100 µg | 1-0-0      | Na czczo                  |
-| IPP 40 mg         | 1-0-0      | Przed śniadaniem          |
-| Atrox 20 mg       | 0-0-1      |                           |
-| Vessel Due F      | 1-0-1      | W miejsce Pradaxa 110 mg  |
-| Spironol 25 mg    | 0-1-0      |                           |
-| Siofor 500 mg     | 1-1-0      |                           |
-| Prestarium 5 mg   | 1-0-½      |                           |
-| Peritol 5 mg      | 0-0-½      | Na apetyt                 |
-| Metocard ZK 100   | ½-0-0      |                           |
-| Digoxin 100 mg    | 0-1-0      |                           |
-| Famogast          | 0-0-1      |                           |
-| Gaviscon 10 ml    | 1-1-1-1    | Po posiłkach i przed snem |
-| Cetix 400 mg      | Co 12h     | Przez 5 dni               |
-| Enterol           | 0-1-0      | Przez 10 dni              |
-
-## 04.01.2025
-
-Po wyjściu z Murcek.
-
-### Leki
-
-| Lek               | Dawkowanie | Uwagi                     |
-| ----------------- | ---------- | ------------------------- |
-| Euthyrox N 100 µg | 1-0-0      | Na czczo                  |
-| IPP 40 mg         | 1-0-0      | Przed śniadaniem          |
-| Atrox 20 mg       | 0-0-1      |                           |
-| Pradaxa 110 mg    | 1-0-0      |                           |
-| Spironol 25 mg    | 0-1-0      |                           |
-| Feroplex 40 mg    | 0-1-0      |                           |
-| Siofor 500 mg     | 1-1-1      |                           |
-| Prestarium 5 mg   | 0-0-1      |                           |
-| Metocard ZK 100   | 1-0-0      |                           |
-| Digoxin 100 mg    | 1-0-0      |                           |
-| Magne B6          | 1-1-1      |                           |
-| Gaviscon 10 ml    | 1-1-1-1    | Po posiłkach i przed snem |
-
-## 28.12.2024
-
-Do czasu pójscia na Murcki.
-
-### Leki
-
-| Lek                           | Dawkowanie | Uwagi                   |
-| ----------------------------- | ---------- | ----------------------- |
-| Feroplex 40 mg                | 2xtyg      |                         |
-| Euthyrox N 75 µg              | 1-0-0      | Na czczo                |
-| Kalium 600 mg                 | 1-0-0      |                         |
-| Pradaxa 110 mg                | 1-0-1      |                         |
-| Siofor 850 mg                 | ½-½-½      |                         |
-| Bisoratio 5 mg                | 1-0-0      |                         |
-| Spironol 25 mg                | 1-0-0      |                         |
-| Captopril HCT 16 mg + 12,5 mg | 1-0-0      |                         |
-| Atrox 20 mg                   | 0-0-1      | Zamiennik: Atrovesterol |
-| Magne B6                      | 1-0-0      |                         |
