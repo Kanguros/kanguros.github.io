@@ -91,6 +91,8 @@ Po wizycie geriatry.
 
 ## 02.02.2025
 
+Dalej występują duże ciśnienia typu 180/100. 
+
 ### Leki
 
 Po konsultacjach z kardiologiem.
@@ -110,6 +112,10 @@ Po konsultacjach z kardiologiem.
 | Kalium 600 mg        | 0-1-0 co 2 dni |                           |
 | Gaviscon 10 ml       | 1-0-1          | Po posiłkach i przed snem |
 
+## 26.01.2025
+
+- Pierwszy znaczący incydent z dezorientacją. 
+	- Telefon do rodziny o 05:00, że wszedzie szuka kota i nie umie go znalezc. 
 
 ## 14.01.2025
 
