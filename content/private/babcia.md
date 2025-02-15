@@ -14,6 +14,8 @@ summary: Aktualne informacje o stanie zdrowia babci.
 - Wyraźna poprawa w zachowaniu. Coraz mniej mylenia czy halucynacje.
 - Brak wybudzeń w nocy.
 - Apetyt dalej wątpliwy.
+	- Lepiej przyjmuja sie zimne potrawy.
+	- Czasami pojawia się uporczywe odbijanie.
 - Ciśnienie w godzinach 11:00-12:00 spada do 100/70 co skutkuje zawrotami głowy i osłabieniem.
 
 ### Leki
