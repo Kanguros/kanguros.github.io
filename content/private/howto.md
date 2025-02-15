@@ -22,7 +22,7 @@ Examples of Markdown formatting available in Pelican.
 
 ### Third level
 
-#### Forth level
+#### Forth.level
 
 ```
 **Bold text**
@@ -57,6 +57,11 @@ _Italic text_
 > It spans on few lines.  
 > at least should be.  
 > It has to be long enough.
+
+## Links
+
+- [Header Mermaidjs](#mermaidjs)
+- [Forth level with dot](#forthlevel)
 
 ## Code
 
