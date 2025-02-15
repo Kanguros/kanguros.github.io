@@ -14,6 +14,7 @@ summary: Aktualne informacje o stanie zdrowia babci.
 - Wyraźna poprawa w zachowaniu. Coraz mniej mylenia czy halucynacje.
 - Brak wybudzeń w nocy.
 - Apetyt dalej wątpliwy.
+- Ciśnienie w godzinach 11:00-12:00 spada do 100/70 co skutkuje zawrotami głowy i osłabieniem.
 
 ### Leki
 
@@ -88,9 +89,18 @@ Po wizycie geriatry.
 | Telfexo              | doraźnie       | Na świąd                                    |
 | Rapacholin C         | doraźnie       | Na zaparcia                                 |
 
-## 02.02.2025
+## 04.02.2025
 
-Konsultacja z kardiologiem była wymagana z uwagi na duże ciśnienie.
+Wizyta na SOR Ochojec z powodu bardzo dużego ciśnienia oraz podejrzenia udaru.
+
+### Objawy
+
+- Duże ciśnienie w okolicach 190/100.
+- Średni puls 58.
+
+## 03.02.2025
+
+Konsultacja z kardiologiem z uwagi na duże ciśnienie.
 
 ### Objawy
 
@@ -101,33 +111,42 @@ Konsultacja z kardiologiem była wymagana z uwagi na duże ciśnienie.
 
 Po konsultacjach z kardiologiem.
 
-| Lek                  | Dawkowanie     | Uwagi                     |
-| -------------------- | -------------- | ------------------------- |
-| Euthyrox N 100 µg    | 1-0-0          | Na czczo                  |
-| IPP 40 mg            | 1-0-0          | Przed śniadaniem          |
-| Atrox 20 mg          | 0-0-1          |                           |
-| Pradaxa 110 mg       | 1-0-1          |                           |
-| Siofor 500 mg        | 1-1-0          | + dobranie                |
-| Carzap HCT 16,5/12,5 | 1-0-0          |                           |
-| Peritol 5 mg         | 0-0-½          | Na apetyt                 |
-| Metocard ZK 100      | ½-0-0 co 2 dni |                           |
-| Feroplex 40 mg       | 2xtyg          |                           |
-| Magne B6             | 0-0-1          |                           |
-| Digoxin 100 mg       | 0-1-0          |                           |
-| Kalium 600 mg        | 0-1-0 co 2 dni |                           |
-| Gaviscon 10 ml       | 1-0-1          | Po posiłkach i przed snem |
+| Lek                  | Dawkowanie         | Uwagi                     |
+| -------------------- | ------------------ | ------------------------- |
+| Euthyrox N 100 µg    | 1-0-0              | Na czczo                  |
+| IPP 40 mg            | 1-0-0              | Przed śniadaniem          |
+| Atrox 20 mg          | 0-0-1              |                           |
+| Pradaxa 110 mg       | 1-0-1              |                           |
+| Siofor 500 mg        | 1-1-0              | + dobranie                |
+| Carzap HCT 16,5/12,5 | 1-0-0              |                           |
+| Peritol 5 mg         | 0-0-½              | Na apetyt                 |
+| Metocard ZK 100      | ½-0-0 co drugi dni |                           |
+| Feroplex 40 mg       | 2xtyg              |                           |
+| Magne B6             | 0-0-1              |                           |
+| Digoxin 100 mg       | 0-1-0              |                           |
+| Kalium 600 mg        | 0-1-0 co 2 dni     |                           |
+| Gaviscon 10 ml       | 1-0-1              | Po posiłkach i przed snem |
 
 #### Zmiany w lekach
+
+Względem leków z dnia [27.01.2025](#27012025)
 
 - Zamiana:
   - Prestarium 5 mg → Carzap HCT 16,5/12,5 (1-0-0).
 - Dodano nowe:
   - Kalium 600 mg (0-1-0 co 2 dni).
-- Zmiana dawkowania:
-  - Metocard ZK 100: ½-0-0 co drugi dzień → ½-0-0 co 2 dni.
 - Usunięto:
   - Spironol 25 mg.
   - Famogast.
+
+## 02.02.2025
+
+Wizyta na SOR Ochojec z powodu bardzo dużego ciśnienia dochodzącego do 190/110.
+
+### Objawy
+
+- Duże ciśnienie w okolicach 180/100.
+- Zmęczenie i duże osłabienie, senność.
 
 ## 27.01.2025
 
