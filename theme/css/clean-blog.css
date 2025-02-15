@@ -424,6 +424,7 @@ article table {
   overflow-x: auto;
   display: block;
   white-space: nowrap;
+  margin-bottom: 1.5rem;
 }
 
 article table td,
