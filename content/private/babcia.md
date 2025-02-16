@@ -29,6 +29,7 @@ summary: Aktualne informacje o stanie zdrowia babci.
 | Siofor 500 mg        | 1-1-0          | + dobranie                                  |
 | Carzap HCT 16,5/12,5 | ½-0-0          |                                             |
 | Lacipil 2mg          | 0-½-0          | Dawka zależna od potrzeb i skoków ciśnienia |
+| Spironol 25 mg	| 0-1-0	| |
 | Memantin 10mg        | ½-0-0          |                                             |
 | Asentra 5mg          | ½-0-0          |                                             |
 | Feroplex 40 mg       | 2xtyg          |                                             |
@@ -81,6 +82,7 @@ Po wizycie geriatry.
 | Siofor 500 mg        | 1-1-0          | + dobranie                                  |
 | Carzap HCT 16,5/12,5 | ½-0-0          |                                             |
 | Lacipil 2mg          | 0-(½ lub 1)-0  | Dawka zależna od potrzeb i skoków ciśnienia |
+| Spironol 25 mg	| 0-1-0	| | 
 | Memantin 10mg        | ½-0-0          |                                             |
 | Asentra 5mg          | ½-0-0          |                                             |
 | Feroplex 40 mg       | 2xtyg          |                                             |
@@ -122,6 +124,7 @@ Po konsultacjach z kardiologiem.
 | Siofor 500 mg        | 1-1-0              | + dobranie                |
 | Carzap HCT 16,5/12,5 | 1-0-0              |                           |
 | Peritol 5 mg         | 0-0-½              | Na apetyt                 |
+| Spironol 25 mg	| 0-1-0	| |
 | Metocard ZK 100      | ½-0-0 co drugi dni |                           |
 | Feroplex 40 mg       | 2xtyg              |                           |
 | Magne B6             | 0-0-1              |                           |
@@ -138,7 +141,6 @@ Względem leków z dnia [27.01.2025](#27012025)
 - Dodano nowe:
   - Kalium 600 mg (0-1-0 co 2 dni).
 - Usunięto:
-  - Spironol 25 mg.
   - Famogast.
 
 ## 02.02.2025
