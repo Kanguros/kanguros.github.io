@@ -171,13 +171,15 @@ It return custom responses based on the corresponding response&nbsp;file.</p>
 <ol>
 <li>Go to the &#8216;tests/responses&#8217;&nbsp;directory.</li>
 <li>Create a subdirectory for the endpoint you want to mock or locate the existing&nbsp;one.</li>
-<li>Inside the endpoint directory, create a text file with this name&nbsp;format:
-   <code>HTTP_METHOD_query_parameters.txt</code></li>
-</ol>
+<li>
+<p>Inside the endpoint directory, create a text file with this name&nbsp;format:
+   <code>HTTP_METHOD_query_parameters.txt</code></p>
 <p>HTTP_METHOD with the <span class="caps">HTTP</span> method (e.g., <span class="caps">GET</span>, <span class="caps">POST</span>).
-   query_parameters with the query parameters, separated by underscores if&nbsp;multiple.</p>
-<ol>
-<li>Open the file and format it like&nbsp;this:</li>
+query_parameters with the query parameters, separated by underscores if&nbsp;multiple.</p>
+</li>
+<li>
+<p>Open the file and format it like&nbsp;this:</p>
+</li>
 </ol>
 <div class="highlight"><pre><span></span><code># status code: STATUS_CODE
 # reason: REASON
@@ -185,10 +187,12 @@ BODY
 </code></pre></div>
 
 <ol>
-<li>Replace:</li>
+<li>Replace:<ul>
 <li><code>STATUS_CODE</code> with the desired <span class="caps">HTTP</span> status code (e.g., 200,&nbsp;404).</li>
 <li><code>REASON</code> with the reason for the status code (e.g., &#8220;<span class="caps">OK</span>&#8221;, &#8220;Not&nbsp;Found&#8221;).</li>
 <li><code>BODY</code> with the response content to&nbsp;mock.</li>
+</ul>
+</li>
 <li>Save the&nbsp;file.</li>
 </ol>
 <h3 id="example"><a class="toclink" href="#example">Example</a></h3>

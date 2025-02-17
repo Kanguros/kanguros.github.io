@@ -154,44 +154,44 @@ deploying&nbsp;applications.</p>
 <p><strong>Example</strong></p>
 <p>An example pipeline definition with testing, linting, building, and publishing a Python package, triggered on the master&nbsp;branch.</p>
 <div class="highlight"><pre><span></span><code><span class="nt">trigger</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">branches</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">include</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">include</span><span class="p">:</span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">master</span>
 
 <span class="nt">jobs</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BuildTestPackage</span>
-<span class="w">    </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Build,</span><span class="nv"> </span><span class="s">Test,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Package&quot;</span>
-<span class="w">    </span><span class="nt">pool</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">vmImage</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ubuntu-latest&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">job</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">BuildTestPackage</span>
+<span class="w">      </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Build,</span><span class="nv"> </span><span class="s">Test,</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">Package&quot;</span>
+<span class="w">      </span><span class="nt">pool</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">vmImage</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ubuntu-latest&quot;</span>
 
-<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UsePythonVersion@0</span>
-<span class="w">        </span><span class="nt">inputs</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">versionSpec</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.x&quot;</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Use</span><span class="nv"> </span><span class="s">Python</span><span class="nv"> </span><span class="s">3.x&quot;</span>
+<span class="w">      </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UsePythonVersion@0</span>
+<span class="w">            </span><span class="nt">inputs</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">versionSpec</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3.x&quot;</span>
+<span class="w">            </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Use</span><span class="nv"> </span><span class="s">Python</span><span class="nv"> </span><span class="s">3.x&quot;</span>
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">          </span><span class="no">python -m pip install --upgrade pip</span>
-<span class="w">          </span><span class="no">pip install -r requirements.txt</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">dependencies&quot;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">                </span><span class="no">python -m pip install --upgrade pip</span>
+<span class="w">                </span><span class="no">pip install -r requirements.txt</span>
+<span class="w">            </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Install</span><span class="nv"> </span><span class="s">dependencies&quot;</span>
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">          </span><span class="no">python -m unittest discover tests</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Run</span><span class="nv"> </span><span class="s">tests&quot;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">                </span><span class="no">python -m unittest discover tests</span>
+<span class="w">            </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Run</span><span class="nv"> </span><span class="s">tests&quot;</span>
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">          </span><span class="no">flake8 --ignore=E501 .</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Lint</span><span class="nv"> </span><span class="s">code&quot;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">                </span><span class="no">flake8 --ignore=E501 .</span>
+<span class="w">            </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Lint</span><span class="nv"> </span><span class="s">code&quot;</span>
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">          </span><span class="no">python setup.py sdist bdist_wheel</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Build</span><span class="nv"> </span><span class="s">package&quot;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">script</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">                </span><span class="no">python setup.py sdist bdist_wheel</span>
+<span class="w">            </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Build</span><span class="nv"> </span><span class="s">package&quot;</span>
 
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PublishPipelineArtifact@1</span>
-<span class="w">        </span><span class="nt">inputs</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">targetPath</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;$(Pipeline.Workspace)/dist&quot;</span>
-<span class="w">          </span><span class="nt">artifact</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;package&quot;</span>
-<span class="w">        </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Publish</span><span class="nv"> </span><span class="s">package</span><span class="nv"> </span><span class="s">artifact&quot;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">task</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PublishPipelineArtifact@1</span>
+<span class="w">            </span><span class="nt">inputs</span><span class="p">:</span>
+<span class="w">                </span><span class="nt">targetPath</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;$(Pipeline.Workspace)/dist&quot;</span>
+<span class="w">                </span><span class="nt">artifact</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;package&quot;</span>
+<span class="w">            </span><span class="nt">displayName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Publish</span><span class="nv"> </span><span class="s">package</span><span class="nv"> </span><span class="s">artifact&quot;</span>
 </code></pre></div>
 
 <h2 id="programming-and-development"><a class="toclink" href="#programming-and-development">Programming and&nbsp;Development</a></h2>
@@ -227,10 +227,10 @@ configuration management, and&nbsp;orchestration.</p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ensure Nginx is installed</span>
 <span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">web_servers</span>
 <span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Nginx</span>
-<span class="w">      </span><span class="nt">apt</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
-<span class="w">        </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Nginx</span>
+<span class="w">        </span><span class="nt">apt</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span>
+<span class="w">            </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">present</span>
 </code></pre></div>
 
 <h3 id="docker"><a class="toclink" href="#docker">Docker</a></h3>
@@ -270,15 +270,15 @@ using code. It allows infrastructure to be treated as code, providing benefits l
 and&nbsp;automation.</p>
 <p><strong>Example</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nt">resources</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-vm</span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compute</span>
-<span class="w">    </span><span class="nt">properties</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">vmSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard_DS2_v2</span>
-<span class="w">      </span><span class="nt">osDisk</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">storageAccountType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Premium_LRS</span>
-<span class="w">      </span><span class="nt">networkProfile</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">networkInterfaces</span><span class="p">:</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.Network/networkInterfaces/my-nic</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-vm</span>
+<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">compute</span>
+<span class="w">      </span><span class="nt">properties</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">vmSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Standard_DS2_v2</span>
+<span class="w">          </span><span class="nt">osDisk</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">storageAccountType</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Premium_LRS</span>
+<span class="w">          </span><span class="nt">networkProfile</span><span class="p">:</span>
+<span class="w">              </span><span class="nt">networkInterfaces</span><span class="p">:</span>
+<span class="w">                  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.Network/networkInterfaces/my-nic</span>
 </code></pre></div>
 
 <h3 id="configuration-as-code"><a class="toclink" href="#configuration-as-code">Configuration as&nbsp;Code</a></h3>
@@ -287,14 +287,14 @@ in code and using automation to apply and maintain that&nbsp;configuration.</p>
 <p><strong>Example</strong></p>
 <div class="highlight"><pre><span></span><code><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
 <span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Apache</span>
-<span class="w">      </span><span class="nt">yum</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpd</span>
-<span class="w">        </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">latest</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Start Apache</span>
-<span class="w">      </span><span class="nt">service</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpd</span>
-<span class="w">        </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">started</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Install Apache</span>
+<span class="w">        </span><span class="nt">yum</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpd</span>
+<span class="w">            </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">latest</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Start Apache</span>
+<span class="w">        </span><span class="nt">service</span><span class="p">:</span>
+<span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">httpd</span>
+<span class="w">            </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">started</span>
 </code></pre></div>
 
 <h2 id="file-formats"><a class="toclink" href="#file-formats">File&nbsp;Formats</a></h2>
@@ -307,10 +307,10 @@ It is often used in Azure DevOps to define build and release&nbsp;pipelines.</p>
 <span class="nt">age</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
 <span class="nt">occupation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Engineer</span>
 <span class="nt">contacts</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">john.doe@example.com</span>
-<span class="w">    </span><span class="nt">phone</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">123456789</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jane.smith@example.com</span>
-<span class="w">    </span><span class="nt">phone</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">987654321</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">john.doe@example.com</span>
+<span class="w">      </span><span class="nt">phone</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">123456789</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">email</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jane.smith@example.com</span>
+<span class="w">      </span><span class="nt">phone</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">987654321</span>
 </code></pre></div>
 
 <h3 id="csv-comma-separated-values"><a class="toclink" href="#csv-comma-separated-values"><span class="caps">CSV</span> (Comma-Separated&nbsp;Values)</a></h3>
@@ -326,19 +326,19 @@ It is often used in Azure DevOps to define build and release&nbsp;pipelines.</p>
 generate. It is widely used for data serialization and communication between&nbsp;systems.</p>
 <p><strong>Example</strong></p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;occupation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Engineer&quot;</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;contacts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;john.doe@example.com&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;phone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123456789&quot;</span>
-<span class="w">    </span><span class="p">},</span>
-<span class="w">    </span><span class="p">{</span>
-<span class="w">      </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jane.smith@example.com&quot;</span><span class="p">,</span>
-<span class="w">      </span><span class="nt">&quot;phone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;987654321&quot;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">  </span><span class="p">]</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;occupation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Engineer&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;contacts&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;john.doe@example.com&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;phone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;123456789&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jane.smith@example.com&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;phone&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;987654321&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 

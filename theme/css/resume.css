@@ -1,103 +1,103 @@
 :root {
-  --line-color: #d1d1d1;
-  --bullet-color: #737373;
-  --icon-color: #abaaaa;
-  --text-color: #595050;
+    --line-color: #d1d1d1;
+    --bullet-color: #737373;
+    --icon-color: #abaaaa;
+    --text-color: #595050;
 }
 
 .resume .padding-less {
-  margin: 0 0 !important;
+    margin: 0 0 !important;
 }
 
 .summary p {
-  margin: 0 auto !important;
+    margin: 0 auto !important;
 }
 
 .resume article > h2,
 h3,
 h4 {
-  margin: 0.5rem auto 0.5rem;
-  color: var(--text-color);
+    margin: 0.5rem auto 0.5rem;
+    color: var(--text-color);
 }
 
 article h1,
 article h2,
 article h3 {
-  margin: 1rem auto 1rem;
+    margin: 1rem auto 1rem;
 }
 
 .contacts a {
-  margin: 2px 0px;
-  color: var(--icon-color) !important;
-  font-size: 1rem;
+    margin: 2px 0px;
+    color: var(--icon-color) !important;
+    font-size: 1rem;
 }
 
 .contacts a > svg {
-  width: 0.9em;
+    width: 0.9em;
 }
 
 .resume h4 {
-  font-family: var(--title-font);
-  font-weight: 500;
+    font-family: var(--title-font);
+    font-weight: 500;
 }
 
 .resume h3 {
-  font-size: 1.7rem;
-  margin-bottom: 0.2em;
-  font-family: var(--title-font);
-  font-weight: 600;
-  text-align: left;
+    font-size: 1.7rem;
+    margin-bottom: 0.2em;
+    font-family: var(--title-font);
+    font-weight: 600;
+    text-align: left;
 }
 
 .resume h2 {
-  border-bottom: 2px solid #595050;
+    border-bottom: 2px solid #595050;
 }
 
 .resume .highlight {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .resume .skills-col {
-  margin-top: 0 !important;
+    margin-top: 0 !important;
 }
 
 .resume .skill-tag {
-  background: var(--code-background);
-  margin: 0.2em 0.1em;
-  padding: 0.1em 0.2em;
-  border-radius: 3px;
+    background: var(--code-background);
+    margin: 0.2em 0.1em;
+    padding: 0.1em 0.2em;
+    border-radius: 3px;
 }
 
 .resume ul.carret-list {
-  padding-left: 0.8rem;
-  list-style-type: none;
+    padding-left: 0.8rem;
+    list-style-type: none;
 }
 
 .resume ul.carret-list > li {
-  padding: 0.3rem 0 0 0.3rem;
+    padding: 0.3rem 0 0 0.3rem;
 }
 
 .resume ul.carret-list > li::marker {
-  content: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(89,80,80)" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg>');
-  color: var(--bullet-color);
-  font-size: 1rem;
+    content: url('data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(89,80,80)" viewBox="0 0 16 16"><path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/></svg>');
+    color: var(--bullet-color);
+    font-size: 1rem;
 }
 
 .resume ul.bullet-list {
-  padding-left: 0.8rem;
-  list-style-type: none;
+    padding-left: 0.8rem;
+    list-style-type: none;
 }
 
 .resume ul.bullet-list > li {
-  padding: 0.3rem 0 0 0.3rem;
+    padding: 0.3rem 0 0 0.3rem;
 }
 
 .resume ul.bullet-list > li::marker {
-  content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(89,80,80)" viewBox="0 0 16 16"><path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/></svg>');
-  color: var(--bullet-color);
-  font-size: 1rem;
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(89,80,80)" viewBox="0 0 16 16"><path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/></svg>');
+    color: var(--bullet-color);
+    font-size: 1rem;
 }
 
 .resume .more-padding {
-  padding-top: 0.7rem !important;
+    padding-top: 0.7rem !important;
 }

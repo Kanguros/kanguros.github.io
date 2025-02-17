@@ -155,32 +155,34 @@ easy to fetch closed User Stories and manage active Pull&nbsp;Requests.</p>
 </ul>
 <h2 id="usage"><a class="toclink" href="#usage">Usage</a></h2>
 <ol>
-<li><strong>User&nbsp;Stories:</strong></li>
-</ol>
+<li>
+<p><strong>User&nbsp;Stories:</strong></p>
 <p><code>python
-   user_stories = azure_devops.get_closed_user_stories(days, tag, area_path)</code></p>
-<ol>
+user_stories = azure_devops.get_closed_user_stories(days, tag, area_path)</code></p>
+</li>
 <li>
 <p><strong>Pull&nbsp;Requests:</strong></p>
-</li>
+<ul>
 <li>
 <p>Active Pull Requests by Repository&nbsp;Prefix:</p>
 <p><code>python
- active_pulls_by_repo = azure_devops.get_active_pull_requests_by_repo_prefix(prefix)</code></p>
+active_pulls_by_repo = azure_devops.get_active_pull_requests_by_repo_prefix(prefix)</code></p>
 </li>
 <li>
 <p>Active Pull Requests by&nbsp;Authors:</p>
 <p><code>python
- active_pulls_by_authors = azure_devops.get_active_pull_requests_by_authors(authors)</code></p>
+active_pulls_by_authors = azure_devops.get_active_pull_requests_by_authors(authors)</code></p>
+</li>
+</ul>
 </li>
 </ol>
 <h2 id="getting-started"><a class="toclink" href="#getting-started">Getting&nbsp;Started</a></h2>
 <ol>
-<li>Install&nbsp;packages:</li>
-</ol>
+<li>
+<p>Install&nbsp;packages:</p>
 <p><code>bash
-   pip install azure-devops azure-devops-work-item-tracking azure-devops-git</code></p>
-<ol>
+pip install azure-devops azure-devops-work-item-tracking azure-devops-git</code></p>
+</li>
 <li>
 <p>Replace <code>"YOUR_ORGANIZATION_URL"</code> and <code>"YOUR_PERSONAL_ACCESS_TOKEN"</code>.</p>
 </li>
