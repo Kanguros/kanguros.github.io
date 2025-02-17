@@ -159,7 +159,7 @@ MARKDOWN = {
         "markdown.extensions.toc": {
             "permalink": "false",
             "anchorlink": "true",
-            "toc_depth": 3,
+            "toc_depth": 2,
         },
         "pymdownx.progressbar": {},
         "pymdownx.blocks.tab": {},

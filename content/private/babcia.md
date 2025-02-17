@@ -9,13 +9,45 @@ summary: Aktualne informacje o stanie zdrowia babci.
 
 ## Aktualnie
 
+Po konstulacji z geriatrą w dniu 17.02.2025.
+
+### Leki
+
+| Lek                  | Dawkowanie     | Uwagi                                       |
+| -------------------- | -------------- | ------------------------------------------- |
+| Euthyrox N 75 µg     | 1-0-0          | Na czczo                                    |
+| IPP 40 mg            | 1-0-0          | Przed śniadaniem                            |
+| Atrox 20 mg          | 0-0-1          |                                             |
+| Pradaxa 110 mg       | 1-0-1          |                                             |
+| Siofor 500 mg        | 1-1-0          | + dobranie                                  |
+| Lacipil 2mg          | 0-½-0          | Dawka zależna od potrzeb i skoków ciśnienia |
+| Spironol 25 mg       | 0-1-0          |                                             |
+| Memantin 10mg        | ½-0-0          |                                             |
+| Asentra 5mg          | ½-0-0          |                                             |
+| Feroplex 40 mg       | 2xtyg          |                                             |
+| Magne B6             | 0-0-1          |                                             |
+| Digoxin 100 mg       | 0-1-0          |                                             |
+| Kalium 600 mg        | 0-1-0 co 2 dni |                                             |
+| Gaviscon syrop 10 ml | 1-0-1          | Po śniadaniu i przed snem                   |
+| Telfexo              | doraźnie       | Na świąd                                    |
+| Rapacholin C         | doraźnie       | Na zaparcia                                 |
+
+#### Zmiany w lekach
+
+Względem leków z dnia [17.02.2025](#17022025)
+
+- Usunięto:
+  - Carzap HCT 16,5/12,5 - Z powodu niskich ciśnień.
+
+## 17.02.2025
+
 ### Objawy
 
 - Wyraźna poprawa w zachowaniu. Coraz mniej mylenia czy halucynacje.
 - Brak wybudzeń w nocy.
 - Apetyt dalej wątpliwy.
-	- Lepiej przyjmuja sie zimne potrawy.
-	- Czasami pojawia się uporczywe odbijanie.
+  - Lepiej przyjmuja sie zimne potrawy.
+  - Czasami pojawia się uporczywe odbijanie.
 - Ciśnienie w godzinach 11:00-12:00 spada do 100/70 co skutkuje zawrotami głowy i osłabieniem.
 
 ### Leki
@@ -29,7 +61,7 @@ summary: Aktualne informacje o stanie zdrowia babci.
 | Siofor 500 mg        | 1-1-0          | + dobranie                                  |
 | Carzap HCT 16,5/12,5 | ½-0-0          |                                             |
 | Lacipil 2mg          | 0-½-0          | Dawka zależna od potrzeb i skoków ciśnienia |
-| Spironol 25 mg	| 0-1-0	| |
+| Spironol 25 mg       | 0-1-0          |                                             |
 | Memantin 10mg        | ½-0-0          |                                             |
 | Asentra 5mg          | ½-0-0          |                                             |
 | Feroplex 40 mg       | 2xtyg          |                                             |
@@ -40,16 +72,12 @@ summary: Aktualne informacje o stanie zdrowia babci.
 | Telfexo              | doraźnie       | Na świąd                                    |
 | Rapacholin C         | doraźnie       | Na zaparcia                                 |
 
----
-
-Układ chronologiczny od najnowyszych u góry do najstarszych na dole.
-
 ## 10.02.2025
 
 ### Objawy
 
 - Splątanie, dezorientacja, zagubienie.
-  - Mylenie przeszłości z teraźniejszością.
+- Mylenie przeszłości z teraźniejszością.
   - Mylenie osób.
   - Halucynacje, przewidzenia.
 - Bol w lewym boku brzucha, poniżej żeber.
@@ -82,7 +110,7 @@ Po wizycie geriatry.
 | Siofor 500 mg        | 1-1-0          | + dobranie                                  |
 | Carzap HCT 16,5/12,5 | ½-0-0          |                                             |
 | Lacipil 2mg          | 0-(½ lub 1)-0  | Dawka zależna od potrzeb i skoków ciśnienia |
-| Spironol 25 mg	| 0-1-0	| | 
+| Spironol 25 mg       | 0-1-0          |                                             |
 | Memantin 10mg        | ½-0-0          |                                             |
 | Asentra 5mg          | ½-0-0          |                                             |
 | Feroplex 40 mg       | 2xtyg          |                                             |
@@ -92,6 +120,21 @@ Po wizycie geriatry.
 | Gaviscon syrop 10 ml | 1-0-1          | Po śniadaniu i przed snem                   |
 | Telfexo              | doraźnie       | Na świąd                                    |
 | Rapacholin C         | doraźnie       | Na zaparcia                                 |
+
+#### Zmiany w lekach
+
+Względem leków z dnia [03.02.2025](#03022025)
+
+- Zmiana:
+  - Carzap HCT 16,5/12,5: 1-0-0 → ½-0-0
+  - Euthyrox N 100 µg → Euthyrox N 75 µg
+- Dodano:
+  - Telfexo.
+  - Lacipil 2mg (0-(½ lub 1)-0)
+  - Memantin 10mg
+  - Asentra 5mg
+- Usunięto:
+  - Metocard ZK 100.
 
 ## 04.02.2025
 
@@ -124,7 +167,7 @@ Po konsultacjach z kardiologiem.
 | Siofor 500 mg        | 1-1-0              | + dobranie                |
 | Carzap HCT 16,5/12,5 | 1-0-0              |                           |
 | Peritol 5 mg         | 0-0-½              | Na apetyt                 |
-| Spironol 25 mg	| 0-1-0	| |
+| Spironol 25 mg       | 0-1-0              |                           |
 | Metocard ZK 100      | ½-0-0 co drugi dni |                           |
 | Feroplex 40 mg       | 2xtyg              |                           |
 | Magne B6             | 0-0-1              |                           |
@@ -138,7 +181,7 @@ Względem leków z dnia [27.01.2025](#27012025)
 
 - Zamiana:
   - Prestarium 5 mg → Carzap HCT 16,5/12,5 (1-0-0).
-- Dodano nowe:
+- Dodano:
   - Kalium 600 mg (0-1-0 co 2 dni).
 - Usunięto:
   - Famogast.
@@ -231,9 +274,11 @@ Po wizycie geriatry.
 
 #### Zmiany w lekach
 
+Względem leków z dnia [04.01.2025](#04012025)
+
 - Zamiana:
   - Pradaxa 110 mg → Vessel Due F (1-0-1).
-- Dodano nowe:
+- Dodano:
   - Peritol 5 mg (0-0-½).
   - Famogast (0-0-1).
   - Cetix 400 mg (co 12h przez 5 dni).
@@ -269,6 +314,8 @@ Po wyjściu z Murcek.
 | Gaviscon 10 ml    | 1-1-1-1    | Po posiłkach i przed snem |
 
 #### Zmiany w lekach
+
+Względem leków z dnia [28.12.2024](#28122024)
 
 - Zamiana:
   - Euthyrox N 75 µg → Euthyrox N 100 µg (1-0-0).
