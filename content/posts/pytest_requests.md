@@ -23,8 +23,8 @@ Response files should be named based on the following convention:
 HTTP_METHOD_query_parameters.txt
 ```
 
-- HTTP_METHOD represents the HTTP method to be mocked (e.g., GET, POST).
-- query*parameters represent query parameters, separated by underscores (*) if there are multiple.
+-   HTTP_METHOD represents the HTTP method to be mocked (e.g., GET, POST).
+-   query*parameters represent query parameters, separated by underscores (*) if there are multiple.
 
 ## Running Tests
 
@@ -38,8 +38,8 @@ It return custom responses based on the corresponding response file.
 3. Inside the endpoint directory, create a text file with this name format:
    `HTTP_METHOD_query_parameters.txt`
 
-   HTTP_METHOD with the HTTP method (e.g., GET, POST).
-   query_parameters with the query parameters, separated by underscores if multiple.
+    HTTP_METHOD with the HTTP method (e.g., GET, POST).
+    query_parameters with the query parameters, separated by underscores if multiple.
 
 4. Open the file and format it like this:
 
@@ -50,9 +50,9 @@ BODY
 ```
 
 5. Replace:
-   - `STATUS_CODE` with the desired HTTP status code (e.g., 200, 404).
-   - `REASON` with the reason for the status code (e.g., "OK", "Not Found").
-   - `BODY` with the response content to mock.
+    - `STATUS_CODE` with the desired HTTP status code (e.g., 200, 404).
+    - `REASON` with the reason for the status code (e.g., "OK", "Not Found").
+    - `BODY` with the response content to mock.
 6. Save the file.
 
 ### Example

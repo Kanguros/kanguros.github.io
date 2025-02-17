@@ -8,39 +8,39 @@ easy to fetch closed User Stories and manage active Pull Requests.
 
 ## Features
 
-- **User Stories Retrieval:** Fetch closed User Stories based on days, tags, and area path.
+-   **User Stories Retrieval:** Fetch closed User Stories based on days, tags, and area path.
 
-- **Pull Requests Management:** Retrieve active Pull Requests by repository prefix and authors.
+-   **Pull Requests Management:** Retrieve active Pull Requests by repository prefix and authors.
 
 ## Usage
 
 1. **User Stories:**
 
-   ```python
-   user_stories = azure_devops.get_closed_user_stories(days, tag, area_path)
-   ```
+    ```python
+    user_stories = azure_devops.get_closed_user_stories(days, tag, area_path)
+    ```
 
 2. **Pull Requests:**
 
-   - Active Pull Requests by Repository Prefix:
+    - Active Pull Requests by Repository Prefix:
 
-     ```python
-     active_pulls_by_repo = azure_devops.get_active_pull_requests_by_repo_prefix(prefix)
-     ```
+        ```python
+        active_pulls_by_repo = azure_devops.get_active_pull_requests_by_repo_prefix(prefix)
+        ```
 
-   - Active Pull Requests by Authors:
+    - Active Pull Requests by Authors:
 
-     ```python
-     active_pulls_by_authors = azure_devops.get_active_pull_requests_by_authors(authors)
-     ```
+        ```python
+        active_pulls_by_authors = azure_devops.get_active_pull_requests_by_authors(authors)
+        ```
 
 ## Getting Started
 
 1. Install packages:
 
-   ```bash
-   pip install azure-devops azure-devops-work-item-tracking azure-devops-git
-   ```
+    ```bash
+    pip install azure-devops azure-devops-work-item-tracking azure-devops-git
+    ```
 
 2. Replace `"YOUR_ORGANIZATION_URL"` and `"YOUR_PERSONAL_ACCESS_TOKEN"`.
 

@@ -1,44 +1,44 @@
 pre {
-  white-space: pre;
-  overflow: auto;
-  word-wrap: normal;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  padding: 20px;
-  background: #343642;
-  color: #c1c2c3;
+    white-space: pre;
+    overflow: auto;
+    word-wrap: normal;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding: 20px;
+    background: #343642;
+    color: #c1c2c3;
 }
 .hll {
-  background-color: #ffc;
+    background-color: #ffc;
 }
 .gd {
-  color: #2e3436;
-  background-color: #0e1416;
+    color: #2e3436;
+    background-color: #0e1416;
 }
 .gr {
-  color: #eeeeec;
-  background-color: #c00;
+    color: #eeeeec;
+    background-color: #c00;
 }
 .gi {
-  color: #babdb6;
-  background-color: #1f2b2d;
+    color: #babdb6;
+    background-color: #1f2b2d;
 }
 .go {
-  color: #2c3032;
-  background-color: #2c3032;
+    color: #2c3032;
+    background-color: #2c3032;
 }
 .kt {
-  color: #e3e7df;
+    color: #e3e7df;
 }
 .ni {
-  color: #888a85;
+    color: #888a85;
 }
 .c,
 .cm,
 .c1,
 .cs {
-  color: #8d9684;
+    color: #8d9684;
 }
 .err,
 .g,
@@ -73,7 +73,7 @@ pre {
 .s1,
 .ss,
 .bp {
-  color: #c1c2c3;
+    color: #c1c2c3;
 }
 .k,
 .kc,
@@ -82,14 +82,14 @@ pre {
 .kp,
 .kr,
 .nt {
-  color: #729fcf;
+    color: #729fcf;
 }
 .cp,
 .gh,
 .gu,
 .na,
 .nf {
-  color: #e9a94b;
+    color: #e9a94b;
 }
 .m,
 .nb,
@@ -99,14 +99,14 @@ pre {
 .mi,
 .mo,
 .il {
-  color: #8ae234;
+    color: #8ae234;
 }
 .o {
-  color: #989daa;
+    color: #989daa;
 }
 .nv,
 .vc,
 .vg,
 .vi {
-  color: #fff;
+    color: #fff;
 }

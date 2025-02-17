@@ -60,8 +60,8 @@ _Italic text_
 
 ## Links
 
-- [Header Mermaidjs](#mermaidjs)
-- [Forth level with dot](#forthlevel)
+-   [Header Mermaidjs](#mermaidjs)
+-   [Forth level with dot](#forthlevel)
 
 ## Code
 
@@ -104,15 +104,15 @@ def clean(c):
 
 Available types:
 
-- `danger`
-- `error`
-- `warning`
-- `caution`
-- `attention`
-- `important`
-- `note`
-- `hint`
-- `tip`
+-   `danger`
+-   `error`
+-   `warning`
+-   `caution`
+-   `attention`
+-   `important`
+-   `note`
+-   `hint`
+-   `tip`
 
 ```markdown
 !!! danger

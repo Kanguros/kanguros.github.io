@@ -38,44 +38,44 @@ branch.
 
 ```yaml
 trigger:
-  branches:
-    include:
-      - master
+    branches:
+        include:
+            - master
 
 jobs:
-  - job: BuildTestPackage
-    displayName: "Build, Test, and Package"
-    pool:
-      vmImage: "ubuntu-latest"
+    - job: BuildTestPackage
+      displayName: "Build, Test, and Package"
+      pool:
+          vmImage: "ubuntu-latest"
 
-    steps:
-      - task: UsePythonVersion@0
-        inputs:
-          versionSpec: "3.x"
-        displayName: "Use Python 3.x"
+      steps:
+          - task: UsePythonVersion@0
+            inputs:
+                versionSpec: "3.x"
+            displayName: "Use Python 3.x"
 
-      - script: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-        displayName: "Install dependencies"
+          - script: |
+                python -m pip install --upgrade pip
+                pip install -r requirements.txt
+            displayName: "Install dependencies"
 
-      - script: |
-          python -m unittest discover tests
-        displayName: "Run tests"
+          - script: |
+                python -m unittest discover tests
+            displayName: "Run tests"
 
-      - script: |
-          flake8 --ignore=E501 .
-        displayName: "Lint code"
+          - script: |
+                flake8 --ignore=E501 .
+            displayName: "Lint code"
 
-      - script: |
-          python setup.py sdist bdist_wheel
-        displayName: "Build package"
+          - script: |
+                python setup.py sdist bdist_wheel
+            displayName: "Build package"
 
-      - task: PublishPipelineArtifact@1
-        inputs:
-          targetPath: "$(Pipeline.Workspace)/dist"
-          artifact: "package"
-        displayName: "Publish package artifact"
+          - task: PublishPipelineArtifact@1
+            inputs:
+                targetPath: "$(Pipeline.Workspace)/dist"
+                artifact: "package"
+            displayName: "Publish package artifact"
 ```
 
 ## Programming and Development
@@ -127,10 +127,10 @@ configuration management, and orchestration.
 - name: Ensure Nginx is installed
   hosts: web_servers
   tasks:
-    - name: Install Nginx
-      apt:
-        name: nginx
-        state: present
+      - name: Install Nginx
+        apt:
+            name: nginx
+            state: present
 ```
 
 ### Docker
@@ -191,15 +191,15 @@ and automation.
 
 ```yaml
 resources:
-  - name: my-vm
-    type: compute
-    properties:
-      vmSize: Standard_DS2_v2
-      osDisk:
-        storageAccountType: Premium_LRS
-      networkProfile:
-        networkInterfaces:
-          - id: /subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.Network/networkInterfaces/my-nic
+    - name: my-vm
+      type: compute
+      properties:
+          vmSize: Standard_DS2_v2
+          osDisk:
+              storageAccountType: Premium_LRS
+          networkProfile:
+              networkInterfaces:
+                  - id: /subscriptions/subscription-id/resourceGroups/resource-group/providers/Microsoft.Network/networkInterfaces/my-nic
 ```
 
 ### Configuration as Code
@@ -212,14 +212,14 @@ in code and using automation to apply and maintain that configuration.
 ```yaml
 - hosts: all
   tasks:
-    - name: Install Apache
-      yum:
-        name: httpd
-        state: latest
-    - name: Start Apache
-      service:
-        name: httpd
-        state: started
+      - name: Install Apache
+        yum:
+            name: httpd
+            state: latest
+      - name: Start Apache
+        service:
+            name: httpd
+            state: started
 ```
 
 ## File Formats
@@ -238,10 +238,10 @@ name: John Doe
 age: 30
 occupation: Engineer
 contacts:
-  - email: john.doe@example.com
-    phone: 123456789
-  - email: jane.smith@example.com
-    phone: 987654321
+    - email: john.doe@example.com
+      phone: 123456789
+    - email: jane.smith@example.com
+      phone: 987654321
 ```
 
 ### CSV (Comma-Separated Values)
@@ -265,19 +265,19 @@ generate. It is widely used for data serialization and communication between sys
 
 ```json
 {
-  "name": "John Doe",
-  "age": 30,
-  "occupation": "Engineer",
-  "contacts": [
-    {
-      "email": "john.doe@example.com",
-      "phone": "123456789"
-    },
-    {
-      "email": "jane.smith@example.com",
-      "phone": "987654321"
-    }
-  ]
+    "name": "John Doe",
+    "age": 30,
+    "occupation": "Engineer",
+    "contacts": [
+        {
+            "email": "john.doe@example.com",
+            "phone": "123456789"
+        },
+        {
+            "email": "jane.smith@example.com",
+            "phone": "987654321"
+        }
+    ]
 }
 ```
 

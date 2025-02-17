@@ -14,10 +14,10 @@ Summary:
 
 **Składniki**
 
-- Jogurt naturalny – 1 kubeczek 250 g
-- Owoce leśne – 150 g
-- Płatki owsiane – 3 łyżki 30 g
-- Płatki migdałowe – 1 łyżeczka 5 g
+-   Jogurt naturalny – 1 kubeczek 250 g
+-   Owoce leśne – 150 g
+-   Płatki owsiane – 3 łyżki 30 g
+-   Płatki migdałowe – 1 łyżeczka 5 g
 
 **Uwagi**  
 Płatki owsiane można zastąpić amarantusem ekspandowanym, który jest bogaty w żelazo i inne składniki mineralne.
@@ -28,14 +28,14 @@ Płatki owsiane można zastąpić amarantusem ekspandowanym, który jest bogaty 
 
 **Składniki**
 
-- Jajko ugotowane na twardo – 1 sztuka
-- Pomidorki koktajlowe – kilka sztuk (można więcej)
-- Cebula czerwona – 1 plasterek
-- Mozzarella light – 50 g
-- Ogórek – kilka plasterków
-- Oliwa z oliwek – 1 łyżeczka 5 g
-- Mix sałat (np. roszponka, rukola) – 1 garść (można więcej)
-- Chleb żytni na zakwasie – 1 kromka 40 g
+-   Jajko ugotowane na twardo – 1 sztuka
+-   Pomidorki koktajlowe – kilka sztuk (można więcej)
+-   Cebula czerwona – 1 plasterek
+-   Mozzarella light – 50 g
+-   Ogórek – kilka plasterków
+-   Oliwa z oliwek – 1 łyżeczka 5 g
+-   Mix sałat (np. roszponka, rukola) – 1 garść (można więcej)
+-   Chleb żytni na zakwasie – 1 kromka 40 g
 
 **Uwagi**  
 Warzywa można modyfikować i zmieniać ich ilość.
@@ -46,10 +46,10 @@ Warzywa można modyfikować i zmieniać ich ilość.
 
 **Składniki**
 
-- Warzywa na patelnię – 200 g
-- Filet z kurczaka – 150 g
-- Olej do smażenia – 1–2 łyżki 10 g
-- Ryż dziki – ¾ woreczka 50 g
+-   Warzywa na patelnię – 200 g
+-   Filet z kurczaka – 150 g
+-   Olej do smażenia – 1–2 łyżki 10 g
+-   Ryż dziki – ¾ woreczka 50 g
 
 **Przygotowanie**  
 Kurczaka zamarynować w mleku i ziołach, odstawić na kilkanaście minut. Następnie pokroić na kawałki i smażyć. Do miękkiego kurczaka dodać warzywa i smażyć do miękkości. Do ryżu można dodać odrobinę kurkumy.
@@ -60,10 +60,10 @@ Kurczaka zamarynować w mleku i ziołach, odstawić na kilkanaście minut. Nast�
 
 **Składniki**
 
-- Warzywa zielonolistne – np. rukola, szpinak, mix sałat
-- Pomidory – 2 średnie sztuki
-- Cebula czerwona – 1 plaster
-- Jogurt naturalny – 2 łyżki 40 g
+-   Warzywa zielonolistne – np. rukola, szpinak, mix sałat
+-   Pomidory – 2 średnie sztuki
+-   Cebula czerwona – 1 plaster
+-   Jogurt naturalny – 2 łyżki 40 g
 
 **Uwagi**  
 Doprawić solą, pieprzem, ziołami prowansalskimi.
@@ -74,9 +74,9 @@ Doprawić solą, pieprzem, ziołami prowansalskimi.
 
 **Składniki**
 
-- Chleb razowy/żytni na zakwasie – 2 kromki 80 g
-- Serek śmietankowy odtłuszczony – 2 płaskie łyżki 20 g
-- Dowolne warzywa do kanapek
+-   Chleb razowy/żytni na zakwasie – 2 kromki 80 g
+-   Serek śmietankowy odtłuszczony – 2 płaskie łyżki 20 g
+-   Dowolne warzywa do kanapek
 
 ---
 
@@ -86,12 +86,12 @@ Doprawić solą, pieprzem, ziołami prowansalskimi.
 
 **Składniki**
 
-- Chleb żytni na zakwasie – 1 kromka 40 g
-- Serek śmietankowy odtłuszczony – 1 łyżka 20 g
-- Czarnuszka – 1 szczypta
-- Warzywa – pomidor, cebula, warzywa zielonolistne, kiełki
-- Awokado – 50 g
-- Jajko ugotowane – 1 sztuka
+-   Chleb żytni na zakwasie – 1 kromka 40 g
+-   Serek śmietankowy odtłuszczony – 1 łyżka 20 g
+-   Czarnuszka – 1 szczypta
+-   Warzywa – pomidor, cebula, warzywa zielonolistne, kiełki
+-   Awokado – 50 g
+-   Jajko ugotowane – 1 sztuka
 
 ---
 
@@ -99,11 +99,11 @@ Doprawić solą, pieprzem, ziołami prowansalskimi.
 
 **Składniki**
 
-- Jogurt naturalny – 1 kubek 250 g
-- Banan – 1 sztuka 130 g (mniej dojrzały)
-- Awokado – 30 g
-- Szpinak baby – 1 garść
-- Płatki owsiane – 3 łyżki 30 g
+-   Jogurt naturalny – 1 kubek 250 g
+-   Banan – 1 sztuka 130 g (mniej dojrzały)
+-   Awokado – 30 g
+-   Szpinak baby – 1 garść
+-   Płatki owsiane – 3 łyżki 30 g
 
 **Przygotowanie**  
 Wszystkie składniki włożyć do wysokiego naczynia i zblendować.
@@ -114,19 +114,19 @@ Wszystkie składniki włożyć do wysokiego naczynia i zblendować.
 
 **Składniki**
 
-- Olej rzepakowy – 1–2 łyżki 15 g
-- Papryka czerwona – ½ sztuki
-- Pomidorki koktajlowe – kilka sztuk
-- Filet z piersi kurczaka – 150 g
-- Cukinia – 200 g
-- Seler naciowy – 1–2 łodygi 100 g
-- Ryż dziki/brązowy – 50 g
+-   Olej rzepakowy – 1–2 łyżki 15 g
+-   Papryka czerwona – ½ sztuki
+-   Pomidorki koktajlowe – kilka sztuk
+-   Filet z piersi kurczaka – 150 g
+-   Cukinia – 200 g
+-   Seler naciowy – 1–2 łodygi 100 g
+-   Ryż dziki/brązowy – 50 g
 
 **Proponowane przyprawy**
 
-- Sól
-- Ostra papryczka chili
-- Kurkuma (do ryżu)
+-   Sól
+-   Ostra papryczka chili
+-   Kurkuma (do ryżu)
 
 **Przygotowanie**
 
@@ -143,9 +143,9 @@ Wszystkie składniki włożyć do wysokiego naczynia i zblendować.
 
 **Składniki**
 
-- Chleb żytni na zakwasie – 2 kromki 80 g
-- Humus lub pasta warzywna – 2 łyżki 40 g
-- Warzywa – pomidor, cebula, warzywa zielonolistne
+-   Chleb żytni na zakwasie – 2 kromki 80 g
+-   Humus lub pasta warzywna – 2 łyżki 40 g
+-   Warzywa – pomidor, cebula, warzywa zielonolistne
 
 ---
 
@@ -153,9 +153,9 @@ Wszystkie składniki włożyć do wysokiego naczynia i zblendować.
 
 **Składniki**
 
-- Chleb razowy/żytni na zakwasie – 2 kromki 80 g
-- Serek śmietankowy odtłuszczony – 2 płaskie łyżki 20 g
-- Dowolne warzywa do kanapek
+-   Chleb razowy/żytni na zakwasie – 2 kromki 80 g
+-   Serek śmietankowy odtłuszczony – 2 płaskie łyżki 20 g
+-   Dowolne warzywa do kanapek
 
 ---
 
