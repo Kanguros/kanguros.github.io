@@ -7,9 +7,9 @@ summary: Aktualne informacje o stanie zdrowia babci.
 
 [TOC]
 
-## Aktualnie
+## 21.02.2025
 
-Po konstulacji z geriatrą w dniu 17.02.2025.
+Po konstulacji z geriatrą w dniu 21.02.2025.
 
 ### Leki
 
@@ -20,6 +20,7 @@ Po konstulacji z geriatrą w dniu 17.02.2025.
 | Atrox 20 mg          | 0-0-1          |                                             |
 | Pradaxa 110 mg       | 1-0-1          |                                             |
 | Siofor 500 mg        | 1-1-0          | + dobranie                                  |
+| Carzap HCT 16,5/12,5 | ½-0-0          |                                             |
 | Lacipil 2mg          | 0-½-0          | Dawka zależna od potrzeb i skoków ciśnienia |
 | Spironol 25 mg       | 0-1-0          |                                             |
 | Memantin 10mg        | ½-0-0          |                                             |
@@ -31,13 +32,6 @@ Po konstulacji z geriatrą w dniu 17.02.2025.
 | Gaviscon syrop 10 ml | 1-0-1          | Po śniadaniu i przed snem                   |
 | Telfexo              | doraźnie       | Na świąd                                    |
 | Rapacholin C         | doraźnie       | Na zaparcia                                 |
-
-#### Zmiany w lekach
-
-Względem leków z dnia [17.02.2025](#17022025)
-
--   Usunięto:
-    -   Carzap HCT 16,5/12,5 - Z powodu niskich ciśnień.
 
 ## 17.02.2025
 
@@ -177,7 +171,7 @@ Po konsultacjach z kardiologiem.
 
 #### Zmiany w lekach
 
-Względem leków z dnia [27.01.2025](#27012025)
+Względem leków z dnia [27.01.2025](#wizyty_domowa__27012025)
 
 -   Zamiana:
     -   Prestarium 5 mg → Carzap HCT 16,5/12,5 (1-0-0).
@@ -186,7 +180,7 @@ Względem leków z dnia [27.01.2025](#27012025)
 -   Usunięto:
     -   Famogast.
 
-## 02.02.2025
+## SOR - 02.02.2025
 
 Wizyta na SOR Ochojec z powodu bardzo dużego ciśnienia dochodzącego do 190/110.
 
@@ -195,7 +189,7 @@ Wizyta na SOR Ochojec z powodu bardzo dużego ciśnienia dochodzącego do 190/11
 -   Duże ciśnienie w okolicach 180/100.
 -   Zmęczenie i duże osłabienie, senność.
 
-## 27.01.2025
+## Wizyta domowa - 27.01.2025
 
 Konsultacja z geriatrą była potrzebna w celu dostosowania leków.
 
@@ -240,7 +234,7 @@ Konsultacja z geriatrą była potrzebna w celu dostosowania leków.
 -   Pierwszy znaczący incydent z dezorientacją.
     -   Telefon do rodziny o 05:00, że wszedzie szuka kota i nie umie go znalezc.
 
-## 14.01.2025
+## Wizyta domowa - 14.01.2025
 
 Umówiona została wizyta domowa z geriatrą w celu dostosowania leków oraz poprawy ogólnego samopoczucia i przywrócenia
 sił.
@@ -274,7 +268,7 @@ Po wizycie geriatry.
 
 #### Zmiany w lekach
 
-Względem leków z dnia [04.01.2025](#04012025)
+Względem leków z dnia [05.01.2025](#05012025)
 
 -   Zamiana:
     -   Pradaxa 110 mg → Vessel Due F (1-0-1).
@@ -292,7 +286,7 @@ Względem leków z dnia [04.01.2025](#04012025)
     -   Feroplex 40 mg.
     -   Magne B6.
 
-## 04.01.2025
+## 05.01.2025
 
 ### Leki
 
@@ -315,7 +309,7 @@ Po wyjściu z Murcek.
 
 #### Zmiany w lekach
 
-Względem leków z dnia [28.12.2024](#28122024)
+Względem leków z dnia [28.12.2024](#do23122024)
 
 -   Zamiana:
     -   Euthyrox N 75 µg → Euthyrox N 100 µg (1-0-0).
@@ -334,9 +328,24 @@ Względem leków z dnia [28.12.2024](#28122024)
 -   Usunięto:
     -   Kalium 600 mg.
 
-## 28.12.2024
+## Szpital Murcki - 28.12.2024 - 04.01.2025
 
-Babcia w trakcie grypy się odwodniła i pozbawiła elektrolitów. Co prawdopodobnie skutkowało wysokim pulsem i arytmią.
+Pobyt na oddziale internistycznym.
+
+Wykonano badania:
+
+-   [Gastroskopia](#gastroskopia-diagnostyczna-z-testem-ureazowym---03012025)
+-   [USG Brzucha](#usg---jamy-brzusznej-i-przestrzeni-zaotrzewnej---03012025)
+-   [Echo serca](#echokardiografia---03012025)
+-   [RTG klatki piersiowej](#rtg-klatki-piersiowej-rutynowe---03012025)
+
+## Grypa - 23.12.2024 - 28.12.2024
+
+Zachowanie na (prawdopodobnie) grypę. Pozytywny test w bliskiej rodzinie.
+
+W trakcie grypy babcia się odwodniła i pozbawiła elektrolitów.  
+Co prawdopodobnie skutkowało wysokim pulsem i arytmią.  
+Przy braku możliwości zbicia pulsu i pojawieniem się arytmii, konieczne bylo wezwanie pogotowia.
 
 ### Objawy
 
@@ -349,9 +358,15 @@ Babcia w trakcie grypy się odwodniła i pozbawiła elektrolitów. Co prawdopodo
     -   Brak apetytu.
 -   Po kilku dniach pojawił się wysoki puls w granicach 150 oraz arytmia.
 
-### Leki
+## Do 23.12.2024
 
-Do czasu pójscia na Murcki.
+Stan ogólny bardzo dobry.
+
+-   Mieszka sama.
+-   Wszelkie domowe obowiązki wykonuje sama.
+-   Apetyt nienajgorszy.
+
+### Leki
 
 | Lek                           | Dawkowanie | Uwagi                   |
 | ----------------------------- | ---------- | ----------------------- |
@@ -475,7 +490,7 @@ Do czasu pójscia na Murcki.
 | Osad - Bakterie          | nieliczne   | -     | -    | -         |
 | Osad - Wałeczki szkliste | nieliczne   | -     | -    | -         |
 
-### Gastroskopia diagnostyczna z testem ureazowym - 05.01.2025
+### Gastroskopia diagnostyczna z testem ureazowym - 03.01.2025
 
 -   Przełyk nieregularny, prawidłowy.
 -   Linia Z uniesiona, z pojedynczą językowatą wypustką.
@@ -489,7 +504,7 @@ Do czasu pójscia na Murcki.
 -   Część pozaopuszkowa prawidłowa.
 -   Pobrano wycinek na test ureazowy – wynik ujemny.
 
-### USG - Jamy brzusznej i przestrzeni zaotrzewnej - 05.01.2025
+### USG - Jamy brzusznej i przestrzeni zaotrzewnej - 03.01.2025
 
 -   Wątroba niepowiększona, o dość jednorodnej strukturze echa.
 -   Stan po cholecystektomii.
@@ -501,7 +516,7 @@ Do czasu pójscia na Murcki.
 -   Aorta brzuszna nieposzerzona, ze zwapnieniami.
 -   Pęcherz moczowy pusty (cewnik nie został oceniony).
 
-### Echokardiografia - 05.01.2025
+### Echokardiografia - 03.01.2025
 
 -   LVOT (ujście aortalne): 17 mm
 -   Opuszka aorty: 32 mm
@@ -522,9 +537,62 @@ Wnioski:
 -   Powiększenie obu przedsionków.
 -   Niedomykalność mitralna małego stopnia.
 
-### RTG klatki piersiowej rutynowe - 05.01.2025
+### RTG klatki piersiowej rutynowe - 03.01.2025
 
 -   Pola płucne bez zagęszczeń ogniskowych.
 -   Sylwetka serca bez powiększenia, aorta wydłużona z blaszką miażdżycową w łuku.
 -   Kąty przeponowo-żebrowe wolne.
 -   Zmiany zwyrodnieniowo-wytwórcze kręgosłupa.
+
+### TK Podstawowe głowy – 04.02.2025
+
+Badanie TK Głowy wykonano aparatem GE Optima CT540 warstwami 2,5 mm, 5 mm, z którymi rekonstrukcjami.  
+Bez podania środka kontrastowego, w trybie pilnym.
+
+Dane ze skierowania:
+
+-   Zaburzenia mowy, asymetria twarzy dzisiaj między 9 a 10.30, o 11.30 brak objawów niedokrwienia OUN (TIA?).
+-   Chora mieszka sama, opieka dochodząca wnuka.
+-   Przyjmuje przewlekle leki przeciwnadciśnieniowe, wizyta w SOR, z powodu FA leczenie przeciwkrzepliwe
+
+Badanie bez istotnych różnic względem badania poprzedniego z dnia 02.02.2025.
+
+Obserwacje:
+
+-   Cech krwawienia wewnątrzczaszkowego nie uwidoczniono.
+-   Mierne poszerzenie przestrzeni płynowych przymózgowych - adekwatne do wieku.
+-   Obszary hipodensyjne w istocie białej podkorowej w płatach czołowych i ciemieniowych, środkach półowalnych - o
+    charakterze zmian naczyniopochodnych - do różnicowania pomiędzy zmianami niedokrwiennymi a naczyniowymi.
+-   Bez widocznych cech obrzęku mózgu.
+-   Układ komorowy symetryczny, nieposzerzony, nieprzemieszczony.
+-   Nie uwidoczniono nieprawidłowych zmian w tylnym dole czaszki.
+-   Bez zmian pourazowych czaszki.
+-   Zmiany zwyrodnieniowe - wyostrzenia krawędzi wewnątrzczaszkowych odcinków tętnic szyjnych wewnętrznych i
+    śródczaszkowych.
+-   Nie uwidoczniono zmian w strukturach szczytowo-obrotowych podkręgowych.
+
+Wniosek:
+
+Obraz bez istotnych różnic względem badania poprzedniego z dnia 02.02.2025.
+
+### ANGIO-TK TT mózgowych – 04.02.2025
+
+Badanie Angio-TK tętnic szyjnych i mózgowych wykonano aparatem GE Optima CT540 warstwami 0,5mm, po dożylnym podaniu
+środka kontrastowego, w trybie pilnym.
+
+Dane ze skierowania:
+
+-   Zaburzenia mowy, asymetria twarzy dzisiaj między 9 a 10.30, o 11.30 brak objawów niedokrwienia OUN (TIA?)
+-   Chora mieszka sama, opieka dochodząca wnuka. Przyjmuje przewlekle leki przeciwnadciśnieniowe, wizyta w SOR, z powodu
+    FA leczenie przeciwkrzepliwe
+
+Obserwacje:
+
+-   Uwidoczniono odcinki prawej tętnicy szyjnej nieposzerzony z przyściennymi, mieszanymi blaszkami miażdżycowymi, bez
+    istotnych zwężeń.
+-   Uwidoczniono odcinki pnia ramienno-głowowego i lewej tętnicy szyjnej wspólnej, lewej tętnicy szyjnej wewnętrznej z
+    blaszkami miażdżycowymi w początkowym odcinku i zwężeniami do 50%.
+-   Lewa tętnica kręgowa - o zwężeniu do 50% po stronie lewej.
+-   Przepływ kontrastowy przez tętnice mózgowe zachowany.
+-   Drożne zatoki w szczątkach płuc.
+-   Zmiany zwyrodnieniowo-wytwórcze i dyskopatyczne uwidoczniono odcinka kręgosłupa szyjnego.
