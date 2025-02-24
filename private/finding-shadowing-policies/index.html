@@ -133,6 +133,7 @@ Finding shadowing policies - Kamil's Scratchpad
     <div class="toc">
 <ul>
 <li><a href="#code">Code</a></li>
+<li><a href="#resolve-addresses">Resolve&nbsp;addresses</a></li>
 <li><a href="#unit-tests">Unit&nbsp;tests</a></li>
 </ul>
 </div>
@@ -274,6 +275,89 @@ Finding shadowing policies - Kamil's Scratchpad
             <span class="n">shadowed_rules</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">rule</span><span class="p">,</span> <span class="n">shadowing_rules</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">shadowed_rules</span>
+</code></pre></div>
+
+<h2 id="resolve-addresses"><a class="toclink" href="#resolve-addresses">Resolve&nbsp;addresses</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">ipaddress</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">lru_cache</span>
+
+<span class="c1"># Type aliases</span>
+<span class="n">AddressObject</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Network</span><span class="p">,</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv6Network</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>  <span class="c1"># &quot;any&quot; is allowed</span>
+<span class="n">AddressGroup</span> <span class="o">=</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>  <span class="c1"># Can contain AOs or AGs</span>
+
+<span class="n">SecurityRule</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>  <span class="c1"># Placeholder for actual SecurityRule TypedDict</span>
+
+<span class="k">def</span> <span class="nf">resolve_security_rule_addresses</span><span class="p">(</span>
+    <span class="n">rules</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">],</span> 
+    <span class="n">address_objects</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">AddressObject</span><span class="p">]],</span> 
+    <span class="n">address_groups</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">AddressGroup</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Resolve Address Objects (AO) and Address Groups (AG) for all security rules.&quot;&quot;&quot;</span>
+    <span class="n">resolved_rules</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">rules</span><span class="p">:</span>
+        <span class="n">resolved_rule</span> <span class="o">=</span> <span class="n">rule</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">resolved_rule</span><span class="p">[</span><span class="s2">&quot;source_addresses&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resolve_addresses</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">rule</span><span class="p">[</span><span class="s2">&quot;source_addresses&quot;</span><span class="p">]),</span> <span class="n">address_objects</span><span class="p">,</span> <span class="n">address_groups</span><span class="p">)</span>
+        <span class="n">resolved_rule</span><span class="p">[</span><span class="s2">&quot;destination_addresses&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">resolve_addresses</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">rule</span><span class="p">[</span><span class="s2">&quot;destination_addresses&quot;</span><span class="p">]),</span> <span class="n">address_objects</span><span class="p">,</span> <span class="n">address_groups</span><span class="p">)</span>
+        <span class="n">resolved_rules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">resolved_rule</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">resolved_rules</span>
+
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">resolve_addresses</span><span class="p">(</span>
+    <span class="n">input_addresses</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> 
+    <span class="n">address_objects</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">AddressObject</span><span class="p">]],</span> 
+    <span class="n">address_groups</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">AddressGroup</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="n">AddressObject</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Resolve Address Objects (AO) and Address Groups (AG) to a set of actual IP addresses.&quot;&quot;&quot;</span>
+    <span class="n">resolved</span><span class="p">:</span> <span class="n">Set</span><span class="p">[</span><span class="n">AddressObject</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+    <span class="n">stack</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">input_addresses</span><span class="p">)</span>
+    <span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># To prevent circular references</span>
+
+    <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+        <span class="n">current</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">current</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">current</span> <span class="o">==</span> <span class="s2">&quot;any&quot;</span><span class="p">:</span>
+            <span class="n">resolved</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;any&quot;</span><span class="p">)</span>
+            <span class="k">continue</span>
+
+        <span class="k">if</span> <span class="n">current</span> <span class="ow">in</span> <span class="n">address_objects</span><span class="p">:</span>
+            <span class="n">resolved</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">address_objects</span><span class="p">[</span><span class="n">current</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">current</span> <span class="ow">in</span> <span class="n">address_groups</span><span class="p">:</span>
+            <span class="n">stack</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">address_groups</span><span class="p">[</span><span class="n">current</span><span class="p">])</span>  <span class="c1"># Expand AG contents</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown address object or group: </span><span class="si">{</span><span class="n">current</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">resolved</span>
+
+<span class="c1"># Example data</span>
+<span class="n">address_objects</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;AO1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="s2">&quot;192.168.1.0/24&quot;</span><span class="p">)],</span>
+    <span class="s2">&quot;AO2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="s2">&quot;10.0.0.0/8&quot;</span><span class="p">)],</span>
+    <span class="s2">&quot;AO3&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="s2">&quot;2001:db8::/32&quot;</span><span class="p">)],</span>
+<span class="p">}</span>
+
+<span class="n">address_groups</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;AG1&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;AO1&quot;</span><span class="p">,</span> <span class="s2">&quot;AO2&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;AG2&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;AG1&quot;</span><span class="p">,</span> <span class="s2">&quot;AO3&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;AG3&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;AG2&quot;</span><span class="p">,</span> <span class="s2">&quot;AG1&quot;</span><span class="p">],</span>  <span class="c1"># Nested AGs</span>
+<span class="p">}</span>
+
+<span class="c1"># Example security rules</span>
+<span class="n">security_rules</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Rule1&quot;</span><span class="p">,</span> <span class="s2">&quot;source_addresses&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;AG3&quot;</span><span class="p">],</span> <span class="s2">&quot;destination_addresses&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;AO2&quot;</span><span class="p">]},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Rule2&quot;</span><span class="p">,</span> <span class="s2">&quot;source_addresses&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;AO1&quot;</span><span class="p">],</span> <span class="s2">&quot;destination_addresses&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;AG1&quot;</span><span class="p">]},</span>
+<span class="p">]</span>
+
+<span class="c1"># Resolve addresses in rules</span>
+<span class="n">resolved_rules</span> <span class="o">=</span> <span class="n">resolve_security_rule_addresses</span><span class="p">(</span><span class="n">security_rules</span><span class="p">,</span> <span class="n">address_objects</span><span class="p">,</span> <span class="n">address_groups</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">resolved_rules</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">rule</span><span class="p">)</span>
 </code></pre></div>
 
 <h2 id="unit-tests"><a class="toclink" href="#unit-tests">Unit&nbsp;tests</a></h2>
