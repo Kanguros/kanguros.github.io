@@ -153,8 +153,8 @@ def find_shadowed_rules(rules: List[SecurityRule], checks: List[RuleCheckFunctio
 ```
 
 
-
 ## Resolve addresses 
+
 
 ```python
 from typing import Dict, List, Set, Union
@@ -238,6 +238,7 @@ resolved_rules = resolve_security_rule_addresses(security_rules, address_objects
 for rule in resolved_rules:
     print(rule)
 ```
+
 
 ## Unit tests
 
