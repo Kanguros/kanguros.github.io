@@ -81,7 +81,8 @@ def check_source_address(
 def check_destination_address(
     rule: SecurityRule, preceding_rule: SecurityRule
 ) -> bool:
-    """Checks if the destination addresses are identical, allow any, or are subsets of the preceding rule's addresses."""
+    """Checks if the destination addresses are
+    identical, allow any, or are subsets of the preceding rule's addresses."""
     if "any" in preceding_rule["destination_addresses"]:
         return True
 
@@ -96,7 +97,8 @@ def check_destination_address(
 
 
 def check_ports(rule: SecurityRule, preceding_rule: SecurityRule) -> bool:
-    """Checks if the rule's ports are the same or a subset of the preceding rule's ports."""
+    """Checks if the rule's ports are the same
+    or a subset of the preceding rule's ports."""
     return (
         rule["services"] == preceding_rule["services"]
         or "application-default" in preceding_rule["services"]
