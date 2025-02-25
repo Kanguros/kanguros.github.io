@@ -1,5 +1,5 @@
 import os
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import parse_qs, urlparse
 
 from requests import Response
 
@@ -43,21 +43,27 @@ def execute_and_save_responses(api: ApiWrapper):
 
 def get_response_file(url: str) -> str:
     parsed_url = urlparse(url)
-    path_parts = parsed_url.path.strip("/").split('/')
+    path_parts = parsed_url.path.strip("/").split("/")
     method = parsed_url.scheme
     query_params = parse_qs(parsed_url.query)
 
-    query_str = "_".join([f"{param}_{value}" for param, values in query_params.items() for value in values])
-    return os.path.join("tests", "responses", "_".join(path_parts), f"{method}_{query_str}.txt")
+    query_str = "_".join(
+        [
+            f"{param}_{value}"
+            for param, values in query_params.items()
+            for value in values
+        ]
+    )
+    return os.path.join(
+        "tests", "responses", "_".join(path_parts), f"{method}_{query_str}.txt"
+    )
 
 
 def prepare_file_content(response: Response):
-    content = f"""# status_code: {response.status_code}
-    # reason: {response.reson}
-    {response.content}
-    
-    """
-    return content
+    return f"""# status_code: {response.status_code}
+# reason: {response.reson}
+{response.content}
+"""
 
 
 def save_response(file_path: str, content: str):

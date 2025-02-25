@@ -138,143 +138,7 @@ Finding shadowing policies - Kamil's Scratchpad
 </ul>
 </div>
 <h2 id="code"><a class="toclink" href="#code">Code</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">TypedDict</span><span class="p">,</span> <span class="n">Union</span>
-<span class="kn">import</span> <span class="nn">ipaddress</span>
-
-<span class="k">class</span> <span class="nc">SecurityRule</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
-    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
-    <span class="n">action</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;allow&quot;</span><span class="p">,</span> <span class="s2">&quot;deny&quot;</span><span class="p">]</span>
-    <span class="n">source_zones</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;any&quot;</span><span class="p">]]]</span>
-    <span class="n">destination_zones</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;any&quot;</span><span class="p">]]]</span>
-    <span class="n">source_addresses</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Network</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv6Network</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;any&quot;</span><span class="p">]]]</span>
-    <span class="n">destination_addresses</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Network</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv6Network</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;any&quot;</span><span class="p">]]]</span>
-    <span class="n">applications</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;any&quot;</span><span class="p">]]]</span>
-    <span class="n">services</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;any&quot;</span><span class="p">,</span> <span class="s2">&quot;application-default&quot;</span><span class="p">]]]</span>
-
-<span class="n">RuleCheckFunction</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">SecurityRule</span><span class="p">,</span> <span class="n">SecurityRule</span><span class="p">],</span> <span class="nb">bool</span><span class="p">]</span>
-
-
-<span class="k">def</span> <span class="nf">check_action</span><span class="p">(</span><span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the action is the same in both rules.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">preceding_rule</span><span class="p">[</span><span class="s2">&quot;action&quot;</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">check_application</span><span class="p">(</span><span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the rule&#39;s applications are the same or a subset of the preceding rule&#39;s applications.&quot;&quot;&quot;</span>
-    <span class="n">rule_apps</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">rule</span><span class="p">[</span><span class="s2">&quot;applications&quot;</span><span class="p">])</span>
-    <span class="n">preceding_apps</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">preceding_rule</span><span class="p">[</span><span class="s2">&quot;applications&quot;</span><span class="p">])</span>
-
-    <span class="k">if</span> <span class="s2">&quot;any&quot;</span> <span class="ow">in</span> <span class="n">preceding_apps</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">if</span> <span class="s2">&quot;any&quot;</span> <span class="ow">in</span> <span class="n">rule_apps</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;any&quot;</span> <span class="ow">in</span> <span class="n">preceding_apps</span>
-    <span class="k">return</span> <span class="n">rule_apps</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">preceding_apps</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">check_source_zone</span><span class="p">(</span><span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the source zones are identical or if the preceding rule allows any zone.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;source_zones&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">preceding_rule</span><span class="p">[</span><span class="s2">&quot;source_zones&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="s2">&quot;any&quot;</span> <span class="ow">in</span> <span class="n">preceding_rule</span><span class="p">[</span><span class="s2">&quot;source_zones&quot;</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">check_destination_zone</span><span class="p">(</span><span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the destination zones are identical or if the preceding rule allows any zone.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;destination_zones&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">preceding_rule</span><span class="p">[</span><span class="s2">&quot;destination_zones&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="s2">&quot;any&quot;</span> <span class="ow">in</span> <span class="n">preceding_rule</span><span class="p">[</span><span class="s2">&quot;destination_zones&quot;</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">check_source_address</span><span class="p">(</span><span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the source addresses are identical, allow any, or are subsets of the preceding rule&#39;s addresses.&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="s2">&quot;any&quot;</span> <span class="ow">in</span> <span class="n">preceding_rule</span><span class="p">[</span><span class="s2">&quot;source_addresses&quot;</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="kc">True</span>
-
-    <span class="k">for</span> <span class="n">addr</span> <span class="ow">in</span> <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;source_addresses&quot;</span><span class="p">]:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">addr</span><span class="o">.</span><span class="n">subnet_of</span><span class="p">(</span><span class="n">net</span><span class="p">)</span> <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">preceding_rule</span><span class="p">[</span><span class="s2">&quot;source_addresses&quot;</span><span class="p">]):</span>
-            <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="k">return</span> <span class="kc">True</span>
-
-<span class="k">def</span> <span class="nf">check_destination_address</span><span class="p">(</span><span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the destination addresses are identical, allow any, or are subsets of the preceding rule&#39;s addresses.&quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="s2">&quot;any&quot;</span> <span class="ow">in</span> <span class="n">preceding_rule</span><span class="p">[</span><span class="s2">&quot;destination_addresses&quot;</span><span class="p">]:</span>
-        <span class="k">return</span> <span class="kc">True</span>
-
-    <span class="k">for</span> <span class="n">addr</span> <span class="ow">in</span> <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;destination_addresses&quot;</span><span class="p">]:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">addr</span><span class="o">.</span><span class="n">subnet_of</span><span class="p">(</span><span class="n">net</span><span class="p">)</span> <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">preceding_rule</span><span class="p">[</span><span class="s2">&quot;destination_addresses&quot;</span><span class="p">]):</span>
-            <span class="k">return</span> <span class="kc">False</span>
-
-    <span class="k">return</span> <span class="kc">True</span>
-
-<span class="k">def</span> <span class="nf">check_ports</span><span class="p">(</span><span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the rule&#39;s ports are the same or a subset of the preceding rule&#39;s ports.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">rule</span><span class="p">[</span><span class="s2">&quot;services&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">preceding_rule</span><span class="p">[</span><span class="s2">&quot;services&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="s2">&quot;application-default&quot;</span> <span class="ow">in</span> <span class="n">preceding_rule</span><span class="p">[</span><span class="s2">&quot;services&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="nb">set</span><span class="p">(</span><span class="n">rule</span><span class="p">[</span><span class="s2">&quot;services&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">preceding_rule</span><span class="p">[</span><span class="s2">&quot;services&quot;</span><span class="p">]))</span>
-
-<span class="n">CHECKS</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">RuleCheckFunction</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">check_action</span><span class="p">,</span>
-    <span class="n">check_application</span><span class="p">,</span>
-    <span class="n">check_source_zone</span><span class="p">,</span>
-    <span class="n">check_destination_zone</span><span class="p">,</span>
-    <span class="n">check_source_address</span><span class="p">,</span>
-    <span class="n">check_destination_address</span><span class="p">,</span>
-    <span class="n">check_ports</span><span class="p">,</span>
-<span class="p">]</span>
-
-
-<span class="k">def</span> <span class="nf">is_shadowing</span><span class="p">(</span><span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">checks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">RuleCheckFunction</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if a security rule is shadowed by a preceding rule.</span>
-
-<span class="sd">    A rule is shadowed if all checks in the provided list return True, meaning</span>
-<span class="sd">    the preceding rule covers all aspects of the given rule.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        rule (SecurityRule): The security rule being checked for shadowing.</span>
-<span class="sd">        preceding_rule (SecurityRule): The rule that may be shadowing the given rule.</span>
-<span class="sd">        checks (List[RuleCheckFunction]): A list of functions that validate different rule attributes.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        bool: True if `rule` is shadowed by `preceding_rule`, otherwise False.</span>
-
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; rule1 = {&quot;name&quot;: &quot;Allow Web&quot;, &quot;action&quot;: &quot;allow&quot;, &quot;application&quot;: [&quot;web-browsing&quot;], ...}</span>
-<span class="sd">        &gt;&gt;&gt; rule2 = {&quot;name&quot;: &quot;Allow All&quot;, &quot;action&quot;: &quot;allow&quot;, &quot;application&quot;: [&quot;any&quot;], ...}</span>
-<span class="sd">        &gt;&gt;&gt; is_shadowing(rule1, rule2, CHECKS)</span>
-<span class="sd">        True</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">check</span> <span class="ow">in</span> <span class="n">checks</span><span class="p">:</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">check</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">return</span> <span class="kc">True</span>
-
-
-<span class="k">def</span> <span class="nf">find_shadowed_rules</span><span class="p">(</span><span class="n">rules</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">],</span> <span class="n">checks</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">RuleCheckFunction</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">]]]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Finds security rules that are shadowed by preceding rules.</span>
-
-<span class="sd">    Iterates through a list of firewall security rules and identifies rules that</span>
-<span class="sd">    are completely covered by one or more preceding rules.</span>
-
-<span class="sd">    Args:</span>
-<span class="sd">        rules (List[SecurityRule]): A list of security rules to analyze.</span>
-<span class="sd">        checks (List[RuleCheckFunction]): A list of check functions to determine shadowing.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        List[Tuple[SecurityRule, List[SecurityRule]]]: A list of tuples where each tuple contains:</span>
-<span class="sd">            - The shadowed rule.</span>
-<span class="sd">            - A list of preceding rules that are shadowing it.</span>
-
-<span class="sd">    Example:</span>
-<span class="sd">        &gt;&gt;&gt; rules = [</span>
-<span class="sd">        ...     {&quot;name&quot;: &quot;Allow All&quot;, &quot;action&quot;: &quot;allow&quot;, &quot;application&quot;: [&quot;any&quot;], ...},</span>
-<span class="sd">        ...     {&quot;name&quot;: &quot;Allow Web&quot;, &quot;action&quot;: &quot;allow&quot;, &quot;application&quot;: [&quot;web-browsing&quot;], ...},</span>
-<span class="sd">        ... ]</span>
-<span class="sd">        &gt;&gt;&gt; find_shadowed_rules(rules, CHECKS)</span>
-<span class="sd">        [(rule2, [rule1])]</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">shadowed_rules</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">]]]</span> <span class="o">=</span> <span class="p">[]</span>
-
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">rule</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rules</span><span class="p">):</span>
-        <span class="n">shadowing_rules</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">is_shadowing</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">rules</span><span class="p">[</span><span class="n">j</span><span class="p">],</span> <span class="n">checks</span><span class="p">):</span>
-                <span class="n">shadowing_rules</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rules</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
-
-        <span class="k">if</span> <span class="n">shadowing_rules</span><span class="p">:</span>
-            <span class="n">shadowed_rules</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">rule</span><span class="p">,</span> <span class="n">shadowing_rules</span><span class="p">))</span>
-
-    <span class="k">return</span> <span class="n">shadowed_rules</span>
+<div class="highlight"><pre><span></span><code>
 </code></pre></div>
 
 <h2 id="resolve-addresses"><a class="toclink" href="#resolve-addresses">Resolve&nbsp;addresses</a></h2>
@@ -289,8 +153,8 @@ Finding shadowing policies - Kamil's Scratchpad
 <span class="n">SecurityRule</span> <span class="o">=</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>  <span class="c1"># Placeholder for actual SecurityRule TypedDict</span>
 
 <span class="k">def</span> <span class="nf">resolve_security_rule_addresses</span><span class="p">(</span>
-    <span class="n">rules</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">],</span> 
-    <span class="n">address_objects</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">AddressObject</span><span class="p">]],</span> 
+    <span class="n">rules</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">],</span>
+    <span class="n">address_objects</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">AddressObject</span><span class="p">]],</span>
     <span class="n">address_groups</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">AddressGroup</span><span class="p">]</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Resolve Address Objects (AO) and Address Groups (AG) for all security rules.&quot;&quot;&quot;</span>
@@ -306,8 +170,8 @@ Finding shadowing policies - Kamil's Scratchpad
 
 <span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">resolve_addresses</span><span class="p">(</span>
-    <span class="n">input_addresses</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> 
-    <span class="n">address_objects</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">AddressObject</span><span class="p">]],</span> 
+    <span class="n">input_addresses</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+    <span class="n">address_objects</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">AddressObject</span><span class="p">]],</span>
     <span class="n">address_groups</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">AddressGroup</span><span class="p">]</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Set</span><span class="p">[</span><span class="n">AddressObject</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Resolve Address Objects (AO) and Address Groups (AG) to a set of actual IP addresses.&quot;&quot;&quot;</span>
