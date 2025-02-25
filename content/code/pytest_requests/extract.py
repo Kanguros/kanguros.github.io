@@ -61,8 +61,8 @@ def get_response_file(url: str) -> str:
 
 def prepare_file_content(response: Response):
     return f"""# status_code: {response.status_code}
-    # reason: {response.reson}
-    {response.content}    
+# reason: {response.reson}
+{response.content}    
     """
 
 
