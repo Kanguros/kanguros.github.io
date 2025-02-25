@@ -1,5 +1,4 @@
 import os
-from typing import List
 from urllib.parse import parse_qs, urlparse
 
 import pytest
@@ -32,7 +31,7 @@ def get_response_file(url: str) -> str:
     return os.path.join(BASE_RESPONSE_PATH, dir_name, file_name)
 
 
-def load_response_content(response_file: str) -> List[str]:
+def load_response_content(response_file: str) -> list[str]:
     """
     Load the content of a response file.
     """
@@ -40,7 +39,7 @@ def load_response_content(response_file: str) -> List[str]:
         return file.readlines()
 
 
-def extract_response_info(content_lines: List[str]) -> Response:
+def extract_response_info(content_lines: list[str]) -> Response:
     """
     Extract response information from response content lines and create a Response object.
     """
@@ -80,8 +79,6 @@ def http_request_fixture(monkeypatch):
 
         response_file = get_response_file(url)
         content_lines = load_response_content(response_file)
-        response = extract_response_info(content_lines)
-
-        return response
+        return extract_response_info(content_lines)
 
     monkeypatch.setattr(requests.sessions.Session, "request", mock_request)

@@ -60,12 +60,10 @@ def get_response_file(url: str) -> str:
 
 
 def prepare_file_content(response: Response):
-    content = f"""# status_code: {response.status_code}
+    return f"""# status_code: {response.status_code}
     # reason: {response.reson}
-    {response.content}
-    
+    {response.content}    
     """
-    return content
 
 
 def save_response(file_path: str, content: str):

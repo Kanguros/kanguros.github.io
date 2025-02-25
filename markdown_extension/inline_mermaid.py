@@ -44,10 +44,12 @@ def find_mmdc():
 
 
 class InlineMermaidExtension(Extension):
-    def extendMarkdown(self, md):
+    def extendMarkdown(self, md):  # noqa: N802
         """Add InlineMermaidPreprocessor to the Markdown instance."""
         md.registerExtension(self)
-        md.preprocessors.register(InlineMermaidPreprocessor(md), "mermaid_block", 27)
+        md.preprocessors.register(
+            InlineMermaidPreprocessor(md), "mermaid_block", 27
+        )
 
 
 class InlineMermaidPreprocessor(Preprocessor):
@@ -92,7 +94,7 @@ class InlineMermaidPreprocessor(Preprocessor):
                         text=True,
                         check=True,
                     )
-                except Exception as e:
+                except Exception as e:  # noqa: BLE001
                     return (
                         "<pre>Failed to invoke mmdc command</pre>"
                         f"<pre>Error : {str(e)} </pre>"
@@ -122,17 +124,17 @@ class InlineMermaidPreprocessor(Preprocessor):
                         f"<pre>Error : Content of a {tmp_svg_path} is empty</pre>"
                         f"<pre>Args : {str(args)} </pre>"
                         f"<pre>{content}</pre>"
-                    ).split("\n")
+                    ).split("\n")  # noqa: UP032
 
                 text = "{}\n{}\n{}".format(
                     text[: m.start()],
                     # self.md.htmlStash.store(img_tag),
                     self.md.htmlStash.store(svg_content),
-                    text[m.end() :],
+                    text[m.end():],
                 )
 
         return text.split("\n")
 
 
-def makeExtension(**kwargs):
+def makeExtension(**kwargs):  # noqa: N802
     return InlineMermaidExtension(**kwargs)

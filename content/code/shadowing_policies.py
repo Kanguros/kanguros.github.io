@@ -11,10 +11,14 @@ class SecurityRule(TypedDict):
     source_zones: Union[list[str], list[KeywordAny]]
     destination_zones: Union[list[str], list[KeywordAny]]
     source_addresses: Union[
-        list[ipaddress.IPv4Network], list[ipaddress.IPv6Network], list[KeywordAny]
+        list[ipaddress.IPv4Network],
+        list[ipaddress.IPv6Network],
+        list[KeywordAny],
     ]
     destination_addresses: Union[
-        list[ipaddress.IPv4Network], list[ipaddress.IPv6Network], list[KeywordAny]
+        list[ipaddress.IPv4Network],
+        list[ipaddress.IPv6Network],
+        list[KeywordAny],
     ]
     applications: Union[list[str], list[KeywordAny]]
     services: Union[list[str], list[Literal[KeywordAny, KeywordAppDefault]]]
@@ -48,7 +52,9 @@ def check_source_zone(rule: SecurityRule, preceding_rule: SecurityRule) -> bool:
     )
 
 
-def check_destination_zone(rule: SecurityRule, preceding_rule: SecurityRule) -> bool:
+def check_destination_zone(
+    rule: SecurityRule, preceding_rule: SecurityRule
+) -> bool:
     """Checks if the destination zones are identical or if the preceding rule allows any zone."""
     return (
         rule["destination_zones"] == preceding_rule["destination_zones"]
@@ -56,26 +62,33 @@ def check_destination_zone(rule: SecurityRule, preceding_rule: SecurityRule) -> 
     )
 
 
-def check_source_address(rule: SecurityRule, preceding_rule: SecurityRule) -> bool:
+def check_source_address(
+    rule: SecurityRule, preceding_rule: SecurityRule
+) -> bool:
     """Checks if the source addresses are identical, allow any, or are subsets of the preceding rule's addresses."""
     if "any" in preceding_rule["source_addresses"]:
         return True
 
     for addr in rule["source_addresses"]:
-        if not any(addr.subnet_of(net) for net in preceding_rule["source_addresses"]):
+        if not any(
+            addr.subnet_of(net) for net in preceding_rule["source_addresses"]
+        ):
             return False
 
     return True
 
 
-def check_destination_address(rule: SecurityRule, preceding_rule: SecurityRule) -> bool:
+def check_destination_address(
+    rule: SecurityRule, preceding_rule: SecurityRule
+) -> bool:
     """Checks if the destination addresses are identical, allow any, or are subsets of the preceding rule's addresses."""
     if "any" in preceding_rule["destination_addresses"]:
         return True
 
     for addr in rule["destination_addresses"]:
         if not any(
-            addr.subnet_of(net) for net in preceding_rule["destination_addresses"]
+            addr.subnet_of(net)
+            for net in preceding_rule["destination_addresses"]
         ):
             return False
 
@@ -103,7 +116,9 @@ CHECKS: list[RuleCheckFunction] = [
 
 
 def is_shadowing(
-    rule: SecurityRule, preceding_rule: SecurityRule, checks: list[RuleCheckFunction]
+    rule: SecurityRule,
+    preceding_rule: SecurityRule,
+    checks: list[RuleCheckFunction],
 ) -> bool:
     """Checks if a security rule is shadowed by a preceding rule.
 
