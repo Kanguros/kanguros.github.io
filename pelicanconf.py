@@ -25,17 +25,9 @@ PLUGINS = [
 ]
 # Plugin - sitemap
 SITEMAP = {
-    'format': 'xml',
-    'priorities': {
-        'articles': 0.6,
-        'indexes': 0.5,
-        'pages': 0.4
-    },
-    'changefreqs': {
-        'articles': 'weekly',
-        'indexes': 'weekly',
-        'pages': 'monthly'
-    }
+    "format": "xml",
+    "priorities": {"articles": 0.6, "indexes": 0.5, "pages": 0.4},
+    "changefreqs": {"articles": "weekly", "indexes": "weekly", "pages": "monthly"},
 }
 # Plugin - readtime
 LANG_SETTINGS = 120
@@ -60,7 +52,7 @@ DIRECT_TEMPLATES = [
     "tags",
     "under_construction",
     "private",
-    "error"
+    "error",
     # "posts"
 ]
 
@@ -79,16 +71,14 @@ STATIC_PATHS = [
     "code",
     "extra/.nojekyll",
     "extra/favicon.ico",
-    "extra/robots.txt"
+    "extra/robots.txt",
     # "slides",
-
 ]
 FAVICON = "favicon.ico"
 EXTRA_PATH_METADATA = {
     "extra/.nojekyll": {"path": ".nojekyll"},
     "extra/favicon.ico": {"path": "favicon.ico"},
-    'extra/robots.txt': {'path': 'robots.txt'}
-
+    "extra/robots.txt": {"path": "robots.txt"},
 }
 
 INDEX_SAVE_AS = POSTS_SAVE_AS = "posts/index.html"
@@ -131,7 +121,7 @@ TAGS_SAVE_AS = "tags/index.html"
 
 TAGS_DESCRIPTION = {
     "python": "Knowledge of Python",
-    "cheatsheet": "Shortcut of tips and tricks."
+    "cheatsheet": "Shortcut of tips and tricks.",
 }
 
 DEFAULT_CATEGORY = "post"
@@ -153,9 +143,7 @@ MARKDOWN = {
         "markdown.extensions.extra": {},
         # "markdown.extensions.attr_list": {},
         "markdown.extensions.admonition": {},
-        "markdown.extensions.codehilite": {
-            "css_class": "highlight"
-        },
+        "markdown.extensions.codehilite": {"css_class": "highlight"},
         "markdown.extensions.toc": {
             "permalink": "false",
             "anchorlink": "true",
@@ -163,14 +151,11 @@ MARKDOWN = {
         },
         "pymdownx.progressbar": {},
         "pymdownx.blocks.tab": {},
-        "pymdownx.snippets": {
-            "check_paths": "true",
-            "base_path": "content"
-        },
+        "pymdownx.snippets": {"check_paths": "true", "base_path": "content"},
         "pymdownx.magiclink": {},
         "markdown_extension.inline_mermaid": {},
     },
-    "output_format": "html5"
+    "output_format": "html5",
 }
 
 SVG_HOME_K = """

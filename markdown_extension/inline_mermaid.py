@@ -40,7 +40,7 @@ def find_mmdc():
     exec_path = shutil.which("mmdc")
     if exec_path is not None:
         return Path(exec_path)
-    raise ValueError(f"Unable to get path to Mermaid CLI 'mmdc' executable.")
+    raise ValueError("Unable to get path to Mermaid CLI 'mmdc' executable.")
 
 
 class InlineMermaidExtension(Extension):
@@ -51,7 +51,6 @@ class InlineMermaidExtension(Extension):
 
 
 class InlineMermaidPreprocessor(Preprocessor):
-
     def run(self, lines):
         """Match and generate mermaid code blocks."""
 
@@ -73,12 +72,17 @@ class InlineMermaidPreprocessor(Preprocessor):
                 with puppeteer_config.open("w+") as f:
                     f.write(puppeteer_config_content)
 
-                args = [str(mmdc),
-                        "--theme", "neutral",
-                        "--backgroundColor", "transparent",
-                        "-p", str(puppeteer_config),
-                        "-o", str(tmp_svg_path)
-                        ]
+                args = [
+                    str(mmdc),
+                    "--theme",
+                    "neutral",
+                    "--backgroundColor",
+                    "transparent",
+                    "-p",
+                    str(puppeteer_config),
+                    "-o",
+                    str(tmp_svg_path),
+                ]
 
                 try:
                     res = subprocess.run(
@@ -124,7 +128,7 @@ class InlineMermaidPreprocessor(Preprocessor):
                     text[: m.start()],
                     # self.md.htmlStash.store(img_tag),
                     self.md.htmlStash.store(svg_content),
-                    text[m.end():],
+                    text[m.end() :],
                 )
 
         return text.split("\n")

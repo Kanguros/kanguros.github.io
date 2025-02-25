@@ -23,3 +23,12 @@ repos:
           - id: curlylint
             files: \.(html|j2)$
             exclude: ^theme/.not_used/
+
+    - repo: https://github.com/astral-sh/ruff-pre-commit
+      rev: v0.9.7
+      hooks:
+          - id: ruff
+            args: [--fix]
+            types_or: [python, pyi]
+          - id: ruff-format
+            types_or: [python, pyi]
