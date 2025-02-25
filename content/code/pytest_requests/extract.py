@@ -63,7 +63,7 @@ def prepare_file_content(response: Response):
     return f"""# status_code: {response.status_code}
 # reason: {response.reson}
 {response.content}    
-    """
+"""
 
 
 def save_response(file_path: str, content: str):
