@@ -40,7 +40,7 @@ def find_mmdc():
     exec_path = shutil.which("mmdc")
     if exec_path is not None:
         return Path(exec_path)
-    raise ValueError("Unable to get path to Mermaid CLI 'mmdc' executable.")
+    raise ValueError("Unable to get path to Mermaid CLI 'mmdc' executable.")  # noqa: TRY003
 
 
 class InlineMermaidExtension(Extension):
@@ -87,7 +87,7 @@ class InlineMermaidPreprocessor(Preprocessor):
                 ]
 
                 try:
-                    res = subprocess.run(
+                    res = subprocess.run(  # noqa: S603
                         args,
                         input=content,
                         capture_output=True,
@@ -124,9 +124,9 @@ class InlineMermaidPreprocessor(Preprocessor):
                         f"<pre>Error : Content of a {tmp_svg_path} is empty</pre>"
                         f"<pre>Args : {str(args)} </pre>"
                         f"<pre>{content}</pre>"
-                    ).split("\n")  # noqa: UP032
+                    ).split("\n")
 
-                text = "{}\n{}\n{}".format(
+                text = "{}\n{}\n{}".format(  # noqa: UP032
                     text[: m.start()],
                     # self.md.htmlStash.store(img_tag),
                     self.md.htmlStash.store(svg_content),
