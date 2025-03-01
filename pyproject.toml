@@ -8,20 +8,17 @@ authors = ["Kamil Urbanek <urbanek.kamil@gmail.com>"]
 python = "^3.9"
 pelican = { extras = ["markdown"], version = "^4.11" }
 typogrify = "^2.0"
+Pygments = "^2.17"
 pymdown-extensions = "^10"
-invoke = "^2.1"
-livereload = "^2"
-
 pelican-yaml-metadata = "^2.1"
 #pelican-similar-posts = "^1.0"
 pelican-neighbors = "^1.2"
 pelican-sitemap = "^1.1"
-pelican-readtime = "^0.2.0"
 pelican-minify = "^2.0.0"
-Pygments = "^2.17"
-pre-commit = "^3.8.0"
 pelican-jinja-filters = "^2.1.1"
-ruff = "^0.9.7"
+pre-commit = "^3.8.0"
+invoke = "^2.1"
+livereload = "^2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
