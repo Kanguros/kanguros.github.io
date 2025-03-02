@@ -1,41 +1,15 @@
-import ipaddress
-from typing import Callable, Literal, TypedDict, Union
-
-KeywordAny = Literal["any"]
-KeywordAppDefault = Literal["application-default"]
-
-
-class SecurityRule(TypedDict):
-    name: str
-    action: Literal["allow", "deny"]
-    source_zones: Union[list[str], list[KeywordAny]]
-    destination_zones: Union[list[str], list[KeywordAny]]
-    source_addresses: Union[
-        list[ipaddress.IPv4Network],
-        list[ipaddress.IPv6Network],
-        list[KeywordAny],
-    ]
-    destination_addresses: Union[
-        list[ipaddress.IPv4Network],
-        list[ipaddress.IPv6Network],
-        list[KeywordAny],
-    ]
-    applications: Union[list[str], list[KeywordAny]]
-    services: Union[list[str], list[Literal[KeywordAny, KeywordAppDefault]]]
-
-
-RuleCheckFunction = Callable[[SecurityRule, SecurityRule], bool]
+from .models import RuleCheckFunction, SecurityRule
 
 
 def check_action(rule: SecurityRule, preceding_rule: SecurityRule) -> bool:
     """Checks if the action is the same in both rules."""
-    return rule["action"] == preceding_rule["action"]
+    return rule.action == preceding_rule.action
 
 
 def check_application(rule: SecurityRule, preceding_rule: SecurityRule) -> bool:
     """Checks if the rule's applications are the same or a subset of the preceding rule's applications."""
-    rule_apps = set(rule["applications"])
-    preceding_apps = set(preceding_rule["applications"])
+    rule_apps = set(rule.applications)
+    preceding_apps = set(preceding_rule.applications)
 
     if "any" in preceding_apps:
         return True
@@ -47,8 +21,8 @@ def check_application(rule: SecurityRule, preceding_rule: SecurityRule) -> bool:
 def check_source_zone(rule: SecurityRule, preceding_rule: SecurityRule) -> bool:
     """Checks if the source zones are identical or if the preceding rule allows any zone."""
     return (
-        rule["source_zones"] == preceding_rule["source_zones"]
-        or "any" in preceding_rule["source_zones"]
+        rule.source_zones == preceding_rule.source_zones
+        or "any" in preceding_rule.source_zones
     )
 
 
@@ -57,8 +31,8 @@ def check_destination_zone(
 ) -> bool:
     """Checks if the destination zones are identical or if the preceding rule allows any zone."""
     return (
-        rule["destination_zones"] == preceding_rule["destination_zones"]
-        or "any" in preceding_rule["destination_zones"]
+        rule.destination_zones == preceding_rule.destination_zones
+        or "any" in preceding_rule.destination_zones
     )
 
 
@@ -66,12 +40,12 @@ def check_source_address(
     rule: SecurityRule, preceding_rule: SecurityRule
 ) -> bool:
     """Checks if the source addresses are identical, allow any, or are subsets of the preceding rule's addresses."""
-    if "any" in preceding_rule["source_addresses"]:
+    if "any" in preceding_rule.source_addresses:
         return True
 
-    for addr in rule["source_addresses"]:
+    for addr in rule.source_addresses:
         if not any(
-            addr.subnet_of(net) for net in preceding_rule["source_addresses"]
+            addr.subnet_of(net) for net in preceding_rule.source_addresses
         ):
             return False
 
@@ -83,13 +57,12 @@ def check_destination_address(
 ) -> bool:
     """Checks if the destination addresses are
     identical, allow any, or are subsets of the preceding rule's addresses."""
-    if "any" in preceding_rule["destination_addresses"]:
+    if "any" in preceding_rule.destination_addresses:
         return True
 
-    for addr in rule["destination_addresses"]:
+    for addr in rule.destination_addresses:
         if not any(
-            addr.subnet_of(net)
-            for net in preceding_rule["destination_addresses"]
+            addr.subnet_of(net) for net in preceding_rule.destination_addresses
         ):
             return False
 
@@ -100,9 +73,9 @@ def check_ports(rule: SecurityRule, preceding_rule: SecurityRule) -> bool:
     """Checks if the rule's ports are the same
     or a subset of the preceding rule's ports."""
     return (
-        rule["services"] == preceding_rule["services"]
-        or "application-default" in preceding_rule["services"]
-        or set(rule["services"]).issubset(set(preceding_rule["services"]))
+        rule.services == preceding_rule.services
+        or "application-default" in preceding_rule.services
+        or set(rule.services).issubset(set(preceding_rule.services))
     )
 
 
@@ -135,11 +108,6 @@ def is_shadowing(
     Returns:
         bool: True if `rule` is shadowed by `preceding_rule`, otherwise False.
 
-    Example:
-        >>> rule1 = {"name": "Allow Web", "action": "allow", "application": ["web-browsing"], ...}
-        >>> rule2 = {"name": "Allow All", "action": "allow", "application": ["any"], ...}
-        >>> is_shadowing(rule1, rule2, CHECKS)
-        True
     """
     for check in checks:
         if not check(rule, preceding_rule):
@@ -164,15 +132,8 @@ def find_shadowed_rules(
             - The shadowed rule.
             - A list of preceding rules that are shadowing it.
 
-    Example:
-        >>> rules = [
-        ...     {"name": "Allow All", "action": "allow", "application": ["any"], ...},
-        ...     {"name": "Allow Web", "action": "allow", "application": ["web-browsing"], ...},
-        ... ]
-        >>> find_shadowed_rules(rules, CHECKS)
-        [(rule2, [rule1])]
     """
-    shadowed_rules: list[tuple[SecurityRule, list[SecurityRule]]] = []
+    shadowed_rules = []
 
     for i, rule in enumerate(rules):
         shadowing_rules = []
