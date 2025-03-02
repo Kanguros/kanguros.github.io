@@ -10,13 +10,13 @@ summary: Python script for finding shadowing security policies on firewall.
 ## Code
 
 ```python
---8 < -- "code/shadowing_rules/main.py"
+--8< -- "code/shadowing_rules/main.py"
 ```
 
 ## Resolve addresses
 
 ```python
---8 < -- "code/shadowing_rules/resolve_addresses.py"
+--8< -- "code/shadowing_rules/resolve_addresses.py"
 ```
 
 ## Unit tests
@@ -24,6 +24,6 @@ summary: Python script for finding shadowing security policies on firewall.
 unit_tests
 
 ```python
---8 < -- "code/shadowing_rules/unit_tests.py"
+--8< -- "code/shadowing_rules/unit_tests.py"
 
 ```

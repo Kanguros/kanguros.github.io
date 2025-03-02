@@ -87,7 +87,11 @@ ignore = [
     "B011",
     # Leave it to the formatter to split long lines and
     # the judgement of all of us.
-    "E501"
+    "E501",
+    # Avoid specifying long messages outside the exception class
+    "TRY003",
+    # Use of `assert` detected
+    "S101"
 ]
 
 
