@@ -17,8 +17,8 @@ The script includes the following features:
 
 Before using the script, make sure you have the following installed:
 
--   Python (version 3.6 or higher)
--   The `python-docx` library (install using `pip install python-docx`)
+- Python (version 3.6 or higher)
+- The `python-docx` library (install using `pip install python-docx`)
 
 ## Usage
 

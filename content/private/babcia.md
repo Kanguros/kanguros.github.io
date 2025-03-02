@@ -37,12 +37,12 @@ Po konstulacji z geriatrą w dniu 21.02.2025.
 
 ### Objawy
 
--   Wyraźna poprawa w zachowaniu. Coraz mniej mylenia czy halucynacje.
--   Brak wybudzeń w nocy.
--   Apetyt dalej wątpliwy.
-    -   Lepiej przyjmuja sie zimne potrawy.
-    -   Czasami pojawia się uporczywe odbijanie.
--   Ciśnienie w godzinach 11:00-12:00 spada do 100/70 co skutkuje zawrotami głowy i osłabieniem.
+- Wyraźna poprawa w zachowaniu. Coraz mniej mylenia czy halucynacje.
+- Brak wybudzeń w nocy.
+- Apetyt dalej wątpliwy.
+    - Lepiej przyjmuja sie zimne potrawy.
+    - Czasami pojawia się uporczywe odbijanie.
+- Ciśnienie w godzinach 11:00-12:00 spada do 100/70 co skutkuje zawrotami głowy i osłabieniem.
 
 ### Leki
 
@@ -70,26 +70,26 @@ Po konstulacji z geriatrą w dniu 21.02.2025.
 
 ### Objawy
 
--   Splątanie, dezorientacja, zagubienie.
--   Mylenie przeszłości z teraźniejszością.
-    -   Mylenie osób.
-    -   Halucynacje, przewidzenia.
--   Bol w lewym boku brzucha, poniżej żeber.
--   Brak apetytu.
--   Uporczywe odbijanie i niestrawnosc po jedzeniu.
--   Blada skóra.
--   Zatwardzenia.
+- Splątanie, dezorientacja, zagubienie.
+- Mylenie przeszłości z teraźniejszością.
+    - Mylenie osób.
+    - Halucynacje, przewidzenia.
+- Bol w lewym boku brzucha, poniżej żeber.
+- Brak apetytu.
+- Uporczywe odbijanie i niestrawnosc po jedzeniu.
+- Blada skóra.
+- Zatwardzenia.
 
 ### Opinia geriatry
 
--   Ból w lewym boku może sugerować powiększoną śledzione.
--   Powiększona śledziona, przekroczone normy eozynofili, brak apetytu może sugerować obecność pasożyta.
--   Objawy demencji mogą być skutkiem
-    -   wachania ciśnienia,
-    -   leków,
-    -   degeneracji mózgu.
--   Dla poprawy pracy mózgu: Memantine
--   Dla aktywizacji i poprawy samopoczucia: Asentra
+- Ból w lewym boku może sugerować powiększoną śledzione.
+- Powiększona śledziona, przekroczone normy eozynofili, brak apetytu może sugerować obecność pasożyta.
+- Objawy demencji mogą być skutkiem
+    - wachania ciśnienia,
+    - leków,
+    - degeneracji mózgu.
+- Dla poprawy pracy mózgu: Memantine
+- Dla aktywizacji i poprawy samopoczucia: Asentra
 
 ### Leki
 
@@ -119,16 +119,16 @@ Po wizycie geriatry.
 
 Względem leków z dnia [03.02.2025](#03022025)
 
--   Zmiana:
-    -   Carzap HCT 16,5/12,5: 1-0-0 → ½-0-0
-    -   Euthyrox N 100 µg → Euthyrox N 75 µg
--   Dodano:
-    -   Telfexo.
-    -   Lacipil 2mg (0-(½ lub 1)-0)
-    -   Memantin 10mg
-    -   Asentra 5mg
--   Usunięto:
-    -   Metocard ZK 100.
+- Zmiana:
+    - Carzap HCT 16,5/12,5: 1-0-0 → ½-0-0
+    - Euthyrox N 100 µg → Euthyrox N 75 µg
+- Dodano:
+    - Telfexo.
+    - Lacipil 2mg (0-(½ lub 1)-0)
+    - Memantin 10mg
+    - Asentra 5mg
+- Usunięto:
+    - Metocard ZK 100.
 
 ## 04.02.2025
 
@@ -136,8 +136,8 @@ Wizyta na SOR Ochojec z powodu bardzo dużego ciśnienia oraz podejrzenia udaru.
 
 ### Objawy
 
--   Duże ciśnienie w okolicach 190/100.
--   Średni puls 58.
+- Duże ciśnienie w okolicach 190/100.
+- Średni puls 58.
 
 ## 03.02.2025
 
@@ -145,8 +145,8 @@ Konsultacja z kardiologiem z uwagi na duże ciśnienie.
 
 ### Objawy
 
--   Duże ciśnienie w okolicach 180/100.
--   Średni puls 58.
+- Duże ciśnienie w okolicach 180/100.
+- Średni puls 58.
 
 ### Leki
 
@@ -173,12 +173,12 @@ Po konsultacjach z kardiologiem.
 
 Względem leków z dnia [27.01.2025](#wizyty_domowa__27012025)
 
--   Zamiana:
-    -   Prestarium 5 mg → Carzap HCT 16,5/12,5 (1-0-0).
--   Dodano:
-    -   Kalium 600 mg (0-1-0 co 2 dni).
--   Usunięto:
-    -   Famogast.
+- Zamiana:
+    - Prestarium 5 mg → Carzap HCT 16,5/12,5 (1-0-0).
+- Dodano:
+    - Kalium 600 mg (0-1-0 co 2 dni).
+- Usunięto:
+    - Famogast.
 
 ## SOR - 02.02.2025
 
@@ -186,8 +186,8 @@ Wizyta na SOR Ochojec z powodu bardzo dużego ciśnienia dochodzącego do 190/11
 
 ### Objawy
 
--   Duże ciśnienie w okolicach 180/100.
--   Zmęczenie i duże osłabienie, senność.
+- Duże ciśnienie w okolicach 180/100.
+- Zmęczenie i duże osłabienie, senność.
 
 ## Wizyta domowa - 27.01.2025
 
@@ -195,9 +195,9 @@ Konsultacja z geriatrą była potrzebna w celu dostosowania leków.
 
 ### Objawy
 
--   Duże ciśnienie w okolicach 180/100.
--   Zmęczenie i duże osłabienie, senność.
--   Brak apetytu.
+- Duże ciśnienie w okolicach 180/100.
+- Zmęczenie i duże osłabienie, senność.
+- Brak apetytu.
 
 ### Leki
 
@@ -218,21 +218,21 @@ Konsultacja z geriatrą była potrzebna w celu dostosowania leków.
 
 #### Zmiany w lekach
 
--   Zamiana:
-    -   Vessel Due F (1-0-1) → Pradaxa 110 mg
--   Dodano nowe:
-    -   Cetix 400 mg (co 12h przez 5 dni).
--   Zmiana dawkowania:
-    -   Metocard ZK 100: ½-0-0 → ½-0-0 co drugi dzień.
--   Usunięto:
-    -   Cetix.
+- Zamiana:
+    - Vessel Due F (1-0-1) → Pradaxa 110 mg
+- Dodano nowe:
+    - Cetix 400 mg (co 12h przez 5 dni).
+- Zmiana dawkowania:
+    - Metocard ZK 100: ½-0-0 → ½-0-0 co drugi dzień.
+- Usunięto:
+    - Cetix.
 
 ## 26.01.2025
 
 ### Objawy
 
--   Pierwszy znaczący incydent z dezorientacją.
-    -   Telefon do rodziny o 05:00, że wszedzie szuka kota i nie umie go znalezc.
+- Pierwszy znaczący incydent z dezorientacją.
+    - Telefon do rodziny o 05:00, że wszedzie szuka kota i nie umie go znalezc.
 
 ## Wizyta domowa - 14.01.2025
 
@@ -241,9 +241,9 @@ sił.
 
 ### Objawy
 
--   Zmęczenie i duże osłabienie, senność.
--   Brak apetytu.
--   Ból po lewej stronie brzucha.
+- Zmęczenie i duże osłabienie, senność.
+- Brak apetytu.
+- Ból po lewej stronie brzucha.
 
 ### Leki
 
@@ -270,21 +270,21 @@ Po wizycie geriatry.
 
 Względem leków z dnia [05.01.2025](#05012025)
 
--   Zamiana:
-    -   Pradaxa 110 mg → Vessel Due F (1-0-1).
--   Dodano:
-    -   Peritol 5 mg (0-0-½).
-    -   Famogast (0-0-1).
-    -   Cetix 400 mg (co 12h przez 5 dni).
-    -   Enterol (0-1-0 przez 10 dni).
--   Zmiana dawkowania:
-    -   Siofor 500 mg: 1-1-1 → 1-1-0.
-    -   Prestarium 5 mg: 0-0-1 → 1-0-½.
-    -   Metocard ZK 100: 1-0-0 → ½-0-0.
-    -   Digoxin 100 mg: 1-0-0 → 0-1-0.
--   Usunięto:
-    -   Feroplex 40 mg.
-    -   Magne B6.
+- Zamiana:
+    - Pradaxa 110 mg → Vessel Due F (1-0-1).
+- Dodano:
+    - Peritol 5 mg (0-0-½).
+    - Famogast (0-0-1).
+    - Cetix 400 mg (co 12h przez 5 dni).
+    - Enterol (0-1-0 przez 10 dni).
+- Zmiana dawkowania:
+    - Siofor 500 mg: 1-1-1 → 1-1-0.
+    - Prestarium 5 mg: 0-0-1 → 1-0-½.
+    - Metocard ZK 100: 1-0-0 → ½-0-0.
+    - Digoxin 100 mg: 1-0-0 → 0-1-0.
+- Usunięto:
+    - Feroplex 40 mg.
+    - Magne B6.
 
 ## 05.01.2025
 
@@ -311,22 +311,22 @@ Po wyjściu z Murcek.
 
 Względem leków z dnia [28.12.2024](#do23122024)
 
--   Zamiana:
-    -   Euthyrox N 75 µg → Euthyrox N 100 µg (1-0-0).
-    -   Bisoratio 5 mg → Metocard ZK 100 (1-0-0).
-    -   Captopril HCT 16 mg + 12,5 mg → Prestarium 5 mg (0-0-1).
--   Dodano nowe:
-    -   IPP 40 mg (1-0-0, przed śniadaniem).
-    -   Digoxin 100 mg (1-0-0).
-    -   Gaviscon 10 ml (1-1-1-1, po posiłkach i przed snem).
--   Zmiana dawkowania:
-    -   Feroplex 40 mg: 2x tyg → 0-1-0.
-    -   Pradaxa 110 mg: 1-0-1 → 1-0-0.
-    -   Magne B6: 1-0-0 → 1-1-1.
-    -   Siofor 850 mg: ½-½-½ → Siofor 500 mg (1-1-1).
-    -   Spironol 25 mg: 1-0-0 → 0-1-0.
--   Usunięto:
-    -   Kalium 600 mg.
+- Zamiana:
+    - Euthyrox N 75 µg → Euthyrox N 100 µg (1-0-0).
+    - Bisoratio 5 mg → Metocard ZK 100 (1-0-0).
+    - Captopril HCT 16 mg + 12,5 mg → Prestarium 5 mg (0-0-1).
+- Dodano nowe:
+    - IPP 40 mg (1-0-0, przed śniadaniem).
+    - Digoxin 100 mg (1-0-0).
+    - Gaviscon 10 ml (1-1-1-1, po posiłkach i przed snem).
+- Zmiana dawkowania:
+    - Feroplex 40 mg: 2x tyg → 0-1-0.
+    - Pradaxa 110 mg: 1-0-1 → 1-0-0.
+    - Magne B6: 1-0-0 → 1-1-1.
+    - Siofor 850 mg: ½-½-½ → Siofor 500 mg (1-1-1).
+    - Spironol 25 mg: 1-0-0 → 0-1-0.
+- Usunięto:
+    - Kalium 600 mg.
 
 ## Szpital Murcki - 28.12.2024 - 04.01.2025
 
@@ -334,10 +334,10 @@ Pobyt na oddziale internistycznym.
 
 Wykonano badania:
 
--   [Gastroskopia](#gastroskopia-diagnostyczna-z-testem-ureazowym---03012025)
--   [USG Brzucha](#usg---jamy-brzusznej-i-przestrzeni-zaotrzewnej---03012025)
--   [Echo serca](#echokardiografia---03012025)
--   [RTG klatki piersiowej](#rtg-klatki-piersiowej-rutynowe---03012025)
+- [Gastroskopia](#gastroskopia-diagnostyczna-z-testem-ureazowym---03012025)
+- [USG Brzucha](#usg---jamy-brzusznej-i-przestrzeni-zaotrzewnej---03012025)
+- [Echo serca](#echokardiografia---03012025)
+- [RTG klatki piersiowej](#rtg-klatki-piersiowej-rutynowe---03012025)
 
 ## Grypa - 23.12.2024 - 28.12.2024
 
@@ -349,22 +349,22 @@ Przy braku możliwości zbicia pulsu i pojawieniem się arytmii, konieczne bylo 
 
 ### Objawy
 
--   Objawy grypy takie jak:
-    -   Ból kości i mięsni.
-    -   Duże osłabienie.
-    -   Senność.
-    -   Senność.
-    -   Suchy kaszel.
-    -   Brak apetytu.
--   Po kilku dniach pojawił się wysoki puls w granicach 150 oraz arytmia.
+- Objawy grypy takie jak:
+    - Ból kości i mięsni.
+    - Duże osłabienie.
+    - Senność.
+    - Senność.
+    - Suchy kaszel.
+    - Brak apetytu.
+- Po kilku dniach pojawił się wysoki puls w granicach 150 oraz arytmia.
 
 ## Do 23.12.2024
 
 Stan ogólny bardzo dobry.
 
--   Mieszka sama.
--   Wszelkie domowe obowiązki wykonuje sama.
--   Apetyt nienajgorszy.
+- Mieszka sama.
+- Wszelkie domowe obowiązki wykonuje sama.
+- Apetyt nienajgorszy.
 
 ### Leki
 
@@ -385,16 +385,16 @@ Stan ogólny bardzo dobry.
 
 ## Choroby przewlekłe
 
--   Niewydolność serca z łagodnie zmniejszoną frakcją wyrzutową (EF 45%)
--   Migotanie przedsionków o nieznanym czasie trwania
--   Niedomykalność mitralna małego stopnia
--   Nadciśnienie tętnicze
--   Miażdżyca uogólniona
--   Cukrzyca typu 2
--   Niedokrwistość
--   Niedoczynność tarczycy
--   Stan po cholecystektomii
--   Zmiany zwyrodnieniowo-wytwórcze kręgosłupa
+- Niewydolność serca z łagodnie zmniejszoną frakcją wyrzutową (EF 45%)
+- Migotanie przedsionków o nieznanym czasie trwania
+- Niedomykalność mitralna małego stopnia
+- Nadciśnienie tętnicze
+- Miażdżyca uogólniona
+- Cukrzyca typu 2
+- Niedokrwistość
+- Niedoczynność tarczycy
+- Stan po cholecystektomii
+- Zmiany zwyrodnieniowo-wytwórcze kręgosłupa
 
 ## Badania
 
@@ -492,57 +492,57 @@ Stan ogólny bardzo dobry.
 
 ### Gastroskopia diagnostyczna z testem ureazowym - 03.01.2025
 
--   Przełyk nieregularny, prawidłowy.
--   Linia Z uniesiona, z pojedynczą językowatą wypustką.
--   Wpust w osi, z inwersją z cechami niewielkiej nieszczelności.
--   Żołądek podatny na insuflację, treść śluzowa w żołądku.
--   Dno i okolica wpustu prawidłowe.
--   Ściana trzonu prawidłowa.
--   Okolica Antrum śluzówka zaczerwieniona.
--   Odźwiernik zaczerwieniony.
--   Opuszka dwunastnicy prawidłowa.
--   Część pozaopuszkowa prawidłowa.
--   Pobrano wycinek na test ureazowy – wynik ujemny.
+- Przełyk nieregularny, prawidłowy.
+- Linia Z uniesiona, z pojedynczą językowatą wypustką.
+- Wpust w osi, z inwersją z cechami niewielkiej nieszczelności.
+- Żołądek podatny na insuflację, treść śluzowa w żołądku.
+- Dno i okolica wpustu prawidłowe.
+- Ściana trzonu prawidłowa.
+- Okolica Antrum śluzówka zaczerwieniona.
+- Odźwiernik zaczerwieniony.
+- Opuszka dwunastnicy prawidłowa.
+- Część pozaopuszkowa prawidłowa.
+- Pobrano wycinek na test ureazowy – wynik ujemny.
 
 ### USG - Jamy brzusznej i przestrzeni zaotrzewnej - 03.01.2025
 
--   Wątroba niepowiększona, o dość jednorodnej strukturze echa.
--   Stan po cholecystektomii.
--   PŻW wielkości 8 mm.
--   Prawa nerka prawidłowej wielkości, obrysów, bez zastoju moczu.
--   Lewa nerka prawidłowej wielkości, obrysów, bez zastoju moczu.
--   Śledziona niepowiększona.
--   Trzustka w uwidocznionym zakresie niepowiększona o jednorodnej strukturze echa.
--   Aorta brzuszna nieposzerzona, ze zwapnieniami.
--   Pęcherz moczowy pusty (cewnik nie został oceniony).
+- Wątroba niepowiększona, o dość jednorodnej strukturze echa.
+- Stan po cholecystektomii.
+- PŻW wielkości 8 mm.
+- Prawa nerka prawidłowej wielkości, obrysów, bez zastoju moczu.
+- Lewa nerka prawidłowej wielkości, obrysów, bez zastoju moczu.
+- Śledziona niepowiększona.
+- Trzustka w uwidocznionym zakresie niepowiększona o jednorodnej strukturze echa.
+- Aorta brzuszna nieposzerzona, ze zwapnieniami.
+- Pęcherz moczowy pusty (cewnik nie został oceniony).
 
 ### Echokardiografia - 03.01.2025
 
--   LVOT (ujście aortalne): 17 mm
--   Opuszka aorty: 32 mm
--   Rozwarcie płatków: 13 mm
--   Aorta wstępująca: 34 mm
--   Lewy przedsionek A-P: 43 mm, Area 20,5 cm²
--   Prawy przedsionek: Area 19,6 cm²
--   Grubość przegrody: 11 mm
--   Grubość ściany tylnej: 10 mm
--   EDD: 41 mm
--   Kurczliwość lewej komory: upośledzenie kurczliwości w części podstawnej i ściany bocznej.
+- LVOT (ujście aortalne): 17 mm
+- Opuszka aorty: 32 mm
+- Rozwarcie płatków: 13 mm
+- Aorta wstępująca: 34 mm
+- Lewy przedsionek A-P: 43 mm, Area 20,5 cm²
+- Prawy przedsionek: Area 19,6 cm²
+- Grubość przegrody: 11 mm
+- Grubość ściany tylnej: 10 mm
+- EDD: 41 mm
+- Kurczliwość lewej komory: upośledzenie kurczliwości w części podstawnej i ściany bocznej.
 
 Wnioski:
 
--   Niemiarowość w trakcie badania.
--   Upośledzenie funkcji skurczowej lewej komory.
--   Upośledzenie kurczliwości w części podstawnej i ściany bocznej.
--   Powiększenie obu przedsionków.
--   Niedomykalność mitralna małego stopnia.
+- Niemiarowość w trakcie badania.
+- Upośledzenie funkcji skurczowej lewej komory.
+- Upośledzenie kurczliwości w części podstawnej i ściany bocznej.
+- Powiększenie obu przedsionków.
+- Niedomykalność mitralna małego stopnia.
 
 ### RTG klatki piersiowej rutynowe - 03.01.2025
 
--   Pola płucne bez zagęszczeń ogniskowych.
--   Sylwetka serca bez powiększenia, aorta wydłużona z blaszką miażdżycową w łuku.
--   Kąty przeponowo-żebrowe wolne.
--   Zmiany zwyrodnieniowo-wytwórcze kręgosłupa.
+- Pola płucne bez zagęszczeń ogniskowych.
+- Sylwetka serca bez powiększenia, aorta wydłużona z blaszką miażdżycową w łuku.
+- Kąty przeponowo-żebrowe wolne.
+- Zmiany zwyrodnieniowo-wytwórcze kręgosłupa.
 
 ### TK Podstawowe głowy – 04.02.2025
 
@@ -551,25 +551,25 @@ Bez podania środka kontrastowego, w trybie pilnym.
 
 Dane ze skierowania:
 
--   Zaburzenia mowy, asymetria twarzy dzisiaj między 9 a 10.30, o 11.30 brak objawów niedokrwienia OUN (TIA?).
--   Chora mieszka sama, opieka dochodząca wnuka.
--   Przyjmuje przewlekle leki przeciwnadciśnieniowe, wizyta w SOR, z powodu FA leczenie przeciwkrzepliwe
+- Zaburzenia mowy, asymetria twarzy dzisiaj między 9 a 10.30, o 11.30 brak objawów niedokrwienia OUN (TIA?).
+- Chora mieszka sama, opieka dochodząca wnuka.
+- Przyjmuje przewlekle leki przeciwnadciśnieniowe, wizyta w SOR, z powodu FA leczenie przeciwkrzepliwe
 
 Badanie bez istotnych różnic względem badania poprzedniego z dnia 02.02.2025.
 
 Obserwacje:
 
--   Cech krwawienia wewnątrzczaszkowego nie uwidoczniono.
--   Mierne poszerzenie przestrzeni płynowych przymózgowych - adekwatne do wieku.
--   Obszary hipodensyjne w istocie białej podkorowej w płatach czołowych i ciemieniowych, środkach półowalnych - o
-    charakterze zmian naczyniopochodnych - do różnicowania pomiędzy zmianami niedokrwiennymi a naczyniowymi.
--   Bez widocznych cech obrzęku mózgu.
--   Układ komorowy symetryczny, nieposzerzony, nieprzemieszczony.
--   Nie uwidoczniono nieprawidłowych zmian w tylnym dole czaszki.
--   Bez zmian pourazowych czaszki.
--   Zmiany zwyrodnieniowe - wyostrzenia krawędzi wewnątrzczaszkowych odcinków tętnic szyjnych wewnętrznych i
-    śródczaszkowych.
--   Nie uwidoczniono zmian w strukturach szczytowo-obrotowych podkręgowych.
+- Cech krwawienia wewnątrzczaszkowego nie uwidoczniono.
+- Mierne poszerzenie przestrzeni płynowych przymózgowych - adekwatne do wieku.
+- Obszary hipodensyjne w istocie białej podkorowej w płatach czołowych i ciemieniowych, środkach półowalnych - o
+  charakterze zmian naczyniopochodnych - do różnicowania pomiędzy zmianami niedokrwiennymi a naczyniowymi.
+- Bez widocznych cech obrzęku mózgu.
+- Układ komorowy symetryczny, nieposzerzony, nieprzemieszczony.
+- Nie uwidoczniono nieprawidłowych zmian w tylnym dole czaszki.
+- Bez zmian pourazowych czaszki.
+- Zmiany zwyrodnieniowe - wyostrzenia krawędzi wewnątrzczaszkowych odcinków tętnic szyjnych wewnętrznych i
+  śródczaszkowych.
+- Nie uwidoczniono zmian w strukturach szczytowo-obrotowych podkręgowych.
 
 Wniosek:
 
@@ -582,17 +582,17 @@ Badanie Angio-TK tętnic szyjnych i mózgowych wykonano aparatem GE Optima CT540
 
 Dane ze skierowania:
 
--   Zaburzenia mowy, asymetria twarzy dzisiaj między 9 a 10.30, o 11.30 brak objawów niedokrwienia OUN (TIA?)
--   Chora mieszka sama, opieka dochodząca wnuka. Przyjmuje przewlekle leki przeciwnadciśnieniowe, wizyta w SOR, z powodu
-    FA leczenie przeciwkrzepliwe
+- Zaburzenia mowy, asymetria twarzy dzisiaj między 9 a 10.30, o 11.30 brak objawów niedokrwienia OUN (TIA?)
+- Chora mieszka sama, opieka dochodząca wnuka. Przyjmuje przewlekle leki przeciwnadciśnieniowe, wizyta w SOR, z powodu
+  FA leczenie przeciwkrzepliwe
 
 Obserwacje:
 
--   Uwidoczniono odcinki prawej tętnicy szyjnej nieposzerzony z przyściennymi, mieszanymi blaszkami miażdżycowymi, bez
-    istotnych zwężeń.
--   Uwidoczniono odcinki pnia ramienno-głowowego i lewej tętnicy szyjnej wspólnej, lewej tętnicy szyjnej wewnętrznej z
-    blaszkami miażdżycowymi w początkowym odcinku i zwężeniami do 50%.
--   Lewa tętnica kręgowa - o zwężeniu do 50% po stronie lewej.
--   Przepływ kontrastowy przez tętnice mózgowe zachowany.
--   Drożne zatoki w szczątkach płuc.
--   Zmiany zwyrodnieniowo-wytwórcze i dyskopatyczne uwidoczniono odcinka kręgosłupa szyjnego.
+- Uwidoczniono odcinki prawej tętnicy szyjnej nieposzerzony z przyściennymi, mieszanymi blaszkami miażdżycowymi, bez
+  istotnych zwężeń.
+- Uwidoczniono odcinki pnia ramienno-głowowego i lewej tętnicy szyjnej wspólnej, lewej tętnicy szyjnej wewnętrznej z
+  blaszkami miażdżycowymi w początkowym odcinku i zwężeniami do 50%.
+- Lewa tętnica kręgowa - o zwężeniu do 50% po stronie lewej.
+- Przepływ kontrastowy przez tętnice mózgowe zachowany.
+- Drożne zatoki w szczątkach płuc.
+- Zmiany zwyrodnieniowo-wytwórcze i dyskopatyczne uwidoczniono odcinka kręgosłupa szyjnego.

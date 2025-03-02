@@ -5,8 +5,8 @@ Build and deployed using `pelican` library, with adjusted theme `Clean Blog`.
 
 ## Prerequisits
 
--   Python
--   poetry
+- Python
+- poetry
 
 ## Installation
 
@@ -23,10 +23,10 @@ poetry install
 
 Once installed, you may use the commands below:
 
--   `invoke build` - Build site, append mode.
--   `invoke rebuild` - Remove existing site, then build.
--   `invoke serve` - Serve site on localhost.
--   `invoke reserve` - Clean build and then serve (`rebuild` and `serve`).
+- `invoke build` - Build site, append mode.
+- `invoke rebuild` - Remove existing site, then build.
+- `invoke serve` - Serve site on localhost.
+- `invoke reserve` - Clean build and then serve (`rebuild` and `serve`).
 
 Website generated locally is saved to `./local_output` folder
 
@@ -87,6 +87,6 @@ Category: [TOFILL]
 
 ## Links
 
--   https://docs.getpelican.com/en/latest/ - Pelican documentation.
--   https://github.com/peaceiris/actions-gh-pages - GitHub Action for deploying static website.
--   https://github.com/BlackrockDigital/startbootstrap-clean-blog - Clean Blog theme.
+- https://docs.getpelican.com/en/latest/ - Pelican documentation.
+- https://github.com/peaceiris/actions-gh-pages - GitHub Action for deploying static website.
+- https://github.com/BlackrockDigital/startbootstrap-clean-blog - Clean Blog theme.

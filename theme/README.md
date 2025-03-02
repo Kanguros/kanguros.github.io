@@ -61,12 +61,12 @@ placed in `<head>` instead of the default Pelican feeds.
 
 This theme contains this color schemes:
 
--   Tomorrow - `tomorrow.css`;
--   Tomorrow Night - `tomorrow_night.css`;
--   Monokai - `monokai.css`;
--   Github - `github.css`;
--   Github Jekyll (Gray BG Jekyll way) - `github_jekyll.css`;
--   Darkly (Default) - `darkly.css`;
+- Tomorrow - `tomorrow.css`;
+- Tomorrow Night - `tomorrow_night.css`;
+- Monokai - `monokai.css`;
+- Github - `github.css`;
+- Github Jekyll (Gray BG Jekyll way) - `github_jekyll.css`;
+- Darkly (Default) - `darkly.css`;
 
 To customize, define `COLOR_SCHEME_CSS` in `pelicanconf.py` with css filename. Example:
 
@@ -112,9 +112,9 @@ will not see the desired results.
 
 Accept many analytics:
 
--   Google Analytics: `GOOGLE_ANALYTICS`;
--   Gauges: `GAUGES`
--   Piwik: `PIWIK_URL` and `PIWIK_SITE_ID`.
+- Google Analytics: `GOOGLE_ANALYTICS`;
+- Gauges: `GAUGES`
+- Piwik: `PIWIK_URL` and `PIWIK_SITE_ID`.
 
 ### Favicon
 
@@ -135,33 +135,33 @@ EXTRA_PATH_METADATA = {
 
 ### Other configuration
 
--   If `ADDTHIS_PUBID` is defined sharing buttons from AddThis will appear
-    at the bottom of the article;
--   `GOOGLE_SITE_VERIFICATION` - Google site verification token;
--   Set `SHOW_FULL_ARTICLE` to True to show full article content on index.html
-    instead of summary;
--   Set `SHOW_SITESUBTITLE_IN_HTML` to True to make use of the `SITESUBTITLE`
-    variable inside the `<title>` HTML tag;
--   Set `FACEBOOK_ADMINS` to a list of Facebook account IDs which are
-    associated with this blog. For example `['12345']`. For more info see
-    https://developers.facebook.com/docs/platforminsights/domains
+- If `ADDTHIS_PUBID` is defined sharing buttons from AddThis will appear
+  at the bottom of the article;
+- `GOOGLE_SITE_VERIFICATION` - Google site verification token;
+- Set `SHOW_FULL_ARTICLE` to True to show full article content on index.html
+  instead of summary;
+- Set `SHOW_SITESUBTITLE_IN_HTML` to True to make use of the `SITESUBTITLE`
+  variable inside the `<title>` HTML tag;
+- Set `FACEBOOK_ADMINS` to a list of Facebook account IDs which are
+  associated with this blog. For example `['12345']`. For more info see
+  https://developers.facebook.com/docs/platforminsights/domains
 
 ### Articles
 
--   To customize header cover to articles, insert the metadata `header_cover`.
--   To customize OpenGraph images, insert the metadata `og_image`, otherwise
-    `header_cover`, `HEADER_COVER` or a default image is used.
--   To customize Twitter card images, insert the metadata `twitter_image`,
-    otherwise `header_cover`, `HEADER_COVER` or a default image is used.
-    Twitter cards are automatically generated if the `twitter` icon is configured
-    in `SOCIAL`!
+- To customize header cover to articles, insert the metadata `header_cover`.
+- To customize OpenGraph images, insert the metadata `og_image`, otherwise
+  `header_cover`, `HEADER_COVER` or a default image is used.
+- To customize Twitter card images, insert the metadata `twitter_image`,
+  otherwise `header_cover`, `HEADER_COVER` or a default image is used.
+  Twitter cards are automatically generated if the `twitter` icon is configured
+  in `SOCIAL`!
 
 All image paths are relative from the site root directory. You can also use
 absolute URLs for `og_image` and `twitter_image`.
 
 Example:
 
--   To RST
+- To RST
 
 ```rst
 My super title
@@ -179,7 +179,7 @@ My super title
 :twitter_image: /images/posts/super-title/twitter_cover.png
 ```
 
--   To Markdown
+- To Markdown
 
 ```markdown
 Title: My super title
@@ -199,7 +199,7 @@ This is the content of my super blog post.
 
 Other metada was created to assign resume of article, with `headline`:
 
--   To RST
+- To RST
 
 ```rst
 My super title
@@ -215,7 +215,7 @@ My super title
 :headline: Resume of article
 ```
 
--   To Markdown
+- To Markdown
 
 ```markdown
 Title: My super title

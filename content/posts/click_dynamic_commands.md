@@ -37,11 +37,11 @@ are actually invoked. This clever strategy offers significant benefits:
 
 ## Benefits
 
--   Faster startup times
--   Reduced memory usage
--   Neat and organized subcommand structure
--   Seamless integration with Click-based applications
--   Easy addition of new features without clutter
+- Faster startup times
+- Reduced memory usage
+- Neat and organized subcommand structure
+- Seamless integration with Click-based applications
+- Easy addition of new features without clutter
 
 ## Example
 

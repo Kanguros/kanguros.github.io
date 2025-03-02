@@ -108,41 +108,41 @@ Wszystkie posiłki są dostosowane do potrzeb dietetycznych dziecka z ograniczen
 
 #### Dzień 1
 
--   **Śniadanie:** Owsianka (40g płatków owsianych, 200 ml wody), garść malin (20g).
--   **Drugie Śniadanie:** Kanapka z pełnoziarnistego chleba (30g), 1 plaster sera cheddar (15g), ogórek (30g).
--   **Obiad:** Zupa jarzynowa (150 ml) z 1 małą marchewką (30g), 1 ziemniakiem (50g), 1 łyżką groszku (15g).
--   **Podwieczorek:** 100 ml kakao z mlekiem.
--   **Kolacja:** 1 mała pierś z kurczaka (50g), kasza gryczana (30g sucha), brokuły (50g).
+- **Śniadanie:** Owsianka (40g płatków owsianych, 200 ml wody), garść malin (20g).
+- **Drugie Śniadanie:** Kanapka z pełnoziarnistego chleba (30g), 1 plaster sera cheddar (15g), ogórek (30g).
+- **Obiad:** Zupa jarzynowa (150 ml) z 1 małą marchewką (30g), 1 ziemniakiem (50g), 1 łyżką groszku (15g).
+- **Podwieczorek:** 100 ml kakao z mlekiem.
+- **Kolacja:** 1 mała pierś z kurczaka (50g), kasza gryczana (30g sucha), brokuły (50g).
 
 #### Dzień 2
 
--   **Śniadanie:** Jogurt naturalny (150g) z łyżką miodu (15g) i płatkami migdałowymi (10g).
--   **Drugie Śniadanie:** Smoothie: banan (1/2 sztuki), szpinak (20g), 150 ml mleka.
--   **Obiad:** Filet z dorsza (50g), ziemniaki puree (100g), gotowana marchewka (40g).
--   **Podwieczorek:** 100 ml kakao z mlekiem.
--   **Kolacja:** 2 kromki pełnoziarnistego chleba (60g) z pastą jajeczną (1 małe jajko, 1 łyżeczka majonezu).
+- **Śniadanie:** Jogurt naturalny (150g) z łyżką miodu (15g) i płatkami migdałowymi (10g).
+- **Drugie Śniadanie:** Smoothie: banan (1/2 sztuki), szpinak (20g), 150 ml mleka.
+- **Obiad:** Filet z dorsza (50g), ziemniaki puree (100g), gotowana marchewka (40g).
+- **Podwieczorek:** 100 ml kakao z mlekiem.
+- **Kolacja:** 2 kromki pełnoziarnistego chleba (60g) z pastą jajeczną (1 małe jajko, 1 łyżeczka majonezu).
 
 #### Dzień 3
 
--   **Śniadanie:** Płatki kukurydziane (30g) z mlekiem (150 ml).
--   **Drugie Śniadanie:** Domowy batonik z płatków owsianych (30g płatków, łyżeczka miodu).
--   **Obiad:** Makaron pełnoziarnisty (40g suchego) z sosem pomidorowym (50 ml) i mielonym mięsem indyka (50g).
--   **Podwieczorek:** 100 ml kakao z mlekiem.
--   **Kolacja:** Sałatka: mix sałat (30g), pomidorek cherry (50g), ser feta (20g), oliwa z oliwek (łyżeczka).
+- **Śniadanie:** Płatki kukurydziane (30g) z mlekiem (150 ml).
+- **Drugie Śniadanie:** Domowy batonik z płatków owsianych (30g płatków, łyżeczka miodu).
+- **Obiad:** Makaron pełnoziarnisty (40g suchego) z sosem pomidorowym (50 ml) i mielonym mięsem indyka (50g).
+- **Podwieczorek:** 100 ml kakao z mlekiem.
+- **Kolacja:** Sałatka: mix sałat (30g), pomidorek cherry (50g), ser feta (20g), oliwa z oliwek (łyżeczka).
 
 #### Dzień 4
 
--   **Śniadanie:** 2 kromki chleba tostowego pełnoziarnistego (60g) z masłem orzechowym (15g).
--   **Drugie Śniadanie:** Mały jogurt owocowy (125g).
--   **Obiad:** Pieczone udko z kurczaka (1/2 uda, ok. 60g), ryż brązowy (40g suchego), gotowana fasolka szparagowa (40g).
--   **Podwieczorek:** 100 ml kakao z mlekiem.
--   **Kolacja:** Omlet (1 małe jajko) z szpinakiem (20g) i pieczarkami (30g).
+- **Śniadanie:** 2 kromki chleba tostowego pełnoziarnistego (60g) z masłem orzechowym (15g).
+- **Drugie Śniadanie:** Mały jogurt owocowy (125g).
+- **Obiad:** Pieczone udko z kurczaka (1/2 uda, ok. 60g), ryż brązowy (40g suchego), gotowana fasolka szparagowa (40g).
+- **Podwieczorek:** 100 ml kakao z mlekiem.
+- **Kolacja:** Omlet (1 małe jajko) z szpinakiem (20g) i pieczarkami (30g).
 
 #### Dzień 5
 
--   **Śniadanie:** Musli (40g) z mlekiem (150 ml).
--   **Drugie Śniadanie:** Gruszka (1/2 sztuki), 10g orzechów włoskich.
--   **Obiad:** Gulasz warzywny (pomidory, 50g; cebula, 20g; papryka, 30g; pieczarki, 30g) z 1 małą piersią z kurczaka (
-    50g).
--   **Podwieczorek:** 100 ml kakao z mlekiem.
--   **Kolacja:** 2 kromki pełnoziarnistego chleba (60g) z twarożkiem (30g) i rzodkiewką (30g).
+- **Śniadanie:** Musli (40g) z mlekiem (150 ml).
+- **Drugie Śniadanie:** Gruszka (1/2 sztuki), 10g orzechów włoskich.
+- **Obiad:** Gulasz warzywny (pomidory, 50g; cebula, 20g; papryka, 30g; pieczarki, 30g) z 1 małą piersią z kurczaka (
+  50g).
+- **Podwieczorek:** 100 ml kakao z mlekiem.
+- **Kolacja:** 2 kromki pełnoziarnistego chleba (60g) z twarożkiem (30g) i rzodkiewką (30g).

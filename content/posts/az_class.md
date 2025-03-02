@@ -8,9 +8,9 @@ easy to fetch closed User Stories and manage active Pull Requests.
 
 ## Features
 
--   **User Stories Retrieval:** Fetch closed User Stories based on days, tags, and area path.
+- **User Stories Retrieval:** Fetch closed User Stories based on days, tags, and area path.
 
--   **Pull Requests Management:** Retrieve active Pull Requests by repository prefix and authors.
+- **Pull Requests Management:** Retrieve active Pull Requests by repository prefix and authors.
 
 ## Usage
 

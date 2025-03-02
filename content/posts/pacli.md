@@ -7,11 +7,11 @@ The **PACLI Wrapper** is a Python tool designed to streamline the interaction wi
 
 ## Features
 
--   Initialize PACLI sessions easily with default settings.
--   Execute PACLI commands and capture their outputs using subprocess.
--   Open and close safes seamlessly.
--   Unlock individual accounts or multiple accounts within a safe.
--   Convenient context management for automatic logon and logoff.
+- Initialize PACLI sessions easily with default settings.
+- Execute PACLI commands and capture their outputs using subprocess.
+- Open and close safes seamlessly.
+- Unlock individual accounts or multiple accounts within a safe.
+- Convenient context management for automatic logon and logoff.
 
 ## Installation
 

@@ -23,8 +23,8 @@ Response files should be named based on the following convention:
 HTTP_METHOD_query_parameters.txt
 ```
 
--   HTTP_METHOD represents the HTTP method to be mocked (e.g., GET, POST).
--   query*parameters represent query parameters, separated by underscores (*) if there are multiple.
+- HTTP_METHOD represents the HTTP method to be mocked (e.g., GET, POST).
+- query*parameters represent query parameters, separated by underscores (*) if there are multiple.
 
 ## Running Tests
 

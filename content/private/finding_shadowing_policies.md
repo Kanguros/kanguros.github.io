@@ -12,6 +12,7 @@ summary: Python script for finding shadowing security policies on firewall.
 ```python
 --8<-- "code/shadowing_rules/models.py"
 ```
+
 ## Resolve addresses
 
 ```python

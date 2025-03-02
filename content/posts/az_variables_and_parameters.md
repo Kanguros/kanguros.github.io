@@ -5,10 +5,10 @@ Summary: Short and brief information about **variables** and **parameters** in *
 
 ## Variables
 
--   Used to **store and manage data** during the pipeline execution.
--   Value **can only be string**.
--   Are **mutable** and value can change from run to run or job to job.
--   Can be overwrite, the most locally scoped variable wins.
+- Used to **store and manage data** during the pipeline execution.
+- Value **can only be string**.
+- Are **mutable** and value can change from run to run or job to job.
+- Can be overwrite, the most locally scoped variable wins.
 
 ### Definition example
 
@@ -31,9 +31,9 @@ steps:
 
 ## Parameters
 
--   Used to **provide input values** to a pipeline when it is triggered.
--   Value could be string, number, bool or object (and more complex types).
--   Can only be used in **template expressions**.
+- Used to **provide input values** to a pipeline when it is triggered.
+- Value could be string, number, bool or object (and more complex types).
+- Can only be used in **template expressions**.
 
 ### Definition example
 
@@ -123,8 +123,8 @@ A syntax how the variable or parameter is referenced, determines when the value 
 
 ### Template expression
 
--   Are **process at compile time**, and get replaced before runtime starts.
--   Are designed for reusing parts of YAML as templates.
+- Are **process at compile time**, and get replaced before runtime starts.
+- Are designed for reusing parts of YAML as templates.
 
 ### Macro
 
