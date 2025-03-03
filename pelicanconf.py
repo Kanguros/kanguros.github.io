@@ -151,7 +151,7 @@ MARKDOWN = {
         },
         "pymdownx.progressbar": {},
         "pymdownx.blocks.tab": {},
-        "pymdownx.snippets": {"check_paths": "true", "base_path": "content"},
+        "pymdownx.snippets": {"check_paths": "true", "base_path": "."},
         "pymdownx.magiclink": {},
         "markdown_extension.inline_mermaid": {},
     },

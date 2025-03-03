@@ -21,8 +21,6 @@ summary: Python script for finding shadowing security policies on firewall.
 
 ## Finding shadowing rules
 
-unit_tests
-
 ```python
 --8<-- "code/shadowing_rules/main.py"
 

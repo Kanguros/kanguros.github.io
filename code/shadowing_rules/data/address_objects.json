@@ -1,0 +1,17 @@
+[
+  {
+    "@location": "shared",
+    "@name": "fqdn1",
+    "fqdn": "www.test.com"
+  },
+  {
+    "@location": "shared",
+    "@name": "SubnetInternal",
+    "ip-netmask": "172.0.0.1/24"
+  },
+  {
+    "@location": "shared",
+    "@name": "SubnetExternal",
+    "ip-netmask": "200.0.0.1/24"
+  }
+]

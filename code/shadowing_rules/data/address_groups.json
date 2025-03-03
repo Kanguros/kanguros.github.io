@@ -1,0 +1,15 @@
+[
+  {
+    "@location": "shared",
+    "@name": "InternalAndExternal",
+    "description": "Internal and external addresses",
+    "tag": [
+      "red",
+      "blue"
+    ],
+    "static": [
+      "SubnetExternal",
+      "SubnetInternal"
+    ]
+  }
+]

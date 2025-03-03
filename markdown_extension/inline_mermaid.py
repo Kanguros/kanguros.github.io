@@ -36,11 +36,15 @@ puppeteer_config_content = """{
 """
 
 
+class SnippetError(Exception):
+    """Exception for internal errors"""
+
+
 def find_mmdc():
     exec_path = shutil.which("mmdc")
     if exec_path is not None:
         return Path(exec_path)
-    raise ValueError("Unable to get path to Mermaid CLI 'mmdc' executable.")  # noqa: TRY003
+    raise SnippetError("Unable to get path to Mermaid CLI 'mmdc' executable.")  # noqa: TRY003
 
 
 class InlineMermaidExtension(Extension):
