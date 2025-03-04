@@ -1,3 +1,4 @@
+# ruff: noqa: E501
 """
 Mermaid extensions for Markdown.
 Renders the output inline, eliminating the need to configure an output
@@ -134,7 +135,7 @@ class InlineMermaidPreprocessor(Preprocessor):
                     text[: m.start()],
                     # self.md.htmlStash.store(img_tag),
                     self.md.htmlStash.store(svg_content),
-                    text[m.end() :],
+                    text[m.end():],
                 )
 
         return text.split("\n")

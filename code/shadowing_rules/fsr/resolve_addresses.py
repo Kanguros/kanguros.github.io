@@ -14,9 +14,9 @@ SecurityRule = dict[
 
 
 def resolve_security_rule_addresses(
-        rules: list[SecurityRule],
-        address_objects: dict[str, list[AddressObject]],
-        address_groups: dict[str, AddressGroup],
+    rules: list[SecurityRule],
+    address_objects: dict[str, list[AddressObject]],
+    address_groups: dict[str, AddressGroup],
 ) -> list[SecurityRule]:
     """Resolve
 
@@ -44,9 +44,9 @@ def resolve_security_rule_addresses(
 
 @cache
 def resolve_addresses(
-        input_addresses: tuple[str, ...],
-        address_objects: dict[str, list[AddressObject]],
-        address_groups: dict[str, AddressGroup],
+    input_addresses: tuple[str, ...],
+    address_objects: dict[str, list[AddressObject]],
+    address_groups: dict[str, AddressGroup],
 ) -> set[AddressObject]:
     """Resolve
 
