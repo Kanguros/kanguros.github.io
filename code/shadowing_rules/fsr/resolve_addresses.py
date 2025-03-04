@@ -14,11 +14,17 @@ SecurityRule = dict[
 
 
 def resolve_security_rule_addresses(
-    rules: list[SecurityRule],
-    address_objects: dict[str, list[AddressObject]],
-    address_groups: dict[str, AddressGroup],
+        rules: list[SecurityRule],
+        address_objects: dict[str, list[AddressObject]],
+        address_groups: dict[str, AddressGroup],
 ) -> list[SecurityRule]:
-    """Resolve Address Objects (AO) and Address Groups (AG) for all security rules."""
+    """Resolve
+
+    - Address Objects (AO)
+    - Address Groups (AG)
+
+    for all security rules.
+    """
     resolved_rules = []
 
     for rule in rules:
@@ -38,11 +44,17 @@ def resolve_security_rule_addresses(
 
 @cache
 def resolve_addresses(
-    input_addresses: tuple[str, ...],
-    address_objects: dict[str, list[AddressObject]],
-    address_groups: dict[str, AddressGroup],
+        input_addresses: tuple[str, ...],
+        address_objects: dict[str, list[AddressObject]],
+        address_groups: dict[str, AddressGroup],
 ) -> set[AddressObject]:
-    """Resolve Address Objects (AO) and Address Groups (AG) to a set of actual IP addresses."""
+    """Resolve
+
+    - Address Objects (AO)
+    - Address Groups (AG)
+
+    to a set of actual IP addresses.
+    """
     resolved: set[AddressObject] = set()
     stack = list(input_addresses)
     visited = set()  # To prevent circular references

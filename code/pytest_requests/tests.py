@@ -41,7 +41,8 @@ def load_response_content(response_file: str) -> list[str]:
 
 def extract_response_info(content_lines: list[str]) -> Response:
     """
-    Extract response information from response content lines and create a Response object.
+    Extract response information from response content lines
+    and create a Response object.
     """
     status_code = 200
     reason = ""
