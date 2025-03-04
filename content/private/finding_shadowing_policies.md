@@ -7,21 +7,26 @@ summary: Python script for finding shadowing security policies on firewall.
 
 [TOC]
 
-## Data models
+## Models
 
 ```python
---8<-- "code/shadowing_rules/models.py"
+--8<-- "code/shadowing_rules/fsr/models.py"
 ```
 
 ## Resolve addresses
 
 ```python
---8<-- "code/shadowing_rules/resolve_addresses.py"
+--8<-- "code/shadowing_rules/fsr/resolve_addresses.py"
 ```
 
 ## Finding shadowing rules
 
 ```python
---8<-- "code/shadowing_rules/main.py"
+--8<-- "code/shadowing_rules/fsr/found_shadowing.py"
+```
 
+## Unit tests
+
+```json
+--8<-- "code/shadowing_rules/fsr/test_models.json"
 ```

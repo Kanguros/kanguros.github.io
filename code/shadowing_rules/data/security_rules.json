@@ -1,7 +1,7 @@
 [
   {
     "@device-group": "devicegroup-7",
-    "@vsys": "device-group",
+    "@location": "device-group",
     "@name": "rule-example1",
     "action": "allow",
     "application": {
