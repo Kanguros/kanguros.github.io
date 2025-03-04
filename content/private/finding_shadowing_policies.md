@@ -28,5 +28,5 @@ summary: Python script for finding shadowing security policies on firewall.
 ## Unit tests
 
 ```json
---8<-- "code/shadowing_rules/fsr/test_models.json"
+--8<-- "code/shadowing_rules/fsr/test_models.py"
 ```

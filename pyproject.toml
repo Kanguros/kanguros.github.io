@@ -86,9 +86,6 @@ ignore = [
     # only relevant if you run a script with `python -0`,
     # which seems unlikely for any of the scripts in this repo
     "B011",
-    # Leave it to the formatter to split long lines and
-    # the judgement of all of us.
-    "E501",
     # Avoid specifying long messages outside the exception class
     "TRY003",
     # Use of `assert` detected
