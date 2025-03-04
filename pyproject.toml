@@ -91,7 +91,8 @@ ignore = [
     # Use of `assert` detected
     "S101",
     # Logging statement uses f-string
-    "G004"
+    "G004",
+     "E501"
 ]
 
 
