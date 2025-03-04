@@ -8,10 +8,7 @@ RuleCheckFunction = Callable[[SecurityRule, SecurityRule], Result]
 """Typing for a ``check`` type of function"""
 
 ValueAny = list("any")
-"""
-Helper variable to represent ``list['any']`` in order 
-to avoid writing it multiple times.
-"""
+"""Helper variable to represent ``list['any']`` in order to avoid writing it multiple times."""
 
 logger = logging.getLogger(__name__)
 
@@ -23,24 +20,40 @@ def check_action(rule: SecurityRule, preceding_rule: SecurityRule) -> Result:
     return result, message
 
 
-def check_source_zone(rule: SecurityRule, preceding_rule: SecurityRule) -> Result:
+def check_source_zone(
+    rule: SecurityRule, preceding_rule: SecurityRule
+) -> Result:
     """Checks if the source zones are identical or if the preceding rule allows any zone."""
-    result = rule.source_zones == preceding_rule.source_zones or ValueAny == preceding_rule.source_zones
-    message = "Preceding rule source zones cover rule's source zones" if result else "Source zones differ"
+    result = (
+        rule.source_zones == preceding_rule.source_zones
+        or ValueAny == preceding_rule.source_zones
+    )
+    message = (
+        "Preceding rule source zones cover rule's source zones"
+        if result
+        else "Source zones differ"
+    )
     return result, message
 
 
 def check_destination_zone(
-        rule: SecurityRule, preceding_rule: SecurityRule
+    rule: SecurityRule, preceding_rule: SecurityRule
 ) -> Result:
     """Checks if the destination zones are identical or if the preceding rule allows any zone."""
-    result = rule.source_zones == preceding_rule.source_zones or ValueAny == preceding_rule.source_zones
-    message = "Preceding rule destination zones cover rule's destination zones" if result else "Destination zones differ"
+    result = (
+        rule.source_zones == preceding_rule.source_zones
+        or ValueAny == preceding_rule.source_zones
+    )
+    message = (
+        "Preceding rule destination zones cover rule's destination zones"
+        if result
+        else "Destination zones differ"
+    )
     return result, message
 
 
 def check_source_address(
-        rule: SecurityRule, preceding_rule: SecurityRule
+    rule: SecurityRule, preceding_rule: SecurityRule
 ) -> Result:
     """Checks if the source addresses are identical, allow any, or are subsets of the preceding rule's addresses."""
     if ValueAny == preceding_rule.source_addresses_ip:
@@ -48,7 +61,7 @@ def check_source_address(
 
     for addr in rule.source_addresses_ip:
         if not any(
-                addr.subnet_of(net) for net in preceding_rule.source_addresses_ip
+            addr.subnet_of(net) for net in preceding_rule.source_addresses_ip
         ):
             return False, f"Address {addr} is not covered by preceding rule"
 
@@ -56,7 +69,7 @@ def check_source_address(
 
 
 def check_destination_address(
-        rule: SecurityRule, preceding_rule: SecurityRule
+    rule: SecurityRule, preceding_rule: SecurityRule
 ) -> Result:
     """Checks if the destination addresses are
     identical, allow any, or are subsets of the preceding rule's addresses."""
@@ -65,14 +78,17 @@ def check_destination_address(
 
     for addr in rule.destination_addresses_ip:
         if not any(
-                addr.subnet_of(net) for net in preceding_rule.destination_addresses_ip
+            addr.subnet_of(net)
+            for net in preceding_rule.destination_addresses_ip
         ):
             return False, f"Address {addr} is not covered by preceding rule"
 
     return True, "Preceding rule covers all destination addresses"
 
 
-def check_application(rule: SecurityRule, preceding_rule: SecurityRule) -> Result:
+def check_application(
+    rule: SecurityRule, preceding_rule: SecurityRule
+) -> Result:
     """Checks if the rule's applications are the same or a subset of the preceding rule's applications."""
     rule_apps = rule.applications
     preceding_apps = preceding_rule.applications
@@ -91,7 +107,10 @@ def check_services(rule: SecurityRule, preceding_rule: SecurityRule) -> Result:
     or a subset of the preceding rule's ports."""
     if rule.services == preceding_rule.services:
         return True, "Preceding rule and rule's services are the same"
-    if all(rule_service in preceding_rule.services for rule_service in rule.services):
+    if all(
+        rule_service in preceding_rule.services
+        for rule_service in rule.services
+    ):
         return True, "Preceding rule contains rule's applications"
     return False, "Preceding rule does not contain all rule's applications"
 
@@ -108,7 +127,7 @@ CHECKS: list[RuleCheckFunction] = [
 
 
 def find_shadowed_rules(
-        rules: list[SecurityRule], checks: list[RuleCheckFunction]
+    rules: list[SecurityRule], checks: list[RuleCheckFunction]
 ):
     """Finds security rules that are shadowed by preceding rules.
 
@@ -124,7 +143,7 @@ def find_shadowed_rules(
     rules_count = len(rules)
     logger.info("Starting shadowed Rules detection")
     logger.info(f"Number of Rules to check: {rules_count}")
-    logger.info(f"Checks:")
+    logger.info("Checks:")
     for check in checks:
         logger.info(f"- {check.__name__}")
 

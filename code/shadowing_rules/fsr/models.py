@@ -1,5 +1,5 @@
 import ipaddress
-from typing import Literal, Union, Any
+from typing import Any, Literal, Union
 
 from pydantic import BaseModel
 from typing_extensions import Self
@@ -34,20 +34,20 @@ class SecurityRule(BaseModel):
     @classmethod
     def from_entry(cls, data: dict[str, Any]) -> Self:
         rule_data = {
-            'name': data.get('@name'),
-            'action': data.get('action'),
+            "name": data.get("@name"),
+            "action": data.get("action"),
         }
         keys_attributes = (
-            ('from', 'source_zones'),
-            ('to', 'destination_zones'),
-            ('source', 'source_addresses'),
-            ('destination', 'destination_addresses'),
-            ('application', 'applications'),
-            ('category', 'category'),
-            ('service', 'services')
+            ("from", "source_zones"),
+            ("to", "destination_zones"),
+            ("source", "source_addresses"),
+            ("destination", "destination_addresses"),
+            ("application", "applications"),
+            ("category", "category"),
+            ("service", "services"),
         )
         for key, attribute in keys_attributes:
-            rule_data[attribute] = data.get(key, {}).get('member', [])
+            rule_data[attribute] = data.get(key, {}).get("member", [])
         return cls(**rule_data)
 
     @classmethod
