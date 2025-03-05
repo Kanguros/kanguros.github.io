@@ -2,6 +2,7 @@ import ipaddress
 from typing import Any, Literal, Union
 
 from pydantic import BaseModel
+from pydantic.networks import IPv4Network
 from typing_extensions import Self
 
 KeywordAny = Literal["any"]
@@ -32,7 +33,7 @@ class SecurityRule(BaseModel):
     category: Union[list[str], list[KeywordAny]]
 
     @classmethod
-    def from_entry(cls, data: dict[str, Any]) -> Self:
+    def load(cls, data: dict[str, Any]) -> Self:
         rule_data = {
             "name": data.get("@name"),
             "action": data.get("action"),
@@ -51,5 +52,50 @@ class SecurityRule(BaseModel):
         return cls(**rule_data)
 
     @classmethod
-    def from_entries(cls, data: list[dict]) -> list[Self]:
-        return [cls.from_entry(element) for element in data]
+    def load_many(cls, data: list[dict]) -> list[Self]:
+        return [cls.load(element) for element in data]
+
+
+class AddressGroup(BaseModel):
+    name: str
+    description: str = ""
+    tag: list[str] = []
+    static: list[str]
+
+    @classmethod
+    def load(cls, data: dict) -> Self:
+        return cls(
+            name=data.get("@name"),
+            description=data.get("description", ""),
+            tag=data.get("tag", []),
+            static=data.get("static", []),
+        )
+
+    @classmethod
+    def load_many(cls, items: list[dict]) -> list[Self]:
+        return [cls.load(item) for item in items]
+
+
+class AddressObject(BaseModel):
+    name: str
+    ip_netmask: IPv4Network
+
+    @classmethod
+    def load(cls, data: dict) -> Self:
+        ip_netmask = data.get("ip-netmask")
+        if not ip_netmask:
+            raise NotImplementedError(
+                "Only Address Objects with ip-netmask are implemented"
+            )
+        ip_netmask = IPv4Network(ip_netmask, strict=False)
+        return cls(name=data.get("@name"), ip_netmask=ip_netmask)
+
+    @classmethod
+    def load_many(cls, items: list[dict]) -> list[Self]:
+        instances = []
+        for item in items:
+            try:
+                instances.append(cls.load(item))
+            except NotImplementedError:
+                pass
+        return instances
