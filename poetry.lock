@@ -535,6 +535,23 @@ typing-extensions = {version = ">=4.0.0,<5.0", markers = "python_version < \"3.1
 jupyter = ["ipywidgets (>=7.5.1,<9)"]
 
 [[package]]
+name = "rich-click"
+version = "1.8.7"
+description = "Format click help output nicely with rich"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+click = ">=7"
+rich = ">=10.7"
+typing_extensions = ">=4"
+
+[package.extras]
+dev = ["mypy", "packaging", "pre-commit", "pytest", "pytest-cov", "rich-codex", "ruff", "types-setuptools"]
+docs = ["markdown_include", "mkdocs", "mkdocs-glightbox", "mkdocs-material-extensions", "mkdocs-material[imaging] (>=9.5.18,<9.6.0)", "mkdocs-rss-plugin", "mkdocstrings[python]", "rich-codex"]
+
+[[package]]
 name = "six"
 version = "1.17.0"
 description = "Python 2 and 3 compatibility utilities"
@@ -667,7 +684,7 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "632e4a18e29334894c84f71320a6bfdd6013ac3bb03da9759073a4a217c68bd8"
+content-hash = "b1220e017ec14182e96095c9ca5f24f1b01a133b88ec5aa89b46c0e3fe5b034d"
 
 [metadata.files]
 annotated-types = [
@@ -1077,6 +1094,10 @@ PyYAML = [
 rich = [
     {file = "rich-13.9.4-py3-none-any.whl", hash = "sha256:6049d5e6ec054bf2779ab3358186963bac2ea89175919d699e378b99738c2a90"},
     {file = "rich-13.9.4.tar.gz", hash = "sha256:439594978a49a09530cff7ebc4b5c7103ef57baf48d5ea3184f21d9a2befa098"},
+]
+rich-click = [
+    {file = "rich_click-1.8.7-py3-none-any.whl", hash = "sha256:b089453e8e6079815b2689c903bd782c0408a062ad763e708023becd85b8f5d9"},
+    {file = "rich_click-1.8.7.tar.gz", hash = "sha256:075aa0140a3f796768e1e650174d4e12828de87f3a0aed49fe48fb897fcaa627"},
 ]
 six = [
     {file = "six-1.17.0-py2.py3-none-any.whl", hash = "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274"},

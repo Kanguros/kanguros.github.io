@@ -1,7 +1,24 @@
+import logging
 from pathlib import Path
 
-import click
+import rich_click as click
 from click.types import File
+from rich.logging import RichHandler
+
+LOG_FORMAT = "%(message)s"
+LOG_DEFAULT_LEVEL = "INFO"
+logging.basicConfig(
+    level=LOG_DEFAULT_LEVEL,
+    format=LOG_FORMAT,
+    datefmt="[%X]",
+    handlers=[
+        RichHandler(
+            rich_tracebacks=True, tracebacks_suppress=[click], show_path=False
+        )
+    ],
+)
+
+log = logging.getLogger(__name__)
 
 
 @click.group(add_help_option=True)
@@ -34,6 +51,14 @@ from click.types import File
 )
 def main(security_rules, address_groups, address_objects):
     """SRF stands for Shadowing Rules Finder"""
+
+
+@main.command("find")
+@click.argument("names", metavar="NAME", nargs=-1, default=None, required=False)
+def main_find(names):
+    if names:
+        log.info(f"Looking for shadowing rules of rules: {', '.join(names)}")
+    log.info("Looking for all shadowing rules")
 
 
 if __name__ == "__main__":
