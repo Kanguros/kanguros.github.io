@@ -15,27 +15,30 @@ Dzieci 6-letnie (urodzone w 2019 roku) mogą rozpocząć naukę w szkole podstaw
 - posiadają opinię z Poradni Psychologiczno-Pedagogicznej o gotowości dziecka do podjęcia nauki w szkole.
 
 ## Krok 1: Złożenie zgłoszenia przez system elektroniczny
-- **Termin**: od 10 marca 2025 r. do 19 marca 2025 r.  
-- **Forma**: online oraz papierowa  
-- **Szczegóły**: 
+
+- **Termin**: od 10 marca 2025 r. do 19 marca 2025 r.
+- **Forma**: online oraz papierowa
+- **Szczegóły**:
     - Zalogować się na stronie https://naborsp-kandydat.vulcan.net.pl/katowice/
     - Wypełnić elektroniczny formularz zgłoszeniowy
     - Wydrukować formularz z systemu elektronicznego
     - Podpisać wydrukowany formularz przez oboje rodziców/opiekunów prawnych
 
 ## Krok 2: Dostarczenie podpisanego zgłoszenia do szkoły
-- **Termin**: od 10 marca 2025 r. do 19 marca 2025 r.  
-- **Forma**: wyłącznie papierowa, osobiście  
-- **Szczegóły**: 
+
+- **Termin**: od 10 marca 2025 r. do 19 marca 2025 r.
+- **Forma**: wyłącznie papierowa, osobiście
+- **Szczegóły**:
     - Dostarczyć wydrukowane i podpisane zgłoszenie do sekretariatu szkoły
     - Dołączyć dokumenty potwierdzające spełnianie warunków przyjęcia dziecka, w tym zaświadczenie o realizacji rocznego przygotowania przedszkolnego oraz opinię poradni psychologiczno-pedagogicznej (jeśli dotyczy)
 
 **Uwaga**: Samo założenie konta na stronie naborowej nie skutkuje przyjęciem do klasy I. Akceptacja zgłoszenia następuje dopiero po dostarczeniu oryginału podpisanego wniosku do sekretariatu szkoły.
 
 ## Krok 3: Sprawdzenie wyników rekrutacji
-- **Termin**: 15 kwietnia 2025 r., godz. 13:00  
-- **Forma**: osobiście w szkole  
-- **Szczegóły**: 
+
+- **Termin**: 15 kwietnia 2025 r., godz. 13:00
+- **Forma**: osobiście w szkole
+- **Szczegóły**:
     - Lista uczniów zakwalifikowanych w postępowaniu rekrutacyjnym będzie dostępna w sekretariacie i na gablocie przy sekretariacie szkoły
     - Informacje na temat przyjęcia dziecka można otrzymać tylko zgłaszając się do szkoły osobiście
 
