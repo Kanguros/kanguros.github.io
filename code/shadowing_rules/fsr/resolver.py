@@ -18,20 +18,17 @@ class Resolver:
         """
         Resolve Address Objects (AO) and Address Groups (AG) for all security rules.
         """
-        resolved_rules = []
         for rule in rules:
-            resolved_rule = rule.copy()
-            resolved_rule.source_addresses_ip = self.resolve_addresses(
+            rule.source_addresses_ip = self.resolve_addresses(
                 rule.source_addresses
             )
-            resolved_rule.destination_addresses_ip = self.resolve_addresses(
+            rule.destination_addresses_ip = self.resolve_addresses(
                 rule.destination_addresses
             )
-            resolved_rules.append(resolved_rule)
-        return resolved_rules
+        return rules
 
     def resolve_addresses(
-        self, input_addresses: list[str]
+        self, input_addresses: set[str]
     ) -> set[AddressObject]:
         """
         Resolve a list of address names into actual AddressObjects.

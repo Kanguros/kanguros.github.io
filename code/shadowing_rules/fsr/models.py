@@ -1,36 +1,36 @@
 import ipaddress
 from typing import Any, Literal, Union
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from pydantic.networks import IPv4Network
 from typing_extensions import Self
 
 KeywordAny = Literal["any"]
+ValueAny = set[KeywordAny]
 KeywordAppDefault = Literal["application-default"]
+ValueAppDefault = set[KeywordAppDefault]
+SetStr = set[str]
+Action = Literal["allow", "deny", "monitor"]
 
 
 class SecurityRule(BaseModel):
     name: str
-    action: Literal["allow", "deny"]
-    source_zones: Union[list[str], list[KeywordAny]]
-    destination_zones: Union[list[str], list[KeywordAny]]
-    source_addresses: Union[list[KeywordAny], list[str]]
+    action: Action
+    source_zones: Union[SetStr, ValueAny]
+    destination_zones: Union[SetStr, ValueAny]
+    source_addresses: Union[ValueAny, list[str]]
     source_addresses_ip: Union[
-        list[ipaddress.IPv4Network],
-        list[ipaddress.IPv6Network],
-        list[KeywordAny],
-    ] = []
-    destination_addresses: Union[list[KeywordAny], list[str]]
+        set[ipaddress.IPv4Network],
+        ValueAny,
+    ] = Field(default_factory=set)
+    destination_addresses: Union[ValueAny, SetStr]
     destination_addresses_ip: Union[
-        list[ipaddress.IPv4Network],
-        list[ipaddress.IPv6Network],
-        list[KeywordAny],
-    ] = []
-    applications: Union[list[str], list[KeywordAny]]
-    services: Union[
-        list[str], list[Literal[KeywordAny]], list[KeywordAppDefault]
-    ]
-    category: Union[list[str], list[KeywordAny]]
+        set[IPv4Network],
+        ValueAny,
+    ] = Field(default_factory=set)
+    applications: Union[SetStr, ValueAny]
+    services: Union[SetStr, set[Literal[KeywordAny]], set[KeywordAppDefault]]
+    category: Union[SetStr, ValueAny]
 
     @classmethod
     def load(cls, data: dict[str, Any]) -> Self:
@@ -59,8 +59,8 @@ class SecurityRule(BaseModel):
 class AddressGroup(BaseModel):
     name: str
     description: str = ""
-    tag: list[str] = []
-    static: list[str]
+    tag: SetStr = Field(default_factory=set)
+    static: SetStr = Field(default_factory=set)
 
     @classmethod
     def load(cls, data: dict) -> Self:
