@@ -2,16 +2,15 @@
 title: Z przedszkola do szkoły
 date: 2025-03-09
 status: draft
-summary: Lista kroków żeby zapisac przedszkolaka do szkoły.
+summary: Procedura rekrutacji dzieci do Szkoły Podstawowej w Katowicach na rok szkolny 2025/2026
 ---
-
-Procedura rekrutacji dzieci do Szkoły Podstawowej w Katowicach na rok szkolny 2025/2026
 
 [TOC]
 
 ## Warunki przyjęcia
 
 Dzieci 6-letnie (urodzone w 2019 roku) mogą rozpocząć naukę w szkole podstawowej pod warunkiem, że:
+
 - realizowały roczne przygotowanie przedszkolne w poprzednim roku szkolnym, lub
 - posiadają opinię z Poradni Psychologiczno-Pedagogicznej o gotowości dziecka do podjęcia nauki w szkole.
 
