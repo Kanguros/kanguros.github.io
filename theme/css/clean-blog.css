@@ -659,3 +659,68 @@ h1 > svg.error-icon {
     --bs-nav-link-padding-x: 0.5rem;
     --bs-nav-link-padding-y: 0.2rem;
 }
+
+@media print {
+    .container {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 5% !important;
+        margin: 0 !important;
+    }
+
+    .row,
+    .col-lg-8,
+    .offset-lg-2,
+    .col-md-10,
+    .offset-md-1 {
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    table {
+        break-inside: avoid;
+    }
+
+    table tr {
+        border-bottom-width: 1px !important;
+    }
+
+    h2 {
+        break-before: page;
+    }
+
+    h3 {
+        break-after: avoid;
+    }
+
+    body {
+        font-size: 14pt;
+        line-height: 1.4;
+    }
+
+    nav,
+    footer,
+    .navigation {
+        display: none;
+    }
+
+    img,
+    pre,
+    blockquote {
+        break-inside: avoid;
+    }
+
+    ul,
+    ol {
+        break-inside: avoid;
+    }
+
+    * {
+        background: none !important;
+        box-shadow: none !important;
+    }
+
+    @page {
+        margin: 4cm;
+    }
+}
