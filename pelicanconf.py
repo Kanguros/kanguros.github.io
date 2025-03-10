@@ -17,7 +17,6 @@ OUTPUT_PATH = "_output/"
 PLUGINS = [
     "yaml_metadata",
     # "similar_posts",
-    # "readtime",
     "neighbors",
     "pelican.plugins.jinja_filters",
     # "sitemap",  In publishconf.py

@@ -42,8 +42,6 @@
 <meta property="og:image" content="{{ SITEURL }}{{ article.header_cover }}">
 {% elif HEADER_COVER %}
 <meta property="og:image" content="{{ SITEURL }}/{{ HEADER_COVER }}">
-{% else %}
-<meta property="og:image" content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/post-bg.jpg">
 {% endif %}
 {% endblock %}
 
@@ -59,13 +57,11 @@
         {{ article.headline }}
     </h2>
     {% endif %}
-    <div class="d-flex justify-content-between align-self-center align-items-center margin-y">
+    <div class="d-flex justify-content-between align-self-center align-items-center">
         <small class="meta-element">
             {{ SVG_CALENDAR }} {{ article.locale_date }}
         </small>
         {{ tags_list(article) }}
-    </div>
-    <div class="d-flex justify-content-start meta-element margin-y">
     </div>
 </div>
 {% endblock header %}
