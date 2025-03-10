@@ -1,31 +1,34 @@
+from typing import Union
+
 from .models import AddressGroup, AddressObject, SecurityRule
 
 
 class Resolver:
     def __init__(
         self,
+        security_rules: list[SecurityRule],
         address_objects: list[AddressObject],
         address_groups: list[AddressGroup],
     ):
-        """
-        Initialize resolver with address objects and address groups.
-        """
+        self.security_rules = security_rules
         self.address_objects = {ao.name: ao for ao in address_objects}
         self.address_groups = {ag.name: set(ag.static) for ag in address_groups}
-        self.resolved_cache: dict[str, set[AddressObject]] = {}
+        self.resolved_cache: dict[
+            Union[str, tuple[str]], set[AddressObject]
+        ] = {}
 
-    def resolve_rules(self, rules: list[SecurityRule]) -> list[SecurityRule]:
+    def execute(self) -> list[SecurityRule]:
         """
         Resolve Address Objects (AO) and Address Groups (AG) for all security rules.
         """
-        for rule in rules:
+        for rule in self.security_rules:
             rule.source_addresses_ip = self.resolve_addresses(
                 rule.source_addresses
             )
             rule.destination_addresses_ip = self.resolve_addresses(
                 rule.destination_addresses
             )
-        return rules
+        return self.security_rules
 
     def resolve_addresses(
         self, input_addresses: set[str]
@@ -72,5 +75,5 @@ def resolve_rules_addresses(
     address_objects: list[AddressObject],
     address_groups: list[AddressGroup],
 ) -> list[SecurityRule]:
-    resolver = Resolver(address_objects, address_groups)
-    return resolver.resolve_rules(rules)
+    resolver = Resolver(rules, address_objects, address_groups)
+    return resolver.execute()

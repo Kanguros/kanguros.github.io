@@ -1,4 +1,3 @@
-import ipaddress
 from typing import Any, Literal, Union
 
 from pydantic import BaseModel, Field
@@ -18,16 +17,14 @@ class SecurityRule(BaseModel):
     action: Action
     source_zones: Union[SetStr, ValueAny]
     destination_zones: Union[SetStr, ValueAny]
-    source_addresses: Union[ValueAny, list[str]]
-    source_addresses_ip: Union[
-        set[ipaddress.IPv4Network],
-        ValueAny,
-    ] = Field(default_factory=set)
+    source_addresses: Union[ValueAny, SetStr]
+    source_addresses_ip: Union[set[IPv4Network], ValueAny] = Field(
+        default_factory=set
+    )
     destination_addresses: Union[ValueAny, SetStr]
-    destination_addresses_ip: Union[
-        set[IPv4Network],
-        ValueAny,
-    ] = Field(default_factory=set)
+    destination_addresses_ip: Union[set[IPv4Network], ValueAny] = Field(
+        default_factory=set
+    )
     applications: Union[SetStr, ValueAny]
     services: Union[SetStr, set[Literal[KeywordAny]], set[KeywordAppDefault]]
     category: Union[SetStr, ValueAny]

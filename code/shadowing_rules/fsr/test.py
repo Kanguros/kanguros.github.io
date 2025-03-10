@@ -2,6 +2,8 @@
 import json
 from pathlib import Path
 
+import pytest
+
 from .models import AddressGroup, AddressObject, SecurityRule
 
 
@@ -12,22 +14,17 @@ def load_json(name: str):
         return json.loads(f.read())
 
 
-def test_SecurityRule():
-    data = load_json("security_rules")
-    rules = SecurityRule.load_many(data)
-    print(rules)
-    assert [isinstance(rule, SecurityRule) for rule in rules]
-
-
-def test_AddressObject():
-    data = load_json("address_objects")
-    address_objects = AddressObject.load_many(data)
-    print(address_objects)
-    assert [isinstance(ao, AddressObject) for ao in address_objects]
-
-
-def test_AddressGroup():
-    data = load_json("address_groups")
-    address_groups = AddressGroup.load_many(data)
-    print(address_groups)
-    assert [isinstance(ag, AddressGroup) for ag in address_groups]
+@pytest.mark.parametrize(
+    "file_name,cls",
+    [
+        ("security_rules", SecurityRule),
+        ("address_objects", AddressObject),
+        ("address_groups", AddressGroup),
+    ],
+)
+def test_models(file_name, cls):
+    data = load_json(file_name)
+    load_method = cls.load_many
+    objects = load_method(data)
+    print(objects)
+    assert [isinstance(obj, cls) for obj in objects]
