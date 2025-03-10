@@ -6,29 +6,14 @@ from .models import AddressGroup, AddressObject, SecurityRule
 class Resolver:
     def __init__(
         self,
-        security_rules: list[SecurityRule],
         address_objects: list[AddressObject],
         address_groups: list[AddressGroup],
     ):
-        self.security_rules = security_rules
         self.address_objects = {ao.name: ao for ao in address_objects}
         self.address_groups = {ag.name: set(ag.static) for ag in address_groups}
         self.resolved_cache: dict[
             Union[str, tuple[str]], set[AddressObject]
         ] = {}
-
-    def execute(self) -> list[SecurityRule]:
-        """
-        Resolve Address Objects (AO) and Address Groups (AG) for all security rules.
-        """
-        for rule in self.security_rules:
-            rule.source_addresses_ip = self.resolve_addresses(
-                rule.source_addresses
-            )
-            rule.destination_addresses_ip = self.resolve_addresses(
-                rule.destination_addresses
-            )
-        return self.security_rules
 
     def resolve_addresses(
         self, input_addresses: set[str]
@@ -62,7 +47,7 @@ class Resolver:
                 resolved.add(self.address_objects[current])
                 self.resolved_cache[current] = {self.address_objects[current]}
             elif current in self.address_groups:
-                stack.extend(self.address_groups[current])  # Expand AG contents
+                stack.extend(self.address_groups[current])
             else:
                 raise ValueError(f"Unknown address object or group: {current}")
 
@@ -75,5 +60,12 @@ def resolve_rules_addresses(
     address_objects: list[AddressObject],
     address_groups: list[AddressGroup],
 ) -> list[SecurityRule]:
-    resolver = Resolver(rules, address_objects, address_groups)
-    return resolver.execute()
+    resolver = Resolver(address_objects, address_groups)
+    for rule in rules:
+        rule.source_addresses_ip = resolver.resolve_addresses(
+            rule.source_addresses
+        )
+        rule.destination_addresses_ip = resolver.resolve_addresses(
+            rule.destination_addresses
+        )
+    return rules
