@@ -42,7 +42,6 @@ Finding shadowing policies - Kamil's Scratchpad
 
 <meta property="og:description" content="Python script for finding shadowing security policies on firewall.">
 
-<meta property="og:image" content="https://kanguros.github.io/theme/images/post-bg.jpg">
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <!-- Google tag (gtag.js) -->
@@ -107,7 +106,7 @@ Finding shadowing policies - Kamil's Scratchpad
         >Finding shadowing policies</a>
     </h1>
 
-    <div class="d-flex justify-content-between align-self-center align-items-center margin-y">
+    <div class="d-flex justify-content-between align-self-center align-items-center">
         <small class="meta-element">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="auto" fill="currentColor" viewBox="0 0 16 16">
   <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
@@ -116,8 +115,6 @@ Finding shadowing policies - Kamil's Scratchpad
         <div class="tags meta-element">
 </div>
 
-    </div>
-    <div class="d-flex justify-content-start meta-element margin-y">
     </div>
 </div>
             </div>
@@ -140,8 +137,7 @@ Finding shadowing policies - Kamil's Scratchpad
 </ul>
 </div>
 <h2 id="models"><a class="toclink" href="#models">Models</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ipaddress</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">Union</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">Union</span>
 
 <span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
 <span class="kn">from</span> <span class="nn">pydantic.networks</span> <span class="kn">import</span> <span class="n">IPv4Network</span>
@@ -160,16 +156,14 @@ Finding shadowing policies - Kamil's Scratchpad
     <span class="n">action</span><span class="p">:</span> <span class="n">Action</span>
     <span class="n">source_zones</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">SetStr</span><span class="p">,</span> <span class="n">ValueAny</span><span class="p">]</span>
     <span class="n">destination_zones</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">SetStr</span><span class="p">,</span> <span class="n">ValueAny</span><span class="p">]</span>
-    <span class="n">source_addresses</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ValueAny</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span>
-    <span class="n">source_addresses_ip</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
-        <span class="nb">set</span><span class="p">[</span><span class="n">ipaddress</span><span class="o">.</span><span class="n">IPv4Network</span><span class="p">],</span>
-        <span class="n">ValueAny</span><span class="p">,</span>
-    <span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">set</span><span class="p">)</span>
+    <span class="n">source_addresses</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ValueAny</span><span class="p">,</span> <span class="n">SetStr</span><span class="p">]</span>
+    <span class="n">source_addresses_ip</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">set</span><span class="p">[</span><span class="n">IPv4Network</span><span class="p">],</span> <span class="n">ValueAny</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="nb">set</span>
+    <span class="p">)</span>
     <span class="n">destination_addresses</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">ValueAny</span><span class="p">,</span> <span class="n">SetStr</span><span class="p">]</span>
-    <span class="n">destination_addresses_ip</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span>
-        <span class="nb">set</span><span class="p">[</span><span class="n">IPv4Network</span><span class="p">],</span>
-        <span class="n">ValueAny</span><span class="p">,</span>
-    <span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">set</span><span class="p">)</span>
+    <span class="n">destination_addresses_ip</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">set</span><span class="p">[</span><span class="n">IPv4Network</span><span class="p">],</span> <span class="n">ValueAny</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="nb">set</span>
+    <span class="p">)</span>
     <span class="n">applications</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">SetStr</span><span class="p">,</span> <span class="n">ValueAny</span><span class="p">]</span>
     <span class="n">services</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">SetStr</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="n">KeywordAny</span><span class="p">]],</span> <span class="nb">set</span><span class="p">[</span><span class="n">KeywordAppDefault</span><span class="p">]]</span>
     <span class="n">category</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">SetStr</span><span class="p">,</span> <span class="n">ValueAny</span><span class="p">]</span>
@@ -244,7 +238,9 @@ Finding shadowing policies - Kamil's Scratchpad
 </code></pre></div>
 
 <h2 id="resolve-addresses"><a class="toclink" href="#resolve-addresses">Resolve&nbsp;addresses</a></h2>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">AddressGroup</span><span class="p">,</span> <span class="n">AddressObject</span><span class="p">,</span> <span class="n">SecurityRule</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">AddressGroup</span><span class="p">,</span> <span class="n">AddressObject</span><span class="p">,</span> <span class="n">SecurityRule</span>
 
 
 <span class="k">class</span> <span class="nc">Resolver</span><span class="p">:</span>
@@ -253,25 +249,11 @@ Finding shadowing policies - Kamil's Scratchpad
         <span class="n">address_objects</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AddressObject</span><span class="p">],</span>
         <span class="n">address_groups</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AddressGroup</span><span class="p">],</span>
     <span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Initialize resolver with address objects and address groups.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">address_objects</span> <span class="o">=</span> <span class="p">{</span><span class="n">ao</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">ao</span> <span class="k">for</span> <span class="n">ao</span> <span class="ow">in</span> <span class="n">address_objects</span><span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">address_groups</span> <span class="o">=</span> <span class="p">{</span><span class="n">ag</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="nb">set</span><span class="p">(</span><span class="n">ag</span><span class="o">.</span><span class="n">static</span><span class="p">)</span> <span class="k">for</span> <span class="n">ag</span> <span class="ow">in</span> <span class="n">address_groups</span><span class="p">}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">resolved_cache</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">set</span><span class="p">[</span><span class="n">AddressObject</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
-
-    <span class="k">def</span> <span class="nf">resolve_rules</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rules</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Resolve Address Objects (AO) and Address Groups (AG) for all security rules.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">rules</span><span class="p">:</span>
-            <span class="n">rule</span><span class="o">.</span><span class="n">source_addresses_ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolve_addresses</span><span class="p">(</span>
-                <span class="n">rule</span><span class="o">.</span><span class="n">source_addresses</span>
-            <span class="p">)</span>
-            <span class="n">rule</span><span class="o">.</span><span class="n">destination_addresses_ip</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">resolve_addresses</span><span class="p">(</span>
-                <span class="n">rule</span><span class="o">.</span><span class="n">destination_addresses</span>
-            <span class="p">)</span>
-        <span class="k">return</span> <span class="n">rules</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resolved_cache</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span>
+            <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="nb">set</span><span class="p">[</span><span class="n">AddressObject</span><span class="p">]</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">def</span> <span class="nf">resolve_addresses</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">input_addresses</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
@@ -305,7 +287,7 @@ Finding shadowing policies - Kamil's Scratchpad
                 <span class="n">resolved</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address_objects</span><span class="p">[</span><span class="n">current</span><span class="p">])</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">resolved_cache</span><span class="p">[</span><span class="n">current</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">address_objects</span><span class="p">[</span><span class="n">current</span><span class="p">]}</span>
             <span class="k">elif</span> <span class="n">current</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_groups</span><span class="p">:</span>
-                <span class="n">stack</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address_groups</span><span class="p">[</span><span class="n">current</span><span class="p">])</span>  <span class="c1"># Expand AG contents</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address_groups</span><span class="p">[</span><span class="n">current</span><span class="p">])</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown address object or group: </span><span class="si">{</span><span class="n">current</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -319,7 +301,14 @@ Finding shadowing policies - Kamil's Scratchpad
     <span class="n">address_groups</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AddressGroup</span><span class="p">],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">]:</span>
     <span class="n">resolver</span> <span class="o">=</span> <span class="n">Resolver</span><span class="p">(</span><span class="n">address_objects</span><span class="p">,</span> <span class="n">address_groups</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">resolver</span><span class="o">.</span><span class="n">resolve_rules</span><span class="p">(</span><span class="n">rules</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">rules</span><span class="p">:</span>
+        <span class="n">rule</span><span class="o">.</span><span class="n">source_addresses_ip</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="n">resolve_addresses</span><span class="p">(</span>
+            <span class="n">rule</span><span class="o">.</span><span class="n">source_addresses</span>
+        <span class="p">)</span>
+        <span class="n">rule</span><span class="o">.</span><span class="n">destination_addresses_ip</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="n">resolve_addresses</span><span class="p">(</span>
+            <span class="n">rule</span><span class="o">.</span><span class="n">destination_addresses</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">rules</span>
 </code></pre></div>
 
 <h2 id="finding-shadowing-rules"><a class="toclink" href="#finding-shadowing-rules">Finding shadowing&nbsp;rules</a></h2>
@@ -502,6 +491,8 @@ Finding shadowing policies - Kamil's Scratchpad
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
+<span class="kn">import</span> <span class="nn">pytest</span>
+
 <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">AddressGroup</span><span class="p">,</span> <span class="n">AddressObject</span><span class="p">,</span> <span class="n">SecurityRule</span>
 
 
@@ -512,25 +503,20 @@ Finding shadowing policies - Kamil's Scratchpad
         <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 
 
-<span class="k">def</span> <span class="nf">test_SecurityRule</span><span class="p">():</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">load_json</span><span class="p">(</span><span class="s2">&quot;security_rules&quot;</span><span class="p">)</span>
-    <span class="n">rules</span> <span class="o">=</span> <span class="n">SecurityRule</span><span class="o">.</span><span class="n">load_many</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">rules</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="p">[</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">SecurityRule</span><span class="p">)</span> <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">rules</span><span class="p">]</span>
-
-
-<span class="k">def</span> <span class="nf">test_AddressObject</span><span class="p">():</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">load_json</span><span class="p">(</span><span class="s2">&quot;address_objects&quot;</span><span class="p">)</span>
-    <span class="n">address_objects</span> <span class="o">=</span> <span class="n">AddressObject</span><span class="o">.</span><span class="n">load_many</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">address_objects</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="p">[</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">ao</span><span class="p">,</span> <span class="n">AddressObject</span><span class="p">)</span> <span class="k">for</span> <span class="n">ao</span> <span class="ow">in</span> <span class="n">address_objects</span><span class="p">]</span>
-
-
-<span class="k">def</span> <span class="nf">test_AddressGroup</span><span class="p">():</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">load_json</span><span class="p">(</span><span class="s2">&quot;address_groups&quot;</span><span class="p">)</span>
-    <span class="n">address_groups</span> <span class="o">=</span> <span class="n">AddressGroup</span><span class="o">.</span><span class="n">load_many</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">address_groups</span><span class="p">)</span>
-    <span class="k">assert</span> <span class="p">[</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">ag</span><span class="p">,</span> <span class="n">AddressGroup</span><span class="p">)</span> <span class="k">for</span> <span class="n">ag</span> <span class="ow">in</span> <span class="n">address_groups</span><span class="p">]</span>
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span>
+    <span class="s2">&quot;file_name,cls&quot;</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;security_rules&quot;</span><span class="p">,</span> <span class="n">SecurityRule</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;address_objects&quot;</span><span class="p">,</span> <span class="n">AddressObject</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;address_groups&quot;</span><span class="p">,</span> <span class="n">AddressGroup</span><span class="p">),</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_models</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">load_json</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">load_method</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">load_many</span>
+    <span class="n">objects</span> <span class="o">=</span> <span class="n">load_method</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">objects</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="p">[</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span> <span class="k">for</span> <span class="n">obj</span> <span class="ow">in</span> <span class="n">objects</span><span class="p">]</span>
 </code></pre></div>
 
 <h2 id="cli"><a class="toclink" href="#cli"><span class="caps">CLI</span></a></h2>
