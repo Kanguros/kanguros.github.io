@@ -1,8 +1,7 @@
-from typing import Any, Literal, Union
+from typing import List, Literal, Optional, Union
 
-from pydantic import BaseModel, Field, AliasPath, AliasChoices
+from pydantic import AliasChoices, AliasPath, BaseModel, Field, RootModel
 from pydantic.networks import IPv4Network
-from typing_extensions import Self
 
 KeywordAny = Literal["any"]
 ValueAny = set[KeywordAny]
@@ -11,92 +10,63 @@ ValueAppDefault = set[KeywordAppDefault]
 SetStr = set[str]
 Action = Literal["allow", "deny", "monitor"]
 
-Alias = lambda attr_name, raw_name: AliasChoices(attr_name, AliasPath(raw_name, 'member'))
+Alias = lambda attr_name, raw_name: AliasChoices(
+    attr_name, AliasPath(raw_name, "member")
+)  # noqa: E731
 
 
 class SecurityRule(BaseModel):
-    name: str
+    name: str = Field(..., validation_alias=AliasChoices("name", "@name"))
     """Name of a rule."""
     action: Action
-    source_zones: Union[SetStr, ValueAny] = Field(validation_alias=Alias("source_zones", "from"))
-    destination_zones: Union[SetStr, ValueAny] = Field(validation_alias=Alias("source_zones", "from"))
-    source_addresses: Union[ValueAny, SetStr] = Field(validation_alias=Alias("source_zones", "from"))
+    source_zones: Union[SetStr, ValueAny] = Field(
+        validation_alias=Alias("source_zones", "from")
+    )
+    destination_zones: Union[SetStr, ValueAny] = Field(
+        validation_alias=Alias("destination_zones", "to")
+    )
+    source_addresses: Union[ValueAny, SetStr] = Field(
+        validation_alias=Alias("source_addresses", "source")
+    )
+    destination_addresses: Union[ValueAny, SetStr] = Field(
+        validation_alias=Alias("destination_addresses", "destination")
+    )
+    applications: Union[SetStr, ValueAny] = Field(
+        validation_alias=Alias("applications", "application")
+    )
+    services: Union[SetStr, ValueAny, ValueAppDefault] = Field(
+        validation_alias=Alias("services", "service")
+    )
+    category: Union[SetStr, ValueAny] = Field(
+        validation_alias=Alias("category", "category")
+    )
     source_addresses_ip: Union[set[IPv4Network], ValueAny] = Field(
         default_factory=set
     )
-    destination_addresses: Union[ValueAny, SetStr] = Field(validation_alias=Alias("source_zones", "from"))
     destination_addresses_ip: Union[set[IPv4Network], ValueAny] = Field(
         default_factory=set
     )
-    applications: Union[SetStr, ValueAny] = Field(validation_alias=Alias("source_zones", "from"))
-    services: Union[SetStr, set[Literal[KeywordAny]], set[KeywordAppDefault]] = Field(
-        validation_alias=Alias("source_zones", "from"))
-    category: Union[SetStr, ValueAny] = Field(validation_alias=Alias("source_zones", "from"))
 
-    @classmethod
-    def load(cls, data: dict[str, Any]) -> Self:
-        rule_data = {
-            "name": data.get("@name"),
-            "action": data.get("action"),
-        }
-        keys_attributes = (
-            ("from", "source_zones"),
-            ("to", "destination_zones"),
-            ("source", "source_addresses"),
-            ("destination", "destination_addresses"),
-            ("application", "applications"),
-            ("category", "category"),
-            ("service", "services"),
-        )
-        for key, attribute in keys_attributes:
-            rule_data[attribute] = data.get(key, {}).get("member", [])
-        return cls(**rule_data)
 
-    @classmethod
-    def load_many(cls, data: list[dict]) -> list[Self]:
-        return [cls.load(element) for element in data]
+SecurityRules = RootModel[list[SecurityRule]]
 
 
 class AddressGroup(BaseModel):
-    name: str
+    name: str = Field(..., validation_alias=AliasChoices("name", "@name"))
     description: str = ""
     tag: SetStr = Field(default_factory=set)
     static: SetStr = Field(default_factory=set)
 
-    @classmethod
-    def load(cls, data: dict) -> Self:
-        return cls(
-            name=data.get("@name"),
-            description=data.get("description", ""),
-            tag=data.get("tag", []),
-            static=data.get("static", []),
-        )
 
-    @classmethod
-    def load_many(cls, items: list[dict]) -> list[Self]:
-        return [cls.load(item) for item in items]
+AddressGroups = RootModel[list[AddressGroup]]
 
 
 class AddressObject(BaseModel):
-    name: str
-    ip_netmask: IPv4Network
+    name: str = Field(..., validation_alias=AliasChoices("name", "@name"))
+    ip_netmask: str = Field(
+        ..., validation_alias=AliasChoices("ip_netmask", "ip-netmask")
+    )
+    value: Optional[IPv4Network] = Field(None)
 
-    @classmethod
-    def load(cls, data: dict) -> Self:
-        ip_netmask = data.get("ip-netmask")
-        if not ip_netmask:
-            raise NotImplementedError(
-                "Only Address Objects with ip-netmask are implemented"
-            )
-        ip_netmask = IPv4Network(ip_netmask, strict=False)
-        return cls(name=data.get("@name"), ip_netmask=ip_netmask)
 
-    @classmethod
-    def load_many(cls, items: list[dict]) -> list[Self]:
-        instances = []
-        for item in items:
-            try:
-                instances.append(cls.load(item))
-            except NotImplementedError:
-                pass
-        return instances
+AddressObjects = RootModel[list[AddressObject]]
