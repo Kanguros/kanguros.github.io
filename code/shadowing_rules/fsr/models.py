@@ -1,6 +1,6 @@
 from typing import Any, Literal, Union
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, AliasPath, AliasChoices
 from pydantic.networks import IPv4Network
 from typing_extensions import Self
 
@@ -11,23 +11,27 @@ ValueAppDefault = set[KeywordAppDefault]
 SetStr = set[str]
 Action = Literal["allow", "deny", "monitor"]
 
+Alias = lambda attr_name, raw_name: AliasChoices(attr_name, AliasPath(raw_name, 'member'))
+
 
 class SecurityRule(BaseModel):
     name: str
+    """Name of a rule."""
     action: Action
-    source_zones: Union[SetStr, ValueAny]
-    destination_zones: Union[SetStr, ValueAny]
-    source_addresses: Union[ValueAny, SetStr]
+    source_zones: Union[SetStr, ValueAny] = Field(validation_alias=Alias("source_zones", "from"))
+    destination_zones: Union[SetStr, ValueAny] = Field(validation_alias=Alias("source_zones", "from"))
+    source_addresses: Union[ValueAny, SetStr] = Field(validation_alias=Alias("source_zones", "from"))
     source_addresses_ip: Union[set[IPv4Network], ValueAny] = Field(
         default_factory=set
     )
-    destination_addresses: Union[ValueAny, SetStr]
+    destination_addresses: Union[ValueAny, SetStr] = Field(validation_alias=Alias("source_zones", "from"))
     destination_addresses_ip: Union[set[IPv4Network], ValueAny] = Field(
         default_factory=set
     )
-    applications: Union[SetStr, ValueAny]
-    services: Union[SetStr, set[Literal[KeywordAny]], set[KeywordAppDefault]]
-    category: Union[SetStr, ValueAny]
+    applications: Union[SetStr, ValueAny] = Field(validation_alias=Alias("source_zones", "from"))
+    services: Union[SetStr, set[Literal[KeywordAny]], set[KeywordAppDefault]] = Field(
+        validation_alias=Alias("source_zones", "from"))
+    category: Union[SetStr, ValueAny] = Field(validation_alias=Alias("source_zones", "from"))
 
     @classmethod
     def load(cls, data: dict[str, Any]) -> Self:

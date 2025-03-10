@@ -14,7 +14,7 @@ Po konstulacji z geriatrą w dniu 21.02.2025.
 ### Leki
 
 | Lek                  | Dawkowanie     | Uwagi                                       |
-|----------------------|----------------|---------------------------------------------|
+| -------------------- | -------------- | ------------------------------------------- |
 | Euthyrox N 75 µg     | 1-0-0          | Na czczo                                    |
 | IPP 40 mg            | 1-0-0          | Przed śniadaniem                            |
 | Atrox 20 mg          | 0-0-1          |                                             |
@@ -40,14 +40,14 @@ Po konstulacji z geriatrą w dniu 21.02.2025.
 - Wyraźna poprawa w zachowaniu. Coraz mniej mylenia czy halucynacje.
 - Brak wybudzeń w nocy.
 - Apetyt dalej wątpliwy.
-	- Lepiej przyjmuja sie zimne potrawy.
-	- Czasami pojawia się uporczywe odbijanie.
+    - Lepiej przyjmuja sie zimne potrawy.
+    - Czasami pojawia się uporczywe odbijanie.
 - Ciśnienie w godzinach 11:00-12:00 spada do 100/70 co skutkuje zawrotami głowy i osłabieniem.
 
 ### Leki
 
 | Lek                  | Dawkowanie     | Uwagi                                       |
-|----------------------|----------------|---------------------------------------------|
+| -------------------- | -------------- | ------------------------------------------- |
 | Euthyrox N 75 µg     | 1-0-0          | Na czczo                                    |
 | IPP 40 mg            | 1-0-0          | Przed śniadaniem                            |
 | Atrox 20 mg          | 0-0-1          |                                             |
@@ -89,7 +89,7 @@ Po konstulacji z geriatrą w dniu 21.02.2025.
 Po wizycie geriatry.
 
 | Lek                  | Dawkowanie     | Uwagi                                       |
-|----------------------|----------------|---------------------------------------------|
+| -------------------- | -------------- | ------------------------------------------- |
 | Euthyrox N 75 µg     | 1-0-0          | Na czczo                                    |
 | IPP 40 mg            | 1-0-0          | Przed śniadaniem                            |
 | Atrox 20 mg          | 0-0-1          |                                             |
@@ -113,15 +113,15 @@ Po wizycie geriatry.
 Względem leków z dnia [03.02.2025](#03022025)
 
 - Zmiana:
-	- Carzap HCT 16,5/12,5: 1-0-0 → ½-0-0
-	- Euthyrox N 100 µg → Euthyrox N 75 µg
+    - Carzap HCT 16,5/12,5: 1-0-0 → ½-0-0
+    - Euthyrox N 100 µg → Euthyrox N 75 µg
 - Dodano:
-	- Telfexo.
-	- Lacipil 2mg (0-(½ lub 1)-0)
-	- Memantin 10mg
-	- Asentra 5mg
+    - Telfexo.
+    - Lacipil 2mg (0-(½ lub 1)-0)
+    - Memantin 10mg
+    - Asentra 5mg
 - Usunięto:
-	- Metocard ZK 100.
+    - Metocard ZK 100.
 
 ## 04.02.2025
 
@@ -146,7 +146,7 @@ Konsultacja z kardiologiem z uwagi na duże ciśnienie.
 Po konsultacjach z kardiologiem.
 
 | Lek                  | Dawkowanie         | Uwagi                     |
-|----------------------|--------------------|---------------------------|
+| -------------------- | ------------------ | ------------------------- |
 | Euthyrox N 100 µg    | 1-0-0              | Na czczo                  |
 | IPP 40 mg            | 1-0-0              | Przed śniadaniem          |
 | Atrox 20 mg          | 0-0-1              |                           |
@@ -167,11 +167,11 @@ Po konsultacjach z kardiologiem.
 Względem leków z dnia [27.01.2025](#wizyty_domowa__27012025)
 
 - Zamiana:
-	- Prestarium 5 mg → Carzap HCT 16,5/12,5 (1-0-0).
+    - Prestarium 5 mg → Carzap HCT 16,5/12,5 (1-0-0).
 - Dodano:
-	- Kalium 600 mg (0-1-0 co 2 dni).
+    - Kalium 600 mg (0-1-0 co 2 dni).
 - Usunięto:
-	- Famogast.
+    - Famogast.
 
 ## SOR - 02.02.2025
 
@@ -195,7 +195,7 @@ Konsultacja z geriatrą była potrzebna w celu dostosowania leków.
 ### Leki
 
 | Lek               | Dawkowanie           | Uwagi                     |
-|-------------------|----------------------|---------------------------|
+| ----------------- | -------------------- | ------------------------- |
 | Euthyrox N 100 µg | 1-0-0                | Na czczo                  |
 | IPP 40 mg         | 1-0-0                | Przed śniadaniem          |
 | Atrox 20 mg       | 0-0-1                |                           |
@@ -212,20 +212,20 @@ Konsultacja z geriatrą była potrzebna w celu dostosowania leków.
 #### Zmiany w lekach
 
 - Zamiana:
-	- Vessel Due F (1-0-1) → Pradaxa 110 mg
+    - Vessel Due F (1-0-1) → Pradaxa 110 mg
 - Dodano nowe:
-	- Cetix 400 mg (co 12h przez 5 dni).
+    - Cetix 400 mg (co 12h przez 5 dni).
 - Zmiana dawkowania:
-	- Metocard ZK 100: ½-0-0 → ½-0-0 co drugi dzień.
+    - Metocard ZK 100: ½-0-0 → ½-0-0 co drugi dzień.
 - Usunięto:
-	- Cetix.
+    - Cetix.
 
 ## 26.01.2025
 
 ### Objawy
 
 - Pierwszy znaczący incydent z dezorientacją.
-	- Telefon do rodziny o 05:00, że wszedzie szuka kota i nie umie go znalezc.
+    - Telefon do rodziny o 05:00, że wszedzie szuka kota i nie umie go znalezc.
 
 ## Wizyta domowa - 14.01.2025
 
@@ -243,7 +243,7 @@ sił.
 Po wizycie geriatry.
 
 | Lek               | Dawkowanie | Uwagi                     |
-|-------------------|------------|---------------------------|
+| ----------------- | ---------- | ------------------------- |
 | Euthyrox N 100 µg | 1-0-0      | Na czczo                  |
 | IPP 40 mg         | 1-0-0      | Przed śniadaniem          |
 | Atrox 20 mg       | 0-0-1      |                           |
@@ -264,20 +264,20 @@ Po wizycie geriatry.
 Względem leków z dnia [05.01.2025](#05012025)
 
 - Zamiana:
-	- Pradaxa 110 mg → Vessel Due F (1-0-1).
+    - Pradaxa 110 mg → Vessel Due F (1-0-1).
 - Dodano:
-	- Peritol 5 mg (0-0-½).
-	- Famogast (0-0-1).
-	- Cetix 400 mg (co 12h przez 5 dni).
-	- Enterol (0-1-0 przez 10 dni).
+    - Peritol 5 mg (0-0-½).
+    - Famogast (0-0-1).
+    - Cetix 400 mg (co 12h przez 5 dni).
+    - Enterol (0-1-0 przez 10 dni).
 - Zmiana dawkowania:
-	- Siofor 500 mg: 1-1-1 → 1-1-0.
-	- Prestarium 5 mg: 0-0-1 → 1-0-½.
-	- Metocard ZK 100: 1-0-0 → ½-0-0.
-	- Digoxin 100 mg: 1-0-0 → 0-1-0.
+    - Siofor 500 mg: 1-1-1 → 1-1-0.
+    - Prestarium 5 mg: 0-0-1 → 1-0-½.
+    - Metocard ZK 100: 1-0-0 → ½-0-0.
+    - Digoxin 100 mg: 1-0-0 → 0-1-0.
 - Usunięto:
-	- Feroplex 40 mg.
-	- Magne B6.
+    - Feroplex 40 mg.
+    - Magne B6.
 
 ## 05.01.2025
 
@@ -286,7 +286,7 @@ Względem leków z dnia [05.01.2025](#05012025)
 Po wyjściu z Murcek.
 
 | Lek               | Dawkowanie | Uwagi                     |
-|-------------------|------------|---------------------------|
+| ----------------- | ---------- | ------------------------- |
 | Euthyrox N 100 µg | 1-0-0      | Na czczo                  |
 | IPP 40 mg         | 1-0-0      | Przed śniadaniem          |
 | Atrox 20 mg       | 0-0-1      |                           |
@@ -305,21 +305,21 @@ Po wyjściu z Murcek.
 Względem leków z dnia [28.12.2024](#do23122024)
 
 - Zamiana:
-	- Euthyrox N 75 µg → Euthyrox N 100 µg (1-0-0).
-	- Bisoratio 5 mg → Metocard ZK 100 (1-0-0).
-	- Captopril HCT 16 mg + 12,5 mg → Prestarium 5 mg (0-0-1).
+    - Euthyrox N 75 µg → Euthyrox N 100 µg (1-0-0).
+    - Bisoratio 5 mg → Metocard ZK 100 (1-0-0).
+    - Captopril HCT 16 mg + 12,5 mg → Prestarium 5 mg (0-0-1).
 - Dodano nowe:
-	- IPP 40 mg (1-0-0, przed śniadaniem).
-	- Digoxin 100 mg (1-0-0).
-	- Gaviscon 10 ml (1-1-1-1, po posiłkach i przed snem).
+    - IPP 40 mg (1-0-0, przed śniadaniem).
+    - Digoxin 100 mg (1-0-0).
+    - Gaviscon 10 ml (1-1-1-1, po posiłkach i przed snem).
 - Zmiana dawkowania:
-	- Feroplex 40 mg: 2x tyg → 0-1-0.
-	- Pradaxa 110 mg: 1-0-1 → 1-0-0.
-	- Magne B6: 1-0-0 → 1-1-1.
-	- Siofor 850 mg: ½-½-½ → Siofor 500 mg (1-1-1).
-	- Spironol 25 mg: 1-0-0 → 0-1-0.
+    - Feroplex 40 mg: 2x tyg → 0-1-0.
+    - Pradaxa 110 mg: 1-0-1 → 1-0-0.
+    - Magne B6: 1-0-0 → 1-1-1.
+    - Siofor 850 mg: ½-½-½ → Siofor 500 mg (1-1-1).
+    - Spironol 25 mg: 1-0-0 → 0-1-0.
 - Usunięto:
-	- Kalium 600 mg.
+    - Kalium 600 mg.
 
 ## Szpital Murcki - 28.12.2024 - 04.01.2025
 
@@ -343,12 +343,12 @@ Przy braku możliwości zbicia pulsu i pojawieniem się arytmii, konieczne bylo 
 ### Objawy
 
 - Objawy grypy takie jak:
-	- Ból kości i mięsni.
-	- Duże osłabienie.
-	- Senność.
-	- Senność.
-	- Suchy kaszel.
-	- Brak apetytu.
+    - Ból kości i mięsni.
+    - Duże osłabienie.
+    - Senność.
+    - Senność.
+    - Suchy kaszel.
+    - Brak apetytu.
 - Po kilku dniach pojawił się wysoki puls w granicach 150 oraz arytmia.
 
 ## Do 23.12.2024
@@ -362,7 +362,7 @@ Stan ogólny bardzo dobry.
 ### Leki
 
 | Lek                           | Dawkowanie | Uwagi                   |
-|-------------------------------|------------|-------------------------|
+| ----------------------------- | ---------- | ----------------------- |
 | Feroplex 40 mg                | 2xtyg      |                         |
 | Euthyrox N 75 µg              | 1-0-0      | Na czczo                |
 | Kalium 600 mg                 | 1-0-0      |                         |
@@ -394,7 +394,7 @@ Stan ogólny bardzo dobry.
 ### Krew - 08.02.2025
 
 | Badanie                        | Wynik | Min   | Max   | Jednostka |
-|--------------------------------|-------|-------|-------|-----------|
+| ------------------------------ | ----- | ----- | ----- | --------- |
 | Leukocyty                      | 8,69  | 3,98  | 10,04 | tys/µl    |
 | Erytrocyty                     | 3,57  | 3,9   | 5,1   | mln/µl    |
 | Hemoglobina                    | 11,4  | 11,2  | 15,7  | g/dl      |
@@ -425,7 +425,7 @@ Stan ogólny bardzo dobry.
 | NRBC#                          | 0     | 0     | 0,03  | tys/µl    |
 
 | Badanie       | Wynik | Min | Max  | Jednostka     |
-|---------------|-------|-----|------|---------------|
+| ------------- | ----- | --- | ---- | ------------- |
 | OB            | 60    | 0   | 30   | mm/h          |
 | D-dimer       | 0,5   | 0   | 0,5  | µg/ml         |
 | Mocznik       | 47,6  | 21  | 43   | mg/dl         |
@@ -434,7 +434,7 @@ Stan ogólny bardzo dobry.
 | eGFR          | 46,02 | -   | -    | ml/min 1,73m2 |
 
 | Badanie               | Wynik | Min  | Max  | Jednostka |
-|-----------------------|-------|------|------|-----------|
+| --------------------- | ----- | ---- | ---- | --------- |
 | Glukoza               | 146,9 | 70   | 99   | mg/dl     |
 | Cholesterol całkowity | 113,5 | -    | -    | mg/dl     |
 | Cholesterol HDL       | 22,1  | -    | -    | mg/dl     |
@@ -447,7 +447,7 @@ Stan ogólny bardzo dobry.
 | Insulina              | 6,5   | 3    | 17   | µIU/ml    |
 
 | Badanie                      | Wynik  | Min | Max  | Jednostka |
-|------------------------------|--------|-----|------|-----------|
+| ---------------------------- | ------ | --- | ---- | --------- |
 | CEA                          | 0,46   | -   | -    | ng/ml     |
 | CA 125                       | 10,53  | 0   | 35   | U/ml      |
 | CA 15-3                      | 8,99   | 0   | 31,3 | U/ml      |
@@ -464,7 +464,7 @@ Stan ogólny bardzo dobry.
 | CRP, ilościowo               | 5,25   | 0   | 5    | mg/l      |
 
 | Badanie                              | Wynik | Min  | Max  | Jednostka |
-|--------------------------------------|-------|------|------|-----------|
+| ------------------------------------ | ----- | ---- | ---- | --------- |
 | Próby wątrobowe AST                  | 18    | 11   | 34   | U/l       |
 | Próby wątrobowe ALT                  | 18,2  | 0    | 34   | U/l       |
 | Próby wątrobowe Bilirubina całkowita | 0,79  | 0,2  | 1,2  | mg/dl     |
@@ -476,7 +476,7 @@ Stan ogólny bardzo dobry.
 ### Mocz - 08.02.2025
 
 | Badanie                  | Wynik       | Min   | Max  | Jednostka |
-|--------------------------|-------------|-------|------|-----------|
+| ------------------------ | ----------- | ----- | ---- | --------- |
 | Przejrzystość            | lekko mętny | -     | -    | -         |
 | Barwa                    | słomkowy    | -     | -    | -         |
 | Ciężar właściwy          | 1,01        | 1,003 | 1,03 | g/ml      |
