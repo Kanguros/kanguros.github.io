@@ -14,7 +14,7 @@ Po konstulacji z geriatrą w dniu 21.02.2025.
 ### Leki
 
 | Lek                  | Dawkowanie     | Uwagi                                       |
-| -------------------- | -------------- | ------------------------------------------- |
+|----------------------|----------------|---------------------------------------------|
 | Euthyrox N 75 µg     | 1-0-0          | Na czczo                                    |
 | IPP 40 mg            | 1-0-0          | Przed śniadaniem                            |
 | Atrox 20 mg          | 0-0-1          |                                             |
@@ -40,14 +40,14 @@ Po konstulacji z geriatrą w dniu 21.02.2025.
 - Wyraźna poprawa w zachowaniu. Coraz mniej mylenia czy halucynacje.
 - Brak wybudzeń w nocy.
 - Apetyt dalej wątpliwy.
-    - Lepiej przyjmuja sie zimne potrawy.
-    - Czasami pojawia się uporczywe odbijanie.
+	- Lepiej przyjmuja sie zimne potrawy.
+	- Czasami pojawia się uporczywe odbijanie.
 - Ciśnienie w godzinach 11:00-12:00 spada do 100/70 co skutkuje zawrotami głowy i osłabieniem.
 
 ### Leki
 
 | Lek                  | Dawkowanie     | Uwagi                                       |
-| -------------------- | -------------- | ------------------------------------------- |
+|----------------------|----------------|---------------------------------------------|
 | Euthyrox N 75 µg     | 1-0-0          | Na czczo                                    |
 | IPP 40 mg            | 1-0-0          | Przed śniadaniem                            |
 | Atrox 20 mg          | 0-0-1          |                                             |
@@ -71,23 +71,16 @@ Po konstulacji z geriatrą w dniu 21.02.2025.
 ### Objawy
 
 - Splątanie, dezorientacja, zagubienie.
-- Mylenie przeszłości z teraźniejszością.
-    - Mylenie osób.
-    - Halucynacje, przewidzenia.
+- Mylenie przeszłości z teraźniejszością: mylenie osób, halucynacje, przewidzenia.
 - Bol w lewym boku brzucha, poniżej żeber.
-- Brak apetytu.
-- Uporczywe odbijanie i niestrawnosc po jedzeniu.
+- Brak apetytu. Uporczywe odbijanie i niestrawnosc po jedzeniu. Zatwardzenia.
 - Blada skóra.
-- Zatwardzenia.
 
 ### Opinia geriatry
 
-- Ból w lewym boku może sugerować powiększoną śledzione.
-- Powiększona śledziona, przekroczone normy eozynofili, brak apetytu może sugerować obecność pasożyta.
-- Objawy demencji mogą być skutkiem
-    - wachania ciśnienia,
-    - leków,
-    - degeneracji mózgu.
+- Ból w lewym boku może sugerować powiększoną śledzione. Powiększona śledziona, przekroczone normy eozynofili, brak
+  apetytu może sugerować obecność pasożyta.
+- Objawy demencji mogą być skutkiem: wachania ciśnienia, leków, degeneracji mózgu.
 - Dla poprawy pracy mózgu: Memantine
 - Dla aktywizacji i poprawy samopoczucia: Asentra
 
@@ -96,7 +89,7 @@ Po konstulacji z geriatrą w dniu 21.02.2025.
 Po wizycie geriatry.
 
 | Lek                  | Dawkowanie     | Uwagi                                       |
-| -------------------- | -------------- | ------------------------------------------- |
+|----------------------|----------------|---------------------------------------------|
 | Euthyrox N 75 µg     | 1-0-0          | Na czczo                                    |
 | IPP 40 mg            | 1-0-0          | Przed śniadaniem                            |
 | Atrox 20 mg          | 0-0-1          |                                             |
@@ -120,15 +113,15 @@ Po wizycie geriatry.
 Względem leków z dnia [03.02.2025](#03022025)
 
 - Zmiana:
-    - Carzap HCT 16,5/12,5: 1-0-0 → ½-0-0
-    - Euthyrox N 100 µg → Euthyrox N 75 µg
+	- Carzap HCT 16,5/12,5: 1-0-0 → ½-0-0
+	- Euthyrox N 100 µg → Euthyrox N 75 µg
 - Dodano:
-    - Telfexo.
-    - Lacipil 2mg (0-(½ lub 1)-0)
-    - Memantin 10mg
-    - Asentra 5mg
+	- Telfexo.
+	- Lacipil 2mg (0-(½ lub 1)-0)
+	- Memantin 10mg
+	- Asentra 5mg
 - Usunięto:
-    - Metocard ZK 100.
+	- Metocard ZK 100.
 
 ## 04.02.2025
 
@@ -153,7 +146,7 @@ Konsultacja z kardiologiem z uwagi na duże ciśnienie.
 Po konsultacjach z kardiologiem.
 
 | Lek                  | Dawkowanie         | Uwagi                     |
-| -------------------- | ------------------ | ------------------------- |
+|----------------------|--------------------|---------------------------|
 | Euthyrox N 100 µg    | 1-0-0              | Na czczo                  |
 | IPP 40 mg            | 1-0-0              | Przed śniadaniem          |
 | Atrox 20 mg          | 0-0-1              |                           |
@@ -174,11 +167,11 @@ Po konsultacjach z kardiologiem.
 Względem leków z dnia [27.01.2025](#wizyty_domowa__27012025)
 
 - Zamiana:
-    - Prestarium 5 mg → Carzap HCT 16,5/12,5 (1-0-0).
+	- Prestarium 5 mg → Carzap HCT 16,5/12,5 (1-0-0).
 - Dodano:
-    - Kalium 600 mg (0-1-0 co 2 dni).
+	- Kalium 600 mg (0-1-0 co 2 dni).
 - Usunięto:
-    - Famogast.
+	- Famogast.
 
 ## SOR - 02.02.2025
 
@@ -202,7 +195,7 @@ Konsultacja z geriatrą była potrzebna w celu dostosowania leków.
 ### Leki
 
 | Lek               | Dawkowanie           | Uwagi                     |
-| ----------------- | -------------------- | ------------------------- |
+|-------------------|----------------------|---------------------------|
 | Euthyrox N 100 µg | 1-0-0                | Na czczo                  |
 | IPP 40 mg         | 1-0-0                | Przed śniadaniem          |
 | Atrox 20 mg       | 0-0-1                |                           |
@@ -219,20 +212,20 @@ Konsultacja z geriatrą była potrzebna w celu dostosowania leków.
 #### Zmiany w lekach
 
 - Zamiana:
-    - Vessel Due F (1-0-1) → Pradaxa 110 mg
+	- Vessel Due F (1-0-1) → Pradaxa 110 mg
 - Dodano nowe:
-    - Cetix 400 mg (co 12h przez 5 dni).
+	- Cetix 400 mg (co 12h przez 5 dni).
 - Zmiana dawkowania:
-    - Metocard ZK 100: ½-0-0 → ½-0-0 co drugi dzień.
+	- Metocard ZK 100: ½-0-0 → ½-0-0 co drugi dzień.
 - Usunięto:
-    - Cetix.
+	- Cetix.
 
 ## 26.01.2025
 
 ### Objawy
 
 - Pierwszy znaczący incydent z dezorientacją.
-    - Telefon do rodziny o 05:00, że wszedzie szuka kota i nie umie go znalezc.
+	- Telefon do rodziny o 05:00, że wszedzie szuka kota i nie umie go znalezc.
 
 ## Wizyta domowa - 14.01.2025
 
@@ -250,7 +243,7 @@ sił.
 Po wizycie geriatry.
 
 | Lek               | Dawkowanie | Uwagi                     |
-| ----------------- | ---------- | ------------------------- |
+|-------------------|------------|---------------------------|
 | Euthyrox N 100 µg | 1-0-0      | Na czczo                  |
 | IPP 40 mg         | 1-0-0      | Przed śniadaniem          |
 | Atrox 20 mg       | 0-0-1      |                           |
@@ -271,20 +264,20 @@ Po wizycie geriatry.
 Względem leków z dnia [05.01.2025](#05012025)
 
 - Zamiana:
-    - Pradaxa 110 mg → Vessel Due F (1-0-1).
+	- Pradaxa 110 mg → Vessel Due F (1-0-1).
 - Dodano:
-    - Peritol 5 mg (0-0-½).
-    - Famogast (0-0-1).
-    - Cetix 400 mg (co 12h przez 5 dni).
-    - Enterol (0-1-0 przez 10 dni).
+	- Peritol 5 mg (0-0-½).
+	- Famogast (0-0-1).
+	- Cetix 400 mg (co 12h przez 5 dni).
+	- Enterol (0-1-0 przez 10 dni).
 - Zmiana dawkowania:
-    - Siofor 500 mg: 1-1-1 → 1-1-0.
-    - Prestarium 5 mg: 0-0-1 → 1-0-½.
-    - Metocard ZK 100: 1-0-0 → ½-0-0.
-    - Digoxin 100 mg: 1-0-0 → 0-1-0.
+	- Siofor 500 mg: 1-1-1 → 1-1-0.
+	- Prestarium 5 mg: 0-0-1 → 1-0-½.
+	- Metocard ZK 100: 1-0-0 → ½-0-0.
+	- Digoxin 100 mg: 1-0-0 → 0-1-0.
 - Usunięto:
-    - Feroplex 40 mg.
-    - Magne B6.
+	- Feroplex 40 mg.
+	- Magne B6.
 
 ## 05.01.2025
 
@@ -293,7 +286,7 @@ Względem leków z dnia [05.01.2025](#05012025)
 Po wyjściu z Murcek.
 
 | Lek               | Dawkowanie | Uwagi                     |
-| ----------------- | ---------- | ------------------------- |
+|-------------------|------------|---------------------------|
 | Euthyrox N 100 µg | 1-0-0      | Na czczo                  |
 | IPP 40 mg         | 1-0-0      | Przed śniadaniem          |
 | Atrox 20 mg       | 0-0-1      |                           |
@@ -312,21 +305,21 @@ Po wyjściu z Murcek.
 Względem leków z dnia [28.12.2024](#do23122024)
 
 - Zamiana:
-    - Euthyrox N 75 µg → Euthyrox N 100 µg (1-0-0).
-    - Bisoratio 5 mg → Metocard ZK 100 (1-0-0).
-    - Captopril HCT 16 mg + 12,5 mg → Prestarium 5 mg (0-0-1).
+	- Euthyrox N 75 µg → Euthyrox N 100 µg (1-0-0).
+	- Bisoratio 5 mg → Metocard ZK 100 (1-0-0).
+	- Captopril HCT 16 mg + 12,5 mg → Prestarium 5 mg (0-0-1).
 - Dodano nowe:
-    - IPP 40 mg (1-0-0, przed śniadaniem).
-    - Digoxin 100 mg (1-0-0).
-    - Gaviscon 10 ml (1-1-1-1, po posiłkach i przed snem).
+	- IPP 40 mg (1-0-0, przed śniadaniem).
+	- Digoxin 100 mg (1-0-0).
+	- Gaviscon 10 ml (1-1-1-1, po posiłkach i przed snem).
 - Zmiana dawkowania:
-    - Feroplex 40 mg: 2x tyg → 0-1-0.
-    - Pradaxa 110 mg: 1-0-1 → 1-0-0.
-    - Magne B6: 1-0-0 → 1-1-1.
-    - Siofor 850 mg: ½-½-½ → Siofor 500 mg (1-1-1).
-    - Spironol 25 mg: 1-0-0 → 0-1-0.
+	- Feroplex 40 mg: 2x tyg → 0-1-0.
+	- Pradaxa 110 mg: 1-0-1 → 1-0-0.
+	- Magne B6: 1-0-0 → 1-1-1.
+	- Siofor 850 mg: ½-½-½ → Siofor 500 mg (1-1-1).
+	- Spironol 25 mg: 1-0-0 → 0-1-0.
 - Usunięto:
-    - Kalium 600 mg.
+	- Kalium 600 mg.
 
 ## Szpital Murcki - 28.12.2024 - 04.01.2025
 
@@ -350,12 +343,12 @@ Przy braku możliwości zbicia pulsu i pojawieniem się arytmii, konieczne bylo 
 ### Objawy
 
 - Objawy grypy takie jak:
-    - Ból kości i mięsni.
-    - Duże osłabienie.
-    - Senność.
-    - Senność.
-    - Suchy kaszel.
-    - Brak apetytu.
+	- Ból kości i mięsni.
+	- Duże osłabienie.
+	- Senność.
+	- Senność.
+	- Suchy kaszel.
+	- Brak apetytu.
 - Po kilku dniach pojawił się wysoki puls w granicach 150 oraz arytmia.
 
 ## Do 23.12.2024
@@ -369,7 +362,7 @@ Stan ogólny bardzo dobry.
 ### Leki
 
 | Lek                           | Dawkowanie | Uwagi                   |
-| ----------------------------- | ---------- | ----------------------- |
+|-------------------------------|------------|-------------------------|
 | Feroplex 40 mg                | 2xtyg      |                         |
 | Euthyrox N 75 µg              | 1-0-0      | Na czczo                |
 | Kalium 600 mg                 | 1-0-0      |                         |
@@ -400,78 +393,90 @@ Stan ogólny bardzo dobry.
 
 ### Krew - 08.02.2025
 
-| Badanie                              | Wynik  | Min   | Max   | Jednostka          |
-| ------------------------------------ | ------ | ----- | ----- | ------------------ |
-| Leukocyty                            | 8,69   | 3,98  | 10,04 | tys/µl             |
-| Erytrocyty                           | 3,57   | 3,9   | 5,1   | mln/µl             |
-| Hemoglobina                          | 11,4   | 11,2  | 15,7  | g/dl               |
-| Hematokryt                           | 34,3   | 34,1  | 44,9  | %                  |
-| MCV                                  | 96,1   | 79,4  | 94,8  | fl                 |
-| MCH                                  | 31,9   | 25,6  | 32,2  | pg                 |
-| MCHC                                 | 33,2   | 32,2  | 35,5  | g/dl               |
-| Płytki krwi                          | 335    | 125,3 | 396,2 | tys/µl             |
-| RDW-SD                               | 46,7   | 36,4  | 46,3  | fl                 |
-| RDW-CV                               | 13,1   | 11,7  | 14,4  | %                  |
-| PDW                                  | 15,3   | 9,8   | 16,2  | fl                 |
-| MPV                                  | 11,8   | 9,4   | 12,5  | fl                 |
-| P-LCR                                | 40,8   | 19,1  | 46,6  | %                  |
-| PCT                                  | 0,39   | 0,17  | 0,38  | %                  |
-| Neutrofile                           | 2,73   | 1,78  | 6,04  | tys/µl             |
-| Limfocyty                            | 3,35   | 1,3   | 3,4   | tys/µl             |
-| Monocyty                             | 0,82   | 0,31  | 0,92  | tys/µl             |
-| Eozynofile                           | 1,68   | 0,03  | 0,39  | tys/µl             |
-| Bazofile                             | 0,08   | 0,01  | 0,09  | tys/µl             |
-| Neutrofile                           | 31,5   | 40,8  | 70,39 | %                  |
-| Limfocyty                            | 38,6   | 21    | 50    | %                  |
-| Monocyty                             | 9,4    | 5,1   | 11,2  | %                  |
-| Eozynofile                           | 19,3   | 0,4   | 6,6   | %                  |
-| Bazofile                             | 0,9    | 0,2   | 1,3   | %                  |
-| Niedojrzałe granulocyty IG %         | 0,3    | 0     | 0,5   | %                  |
-| Niedojrzałe granulocyty IG il.       | 0,03   | 0     | 0,04  | tys/µl             |
-| NRBC%                                | 0      | -     | -     | -                  |
-| NRBC#                                | 0      | 0     | 0,03  | tys/µl             |
-| OB                                   | 60     | 0     | 30    | mm/h               |
-| D-dimer                              | 0,5    | 0     | 0,5   | µg/ml              |
-| Mocznik                              | 47,6   | 21    | 43    | mg/dl              |
-| Azot mocznika                        | 22,23  | 9,8   | 20,1  | mg/dl              |
-| Kreatynina                           | 1,18   | 0,5   | 1,2   | mg/dl              |
-| eGFR                                 | 46,02  | -     | -     | ml/min <br/>1,73m2 |
-| Glukoza                              | 146,9  | 70    | 99    | mg/dl              |
-| Cholesterol całkowity                | 113,5  | -     | -     | mg/dl              |
-| Cholesterol HDL                      | 22,1   | -     | -     | mg/dl              |
-| Cholesterol nie-HDL                  | 91,4   | -     | -     | mg/dl              |
-| Cholesterol LDL                      | 68,48  | -     | -     | mg/dl              |
-| Triglicerydy                         | 125,5  | -     | -     | mg/dl              |
-| TSH                                  | 0,072  | 0,35  | 4,94  | µIU/ml             |
-| FT3                                  | 3,44   | 2,43  | 6,01  | pmol/l             |
-| FT4                                  | 1,29   | 0,7   | 1,48  | ng/dl              |
-| Insulina                             | 6,5    | 3     | 17    | µIU/ml             |
-| CEA                                  | 0,46   | -     | -     | ng/ml              |
-| CA 125                               | 10,53  | 0     | 35    | U/ml               |
-| CA 15-3                              | 8,99   | 0     | 31,3  | U/ml               |
-| CA 19-9                              | 3,31   | 0     | 37    | U/ml               |
-| anty-TPO                             | <3,00  | 0     | 5,61  | IU/ml              |
-| anty-TG                              | <3,00  | 0     | 4,11  | IU/ml              |
-| TRAb                                 | <0,70  | 0     | 1,99  | IU/l               |
-| Fibrynogen                           | 408,2  | 170   | 420   | mg/dl              |
-| Dehydrogenaza mleczanowa LDH         | 216    | 125   | 220   | U/l                |
-| Elektrolity - Sód                    | 140,86 | 136   | 145   | mmol/l             |
-| Elektrolity - Potas                  | 4,99   | 3,5   | 5,1   | mmol/l             |
-| Chlorki                              | 105,1  | 98    | 107   | mmol/l             |
-| Żelazo                               | 87     | 50    | 170   | µg/dl              |
-| CRP, ilościowo                       | 5,25   | 0     | 5     | mg/l               |
-| Próby wątrobowe AST                  | 18     | 11    | 34    | U/l                |
-| Próby wątrobowe ALT                  | 18,2   | 0     | 34    | U/l                |
-| Próby wątrobowe Bilirubina całkowita | 0,79   | 0,2   | 1,2   | mg/dl              |
-| Próby wątrobowe Fosfataza zasadowa   | 73,3   | 46    | 122   | U/l                |
-| Próby wątrobowe GGTP                 | 21,1   | 0     | 38    | U/l                |
-| AFP                                  | 2,32   | 0,89  | 8,78  | ng/ml              |
-| Ferrytyna                            | 261,5  | 4,63  | 204   | ng/ml              |
+| Badanie                        | Wynik | Min   | Max   | Jednostka |
+|--------------------------------|-------|-------|-------|-----------|
+| Leukocyty                      | 8,69  | 3,98  | 10,04 | tys/µl    |
+| Erytrocyty                     | 3,57  | 3,9   | 5,1   | mln/µl    |
+| Hemoglobina                    | 11,4  | 11,2  | 15,7  | g/dl      |
+| Hematokryt                     | 34,3  | 34,1  | 44,9  | %         |
+| MCV                            | 96,1  | 79,4  | 94,8  | fl        |
+| MCH                            | 31,9  | 25,6  | 32,2  | pg        |
+| MCHC                           | 33,2  | 32,2  | 35,5  | g/dl      |
+| Płytki krwi                    | 335   | 125,3 | 396,2 | tys/µl    |
+| RDW-SD                         | 46,7  | 36,4  | 46,3  | fl        |
+| RDW-CV                         | 13,1  | 11,7  | 14,4  | %         |
+| PDW                            | 15,3  | 9,8   | 16,2  | fl        |
+| MPV                            | 11,8  | 9,4   | 12,5  | fl        |
+| P-LCR                          | 40,8  | 19,1  | 46,6  | %         |
+| PCT                            | 0,39  | 0,17  | 0,38  | %         |
+| Neutrofile                     | 2,73  | 1,78  | 6,04  | tys/µl    |
+| Limfocyty                      | 3,35  | 1,3   | 3,4   | tys/µl    |
+| Monocyty                       | 0,82  | 0,31  | 0,92  | tys/µl    |
+| Eozynofile                     | 1,68  | 0,03  | 0,39  | tys/µl    |
+| Bazofile                       | 0,08  | 0,01  | 0,09  | tys/µl    |
+| Neutrofile                     | 31,5  | 40,8  | 70,39 | %         |
+| Limfocyty                      | 38,6  | 21    | 50    | %         |
+| Monocyty                       | 9,4   | 5,1   | 11,2  | %         |
+| Eozynofile                     | 19,3  | 0,4   | 6,6   | %         |
+| Bazofile                       | 0,9   | 0,2   | 1,3   | %         |
+| Niedojrzałe granulocyty IG %   | 0,3   | 0     | 0,5   | %         |
+| Niedojrzałe granulocyty IG il. | 0,03  | 0     | 0,04  | tys/µl    |
+| NRBC%                          | 0     | -     | -     | -         |
+| NRBC#                          | 0     | 0     | 0,03  | tys/µl    |
+
+| Badanie       | Wynik | Min | Max  | Jednostka     |
+|---------------|-------|-----|------|---------------|
+| OB            | 60    | 0   | 30   | mm/h          |
+| D-dimer       | 0,5   | 0   | 0,5  | µg/ml         |
+| Mocznik       | 47,6  | 21  | 43   | mg/dl         |
+| Azot mocznika | 22,23 | 9,8 | 20,1 | mg/dl         |
+| Kreatynina    | 1,18  | 0,5 | 1,2  | mg/dl         |
+| eGFR          | 46,02 | -   | -    | ml/min 1,73m2 |
+
+| Badanie               | Wynik | Min  | Max  | Jednostka |
+|-----------------------|-------|------|------|-----------|
+| Glukoza               | 146,9 | 70   | 99   | mg/dl     |
+| Cholesterol całkowity | 113,5 | -    | -    | mg/dl     |
+| Cholesterol HDL       | 22,1  | -    | -    | mg/dl     |
+| Cholesterol nie-HDL   | 91,4  | -    | -    | mg/dl     |
+| Cholesterol LDL       | 68,48 | -    | -    | mg/dl     |
+| Triglicerydy          | 125,5 | -    | -    | mg/dl     |
+| TSH                   | 0,072 | 0,35 | 4,94 | µIU/ml    |
+| FT3                   | 3,44  | 2,43 | 6,01 | pmol/l    |
+| FT4                   | 1,29  | 0,7  | 1,48 | ng/dl     |
+| Insulina              | 6,5   | 3    | 17   | µIU/ml    |
+
+| Badanie                      | Wynik  | Min | Max  | Jednostka |
+|------------------------------|--------|-----|------|-----------|
+| CEA                          | 0,46   | -   | -    | ng/ml     |
+| CA 125                       | 10,53  | 0   | 35   | U/ml      |
+| CA 15-3                      | 8,99   | 0   | 31,3 | U/ml      |
+| CA 19-9                      | 3,31   | 0   | 37   | U/ml      |
+| anty-TPO                     | <3,00  | 0   | 5,61 | IU/ml     |
+| anty-TG                      | <3,00  | 0   | 4,11 | IU/ml     |
+| TRAb                         | <0,70  | 0   | 1,99 | IU/l      |
+| Fibrynogen                   | 408,2  | 170 | 420  | mg/dl     |
+| Dehydrogenaza mleczanowa LDH | 216    | 125 | 220  | U/l       |
+| Elektrolity - Sód            | 140,86 | 136 | 145  | mmol/l    |
+| Elektrolity - Potas          | 4,99   | 3,5 | 5,1  | mmol/l    |
+| Chlorki                      | 105,1  | 98  | 107  | mmol/l    |
+| Żelazo                       | 87     | 50  | 170  | µg/dl     |
+| CRP, ilościowo               | 5,25   | 0   | 5    | mg/l      |
+
+| Badanie                              | Wynik | Min  | Max  | Jednostka |
+|--------------------------------------|-------|------|------|-----------|
+| Próby wątrobowe AST                  | 18    | 11   | 34   | U/l       |
+| Próby wątrobowe ALT                  | 18,2  | 0    | 34   | U/l       |
+| Próby wątrobowe Bilirubina całkowita | 0,79  | 0,2  | 1,2  | mg/dl     |
+| Próby wątrobowe Fosfataza zasadowa   | 73,3  | 46   | 122  | U/l       |
+| Próby wątrobowe GGTP                 | 21,1  | 0    | 38   | U/l       |
+| AFP                                  | 2,32  | 0,89 | 8,78 | ng/ml     |
+| Ferrytyna                            | 261,5 | 4,63 | 204  | ng/ml     |
 
 ### Mocz - 08.02.2025
 
 | Badanie                  | Wynik       | Min   | Max  | Jednostka |
-| ------------------------ | ----------- | ----- | ---- | --------- |
+|--------------------------|-------------|-------|------|-----------|
 | Przejrzystość            | lekko mętny | -     | -    | -         |
 | Barwa                    | słomkowy    | -     | -    | -         |
 | Ciężar właściwy          | 1,01        | 1,003 | 1,03 | g/ml      |
