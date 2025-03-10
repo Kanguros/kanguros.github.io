@@ -10,7 +10,7 @@
 {% endblock header %}
 
 {% block content %}
-
+<hr class="post-line">
 {% for article in drafts|sort(attribute="date", reverse=True) %}
 {{ private_post(article) }}
 {% endfor %}
