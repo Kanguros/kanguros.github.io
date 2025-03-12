@@ -1,9 +1,14 @@
 import logging
 from pathlib import Path
 
+import rich
 import rich_click as click
-from click.types import File
+from click.types import Path as ClickPath
 from rich.logging import RichHandler
+
+from .models import AddressGroup, AddressObject, SecurityRule
+from .resolver import resolve_rules_addresses
+from .shadower import CHECKS, find_shadowed_rules
 
 LOG_FORMAT = "%(message)s"
 LOG_DEFAULT_LEVEL = "INFO"
@@ -21,12 +26,12 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 
-@click.group(add_help_option=True)
+@click.command(add_help_option=True)
 @click.option(
     "--security-rules",
     "-sr",
-    "security_rules",
-    type=File(),
+    "security_rules_file",
+    type=ClickPath(exists=True, dir_okay=False, path_type=Path),
     default=Path("./data/security_rules.json"),
     show_default=True,
     help="Path to JSON file with Security Rules",
@@ -34,8 +39,8 @@ log = logging.getLogger(__name__)
 @click.option(
     "--address-groups",
     "-ag",
-    "address_groups",
-    type=File(),
+    "address_groups_file",
+    type=ClickPath(exists=True, dir_okay=False, path_type=Path),
     default=Path("./data/address_groups.json"),
     show_default=True,
     help="Path to JSON file with Address Groups",
@@ -43,22 +48,24 @@ log = logging.getLogger(__name__)
 @click.option(
     "--address-objects",
     "-ao",
-    "address_objects",
-    type=File(),
+    "address_objects_file",
+    type=ClickPath(exists=True, dir_okay=False, path_type=Path),
     default=Path("./data/address_objects.json"),
     show_default=True,
     help="Path to JSON file with Address Objects",
 )
-def main(security_rules, address_groups, address_objects):
+def main(security_rules_file, address_objects_file, address_groups_file):
     """SRF stands for Shadowing Rules Finder"""
+    security_rules = SecurityRule.load_from_json(security_rules_file)
+    address_objects = AddressObject.load_from_json(address_objects_file)
+    address_groups = AddressGroup.load_from_json(address_groups_file)
 
+    security_rules = resolve_rules_addresses(
+        security_rules, address_objects, address_groups
+    )
 
-@main.command("find")
-@click.argument("names", metavar="NAME", nargs=-1, default=None, required=False)
-def main_find(names):
-    if names:
-        log.info(f"Looking for shadowing rules of rules: {', '.join(names)}")
-    log.info("Looking for all shadowing rules")
+    results = find_shadowed_rules(security_rules, CHECKS)
+    rich.print(results)
 
 
 if __name__ == "__main__":

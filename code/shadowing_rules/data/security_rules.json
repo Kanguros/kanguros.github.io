@@ -67,7 +67,7 @@
     },
     "destination": {
       "member": [
-        "any"
+        "cloud_log_server"
       ]
     },
     "from": {
@@ -87,7 +87,7 @@
     },
     "source": {
       "member": [
-        "web-servers-production"
+        "Main_Linux_Server"
       ]
     },
     "source-user": {
@@ -118,7 +118,7 @@
     },
     "destination": {
       "member": [
-        "any"
+        "LogServers"
       ]
     },
     "from": {
