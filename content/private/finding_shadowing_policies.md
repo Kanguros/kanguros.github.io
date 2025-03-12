@@ -25,14 +25,20 @@ summary: Python script for finding shadowing security policies on firewall.
 --8<-- "code/shadowing_rules/fsr/shadower.py"
 ```
 
-## Unit tests
+## Utils
 
 ```python
---8<-- "code/shadowing_rules/fsr/test.py"
+--8<-- "code/shadowing_rules/fsr/utils.py"
 ```
 
 ## CLI
 
 ```python
 --8<-- "code/shadowing_rules/fsr/__main__.py"
+```
+
+## Unit tests
+
+```python
+--8<-- "code/shadowing_rules/fsr/test.py"
 ```
