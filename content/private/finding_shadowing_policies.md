@@ -84,7 +84,7 @@ summary: Python script for finding shadowing security policies on firewall.
 ## Resolve addresses
 
 ```python
---8 < -- "code/shadowing_rules/fsr/lookup.py"
+--8<-- "code/shadowing_rules/fsr/lookup.py"
 ```
 
 ## Finding shadowing rules
