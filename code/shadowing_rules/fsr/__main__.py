@@ -1,5 +1,4 @@
 import logging
-from code.shadowing_rules.fsr.check import CHECKS
 from pathlib import Path
 
 import rich
@@ -7,9 +6,10 @@ import rich_click as click
 from click.types import Path as ClickPath
 from rich.logging import RichHandler
 
+from .check import DEFAULT_CHECKS
 from .lookup import resolve_rules_addresses
 from .models import AddressGroup, AddressObject, SecurityRule
-from .shadower import find_shadowed_rules
+from .shadower import run_checks_on_rules
 
 LOG_FORMAT = "%(message)s"
 LOG_DEFAULT_LEVEL = "INFO"
@@ -65,7 +65,7 @@ def main(security_rules_file, address_objects_file, address_groups_file):
         security_rules, address_objects, address_groups
     )
 
-    results = find_shadowed_rules(security_rules, CHECKS)
+    results = run_checks_on_rules(security_rules, DEFAULT_CHECKS)
     rich.print(results)
 
 
