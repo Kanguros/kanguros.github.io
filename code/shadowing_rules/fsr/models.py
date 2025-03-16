@@ -9,79 +9,88 @@ from .utils import load_json
 if TYPE_CHECKING:
     from pathlib import Path
 
-KeywordAny = Literal["any"]
-ValueAny = set[KeywordAny]
-KeywordAppDefault = Literal["application-default"]
-ValueAppDefault = set[KeywordAppDefault]
+AnyObj = "any"
+AnyObjType = set[Literal["any"]]
+
+AppDefault = "application-default"
+AppDefaultType = set[Literal["application-default"]]
+
 SetStr = set[str]
 Action = Literal["allow", "deny", "monitor"]
 
-# noqa: E731
-Alias = lambda attr, name: AliasChoices(  # noqa: E731
-    AliasPath(name, "member"), attr
-)
-"""Utility one-line function to handle nested data in attribute"""
+
+def MemberAlias(attribute_name: str, raw_name: str) -> AliasChoices:  # noqa: N802
+    """Helper function for ``AliasChoices`` with ``AliasPath``."""
+    return AliasChoices(AliasPath(raw_name, "member"), attribute_name)
 
 
 class MainModel(BaseModel):
-    """Base class for all data models. Contain shared methods."""
+    """Base class for all data models. Mainly for common methods."""
 
     @classmethod
     def load_from_json(cls, file_path: Union[str, "Path"]) -> list[Self]:
+        """"""
         data = load_json(file_path)
         return cls.load_many(data)
 
     @classmethod
     def load_many(cls, data: list[dict]) -> list[Self]:
+        """Create instances from each item on the list."""
         return [cls(**item) for item in data]
 
 
 class SecurityRule(MainModel):
-    name: str = Field(..., validation_alias=AliasChoices("name", "@name"))
-    """Name of a rule."""
-    action: Action
-    source_zones: Union[SetStr, ValueAny] = Field(
-        validation_alias=Alias("source_zones", "from")
+    name: str = Field(
+        ...,
+        validation_alias=AliasChoices("name", "@name"),
+        description="Name of a rule.",
     )
-    destination_zones: Union[SetStr, ValueAny] = Field(
-        validation_alias=Alias("destination_zones", "to")
+    action: Action = Field(
+        ..., description="Whether the traffic should be allowed or denied."
     )
-    """Set of destination zones or 'any' to match traffic destined to."""
+    source_zones: Union[SetStr, AnyObjType] = Field(
+        validation_alias=MemberAlias("source_zones", "from"),
+        description="Set of source zones or 'any'",
+    )
+    destination_zones: Union[SetStr, AnyObjType] = Field(
+        validation_alias=MemberAlias("destination_zones", "to"),
+        description="Set of destination zones or 'any'",
+    )
 
-    source_addresses: Union[ValueAny, SetStr] = Field(
-        validation_alias=Alias("source_addresses", "source")
+    source_addresses: Union[SetStr, AnyObjType] = Field(
+        validation_alias=MemberAlias("source_addresses", "source"),
+        description="Source address objects/groups or 'any'",
     )
-    """Set of source address objects/groups or 'any' to match traffic from specific IP addresses or subnets."""
 
-    destination_addresses: Union[ValueAny, SetStr] = Field(
-        validation_alias=Alias("destination_addresses", "destination")
+    destination_addresses: Union[SetStr, AnyObjType] = Field(
+        validation_alias=MemberAlias("destination_addresses", "destination"),
+        description="Destination address objects/groups or 'any'",
     )
-    """Set of destination address objects/groups or 'any' to match traffic to specific IP addresses or subnets."""
 
-    applications: Union[SetStr, ValueAny] = Field(
-        validation_alias=Alias("applications", "application")
+    applications: Union[SetStr, AnyObjType] = Field(
+        validation_alias=MemberAlias("applications", "application"),
+        description="Set of applications or 'any' that the rule applies to.",
     )
-    """Set of applications or 'any' that the rule applies to."""
 
-    services: Union[SetStr, ValueAny, ValueAppDefault] = Field(
-        validation_alias=Alias("services", "service")
+    services: Union[SetStr, AnyObjType, AppDefaultType] = Field(
+        validation_alias=MemberAlias("services", "service"),
+        description="Services (e.g., TCP/UDP ports) or 'any'/'application-default'",
     )
-    """Set of services (e.g., TCP/UDP ports) or 'any'/'application-default' that the rule applies to."""
 
-    category: Union[SetStr, ValueAny] = Field(
-        validation_alias=Alias("category", "category")
+    category: Union[SetStr, AnyObjType] = Field(
+        validation_alias=MemberAlias("category", "category"),
+        description="URL categories or 'any'",
     )
-    """Set of URL categories or 'any' that the rule applies to."""
 
-    source_addresses_ip: Union[set[IPv4Network], ValueAny] = Field(
-        default_factory=set
+    source_addresses_ip: Optional[set[IPv4Network]] = Field(
+        default=None,
+        description="Resolved source addresses to a set of IP networks. ",
     )
-    """Resolved set of source IP address networks or 'any' after address objects/groups are expanded."""
 
-    destination_addresses_ip: Union[set[IPv4Network], ValueAny] = Field(
-        default_factory=set
+    destination_addresses_ip: Optional[set[IPv4Network]] = Field(
+        default=None,
+        description="Resolved destination addresses to a set of IP networks.",
     )
-    """Resolved set of destination IP address networks or 'any' after address objects/groups are expanded."""
 
 
 class AddressGroup(MainModel):
@@ -96,4 +105,3 @@ class AddressObject(MainModel):
     ip_netmask: str = Field(
         ..., validation_alias=AliasChoices("ip_netmask", "ip-netmask")
     )
-    value: Optional[IPv4Network] = Field(None)

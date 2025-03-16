@@ -104,7 +104,7 @@
   {
     "@device-group": "devicegroup-7",
     "@location": "device-group",
-    "@name": "allow-dns",
+    "@name": "rule3-allow-dns",
     "action": "allow",
     "application": {
       "member": [

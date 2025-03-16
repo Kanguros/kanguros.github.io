@@ -1,4 +1,5 @@
 import logging
+from code.shadowing_rules.fsr.check import CHECKS
 from pathlib import Path
 
 import rich
@@ -6,9 +7,9 @@ import rich_click as click
 from click.types import Path as ClickPath
 from rich.logging import RichHandler
 
+from .lookup import resolve_rules_addresses
 from .models import AddressGroup, AddressObject, SecurityRule
-from .resolver import resolve_rules_addresses
-from .shadower import CHECKS, find_shadowed_rules
+from .shadower import find_shadowed_rules
 
 LOG_FORMAT = "%(message)s"
 LOG_DEFAULT_LEVEL = "INFO"
@@ -41,7 +42,7 @@ log = logging.getLogger(__name__)
     "-ag",
     "address_groups_file",
     type=ClickPath(exists=True, dir_okay=False, path_type=Path),
-    default=Path("./data/address_groups.json"),
+    default=Path("./data/address_grups.json"),
     show_default=True,
     help="Path to JSON file with Address Groups",
 )

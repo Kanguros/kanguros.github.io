@@ -4,12 +4,14 @@ from pathlib import Path
 import pytest
 import rich
 
+from .check import DEFAULT_CHECKS
+from .lookup import resolve_rules_addresses
 from .models import (
     AddressGroup,
     AddressObject,
     SecurityRule,
 )
-from .resolver import resolve_rules_addresses
+from .shadower import run_checks_on_rules
 from .utils import load_json
 
 data_dir = Path(__file__).parent.parent / "data"
@@ -46,3 +48,10 @@ def test_resolver():
     )
     for resolved_rule in resolved_security_rules:
         rich.print(resolved_rule)
+
+
+def test_run_default_checks_on_rules():
+    security_rules = SecurityRule.load_many(security_rules_data)
+    checks_results = run_checks_on_rules(security_rules, DEFAULT_CHECKS)
+    rich.print(checks_results)
+    assert checks_results
