@@ -18,15 +18,11 @@ def run_checks_on_rules(
         rules: A list of security rules to analyze.
         checks: A list of check functions to determine shadowing.
 
+
+
     """
     results = {}
     rules_count = len(rules)
-
-    logger.info("Starting shadowed Rules detection")
-    logger.info(f"Number of Rules to check: {rules_count}")
-    logger.info(f"Number of Checks: {len(checks)}")
-    for check in checks:
-        logger.info(f"- {check.__name__}")
 
     for i, rule in enumerate(rules):
         cid = f"[{i + 1}/{rules_count}][{rule.name}]"
@@ -47,13 +43,3 @@ def run_checks_on_rules(
 
     logger.info("Shadowed rules detection complete")
     return results
-
-
-# if shadowing_rules:
-#     logger.info(f"{cid} Shadowed by {len(shadowing_rules)} rule(s)")
-#     shadowed_rules.append((rule, shadowing_rules))
-# else:
-#     logger.info(f"{cid} Not shadowed")
-#
-# if all(result[0] for result in checks_results):
-#     shadowing_rules.append((preceding_rule, checks_results))

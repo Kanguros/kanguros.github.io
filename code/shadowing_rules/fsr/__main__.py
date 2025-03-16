@@ -7,6 +7,7 @@ from click.types import Path as ClickPath
 from rich.logging import RichHandler
 
 from .check import DEFAULT_CHECKS
+from .evaluate import analyze_checks_results
 from .lookup import resolve_rules_addresses
 from .models import AddressGroup, AddressObject, SecurityRule
 from .shadower import run_checks_on_rules
@@ -19,12 +20,15 @@ logging.basicConfig(
     datefmt="[%X]",
     handlers=[
         RichHandler(
-            rich_tracebacks=True, tracebacks_suppress=[click], show_path=False
+            rich_tracebacks=True,
+            tracebacks_suppress=[click],
+            show_path=False,
+            omit_repeated_times=False,
         )
     ],
 )
 
-log = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 @click.command(add_help_option=True)
@@ -42,7 +46,7 @@ log = logging.getLogger(__name__)
     "-ag",
     "address_groups_file",
     type=ClickPath(exists=True, dir_okay=False, path_type=Path),
-    default=Path("./data/address_grups.json"),
+    default=Path("./data/address_groups.json"),
     show_default=True,
     help="Path to JSON file with Address Groups",
 )
@@ -65,7 +69,16 @@ def main(security_rules_file, address_objects_file, address_groups_file):
         security_rules, address_objects, address_groups
     )
 
+    logger.info("Starting shadowed Rules detection")
+    logger.info(f"Number of Rules to check: {len(security_rules)}")
+    logger.info(f"Number of Checks: {len(DEFAULT_CHECKS)}")
+    for check in DEFAULT_CHECKS:
+        logger.info(f"- {check.__name__}")
+    logger.info("Finished shadowed Rules detection. Analyzing results")
+
     results = run_checks_on_rules(security_rules, DEFAULT_CHECKS)
+    analyze_checks_results(results)
+
     rich.print(results)
 
 
