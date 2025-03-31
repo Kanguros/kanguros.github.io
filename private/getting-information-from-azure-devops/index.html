@@ -135,134 +135,99 @@ Getting information from Azure Devops - Kamil's Scratchpad
 </div>
 <h2 id="code"><a class="toclink" href="#code">Code</a></h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># ruff: noqa: TRY401</span>
-
 <span class="kn">import</span> <span class="nn">csv</span>
-<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">logging</span> <span class="k">as</span> <span class="nn">logger</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
 
 <span class="kn">from</span> <span class="nn">azure.devops.connection</span> <span class="kn">import</span> <span class="n">Connection</span>
+<span class="kn">from</span> <span class="nn">azure.devops.v7_0.build.models</span> <span class="kn">import</span> <span class="n">Build</span>
+<span class="kn">from</span> <span class="nn">azure.devops.v7_0.git.models</span> <span class="kn">import</span> <span class="n">GitRepository</span>
+<span class="kn">from</span> <span class="nn">azure.devops.v7_0.release.models</span> <span class="kn">import</span> <span class="n">ReleaseDefinition</span>
 <span class="kn">from</span> <span class="nn">msrest.authentication</span> <span class="kn">import</span> <span class="n">BasicAuthentication</span>
 
-
-<span class="k">def</span> <span class="nf">setup_connection</span><span class="p">(</span><span class="n">organization_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pat</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Connection</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create a connection to Azure DevOps.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">credentials</span> <span class="o">=</span> <span class="n">BasicAuthentication</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">pat</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">Connection</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="n">organization_url</span><span class="p">,</span> <span class="n">creds</span><span class="o">=</span><span class="n">credentials</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">logger</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(asctime)s</span><span class="s2"> - </span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span>
+    <span class="n">handlers</span><span class="o">=</span><span class="p">[</span><span class="n">logger</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)],</span>
+<span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">get_matching_repositories</span><span class="p">(</span>
-    <span class="n">connection</span><span class="p">:</span> <span class="n">Connection</span><span class="p">,</span> <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">prefixes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Get repositories that match the given prefixes.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">git_client</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">get_git_client</span><span class="p">()</span>
-    <span class="n">repositories</span> <span class="o">=</span> <span class="n">git_client</span><span class="o">.</span><span class="n">get_repositories</span><span class="p">(</span><span class="n">project</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">AzureProcessor</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pat</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">organization_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pat</span> <span class="o">=</span> <span class="n">pat</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">organization_url</span> <span class="o">=</span> <span class="n">organization_url</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">project</span> <span class="o">=</span> <span class="n">project</span>
 
-    <span class="n">matching_repos</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">repo</span> <span class="ow">in</span> <span class="n">repositories</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">prefix</span> <span class="ow">in</span> <span class="n">prefixes</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">repo</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
-                <span class="n">matching_repos</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                    <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="o">.</span><span class="n">url</span><span class="p">}</span>
-                <span class="p">)</span>
-                <span class="k">break</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">setup_connection</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">git_client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">get_git_client</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">build_client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">get_build_client</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">release_client</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">connection</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">get_release_client</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Connected to Azure DevOps.&quot;</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">matching_repos</span>
+    <span class="k">def</span> <span class="nf">setup_connection</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Connection</span><span class="p">:</span>
+        <span class="n">credentials</span> <span class="o">=</span> <span class="n">BasicAuthentication</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pat</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Connection</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">organization_url</span><span class="p">,</span> <span class="n">creds</span><span class="o">=</span><span class="n">credentials</span><span class="p">)</span>
 
+    <span class="k">def</span> <span class="nf">get_matching_repositories</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">prefixes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">GitRepository</span><span class="p">]:</span>
+        <span class="n">repositories</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">git_client</span><span class="o">.</span><span class="n">get_repositories</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">)</span>
+        <span class="n">matching</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">repo</span> <span class="ow">in</span> <span class="n">repositories</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">repo</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">)</span> <span class="k">for</span> <span class="n">prefix</span> <span class="ow">in</span> <span class="n">prefixes</span><span class="p">):</span>
+                <span class="n">matching</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">repo</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">matching</span>
 
-<span class="k">def</span> <span class="nf">get_repository_builds</span><span class="p">(</span>
-    <span class="n">connection</span><span class="p">:</span> <span class="n">Connection</span><span class="p">,</span> <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">repository_id</span><span class="p">:</span> <span class="nb">str</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Get builds for a repository.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">build_client</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">get_build_client</span><span class="p">()</span>
-    <span class="n">builds</span> <span class="o">=</span> <span class="n">build_client</span><span class="o">.</span><span class="n">get_builds</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">repository_id</span><span class="o">=</span><span class="n">repository_id</span><span class="p">)</span>
-
-    <span class="n">build_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">build</span> <span class="ow">in</span> <span class="n">builds</span><span class="p">:</span>
-        <span class="n">build_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">build</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
-                <span class="s2">&quot;number&quot;</span><span class="p">:</span> <span class="n">build</span><span class="o">.</span><span class="n">build_number</span><span class="p">,</span>
-                <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="n">build</span><span class="o">.</span><span class="n">status</span><span class="p">,</span>
-                <span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="n">build</span><span class="o">.</span><span class="n">result</span><span class="p">,</span>
-                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">build</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
-            <span class="p">}</span>
+    <span class="k">def</span> <span class="nf">get_repository_builds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">repository_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Build</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_client</span><span class="o">.</span><span class="n">get_builds</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="n">repository_id</span><span class="o">=</span><span class="n">repository_id</span>
         <span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">build_list</span>
-
-
-<span class="k">def</span> <span class="nf">get_repository_pipelines</span><span class="p">(</span>
-    <span class="n">connection</span><span class="p">:</span> <span class="n">Connection</span><span class="p">,</span> <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">repository_id</span><span class="p">:</span> <span class="nb">str</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Get pipelines for a repository.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">release_client</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">clients</span><span class="o">.</span><span class="n">get_release_client</span><span class="p">()</span>
-    <span class="n">definitions</span> <span class="o">=</span> <span class="n">release_client</span><span class="o">.</span><span class="n">get_release_definitions</span><span class="p">(</span>
-        <span class="n">project</span><span class="p">,</span> <span class="n">artifact_source_id</span><span class="o">=</span><span class="n">repository_id</span>
-    <span class="p">)</span>
-
-    <span class="n">pipeline_list</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">definition</span> <span class="ow">in</span> <span class="n">definitions</span><span class="p">:</span>
-        <span class="n">pipeline_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="n">definition</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
-                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">definition</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-                <span class="s2">&quot;url&quot;</span><span class="p">:</span> <span class="n">definition</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
-            <span class="p">}</span>
+    <span class="k">def</span> <span class="nf">get_repository_pipelines</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">repository_id</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">ReleaseDefinition</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">release_client</span><span class="o">.</span><span class="n">get_release_definitions</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">project</span><span class="p">,</span> <span class="n">artifact_source_id</span><span class="o">=</span><span class="n">repository_id</span>
         <span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">pipeline_list</span>
+    <span class="k">def</span> <span class="nf">process_repository</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">repo</span><span class="p">:</span> <span class="n">Any</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Build</span><span class="p">],</span> <span class="nb">list</span><span class="p">[</span><span class="n">ReleaseDefinition</span><span class="p">]]:</span>
+        <span class="n">repo_id</span> <span class="o">=</span> <span class="n">repo</span><span class="o">.</span><span class="n">id</span>
+        <span class="n">repo_name</span> <span class="o">=</span> <span class="n">repo</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing repository: </span><span class="si">{</span><span class="n">repo_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">builds</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">builds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_repository_builds</span><span class="p">(</span><span class="n">repo_id</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">builds</span><span class="p">)</span><span class="si">}</span><span class="s2"> builds for repository </span><span class="si">{</span><span class="n">repo_name</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Error retrieving builds for repository </span><span class="si">{</span><span class="n">repo_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">pipelines</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">pipelines</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_repository_pipelines</span><span class="p">(</span><span class="n">repo_id</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">pipelines</span><span class="p">)</span><span class="si">}</span><span class="s2"> pipelines for repository </span><span class="si">{</span><span class="n">repo_name</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Error retrieving pipelines for repository </span><span class="si">{</span><span class="n">repo_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">builds</span><span class="p">,</span> <span class="n">pipelines</span>
 
 
-<span class="k">def</span> <span class="nf">process_repository</span><span class="p">(</span>
-    <span class="n">connection</span><span class="p">:</span> <span class="n">Connection</span><span class="p">,</span> <span class="n">project</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">repo</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Process a single repository to get its builds and pipelines.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">repo_id</span> <span class="o">=</span> <span class="n">repo</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
-    <span class="n">repo_name</span> <span class="o">=</span> <span class="n">repo</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Processing repository: </span><span class="si">{</span><span class="n">repo_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="n">builds</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">builds</span> <span class="o">=</span> <span class="n">get_repository_builds</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">repo_id</span><span class="p">)</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">builds</span><span class="p">)</span><span class="si">}</span><span class="s2"> builds for repository </span><span class="si">{</span><span class="n">repo_name</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Error retrieving builds for repository </span><span class="si">{</span><span class="n">repo_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="p">)</span>
-
-    <span class="n">pipelines</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">pipelines</span> <span class="o">=</span> <span class="n">get_repository_pipelines</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">repo_id</span><span class="p">)</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">pipelines</span><span class="p">)</span><span class="si">}</span><span class="s2"> pipelines for repository </span><span class="si">{</span><span class="n">repo_name</span><span class="si">}</span><span class="s2">.&quot;</span>
-        <span class="p">)</span>
-    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Error retrieving pipelines for repository </span><span class="si">{</span><span class="n">repo_name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">builds</span><span class="p">,</span> <span class="n">pipelines</span>
-
-
-<span class="k">def</span> <span class="nf">create_base_record</span><span class="p">(</span><span class="n">repo</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create a base record with repository information.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">create_base_record</span><span class="p">(</span><span class="n">repo</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
     <span class="k">return</span> <span class="p">{</span>
-        <span class="s2">&quot;repository_id&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;repository_name&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
-        <span class="s2">&quot;repository_url&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;repository_id&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+        <span class="s2">&quot;repository_name&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+        <span class="s2">&quot;repository_url&quot;</span><span class="p">:</span> <span class="n">repo</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
         <span class="s2">&quot;build_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="s2">&quot;build_number&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
         <span class="s2">&quot;build_status&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
@@ -275,22 +240,19 @@ Getting information from Azure Devops - Kamil's Scratchpad
 
 
 <span class="k">def</span> <span class="nf">flatten_repository_with_builds</span><span class="p">(</span>
-    <span class="n">repo</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">builds</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
+    <span class="n">repo</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">builds</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Build</span><span class="p">]</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Flatten repository data with its builds.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">flattened_data</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">for</span> <span class="n">build</span> <span class="ow">in</span> <span class="n">builds</span><span class="p">:</span>
         <span class="n">record</span> <span class="o">=</span> <span class="n">create_base_record</span><span class="p">(</span><span class="n">repo</span><span class="p">)</span>
         <span class="n">record</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
             <span class="p">{</span>
-                <span class="s2">&quot;build_id&quot;</span><span class="p">:</span> <span class="n">build</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;build_number&quot;</span><span class="p">:</span> <span class="n">build</span><span class="p">[</span><span class="s2">&quot;number&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;build_status&quot;</span><span class="p">:</span> <span class="n">build</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;build_result&quot;</span><span class="p">:</span> <span class="n">build</span><span class="p">[</span><span class="s2">&quot;result&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;build_url&quot;</span><span class="p">:</span> <span class="n">build</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;build_id&quot;</span><span class="p">:</span> <span class="n">build</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                <span class="s2">&quot;build_number&quot;</span><span class="p">:</span> <span class="n">build</span><span class="o">.</span><span class="n">build_number</span><span class="p">,</span>
+                <span class="s2">&quot;build_status&quot;</span><span class="p">:</span> <span class="n">build</span><span class="o">.</span><span class="n">status</span><span class="p">,</span>
+                <span class="s2">&quot;build_result&quot;</span><span class="p">:</span> <span class="n">build</span><span class="o">.</span><span class="n">result</span><span class="p">,</span>
+                <span class="s2">&quot;build_url&quot;</span><span class="p">:</span> <span class="n">build</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
             <span class="p">}</span>
         <span class="p">)</span>
         <span class="n">flattened_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
@@ -299,20 +261,17 @@ Getting information from Azure Devops - Kamil's Scratchpad
 
 
 <span class="k">def</span> <span class="nf">flatten_repository_with_pipelines</span><span class="p">(</span>
-    <span class="n">repo</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">pipelines</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
+    <span class="n">repo</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">pipelines</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ReleaseDefinition</span><span class="p">]</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Flatten repository data with its pipelines.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">flattened_data</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">for</span> <span class="n">pipeline</span> <span class="ow">in</span> <span class="n">pipelines</span><span class="p">:</span>
         <span class="n">record</span> <span class="o">=</span> <span class="n">create_base_record</span><span class="p">(</span><span class="n">repo</span><span class="p">)</span>
         <span class="n">record</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
             <span class="p">{</span>
-                <span class="s2">&quot;pipeline_id&quot;</span><span class="p">:</span> <span class="n">pipeline</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;pipeline_name&quot;</span><span class="p">:</span> <span class="n">pipeline</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
-                <span class="s2">&quot;pipeline_url&quot;</span><span class="p">:</span> <span class="n">pipeline</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">],</span>
+                <span class="s2">&quot;pipeline_id&quot;</span><span class="p">:</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                <span class="s2">&quot;pipeline_name&quot;</span><span class="p">:</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                <span class="s2">&quot;pipeline_url&quot;</span><span class="p">:</span> <span class="n">pipeline</span><span class="o">.</span><span class="n">url</span><span class="p">,</span>
             <span class="p">}</span>
         <span class="p">)</span>
         <span class="n">flattened_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">record</span><span class="p">)</span>
@@ -321,38 +280,29 @@ Getting information from Azure Devops - Kamil's Scratchpad
 
 
 <span class="k">def</span> <span class="nf">flatten_data</span><span class="p">(</span>
-    <span class="n">repositories</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
-    <span class="n">builds_data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]],</span>
-    <span class="n">pipelines_data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]],</span>
+    <span class="n">repositories</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
+    <span class="n">builds_data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">Build</span><span class="p">]],</span>
+    <span class="n">pipelines_data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="n">ReleaseDefinition</span><span class="p">]],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Flatten the data for CSV storage.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">flat_data</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">repo</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">repositories</span><span class="p">):</span>
         <span class="n">builds</span> <span class="o">=</span> <span class="n">builds_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
         <span class="n">pipelines</span> <span class="o">=</span> <span class="n">pipelines_data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
-        <span class="c1"># If no builds or pipelines, add just the repo info</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">builds</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pipelines</span><span class="p">:</span>
             <span class="n">flat_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">create_base_record</span><span class="p">(</span><span class="n">repo</span><span class="p">))</span>
 
-        <span class="c1"># Add entries for each build</span>
         <span class="n">flat_data</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">flatten_repository_with_builds</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span> <span class="n">builds</span><span class="p">))</span>
 
-        <span class="c1"># Add entries for each pipeline</span>
         <span class="n">flat_data</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">flatten_repository_with_pipelines</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span> <span class="n">pipelines</span><span class="p">))</span>
 
     <span class="k">return</span> <span class="n">flat_data</span>
 
 
 <span class="k">def</span> <span class="nf">save_to_csv</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span> <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Save flat data to a CSV file.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No data to save.&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;No data to save.&quot;</span><span class="p">)</span>
         <span class="k">return</span>
 
     <span class="n">field_names</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -362,7 +312,7 @@ Getting information from Azure Devops - Kamil's Scratchpad
         <span class="n">writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
         <span class="n">writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data saved to </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data saved to </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span>
@@ -372,17 +322,12 @@ Getting information from Azure Devops - Kamil's Scratchpad
     <span class="n">prefixes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span>
     <span class="n">output_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Main function to orchestrate the process.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting the process...&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting the process...&quot;</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">connection</span> <span class="o">=</span> <span class="n">setup_connection</span><span class="p">(</span><span class="n">organization_url</span><span class="p">,</span> <span class="n">pat</span><span class="p">)</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Connected to Azure DevOps.&quot;</span><span class="p">)</span>
-
-        <span class="n">repositories</span> <span class="o">=</span> <span class="n">get_matching_repositories</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">prefixes</span><span class="p">)</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+        <span class="n">azp</span> <span class="o">=</span> <span class="n">AzureProcessor</span><span class="p">(</span><span class="n">pat</span><span class="p">,</span> <span class="n">organization_url</span><span class="p">,</span> <span class="n">project</span><span class="p">)</span>
+        <span class="n">repositories</span> <span class="o">=</span> <span class="n">azp</span><span class="o">.</span><span class="n">get_matching_repositories</span><span class="p">(</span><span class="n">prefixes</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">repositories</span><span class="p">)</span><span class="si">}</span><span class="s2"> repositories matching the prefixes.&quot;</span>
         <span class="p">)</span>
 
@@ -390,26 +335,20 @@ Getting information from Azure Devops - Kamil's Scratchpad
         <span class="n">all_pipelines</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="k">for</span> <span class="n">repo</span> <span class="ow">in</span> <span class="n">repositories</span><span class="p">:</span>
-            <span class="n">builds</span><span class="p">,</span> <span class="n">pipelines</span> <span class="o">=</span> <span class="n">process_repository</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">repo</span><span class="p">)</span>
+            <span class="n">builds</span><span class="p">,</span> <span class="n">pipelines</span> <span class="o">=</span> <span class="n">azp</span><span class="o">.</span><span class="n">process_repository</span><span class="p">(</span><span class="n">repo</span><span class="p">)</span>
             <span class="n">all_builds</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">builds</span><span class="p">)</span>
             <span class="n">all_pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pipelines</span><span class="p">)</span>
 
         <span class="n">flat_data</span> <span class="o">=</span> <span class="n">flatten_data</span><span class="p">(</span><span class="n">repositories</span><span class="p">,</span> <span class="n">all_builds</span><span class="p">,</span> <span class="n">all_pipelines</span><span class="p">)</span>
         <span class="n">save_to_csv</span><span class="p">(</span><span class="n">flat_data</span><span class="p">,</span> <span class="n">output_file</span><span class="p">)</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Process completed successfully.&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Process completed successfully.&quot;</span><span class="p">)</span>
 
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred: </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
-        <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
-        <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%(levelname)s</span><span class="s2"> - </span><span class="si">%(message)s</span><span class="s2">&quot;</span><span class="p">,</span>
-        <span class="n">handlers</span><span class="o">=</span><span class="p">[</span><span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)],</span>
-    <span class="p">)</span>
-
     <span class="n">ORGANIZATION_URL</span> <span class="o">=</span> <span class="s2">&quot;https://dev.azure.com/your-organization&quot;</span>
     <span class="n">PROJECT</span> <span class="o">=</span> <span class="s2">&quot;YourProject&quot;</span>
     <span class="n">PAT</span> <span class="o">=</span> <span class="s2">&quot;your-personal-access-token&quot;</span>
