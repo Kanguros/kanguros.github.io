@@ -2,10 +2,8 @@
 title: Med
 date: 2025-04-15
 status: draft
-summary: Medical information.
+summary: Informacje o aktualnym stanie zdrowia.
 ---
-
-[TOC]
 
 ## Objawy
 
@@ -15,7 +13,7 @@ summary: Medical information.
 	- Czasem 2-3h po posiłku, tak jakbym zaczynam być głodny i jestem marudny
 	- Czasami po posiłku dostaje takiego wyrzutu insuliny, że dosłownie opadam z sił i jestem śpiący jak cholera. 
 - Czasami, jestem bardzo głodny i wiem że to głod ale mimo to nie chce (mi sie) jeść.
-- Kichnięcie motyla na Hawajach powoduje u mnie zapalenie zatok. Odporność ogólnie leży. 
+- Kichnięcie motyla na Hawajach powoduje u mnie zapalenie zatok. Łapię wszystko jak Pokemony. Odporność ogólnie leży. 
 
 
 ## Badania
@@ -73,8 +71,8 @@ summary: Medical information.
 | Próby wątrobowe                               | Fosfataza zasadowa                            | 69,8   | U/l           | 50     | 116    | 50 - 116        |
 | Próby wątrobowe                               | GGTP                                          | 33     | U/l           | 0      | 55     | 0 - 55          |
 | Testosteron                                   | Testosteron                                   | 323,11 | ng/dl         | 240.24 | 870.68 | 240.24 - 870.68 |
-| Giardia lamblia | P/c. p. Giardia lamblia w kl. IgM             | 27,32  | U/ml          |        |        | -               |
-| Giardia lamblia | P/c. p. Giardia lamblia w kl. IgG             | 15,15  | U/ml          |        |        | -               |
+| **Giardia lamblia** | P/c. p. Giardia lamblia w kl. IgM             | 27,32  | U/ml          |        |        | -               |
+| **Giardia lamblia** | P/c. p. Giardia lamblia w kl. IgG             | 15,15  | U/ml          |        |        | -               |
 | Helicobacter pylori                           | Helicobacter pylori IgA                       | 0,17   | Ratio         |        |        | -               |
 | Helicobacter pylori                           | Helicobacter pylori IgG                       | 0,11   | Index         |        |        | -               |
 | PSA całkowity                                 | PSA całkowity                                 | 0,819  | ng/ml         | 0      | 2.5    | 0 - 2.5         |
