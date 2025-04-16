@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+Finding shadowing policies - Kamil's Scratchpad
+    </title>
+
+    <!-- Bootstrap and Clean Blog CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+          crossorigin="anonymous"
+    >
+    <link rel="stylesheet"
+          href="https://kanguros.github.io/theme/css/code_blocks/darkly.css"
+    >
+    <link rel="stylesheet"
+          href="https://kanguros.github.io/theme/css/clean-blog.css"
+    >
+
+
+
+<meta name="description" content="Python script for finding shadowing security policies on firewall.">
+
+
+    <meta property="og:locale" content="en">
+    <meta property="og:site_name" content="Kamil's Scratchpad">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://kanguros.github.io/private/finding-shadowing-policies/">
+<meta property="og:title" content="Finding shadowing policies">
+<meta property="article:published_time" content="2025-02-20 00:00:00+01:00">
+
+<meta property="og:description" content="Python script for finding shadowing security policies on firewall.">
+
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXZFNZYL4M"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JXZFNZYL4M');
+    </script>
+</head>
+
+<body class="article-finding-shadowing-policies d-flex flex-column vh-100">
+<div class="navigation col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+    <nav class="navbar container align-items-center px-2 mt-2 mb-1">
+        <a class="brand"
+           href="https://kanguros.github.io"
+           title="Kamil's Scratchpad"
+           aria-label="Kamil's Scratchpad">
+            
+<svg viewBox="0 0 100 100" width="100" height="auto" xmlns="http://www.w3.org/2000/svg"
+     style="vertical-align: middle;">
+  <rect x="3" y="3" width="94" height="94" rx="20" fill="rgb(64, 64, 64)" stroke="#404040" stroke-width="5"></rect>
+  <text x="50" y="50" font-family="Arial, sans-serif" font-size="80" fill="#fff" text-anchor="middle" alignment-baseline="central">K
+    </text>
+</svg>
+
+        </a>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="btn-navigation float-end nav-link"
+                   href="https://kanguros.github.io/posts/"
+                   title="Posts"
+                   aria-label="Posts"
+                >Posts</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn-navigation float-end nav-link"
+                   href="https://kanguros.github.io/tags/"
+                   title="Tags"
+                   aria-label="Tags"
+                >Tags</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn-navigation float-end nav-link"
+                   href="https://kanguros.github.io/about/"
+                   title="About"
+                   aria-label="About"
+                >About</a>
+            </li>
+        </ul>
+    </nav>
+    <hr class="nav-line">
+</div>
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+<div class="article-heading">
+    <h1>
+        <a href="https://kanguros.github.io/private/finding-shadowing-policies/" rel="bookmark" title="Finding shadowing policies"
+        >Finding shadowing policies</a>
+    </h1>
+
+    <div class="d-flex justify-content-between align-self-center align-items-center">
+        <small class="meta-element">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="auto" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+</svg> 2025-02-20
+        </small>
+        <div class="tags meta-element">
+</div>
+
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+<article>
+    <p>Python script for finding shadowing security policies on&nbsp;firewall.</p>
+    <div class="toc">
+<ul>
+<li><a href="#description">Description</a></li>
+<li><a href="#example-output">Example&nbsp;output</a></li>
+<li><a href="#raw-results">Raw&nbsp;results</a></li>
+<li><a href="#models">Models</a></li>
+<li><a href="#resolve-addresses">Resolve&nbsp;addresses</a></li>
+<li><a href="#finding-shadowing-rules">Finding shadowing&nbsp;rules</a></li>
+<li><a href="#checks">Checks</a></li>
+<li><a href="#evaluate-check-results">Evaluate check&nbsp;results</a></li>
+<li><a href="#utils">Utils</a></li>
+<li><a href="#cli"><span class="caps">CLI</span></a></li>
+<li><a href="#unit-tests">Unit&nbsp;tests</a></li>
+</ul>
+</div>
+<h2 id="description"><a class="toclink" href="#description">Description</a></h2>
+<p>Rules Checker started as a tool to detect overlapping firewall rules, known as shadowing. During development, it evolved into a straightforward framework that allows to define different checks very&nbsp;easily.</p>
+<p><svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="0 0 1528.74609375 1443.578125" style="max-width: 1528.75px; background-color: transparent;" class="flowchart" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="my-svg"><style>#my-svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#000000;}@keyframes edge-animation-frame{from{stroke-dashoffset:0;}}@keyframes dash{to{stroke-dashoffset:0;}}#my-svg .edge-animation-slow{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 50s linear infinite;stroke-linecap:round;}#my-svg .edge-animation-fast{stroke-dasharray:9,5!important;stroke-dashoffset:900;animation:dash 20s linear infinite;stroke-linecap:round;}#my-svg .error-icon{fill:#552222;}#my-svg .error-text{fill:#552222;stroke:#552222;}#my-svg .edge-thickness-normal{stroke-width:1px;}#my-svg .edge-thickness-thick{stroke-width:3.5px;}#my-svg .edge-pattern-solid{stroke-dasharray:0;}#my-svg .edge-thickness-invisible{stroke-width:0;fill:none;}#my-svg .edge-pattern-dashed{stroke-dasharray:3;}#my-svg .edge-pattern-dotted{stroke-dasharray:2;}#my-svg .marker{fill:#666;stroke:#666;}#my-svg .marker.cross{stroke:#666;}#my-svg svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#my-svg p{margin:0;}#my-svg .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#000000;}#my-svg .cluster-label text{fill:#333;}#my-svg .cluster-label span{color:#333;}#my-svg .cluster-label span p{background-color:transparent;}#my-svg .label text,#my-svg span{fill:#000000;color:#000000;}#my-svg .node rect,#my-svg .node circle,#my-svg .node ellipse,#my-svg .node polygon,#my-svg .node path{fill:#eee;stroke:#999;stroke-width:1px;}#my-svg .rough-node .label text,#my-svg .node .label text,#my-svg .image-shape .label,#my-svg .icon-shape .label{text-anchor:middle;}#my-svg .node .katex path{fill:#000;stroke:#000;stroke-width:1px;}#my-svg .rough-node .label,#my-svg .node .label,#my-svg .image-shape .label,#my-svg .icon-shape .label{text-align:center;}#my-svg .node.clickable{cursor:pointer;}#my-svg .root .anchor path{fill:#666!important;stroke-width:0;stroke:#666;}#my-svg .arrowheadPath{fill:#333333;}#my-svg .edgePath .path{stroke:#666;stroke-width:2.0px;}#my-svg .flowchart-link{stroke:#666;fill:none;}#my-svg .edgeLabel{background-color:white;text-align:center;}#my-svg .edgeLabel p{background-color:white;}#my-svg .edgeLabel rect{opacity:0.5;background-color:white;fill:white;}#my-svg .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#my-svg .cluster rect{fill:hsl(0, 0%, 98.9215686275%);stroke:#707070;stroke-width:1px;}#my-svg .cluster text{fill:#333;}#my-svg .cluster span{color:#333;}#my-svg div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(-160, 0%, 93.3333333333%);border:1px solid #707070;border-radius:2px;pointer-events:none;z-index:100;}#my-svg .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#000000;}#my-svg rect.text{fill:none;stroke-width:0;}#my-svg .icon-shape,#my-svg .image-shape{background-color:white;text-align:center;}#my-svg .icon-shape p,#my-svg .image-shape p{background-color:white;padding:2px;}#my-svg .icon-shape rect,#my-svg .image-shape rect{opacity:0.5;background-color:white;fill:white;}#my-svg :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><marker orient="auto" markerHeight="8" markerWidth="8" markerUnits="userSpaceOnUse" refY="5" refX="5" viewBox="0 0 10 10" class="marker flowchart-v2" id="my-svg_flowchart-v2-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"/></marker><marker orient="auto" markerHeight="8" markerWidth="8" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart-v2" id="my-svg_flowchart-v2-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"/></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart-v2" id="my-svg_flowchart-v2-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"/></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart-v2" id="my-svg_flowchart-v2-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"/></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart-v2" id="my-svg_flowchart-v2-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"/></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart-v2" id="my-svg_flowchart-v2-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"/></marker><g class="root"><g class="clusters"/><g class="edgePaths"><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_A_B_0" d="M1243,62L1243,68.167C1243,74.333,1243,86.667,1243.074,98.417C1243.149,110.167,1243.298,121.334,1243.372,126.917L1243.447,132.5"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_B_C_0" d="M1185.955,235.221L1136.238,252.895C1086.521,270.569,987.087,305.917,960.791,342.167C934.496,378.416,981.34,415.566,1004.762,434.141L1028.184,452.716"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_C_D_0" d="M1007.577,533.573L940.148,554.353C872.718,575.132,737.859,616.691,670.43,642.971C603,669.25,603,680.25,603,685.75L603,691.25"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_D_D1_0" d="M479.172,736.097L422.31,742.456C365.448,748.815,251.724,761.532,194.862,771.391C138,781.25,138,788.25,138,791.75L138,795.25"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_D_D2_0" d="M522.519,749.25L510.099,753.417C497.679,757.583,472.84,765.917,460.42,773.583C448,781.25,448,788.25,448,791.75L448,795.25"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_D_D3_0" d="M683.481,749.25L695.901,753.417C708.321,757.583,733.16,765.917,745.58,773.583C758,781.25,758,788.25,758,791.75L758,795.25"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_D_D4_0" d="M726.828,736.097L783.69,742.456C840.552,748.815,954.276,761.532,1011.138,771.391C1068,781.25,1068,788.25,1068,791.75L1068,795.25"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_D1_E_0" d="M138,877.25L138,881.417C138,885.583,138,893.917,186.142,917.159C234.285,940.401,330.569,978.552,378.712,997.628L426.854,1016.704"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_D2_E_0" d="M448,877.25L448,881.417C448,885.583,448,893.917,453.061,908.549C458.121,923.182,468.242,944.113,473.303,954.579L478.363,965.045"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_D3_E_0" d="M758,877.25L758,881.417C758,885.583,758,893.917,731.91,914.822C705.82,935.728,653.641,969.206,627.551,985.946L601.461,1002.685"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_D4_E_0" d="M1068,877.25L1068,881.417C1068,885.583,1068,893.917,993.954,918.633C919.907,943.349,771.814,984.448,697.768,1004.998L623.721,1025.547"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_E_F_0" d="M506.226,1165.304L504.998,1173.85C503.771,1182.396,501.315,1199.487,500.087,1213.532C498.859,1227.578,498.859,1238.578,498.859,1244.078L498.859,1249.578"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_E_G_0" d="M618.6,1082.479L695.166,1104.829C771.733,1127.178,924.867,1171.878,1007.637,1199.943C1090.408,1228.008,1102.815,1239.438,1109.019,1245.153L1115.223,1250.868"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_G_C_0" d="M1197.704,1253.578L1203.587,1247.411C1209.469,1241.245,1221.235,1228.911,1227.117,1195.551C1233,1162.19,1233,1107.802,1233,1055.414C1233,1003.026,1233,952.638,1233,916.777C1233,880.917,1233,859.583,1233,838.25C1233,816.917,1233,795.583,1233,776.25C1233,756.917,1233,739.583,1233,720.25C1233,700.917,1233,679.583,1219.708,654.193C1206.416,628.802,1179.831,599.355,1166.539,584.631L1153.247,569.907"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_F_H_0" d="M498.859,1331.578L498.859,1335.745C498.859,1339.911,498.859,1348.245,535.689,1358.017C572.518,1367.789,646.176,1379.001,683.005,1384.606L719.835,1390.212"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_H_C_0" d="M957.211,1396.065L1018.592,1389.484C1079.974,1382.903,1202.737,1369.74,1264.118,1352.493C1325.5,1335.245,1325.5,1313.911,1325.5,1290.578C1325.5,1267.245,1325.5,1241.911,1325.5,1202.051C1325.5,1162.19,1325.5,1107.802,1325.5,1055.414C1325.5,1003.026,1325.5,952.638,1325.5,916.777C1325.5,880.917,1325.5,859.583,1325.5,838.25C1325.5,816.917,1325.5,795.583,1325.5,776.25C1325.5,756.917,1325.5,739.583,1325.5,720.25C1325.5,700.917,1325.5,679.583,1299.345,651.621C1273.189,623.66,1220.878,589.069,1194.723,571.774L1168.568,554.479"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_C_B_0" d="M1095.754,390.766L1095.671,382.516C1095.587,374.266,1095.421,357.766,1112.538,334.865C1129.656,311.965,1164.057,282.664,1181.258,268.014L1198.459,253.363"/><path marker-end="url(#my-svg_flowchart-v2-pointEnd)" style="" class="edge-thickness-normal edge-pattern-solid edge-thickness-normal edge-pattern-solid flowchart-link" id="L_B_I_0" d="M1285.496,250.77L1303.038,265.852C1320.579,280.935,1355.663,311.1,1373.204,346.432C1390.746,381.763,1390.746,422.26,1390.746,442.509L1390.746,462.758"/></g><g class="edgeLabels"><g transform="translate(1243, 99)" class="edgeLabel"><g transform="translate(-71.6015625, -12)" class="label"><foreignObject height="24" width="143.203125"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"><p>Iterate through rules</p></span></div></foreignObject></g></g><g transform="translate(887.65234375, 341.265625)" class="edgeLabel"><g transform="translate(-100, -24)" class="label"><foreignObject height="48" width="200"><div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"><p>Compare with preceding rules</p></span></div></foreignObject></g></g><g transform="translate(603, 658.25)" class="edgeLabel"><g transform="translate(-86.7109375, -12)" class="label"><foreignObject height="24" width="173.421875"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"><p>Apply shadowing criteria</p></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g transform="translate(498.859375, 1216.578125)" class="edgeLabel"><g transform="translate(-13.0546875, -12)" class="label"><foreignObject height="24" width="26.109375"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"><p>Yes</p></span></div></foreignObject></g></g><g transform="translate(1078, 1216.578125)" class="edgeLabel"><g transform="translate(-10.2265625, -12)" class="label"><foreignObject height="24" width="20.453125"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"><p>No</p></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g transform="translate(1095.25390625, 341.265625)" class="edgeLabel"><g transform="translate(-87.6015625, -12)" class="label"><foreignObject height="24" width="175.203125"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"><p>No more preceding rules</p></span></div></foreignObject></g></g><g transform="translate(1390.74609375, 341.265625)" class="edgeLabel"><g transform="translate(-50.2421875, -12)" class="label"><foreignObject height="24" width="100.484375"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" class="labelBkg" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"><p>No more rules</p></span></div></foreignObject></g></g></g><g class="nodes"><g transform="translate(1243, 35)" id="flowchart-A-0" class="node default"><rect height="54" width="252.96875" y="-27" x="-126.484375" style="" class="basic label-container"/><g transform="translate(-96.484375, -12)" style="" class="label"><rect/><foreignObject height="24" width="192.96875"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Start: List of Security Rules</p></span></div></foreignObject></g></g><g transform="translate(1243, 214.1328125)" id="flowchart-B-1" class="node default"><polygon transform="translate(-78.1328125,78.1328125)" class="label-container" points="78.1328125,0 156.265625,-78.1328125 78.1328125,-156.265625 0,-78.1328125"/><g transform="translate(-51.1328125, -12)" style="" class="label"><rect/><foreignObject height="24" width="102.265625"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>For each rule i</p></span></div></foreignObject></g></g><g transform="translate(1095.25390625, 505.7578125)" id="flowchart-C-3" class="node default"><polygon transform="translate(-115.4921875,115.4921875)" class="label-container" points="115.4921875,0 230.984375,-115.4921875 115.4921875,-230.984375 0,-115.4921875"/><g transform="translate(-88.4921875, -12)" style="" class="label"><rect/><foreignObject height="24" width="176.984375"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>For each preceding rule j</p></span></div></foreignObject></g></g><g transform="translate(603, 722.25)" id="flowchart-D-5" class="node default"><rect height="54" width="247.65625" y="-27" x="-123.828125" style="" class="basic label-container"/><g transform="translate(-93.828125, -12)" style="" class="label"><rect/><foreignObject height="24" width="187.65625"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Shadow Detection Checks</p></span></div></foreignObject></g></g><g transform="translate(138, 838.25)" id="flowchart-D1-7" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"/><g transform="translate(-100, -24)" style="" class="label"><rect/><foreignObject height="48" width="200"><div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Check source zone/address overlap</p></span></div></foreignObject></g></g><g transform="translate(448, 838.25)" id="flowchart-D2-9" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"/><g transform="translate(-100, -24)" style="" class="label"><rect/><foreignObject height="48" width="200"><div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Check destination zone/address overlap</p></span></div></foreignObject></g></g><g transform="translate(758, 838.25)" id="flowchart-D3-11" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"/><g transform="translate(-100, -24)" style="" class="label"><rect/><foreignObject height="48" width="200"><div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Check application/service overlap</p></span></div></foreignObject></g></g><g transform="translate(1068, 838.25)" id="flowchart-D4-13" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"/><g transform="translate(-100, -24)" style="" class="label"><rect/><foreignObject height="48" width="200"><div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Check if action of rule j prevents rule i execution</p></span></div></foreignObject></g></g><g transform="translate(520.5, 1053.4140625)" id="flowchart-E-18" class="node default"><polygon transform="translate(-126.1640625,126.1640625)" class="label-container" points="126.1640625,0 252.328125,-126.1640625 126.1640625,-252.328125 0,-126.1640625"/><g transform="translate(-99.1640625, -12)" style="" class="label"><rect/><foreignObject height="24" width="198.328125"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Is rule i shadowed by rule j?</p></span></div></foreignObject></g></g><g transform="translate(498.859375, 1292.578125)" id="flowchart-F-20" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"/><g transform="translate(-100, -24)" style="" class="label"><rect/><foreignObject height="48" width="200"><div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Add rule i to Shadowed Rules List</p></span></div></foreignObject></g></g><g transform="translate(1160.5, 1292.578125)" id="flowchart-G-22" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"/><g transform="translate(-100, -24)" style="" class="label"><rect/><foreignObject height="48" width="200"><div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Rule i not shadowed by rule j</p></span></div></foreignObject></g></g><g transform="translate(840.5, 1408.578125)" id="flowchart-H-26" class="node default"><rect height="54" width="233.421875" y="-27" x="-116.7109375" style="" class="basic label-container"/><g transform="translate(-86.7109375, -12)" style="" class="label"><rect/><foreignObject height="24" width="173.421875"><div style="display: table-cell; white-space: nowrap; line-height: 1.5; max-width: 200px; text-align: center;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Mark rule i as shadowed</p></span></div></foreignObject></g></g><g transform="translate(1390.74609375, 505.7578125)" id="flowchart-I-32" class="node default"><rect height="78" width="260" y="-39" x="-130" style="" class="basic label-container"/><g transform="translate(-100, -24)" style="" class="label"><rect/><foreignObject height="48" width="200"><div style="display: table; white-space: break-spaces; line-height: 1.5; max-width: 200px; text-align: center; width: 200px;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel"><p>Output Shadowed Rules Report</p></span></div></foreignObject></g></g></g></g></g></svg></p>
+<h2 id="example-output"><a class="toclink" href="#example-output">Example&nbsp;output</a></h2>
+<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span>Starting<span class="w"> </span>shadowed<span class="w"> </span>Rules<span class="w"> </span>detection
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span>Number<span class="w"> </span>of<span class="w"> </span>Rules<span class="w"> </span>to<span class="w"> </span>check:<span class="w"> </span><span class="m">3</span>
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span>Number<span class="w"> </span>of<span class="w"> </span>Checks:<span class="w"> </span><span class="m">7</span>
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span>-<span class="w"> </span>check_action
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span>-<span class="w"> </span>check_application
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span>-<span class="w"> </span>check_services
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span>-<span class="w"> </span>check_source_zone
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span>-<span class="w"> </span>check_destination_zone
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span>-<span class="w"> </span>check_source_address
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span>-<span class="w"> </span>check_destination_address
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span>Finished<span class="w"> </span>shadowed<span class="w"> </span>Rules<span class="w"> </span>detection.<span class="w"> </span>Analyzing<span class="w"> </span>results
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span><span class="o">[</span><span class="m">1</span>/3<span class="o">][</span>rule-example1<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span>rule<span class="w"> </span>against<span class="w"> </span><span class="m">0</span><span class="w"> </span>preceding<span class="w"> </span>Rules
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span><span class="o">[</span><span class="m">1</span>/3<span class="o">][</span>rule-example1<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span>rule<span class="w"> </span>finished.
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span><span class="o">[</span><span class="m">2</span>/3<span class="o">][</span>rule-example2<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span>rule<span class="w"> </span>against<span class="w"> </span><span class="m">1</span><span class="w"> </span>preceding<span class="w"> </span>Rules
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span><span class="o">[</span><span class="m">2</span>/3<span class="o">][</span>rule-example2<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span>rule<span class="w"> </span>finished.
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span><span class="o">[</span><span class="m">3</span>/3<span class="o">][</span>rule3-allow-dns<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span>rule<span class="w"> </span>against<span class="w"> </span><span class="m">2</span><span class="w"> </span>preceding<span class="w"> </span>Rules
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span><span class="o">[</span><span class="m">3</span>/3<span class="o">][</span>rule3-allow-dns<span class="o">]</span><span class="w"> </span>Checking<span class="w"> </span>rule<span class="w"> </span>finished.
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span>Shadowed<span class="w"> </span>rules<span class="w"> </span>detection<span class="w"> </span><span class="nb">complete</span>
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span><span class="o">[</span>rule-example2<span class="o">]</span><span class="w"> </span>Rule<span class="w"> </span>is<span class="w"> </span>shadowed<span class="w"> </span>by:<span class="w"> </span>rule-example1
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span><span class="o">[</span>rule3-allow-dns<span class="o">]</span><span class="w"> </span>Rule<span class="w"> </span>not<span class="w"> </span>shadowed
+<span class="o">[</span><span class="m">09</span>:34:45<span class="o">]</span><span class="w"> </span>INFO<span class="w">     </span><span class="o">[</span>rule3-allow-dns<span class="o">]</span><span class="w"> </span>Rule<span class="w"> </span>not<span class="w"> </span>shadowed
+</code></pre></div>
+
+<h2 id="raw-results"><a class="toclink" href="#raw-results">Raw&nbsp;results</a></h2>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="s1">&#39;rule-example1&#39;</span><span class="p">:</span> <span class="p">{},</span>
+    <span class="s1">&#39;rule-example2&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;rule-example1&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;check_action&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Actions match&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;check_application&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule contains rule&#39;s applications&quot;</span><span class="p">),</span>
+            <span class="s1">&#39;check_services&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule and rule&#39;s services are the same&quot;</span><span class="p">),</span>
+            <span class="s1">&#39;check_source_zone&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Source zones are the same&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;check_destination_zone&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Source zones are the same&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;check_source_address&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Preceding rule allows any source address&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;check_destination_address&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Preceding rule allows any destination address&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;rule3-allow-dns&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;rule-example1&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;check_action&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Actions match&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;check_application&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Preceding rule does not contain all rule&#39;s applications&quot;</span><span class="p">),</span>
+            <span class="s1">&#39;check_services&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule and rule&#39;s services are the same&quot;</span><span class="p">),</span>
+            <span class="s1">&#39;check_source_zone&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;Source zones differ&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;check_destination_zone&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Source zones are the same&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;check_source_address&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Preceding rule allows any source address&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;check_destination_address&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Preceding rule allows any destination address&#39;</span><span class="p">)</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;rule-example2&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;check_action&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Actions match&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;check_application&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Preceding rule does not contain all rule&#39;s applications&quot;</span><span class="p">),</span>
+            <span class="s1">&#39;check_services&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule and rule&#39;s services are the same&quot;</span><span class="p">),</span>
+            <span class="s1">&#39;check_source_zone&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;Source zones differ&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;check_destination_zone&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Source zones are the same&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;check_source_address&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;Source addresses not covered at all&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;check_destination_address&#39;</span><span class="p">:</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;Destination addresses not covered at all&#39;</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2 id="models"><a class="toclink" href="#models">Models</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">AliasChoices</span><span class="p">,</span> <span class="n">AliasPath</span><span class="p">,</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+<span class="kn">from</span> <span class="nn">pydantic.networks</span> <span class="kn">import</span> <span class="n">IPv4Network</span>
+<span class="kn">from</span> <span class="nn">typing_extensions</span> <span class="kn">import</span> <span class="n">Self</span>
+
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">load_json</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">AnyObj</span> <span class="o">=</span> <span class="s2">&quot;any&quot;</span>
+<span class="n">AnyObjType</span> <span class="o">=</span> <span class="nb">set</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;any&quot;</span><span class="p">]]</span>
+
+<span class="n">AppDefault</span> <span class="o">=</span> <span class="s2">&quot;application-default&quot;</span>
+<span class="n">AppDefaultType</span> <span class="o">=</span> <span class="nb">set</span><span class="p">[</span><span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;application-default&quot;</span><span class="p">]]</span>
+
+<span class="n">SetStr</span> <span class="o">=</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<span class="n">Action</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;allow&quot;</span><span class="p">,</span> <span class="s2">&quot;deny&quot;</span><span class="p">,</span> <span class="s2">&quot;monitor&quot;</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">MemberAlias</span><span class="p">(</span><span class="n">attribute_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">raw_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AliasChoices</span><span class="p">:</span>  <span class="c1"># noqa: N802</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Helper function for ``AliasChoices`` with ``AliasPath``.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">AliasChoices</span><span class="p">(</span><span class="n">AliasPath</span><span class="p">(</span><span class="n">raw_name</span><span class="p">,</span> <span class="s2">&quot;member&quot;</span><span class="p">),</span> <span class="n">attribute_name</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">MainModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class for all data models. Mainly for common methods.&quot;&quot;&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">load_from_json</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="s2">&quot;Path&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Self</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;&quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">load_json</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">load_many</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">load_many</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Self</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create instances from each item on the list.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">cls</span><span class="p">(</span><span class="o">**</span><span class="n">item</span><span class="p">)</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">]</span>
+
+
+<span class="k">class</span> <span class="nc">SecurityRule</span><span class="p">(</span><span class="n">MainModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="o">...</span><span class="p">,</span>
+        <span class="n">validation_alias</span><span class="o">=</span><span class="n">AliasChoices</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;@name&quot;</span><span class="p">),</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Name of a rule.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">action</span><span class="p">:</span> <span class="n">Action</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="o">...</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Whether the traffic should be allowed or denied.&quot;</span>
+    <span class="p">)</span>
+    <span class="n">source_zones</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">SetStr</span><span class="p">,</span> <span class="n">AnyObjType</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">validation_alias</span><span class="o">=</span><span class="n">MemberAlias</span><span class="p">(</span><span class="s2">&quot;source_zones&quot;</span><span class="p">,</span> <span class="s2">&quot;from&quot;</span><span class="p">),</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Set of source zones or &#39;any&#39;&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">destination_zones</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">SetStr</span><span class="p">,</span> <span class="n">AnyObjType</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">validation_alias</span><span class="o">=</span><span class="n">MemberAlias</span><span class="p">(</span><span class="s2">&quot;destination_zones&quot;</span><span class="p">,</span> <span class="s2">&quot;to&quot;</span><span class="p">),</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Set of destination zones or &#39;any&#39;&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">source_addresses</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">SetStr</span><span class="p">,</span> <span class="n">AnyObjType</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">validation_alias</span><span class="o">=</span><span class="n">MemberAlias</span><span class="p">(</span><span class="s2">&quot;source_addresses&quot;</span><span class="p">,</span> <span class="s2">&quot;source&quot;</span><span class="p">),</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Source address objects/groups or &#39;any&#39;&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">destination_addresses</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">SetStr</span><span class="p">,</span> <span class="n">AnyObjType</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">validation_alias</span><span class="o">=</span><span class="n">MemberAlias</span><span class="p">(</span><span class="s2">&quot;destination_addresses&quot;</span><span class="p">,</span> <span class="s2">&quot;destination&quot;</span><span class="p">),</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Destination address objects/groups or &#39;any&#39;&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">applications</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">SetStr</span><span class="p">,</span> <span class="n">AnyObjType</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">validation_alias</span><span class="o">=</span><span class="n">MemberAlias</span><span class="p">(</span><span class="s2">&quot;applications&quot;</span><span class="p">,</span> <span class="s2">&quot;application&quot;</span><span class="p">),</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Set of applications or &#39;any&#39; that the rule applies to.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">services</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">SetStr</span><span class="p">,</span> <span class="n">AnyObjType</span><span class="p">,</span> <span class="n">AppDefaultType</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">validation_alias</span><span class="o">=</span><span class="n">MemberAlias</span><span class="p">(</span><span class="s2">&quot;services&quot;</span><span class="p">,</span> <span class="s2">&quot;service&quot;</span><span class="p">),</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Services (e.g., TCP/UDP ports) or &#39;any&#39;/&#39;application-default&#39;&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">category</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">SetStr</span><span class="p">,</span> <span class="n">AnyObjType</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">validation_alias</span><span class="o">=</span><span class="n">MemberAlias</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">,</span> <span class="s2">&quot;category&quot;</span><span class="p">),</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;URL categories or &#39;any&#39;&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">source_addresses_ip</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">set</span><span class="p">[</span><span class="n">IPv4Network</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Resolved source addresses to a set of IP networks. &quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">destination_addresses_ip</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">set</span><span class="p">[</span><span class="n">IPv4Network</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Resolved destination addresses to a set of IP networks.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">AddressGroup</span><span class="p">(</span><span class="n">MainModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">validation_alias</span><span class="o">=</span><span class="n">AliasChoices</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;@name&quot;</span><span class="p">))</span>
+    <span class="n">description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">tag</span><span class="p">:</span> <span class="n">SetStr</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">set</span><span class="p">)</span>
+    <span class="n">static</span><span class="p">:</span> <span class="n">SetStr</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">set</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">AddressObject</span><span class="p">(</span><span class="n">MainModel</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="o">...</span><span class="p">,</span> <span class="n">validation_alias</span><span class="o">=</span><span class="n">AliasChoices</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;@name&quot;</span><span class="p">))</span>
+    <span class="n">ip_netmask</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="o">...</span><span class="p">,</span> <span class="n">validation_alias</span><span class="o">=</span><span class="n">AliasChoices</span><span class="p">(</span><span class="s2">&quot;ip_netmask&quot;</span><span class="p">,</span> <span class="s2">&quot;ip-netmask&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+</code></pre></div>
+
+<h2 id="resolve-addresses"><a class="toclink" href="#resolve-addresses">Resolve&nbsp;addresses</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">ipaddress</span> <span class="kn">import</span> <span class="n">IPv4Network</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">AddressGroup</span><span class="p">,</span> <span class="n">AddressObject</span><span class="p">,</span> <span class="n">AnyObj</span><span class="p">,</span> <span class="n">SecurityRule</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">class</span> <span class="nc">AddressLookup</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Process type of class to resolve Address Groups and Address Objects into their actual IP addresses.</span>
+
+<span class="sd">    It expands Address Groups (AG) recursively and converts Address Objects (AO) into IP networks.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        address_objects: A list of AddressObject.</span>
+<span class="sd">        address_groups: A list of AddressGroup.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">address_objects</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AddressObject</span><span class="p">],</span>
+        <span class="n">address_groups</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AddressGroup</span><span class="p">],</span>
+    <span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">address_objects</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">ao</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">ao</span><span class="o">.</span><span class="n">ip_netmask</span> <span class="k">for</span> <span class="n">ao</span> <span class="ow">in</span> <span class="n">address_objects</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">address_groups</span> <span class="o">=</span> <span class="p">{</span><span class="n">ag</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="nb">set</span><span class="p">(</span><span class="n">ag</span><span class="o">.</span><span class="n">static</span><span class="p">)</span> <span class="k">for</span> <span class="n">ag</span> <span class="ow">in</span> <span class="n">address_groups</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">]],</span> <span class="nb">set</span><span class="p">[</span><span class="n">IPv4Network</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">resolve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">set</span><span class="p">[</span><span class="n">IPv4Network</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Resolve given names of ``Address Groups`` or ``Address Objects``  into actual IP address.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            names: Names of ``Address Groups`` or ``Address Objects``</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Unique ``IPv4Network``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">resolved</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+        <span class="n">stack</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+        <span class="n">visited</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+        <span class="k">while</span> <span class="n">stack</span><span class="p">:</span>
+            <span class="n">current</span> <span class="o">=</span> <span class="n">stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Resolving name=</span><span class="si">{</span><span class="n">current</span><span class="si">}</span><span class="s2"> to IP address&quot;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">current</span> <span class="ow">in</span> <span class="n">visited</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="n">visited</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">current</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">:</span>
+                <span class="n">resolved</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">current</span><span class="p">])</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">current</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_groups</span><span class="p">:</span>
+                <span class="n">stack</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">address_groups</span><span class="p">[</span><span class="n">current</span><span class="p">])</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">current</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_objects</span><span class="p">:</span>
+                <span class="n">current</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">address_objects</span><span class="p">[</span><span class="n">current</span><span class="p">]</span>
+
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">ip_network</span> <span class="o">=</span> <span class="n">IPv4Network</span><span class="p">(</span><span class="n">current</span><span class="p">,</span> <span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                <span class="n">resolved</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ip_network</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="n">current</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">ip_network</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;Unknown address object or group: </span><span class="si">{</span><span class="n">current</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span> <span class="kn">from</span> <span class="nn">ex</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">names</span><span class="p">)]</span> <span class="o">=</span> <span class="n">resolved</span>
+        <span class="k">return</span> <span class="n">resolved</span>
+
+
+<span class="k">def</span> <span class="nf">resolve_rules_addresses</span><span class="p">(</span>
+    <span class="n">rules</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">],</span>
+    <span class="n">address_objects</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AddressObject</span><span class="p">],</span>
+    <span class="n">address_groups</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">AddressGroup</span><span class="p">],</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Resolve Security Rules source_addresses and destination_addresses values</span>
+<span class="sd">    of Address Objects and Address Groups to an actual IP addresses.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">resolver</span> <span class="o">=</span> <span class="n">AddressLookup</span><span class="p">(</span><span class="n">address_objects</span><span class="p">,</span> <span class="n">address_groups</span><span class="p">)</span>
+    <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">attr_pairs</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="p">(</span><span class="s2">&quot;source_addresses&quot;</span><span class="p">,</span> <span class="s2">&quot;source_addresses_ip&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;destination_addresses&quot;</span><span class="p">,</span> <span class="s2">&quot;destination_addresses_ip&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">rule</span> <span class="ow">in</span> <span class="n">rules</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">origin_attr</span><span class="p">,</span> <span class="n">desire_attr</span> <span class="ow">in</span> <span class="n">attr_pairs</span><span class="p">:</span>
+            <span class="n">current_value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">origin_attr</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">current_value</span> <span class="ow">or</span> <span class="n">AnyObj</span> <span class="ow">in</span> <span class="n">current_value</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">resolved_value</span> <span class="o">=</span> <span class="n">resolver</span><span class="o">.</span><span class="n">resolve</span><span class="p">(</span><span class="n">current_value</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">resolved_value</span><span class="p">:</span>
+                    <span class="nb">setattr</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">desire_attr</span><span class="p">,</span> <span class="n">resolved_value</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">ex</span><span class="p">)</span>
+                <span class="n">errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;rule=</span><span class="si">{</span><span class="n">rule</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">origin_attr</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">current_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Failed to resolve rules addresses: </span><span class="si">{</span><span class="s1">&#39; | &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">rules</span>
+</code></pre></div>
+
+<h2 id="finding-shadowing-rules"><a class="toclink" href="#finding-shadowing-rules">Finding shadowing&nbsp;rules</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">from</span> <span class="nn">.check</span> <span class="kn">import</span> <span class="n">CheckOutput</span><span class="p">,</span> <span class="n">RuleCheckFunction</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">SecurityRule</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">run_checks_on_rules</span><span class="p">(</span>
+    <span class="n">rules</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">SecurityRule</span><span class="p">],</span> <span class="n">checks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RuleCheckFunction</span><span class="p">]</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">CheckOutput</span><span class="p">]]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Finds security rules that are shadowed by preceding rules.</span>
+
+<span class="sd">    Iterates through a list of security rules and identifies rules that</span>
+<span class="sd">    are completely covered by one or more preceding rules.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        rules: A list of security rules to analyze.</span>
+<span class="sd">        checks: A list of check functions to determine shadowing.</span>
+
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">rules_count</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rules</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">rule</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rules</span><span class="p">):</span>
+        <span class="n">cid</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">rules_count</span><span class="si">}</span><span class="s2">][</span><span class="si">{</span><span class="n">rule</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">]&quot;</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cid</span><span class="si">}</span><span class="s2"> Checking rule against </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> preceding Rules&quot;</span><span class="p">)</span>
+
+        <span class="n">preceding_results</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+            <span class="n">preceding_rule</span> <span class="o">=</span> <span class="n">rules</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">checks_results</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="n">check_func</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span> <span class="n">check_func</span><span class="p">(</span><span class="n">rule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">check_func</span> <span class="ow">in</span> <span class="n">checks</span>
+            <span class="p">}</span>
+            <span class="n">preceding_results</span><span class="p">[</span><span class="n">preceding_rule</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">checks_results</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">cid</span><span class="si">}</span><span class="s2"> Checking rule finished.&quot;</span><span class="p">)</span>
+        <span class="n">results</span><span class="p">[</span><span class="n">rule</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">preceding_results</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Shadowed rules detection complete&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">results</span>
+</code></pre></div>
+
+<h2 id="checks"><a class="toclink" href="#checks">Checks</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">AnyObj</span><span class="p">,</span> <span class="n">SecurityRule</span>
+
+<span class="n">CheckOutput</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="nb">bool</span><span class="p">],</span> <span class="nb">str</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;Return data format of a ``RuleCheckFunction``.</span>
+
+<span class="sd">1. Status ``Union[None, bool]`` - Whether the rules pair fulfill a check.</span>
+<span class="sd">2. Message ``str`` - Verbose message.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">RuleCheckFunction</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">SecurityRule</span><span class="p">,</span> <span class="n">SecurityRule</span><span class="p">],</span> <span class="n">CheckOutput</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;Typing for a ``check`` type of function&quot;&quot;&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">check_action</span><span class="p">(</span>
+    <span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CheckOutput</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if the action is the same in both rules.&quot;&quot;&quot;</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">rule</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">action</span>
+    <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Actions match&quot;</span> <span class="k">if</span> <span class="n">result</span> <span class="k">else</span> <span class="s2">&quot;Actions differ&quot;</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">,</span> <span class="n">message</span>
+
+
+<span class="k">def</span> <span class="nf">check_source_zone</span><span class="p">(</span>
+    <span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CheckOutput</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks the source zones of the preceding rule.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">rule</span><span class="o">.</span><span class="n">source_zones</span> <span class="o">==</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">source_zones</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Source zones are the same&quot;</span>
+
+    <span class="k">if</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">source_zones</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">rule</span><span class="o">.</span><span class="n">source_zones</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule source zones cover rule&#39;s source zones&quot;</span>
+
+    <span class="k">if</span> <span class="n">AnyObj</span> <span class="ow">in</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">source_zones</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule source zones is &#39;any&#39;&quot;</span>
+
+    <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Source zones differ&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">check_destination_zone</span><span class="p">(</span>
+    <span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CheckOutput</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks the destination zones of the preceding rule.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">rule</span><span class="o">.</span><span class="n">destination_zones</span> <span class="o">==</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">destination_zones</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Source zones are the same&quot;</span>
+
+    <span class="k">if</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">destination_zones</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">rule</span><span class="o">.</span><span class="n">destination_zones</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule source zones cover rule&#39;s source zones&quot;</span>
+
+    <span class="k">if</span> <span class="n">AnyObj</span> <span class="ow">in</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">destination_zones</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule source zones is &#39;any&#39;&quot;</span>
+
+    <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Source zones differ&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">check_source_address</span><span class="p">(</span>
+    <span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CheckOutput</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks the source addresses of the preceding rule&#39;s addresses.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">AnyObj</span> <span class="ow">in</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">source_addresses</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule allows any source address&quot;</span>
+
+    <span class="k">if</span> <span class="n">rule</span><span class="o">.</span><span class="n">source_addresses</span> <span class="o">==</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">source_addresses</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Source addresses are the same&quot;</span>
+
+    <span class="k">if</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">source_addresses</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span><span class="n">rule</span><span class="o">.</span><span class="n">source_addresses</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;Preceding rule source addresses cover rule&#39;s source addresses&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Source addresses not covered at all&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">check_destination_address</span><span class="p">(</span>
+    <span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CheckOutput</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the destination addresses are</span>
+<span class="sd">    identical, allow any, or are subsets of the preceding rule&#39;s addresses.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">AnyObj</span> <span class="ow">in</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">destination_addresses</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule allows any destination address&quot;</span>
+
+    <span class="k">if</span> <span class="n">rule</span><span class="o">.</span><span class="n">source_addresses</span> <span class="o">==</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">destination_addresses</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Destination addresses are the same&quot;</span>
+
+    <span class="k">if</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">destination_addresses</span><span class="o">.</span><span class="n">issubset</span><span class="p">(</span>
+        <span class="n">rule</span><span class="o">.</span><span class="n">destination_addresses</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="kc">True</span><span class="p">,</span>
+            <span class="s2">&quot;Preceding rule destination addresses cover rule&#39;s source addresses&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Destination addresses not covered at all&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">check_application</span><span class="p">(</span>
+    <span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CheckOutput</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks the applications of the preceding rule.&quot;&quot;&quot;</span>
+    <span class="n">rule_apps</span> <span class="o">=</span> <span class="n">rule</span><span class="o">.</span><span class="n">applications</span>
+    <span class="n">preceding_apps</span> <span class="o">=</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">applications</span>
+
+    <span class="k">if</span> <span class="n">AnyObj</span> <span class="ow">in</span> <span class="n">preceding_apps</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule allows any application&quot;</span>
+
+    <span class="k">if</span> <span class="n">AnyObj</span> <span class="ow">in</span> <span class="n">rule_apps</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;any&quot;</span> <span class="ow">in</span> <span class="n">preceding_apps</span><span class="p">,</span> <span class="s2">&quot;Rule allows any application&quot;</span>
+
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">rule_app</span> <span class="ow">in</span> <span class="n">preceding_apps</span> <span class="k">for</span> <span class="n">rule_app</span> <span class="ow">in</span> <span class="n">rule_apps</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule contains rule&#39;s applications&quot;</span>
+
+    <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Preceding rule does not contain all rule&#39;s applications&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">check_services</span><span class="p">(</span>
+    <span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CheckOutput</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Checks if the rule&#39;s ports are the same</span>
+<span class="sd">    or a subset of the preceding rule&#39;s ports.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">rule</span><span class="o">.</span><span class="n">services</span> <span class="o">==</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">services</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule and rule&#39;s services are the same&quot;</span>
+
+    <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">service</span> <span class="ow">in</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">services</span> <span class="k">for</span> <span class="n">service</span> <span class="ow">in</span> <span class="n">rule</span><span class="o">.</span><span class="n">services</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule contains rule&#39;s applications&quot;</span>
+
+    <span class="k">return</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;Preceding rule does not contain all rule&#39;s applications&quot;</span>
+
+
+<span class="n">DEFAULT_CHECKS</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RuleCheckFunction</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">check_action</span><span class="p">,</span>
+    <span class="n">check_application</span><span class="p">,</span>
+    <span class="n">check_services</span><span class="p">,</span>
+    <span class="n">check_source_zone</span><span class="p">,</span>
+    <span class="n">check_destination_zone</span><span class="p">,</span>
+    <span class="n">check_source_address</span><span class="p">,</span>
+    <span class="n">check_destination_address</span><span class="p">,</span>
+<span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">check_services_and_application</span><span class="p">(</span>
+    <span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CheckOutput</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">check_source_addresses_by_ip</span><span class="p">(</span>
+    <span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CheckOutput</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">addr</span> <span class="ow">in</span> <span class="n">rule</span><span class="o">.</span><span class="n">source_addresses_ip</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span>
+            <span class="n">addr</span><span class="o">.</span><span class="n">subnet_of</span><span class="p">(</span><span class="n">net</span><span class="p">)</span> <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">source_addresses_ip</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="kc">False</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;Source ip address </span><span class="si">{</span><span class="n">addr</span><span class="si">}</span><span class="s2"> is not covered by preceding rule&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule covers all source ip addresses&quot;</span>
+
+
+<span class="k">def</span> <span class="nf">check_destination_addresses_by_ip</span><span class="p">(</span>
+    <span class="n">rule</span><span class="p">:</span> <span class="n">SecurityRule</span><span class="p">,</span> <span class="n">preceding_rule</span><span class="p">:</span> <span class="n">SecurityRule</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">CheckOutput</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">addr</span> <span class="ow">in</span> <span class="n">rule</span><span class="o">.</span><span class="n">destination_addresses_ip</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span>
+            <span class="n">addr</span><span class="o">.</span><span class="n">subnet_of</span><span class="p">(</span><span class="n">net</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">net</span> <span class="ow">in</span> <span class="n">preceding_rule</span><span class="o">.</span><span class="n">destination_addresses_ip</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="kc">False</span><span class="p">,</span>
+                <span class="sa">f</span><span class="s2">&quot;Destination ip address </span><span class="si">{</span><span class="n">addr</span><span class="si">}</span><span class="s2"> is not covered by preceding rule&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Preceding rule covers all destination ip addresses&quot;</span>
+
+
+<span class="n">COMPLEX_CHECKS</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">RuleCheckFunction</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">check_action</span><span class="p">,</span>
+    <span class="n">check_application</span><span class="p">,</span>
+    <span class="n">check_services</span><span class="p">,</span>
+    <span class="n">check_source_zone</span><span class="p">,</span>
+    <span class="n">check_destination_zone</span><span class="p">,</span>
+    <span class="n">check_source_addresses_by_ip</span><span class="p">,</span>
+    <span class="n">check_destination_addresses_by_ip</span><span class="p">,</span>
+<span class="p">]</span>
+</code></pre></div>
+
+<h2 id="evaluate-check-results"><a class="toclink" href="#evaluate-check-results">Evaluate check&nbsp;results</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">from</span> <span class="nn">.check</span> <span class="kn">import</span> <span class="n">CheckOutput</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">analyze_checks_results</span><span class="p">(</span>
+    <span class="n">results</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">CheckOutput</span><span class="p">]]],</span>
+<span class="p">):</span>
+    <span class="k">for</span> <span class="n">rule_name</span><span class="p">,</span> <span class="n">rule_results</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">preceding_rule_name</span><span class="p">,</span> <span class="n">checks_results</span> <span class="ow">in</span> <span class="n">rule_results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">shadowing</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">for</span> <span class="n">_check_name</span><span class="p">,</span> <span class="n">check_result</span> <span class="ow">in</span> <span class="n">checks_results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">check_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+                    <span class="n">shadowing</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="k">if</span> <span class="n">shadowing</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">rule_name</span><span class="si">}</span><span class="s2">] Rule is shadowed by: </span><span class="si">{</span><span class="n">preceding_rule_name</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">rule_name</span><span class="si">}</span><span class="s2">] Rule not shadowed&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<h2 id="utils"><a class="toclink" href="#utils">Utils</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Union</span>
+
+
+<span class="k">def</span> <span class="nf">load_json</span><span class="p">(</span>
+    <span class="n">file_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="n">encoding</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Loads JSON file from given file_path and return it.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+</code></pre></div>
+
+<h2 id="cli"><a class="toclink" href="#cli"><span class="caps">CLI</span></a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">rich</span>
+<span class="kn">import</span> <span class="nn">rich_click</span> <span class="k">as</span> <span class="nn">click</span>
+<span class="kn">from</span> <span class="nn">click.types</span> <span class="kn">import</span> <span class="n">Path</span> <span class="k">as</span> <span class="n">ClickPath</span>
+<span class="kn">from</span> <span class="nn">rich.logging</span> <span class="kn">import</span> <span class="n">RichHandler</span>
+
+<span class="kn">from</span> <span class="nn">.check</span> <span class="kn">import</span> <span class="n">DEFAULT_CHECKS</span>
+<span class="kn">from</span> <span class="nn">.evaluate</span> <span class="kn">import</span> <span class="n">analyze_checks_results</span>
+<span class="kn">from</span> <span class="nn">.lookup</span> <span class="kn">import</span> <span class="n">resolve_rules_addresses</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">AddressGroup</span><span class="p">,</span> <span class="n">AddressObject</span><span class="p">,</span> <span class="n">SecurityRule</span>
+<span class="kn">from</span> <span class="nn">.shadower</span> <span class="kn">import</span> <span class="n">run_checks_on_rules</span>
+
+<span class="n">LOG_FORMAT</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%(message)s</span><span class="s2">&quot;</span>
+<span class="n">LOG_DEFAULT_LEVEL</span> <span class="o">=</span> <span class="s2">&quot;INFO&quot;</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span>
+    <span class="n">level</span><span class="o">=</span><span class="n">LOG_DEFAULT_LEVEL</span><span class="p">,</span>
+    <span class="nb">format</span><span class="o">=</span><span class="n">LOG_FORMAT</span><span class="p">,</span>
+    <span class="n">datefmt</span><span class="o">=</span><span class="s2">&quot;[</span><span class="si">%X</span><span class="s2">]&quot;</span><span class="p">,</span>
+    <span class="n">handlers</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">RichHandler</span><span class="p">(</span>
+            <span class="n">rich_tracebacks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">tracebacks_suppress</span><span class="o">=</span><span class="p">[</span><span class="n">click</span><span class="p">],</span>
+            <span class="n">show_path</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">omit_repeated_times</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<span class="nd">@click</span><span class="o">.</span><span class="n">command</span><span class="p">(</span><span class="n">add_help_option</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span>
+    <span class="s2">&quot;--security-rules&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;-sr&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;security_rules_file&quot;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="n">ClickPath</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dir_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">path_type</span><span class="o">=</span><span class="n">Path</span><span class="p">),</span>
+    <span class="n">default</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;./data/security_rules.json&quot;</span><span class="p">),</span>
+    <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to JSON file with Security Rules&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span>
+    <span class="s2">&quot;--address-groups&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;-ag&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;address_groups_file&quot;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="n">ClickPath</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dir_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">path_type</span><span class="o">=</span><span class="n">Path</span><span class="p">),</span>
+    <span class="n">default</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;./data/address_groups.json&quot;</span><span class="p">),</span>
+    <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to JSON file with Address Groups&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="nd">@click</span><span class="o">.</span><span class="n">option</span><span class="p">(</span>
+    <span class="s2">&quot;--address-objects&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;-ao&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;address_objects_file&quot;</span><span class="p">,</span>
+    <span class="nb">type</span><span class="o">=</span><span class="n">ClickPath</span><span class="p">(</span><span class="n">exists</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dir_okay</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">path_type</span><span class="o">=</span><span class="n">Path</span><span class="p">),</span>
+    <span class="n">default</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">&quot;./data/address_objects.json&quot;</span><span class="p">),</span>
+    <span class="n">show_default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Path to JSON file with Address Objects&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">security_rules_file</span><span class="p">,</span> <span class="n">address_objects_file</span><span class="p">,</span> <span class="n">address_groups_file</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;SRF stands for Shadowing Rules Finder&quot;&quot;&quot;</span>
+    <span class="n">security_rules</span> <span class="o">=</span> <span class="n">SecurityRule</span><span class="o">.</span><span class="n">load_from_json</span><span class="p">(</span><span class="n">security_rules_file</span><span class="p">)</span>
+    <span class="n">address_objects</span> <span class="o">=</span> <span class="n">AddressObject</span><span class="o">.</span><span class="n">load_from_json</span><span class="p">(</span><span class="n">address_objects_file</span><span class="p">)</span>
+    <span class="n">address_groups</span> <span class="o">=</span> <span class="n">AddressGroup</span><span class="o">.</span><span class="n">load_from_json</span><span class="p">(</span><span class="n">address_groups_file</span><span class="p">)</span>
+
+    <span class="n">security_rules</span> <span class="o">=</span> <span class="n">resolve_rules_addresses</span><span class="p">(</span>
+        <span class="n">security_rules</span><span class="p">,</span> <span class="n">address_objects</span><span class="p">,</span> <span class="n">address_groups</span>
+    <span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting shadowed Rules detection&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of Rules to check: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">security_rules</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number of Checks: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">DEFAULT_CHECKS</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">check</span> <span class="ow">in</span> <span class="n">DEFAULT_CHECKS</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- </span><span class="si">{</span><span class="n">check</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Finished shadowed Rules detection. Analyzing results&quot;</span><span class="p">)</span>
+
+    <span class="n">results</span> <span class="o">=</span> <span class="n">run_checks_on_rules</span><span class="p">(</span><span class="n">security_rules</span><span class="p">,</span> <span class="n">DEFAULT_CHECKS</span><span class="p">)</span>
+    <span class="n">analyze_checks_results</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+    <span class="n">rich</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</code></pre></div>
+
+<h2 id="unit-tests"><a class="toclink" href="#unit-tests">Unit&nbsp;tests</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># ruff: noqa: N802</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">import</span> <span class="nn">rich</span>
+
+<span class="kn">from</span> <span class="nn">.check</span> <span class="kn">import</span> <span class="n">DEFAULT_CHECKS</span>
+<span class="kn">from</span> <span class="nn">.lookup</span> <span class="kn">import</span> <span class="n">resolve_rules_addresses</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AddressGroup</span><span class="p">,</span>
+    <span class="n">AddressObject</span><span class="p">,</span>
+    <span class="n">SecurityRule</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.shadower</span> <span class="kn">import</span> <span class="n">run_checks_on_rules</span>
+<span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">load_json</span>
+
+<span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span>
+<span class="n">security_rules_data</span> <span class="o">=</span> <span class="n">load_json</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s2">&quot;security_rules.json&quot;</span><span class="p">)</span>
+<span class="n">address_objects_data</span> <span class="o">=</span> <span class="n">load_json</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s2">&quot;address_objects.json&quot;</span><span class="p">)</span>
+<span class="n">address_groups_data</span> <span class="o">=</span> <span class="n">load_json</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s2">&quot;address_groups.json&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="n">security_rules_data</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_security_rule_model</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">SecurityRule</span><span class="p">(</span><span class="o">**</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">SecurityRule</span><span class="p">)</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="n">address_objects_data</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_address_object_model</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">AddressObject</span><span class="p">(</span><span class="o">**</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">AddressObject</span><span class="p">)</span>
+
+
+<span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">parametrize</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">,</span> <span class="n">address_groups_data</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test_address_group_model</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">AddressGroup</span><span class="p">(</span><span class="o">**</span><span class="n">item</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">AddressGroup</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_resolver</span><span class="p">():</span>
+    <span class="n">security_rules</span> <span class="o">=</span> <span class="n">SecurityRule</span><span class="o">.</span><span class="n">load_many</span><span class="p">(</span><span class="n">security_rules_data</span><span class="p">)</span>
+    <span class="n">address_objects</span> <span class="o">=</span> <span class="n">AddressObject</span><span class="o">.</span><span class="n">load_many</span><span class="p">(</span><span class="n">address_objects_data</span><span class="p">)</span>
+    <span class="n">address_groups</span> <span class="o">=</span> <span class="n">AddressGroup</span><span class="o">.</span><span class="n">load_many</span><span class="p">(</span><span class="n">address_groups_data</span><span class="p">)</span>
+
+    <span class="n">resolved_security_rules</span> <span class="o">=</span> <span class="n">resolve_rules_addresses</span><span class="p">(</span>
+        <span class="n">security_rules</span><span class="p">,</span> <span class="n">address_objects</span><span class="p">,</span> <span class="n">address_groups</span>
+    <span class="p">)</span>
+    <span class="k">for</span> <span class="n">resolved_rule</span> <span class="ow">in</span> <span class="n">resolved_security_rules</span><span class="p">:</span>
+        <span class="n">rich</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">resolved_rule</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">test_run_default_checks_on_rules</span><span class="p">():</span>
+    <span class="n">security_rules</span> <span class="o">=</span> <span class="n">SecurityRule</span><span class="o">.</span><span class="n">load_many</span><span class="p">(</span><span class="n">security_rules_data</span><span class="p">)</span>
+    <span class="n">checks_results</span> <span class="o">=</span> <span class="n">run_checks_on_rules</span><span class="p">(</span><span class="n">security_rules</span><span class="p">,</span> <span class="n">DEFAULT_CHECKS</span><span class="p">)</span>
+    <span class="n">rich</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">checks_results</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">checks_results</span>
+</code></pre></div>
+</article>
+
+<!--    -->
+
+        </div>
+    </div>
+</div>
+
+<footer class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
+    <hr class="section-line">
+    <p class="footer-links mt-3 mb-1">
+        <a href="https://kanguros.github.io"
+           class="px-2"
+           title="Index"
+           aria-label="Index"
+        >Index</a>
+        <a href="https://kanguros.github.io/posts/"
+           class="px-2"
+           title="Posts"
+           aria-label="Posts"
+        >Posts</a>
+        <a href="https://kanguros.github.io/tags/"
+           class="px-2"
+           title="Tags"
+           aria-label="Tags"
+        >Tags</a>
+        <a href="https://kanguros.github.io/about/"
+           class="px-2"
+           title="About"
+           aria-label="About"
+        >About</a>
+    </p>
+    <p>
+        <a href="https://github.com/Kanguros/"
+           class="px-2 gitlink"
+           title="Github"
+           aria-label="Github link"
+        >
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="auto" fill="currentColor" viewBox="0 0 16 16">
+  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+</svg></a>
+    </p>
+    <p class="copyright">
+        &copy; Made by
+        <a href="https://kanguros.github.io/about/">Kamil Urbanek</a>, powered by
+        <a href="https://getpelican.com">Pelican</a>
+    </p>
+</footer>
+<script src="https://kanguros.github.io/theme/js/clean-blog.js"></script>
+</body>
+</html>
