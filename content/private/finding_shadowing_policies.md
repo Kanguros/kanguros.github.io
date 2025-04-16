@@ -7,6 +7,35 @@ summary: Python script for finding shadowing security policies on firewall.
 
 [TOC]
 
+## Description
+
+Rules Checker started as a tool to detect overlapping firewall rules, known as shadowing. During development, it evolved into a straightforward framework that allows to define different checks very easily.
+
+
+```mermaid
+graph TD
+    A[Start: List of Security Rules] -->|Iterate through rules| B{For each rule i}
+    B -->|Compare with preceding rules| C{For each preceding rule j}
+    C -->|Apply shadowing criteria| D[Shadow Detection Checks]
+    D --> D1[Check source zone/address overlap]
+    D --> D2[Check destination zone/address overlap]
+    D --> D3[Check application/service overlap]
+    D --> D4[Check if action of rule j prevents rule i execution]
+    
+    D1 & D2 & D3 & D4 --> E{Is rule i shadowed by rule j?}
+    
+    E -->|Yes| F[Add rule i to Shadowed Rules List]
+    E -->|No| G[Rule i not shadowed by rule j]
+    
+    G --> C
+    F --> H[Mark rule i as shadowed]
+    H --> C
+    
+    C -->|No more preceding rules| B
+    B -->|No more rules| I[Output Shadowed Rules Report]
+
+```
+
 ## Example output
 
 ```shell
