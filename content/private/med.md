@@ -58,11 +58,11 @@ summary: Medical information.
 | Kreatynina                                    | eGFR                                          | >60    | ml/min/1,73m2 |        |        | -               |
 | Kwas moczowy                                  | Kwas moczowy                                  | 4,24   | mg/dl         | 3.7    | 7.7    | 3.7 - 7.7       |
 | Glukoza                                       | Glukoza                                       | 88,6   | mg/dl         | 70     | 99     | 70 - 99         |
-| Lipidogram (CHOL, HDL, nie-HDL, LDL, TG)      | Cholesterol całkowity                         | 146    | mg/dl         |        |        | -               |
-| Lipidogram (CHOL, HDL, nie-HDL, LDL, TG)      | Cholesterol HDL                               | 49,8   | mg/dl         |        |        | -               |
-| Lipidogram (CHOL, HDL, nie-HDL, LDL, TG)      | Cholesterol nie-HDL                           | 96,2   | mg/dl         |        |        | -               |
-| Lipidogram (CHOL, HDL, nie-HDL, LDL, TG)      | Cholesterol LDL                               | 81,85  | mg/dl         |        |        | -               |
-| Lipidogram (CHOL, HDL, nie-HDL, LDL, TG)      | Triglicerydy                                  | 72,7   | mg/dl         |        |        | -               |
+| Lipidogram      | Cholesterol całkowity                         | 146    | mg/dl         |        |        | -               |
+| Lipidogram       | Cholesterol HDL                               | 49,8   | mg/dl         |        |        | -               |
+| Lipidogram       | Cholesterol nie-HDL                           | 96,2   | mg/dl         |        |        | -               |
+| Lipidogram       | Cholesterol LDL                               | 81,85  | mg/dl         |        |        | -               |
+| Lipidogram       | Triglicerydy                                  | 72,7   | mg/dl         |        |        | -               |
 | Elektrolity (Na, K)                           | Sód                                           | 143,33 | mmol/l        | 136    | 145    | 136 - 145       |
 | Elektrolity (Na, K)                           | Potas                                         | 4,2    | mmol/l        | 3.5    | 5.1    | 3.5 - 5.1       |
 | Magnez                                        | Magnez                                        | 2,3    | mg/dl         | 1.6    | 2.6    | 1.6 - 2.6       |
@@ -73,14 +73,14 @@ summary: Medical information.
 | Próby wątrobowe                               | Fosfataza zasadowa                            | 69,8   | U/l           | 50     | 116    | 50 - 116        |
 | Próby wątrobowe                               | GGTP                                          | 33     | U/l           | 0      | 55     | 0 - 55          |
 | Testosteron                                   | Testosteron                                   | 323,11 | ng/dl         | 240.24 | 870.68 | 240.24 - 870.68 |
-| Giardia lamblia IgM i IgG w surowicy          | P/c. p. Giardia lamblia w kl. IgM             | 27,32  | U/ml          |        |        | -               |
-| Giardia lamblia IgM i IgG w surowicy          | P/c. p. Giardia lamblia w kl. IgG             | 15,15  | U/ml          |        |        | -               |
+| Giardia lamblia | P/c. p. Giardia lamblia w kl. IgM             | 27,32  | U/ml          |        |        | -               |
+| Giardia lamblia | P/c. p. Giardia lamblia w kl. IgG             | 15,15  | U/ml          |        |        | -               |
 | Helicobacter pylori                           | Helicobacter pylori IgA                       | 0,17   | Ratio         |        |        | -               |
 | Helicobacter pylori                           | Helicobacter pylori IgG                       | 0,11   | Index         |        |        | -               |
 | PSA całkowity                                 | PSA całkowity                                 | 0,819  | ng/ml         | 0      | 2.5    | 0 - 2.5         |
 | Witamina D metabolit 25(OH)                   | Witamina D3 metabolit 25(OH)                  | 26     | ng/ml         |        |        | -               |
 | IgE całkowite                                 | IgE całkowite                                 | < 15.7 | IU/ml         | 0      | 100    | 0 - 100         |
-| IgE sp. H1 - mieszanka kurzu domowego (Greer) | IgE sp. H1 - mieszanka kurzu domowego (Greer) | <0,10  | kU/l          |        |        | -               |
+| IgE - mieszanka kurzu domowego (Greer) | IgE sp. H1 | <0,10  | kU/l          |        |        | -               |
 | P1 - glista ludzka                            | P1 - glista ludzka                            | <0,10  | kU/L          |        |        | -               |
 
 ### 11.04.2025
