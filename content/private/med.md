@@ -119,3 +119,4 @@ summary: Medical information.
 | Elektrolity (Na, K) | Sód                            | 141,72 | mmol/l    | 136  | 145  | 136 - 145   |
 | Elektrolity (Na, K) | Potas                          | 5,02   | mmol/l    | 3.5  | 5.1  | 3.5 - 5.1   |
 | CRP, ilościowo      | CRP                            | < 1.00 | mg/l      | 0    | 5    | 0 - 5       |
+
