@@ -117,4 +117,6 @@ summary: Informacje o aktualnym stanie zdrowia.
 | Elektrolity (Na, K) | Sód                            | **141,72** | mmol/l    | 136 - 145   |
 | Elektrolity (Na, K) | Potas                          | **5,02**   | mmol/l    | 3.5 - 5.1   |
 | CRP, ilościowo      | CRP                            | **< 1.00** | mg/l      | 0 - 5       |
+| **Giardia lamblia**                    | **P/c. p. Giardia lamblia w kl. IgM** | **7,60**  | U/ml          | <25 U/ml wynik negatywny<br>25-30 U/ml wynik graniczny<br>>30 U/ml wynik pozytywny |
+| **Giardia lamblia**                    | **P/c. p. Giardia lamblia w kl. IgG** | **14,66**  | U/ml          | <10 U/ml wynik negatywny<br>10-16 U/ml wynik graniczny<br>>16 U/ml wynik pozytywny |
 
