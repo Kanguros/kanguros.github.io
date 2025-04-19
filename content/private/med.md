@@ -8,13 +8,12 @@ summary: Informacje o aktualnym stanie zdrowia.
 ## Objawy
 
 - Czasami wzdęcia, jeśli się pojawia to głównie wieczorem
-- Wahania nastrojów. 
-- Chyba wahania poziomu glukozy. 
-	- Czasem 2-3h po posiłku, tak jakbym zaczynam być głodny i jestem marudny
-	- Czasami po posiłku dostaje takiego wyrzutu insuliny, że dosłownie opadam z sił i jestem śpiący jak cholera. 
+- Wahania nastrojów.
+- Chyba wahania poziomu glukozy.
+    - Czasem 2-3h po posiłku, tak jakbym zaczynam być głodny i jestem marudny
+    - Czasami po posiłku dostaje takiego wyrzutu insuliny, że dosłownie opadam z sił i jestem śpiący jak cholera.
 - Czasami, jestem bardzo głodny i wiem że to głod ale mimo to nie chce (mi sie) jeść.
-- Kichnięcie motyla na Hawajach powoduje u mnie zapalenie zatok. Łapię wszystko jak Pokemony. Odporność ogólnie leży. 
-
+- Kichnięcie motyla na Hawajach powoduje u mnie zapalenie zatok. Łapię wszystko jak Pokemony. Odporność ogólnie leży.
 
 ## Badania
 
@@ -83,40 +82,39 @@ summary: Informacje o aktualnym stanie zdrowia.
 
 ### 11.04.2025
 
-| Badanie             | Parametr                       | **Wynik**  | Jednostka | Norma       |
-| ------------------- | ------------------------------ | ---------- | --------- | ----------- |
-| Morfologia krwi     | Leukocyty                      | **5,62**   | tys/µl    | 4 - 10      |
-| Morfologia krwi     | Erytrocyty                     | **5,08**   | mln/µl    | 4.6 - 6.5   |
-| Morfologia krwi     | Hemoglobina                    | **15,5**   | g/dl      | 13.5 - 18   |
-| Morfologia krwi     | Hematokryt                     | **45,8**   | %         | 40 - 52     |
-| Morfologia krwi     | MCV                            | **90,2**   | fl        | 80 - 98     |
-| Morfologia krwi     | MCH                            | **30,5**   | pg        | 27 - 32     |
-| Morfologia krwi     | MCHC                           | **33,8**   | g/dl      | 31 - 37     |
-| Morfologia krwi     | Płytki krwi                    | **299**    | tys/µl    | 150 - 400   |
-| Morfologia krwi     | RDW-SD                         | **40,9**   | fl        | 36 - 47     |
-| Morfologia krwi     | RDW-CV                         | **12,3**   | %         | 11.5 - 14.5 |
-| Morfologia krwi     | PDW                            | **10,6**   | fl        | 10 - 17.4   |
-| Morfologia krwi     | MPV                            | **9,8**    | fl        | 7 - 12      |
-| Morfologia krwi     | P-LCR                          | **22,6**   | %         | 19.3 - 47.1 |
-| Morfologia krwi     | PCT                            | **0,29**   | %         | 0.12 - 0.36 |
-| Morfologia krwi     | Neutrofile                     | **2,43**   | tys/µl    | 1.9 - 7     |
-| Morfologia krwi     | Limfocyty                      | **2,15**   | tys/µl    | 1.5 - 4.5   |
-| Morfologia krwi     | Monocyty                       | **0,6**    | tys/µl    | 0.1 - 0.9   |
-| Morfologia krwi     | Bazofile                       | **0,05**   | tys/µl    | 0 - 0.1     |
-| **Morfologia krwi** | **Eozynofile**                 | **0,38**   | tys/µl    | 0.05 - 0.5  |
-| Morfologia krwi     | Neutrofile                     | **43,1**   | %         | 45 - 70     |
-| Morfologia krwi     | Limfocyty                      | **38,3**   | %         | 25 - 45     |
-| **Morfologia krwi** | **Monocyty**                   | **10,7**   | %         | 2 - 9       |
-| **Morfologia krwi** | **Eozynofile**                 | **6,8**    | %         | 0 - 5       |
-| Morfologia krwi     | Bazofile                       | **0,9**    | %         | 0 - 1.1     |
-| Morfologia krwi     | Niedojrzałe granulocyty IG %   | **0,2**    | %         | 0 - 1       |
-| Morfologia krwi     | Niedojrzałe granulocyty IG il. | **0,01**   | tys/µl    | 0 - 0.07    |
-| Morfologia krwi     | NRBC%                          | **0**      | %         | 0 - 0.2     |
-| Morfologia krwi     | NRBC#                          | **0**      | tys/µl    | 0 - 0.01    |
-| OB                  | OB                             | **2**      | mm/h      | 0 - 15      |
-| Elektrolity (Na, K) | Sód                            | **141,72** | mmol/l    | 136 - 145   |
-| Elektrolity (Na, K) | Potas                          | **5,02**   | mmol/l    | 3.5 - 5.1   |
-| CRP, ilościowo      | CRP                            | **< 1.00** | mg/l      | 0 - 5       |
-| **Giardia lamblia**                    | **P/c. p. Giardia lamblia w kl. IgM** | **7,60**  | U/ml          | <25 U/ml wynik negatywny<br>25-30 U/ml wynik graniczny<br>>30 U/ml wynik pozytywny |
-| **Giardia lamblia**                    | **P/c. p. Giardia lamblia w kl. IgG** | **14,66**  | U/ml          | <10 U/ml wynik negatywny<br>10-16 U/ml wynik graniczny<br>>16 U/ml wynik pozytywny |
-
+| Badanie             | Parametr                              | **Wynik**  | Jednostka | Norma                                                                              |
+| ------------------- | ------------------------------------- | ---------- | --------- | ---------------------------------------------------------------------------------- |
+| Morfologia krwi     | Leukocyty                             | **5,62**   | tys/µl    | 4 - 10                                                                             |
+| Morfologia krwi     | Erytrocyty                            | **5,08**   | mln/µl    | 4.6 - 6.5                                                                          |
+| Morfologia krwi     | Hemoglobina                           | **15,5**   | g/dl      | 13.5 - 18                                                                          |
+| Morfologia krwi     | Hematokryt                            | **45,8**   | %         | 40 - 52                                                                            |
+| Morfologia krwi     | MCV                                   | **90,2**   | fl        | 80 - 98                                                                            |
+| Morfologia krwi     | MCH                                   | **30,5**   | pg        | 27 - 32                                                                            |
+| Morfologia krwi     | MCHC                                  | **33,8**   | g/dl      | 31 - 37                                                                            |
+| Morfologia krwi     | Płytki krwi                           | **299**    | tys/µl    | 150 - 400                                                                          |
+| Morfologia krwi     | RDW-SD                                | **40,9**   | fl        | 36 - 47                                                                            |
+| Morfologia krwi     | RDW-CV                                | **12,3**   | %         | 11.5 - 14.5                                                                        |
+| Morfologia krwi     | PDW                                   | **10,6**   | fl        | 10 - 17.4                                                                          |
+| Morfologia krwi     | MPV                                   | **9,8**    | fl        | 7 - 12                                                                             |
+| Morfologia krwi     | P-LCR                                 | **22,6**   | %         | 19.3 - 47.1                                                                        |
+| Morfologia krwi     | PCT                                   | **0,29**   | %         | 0.12 - 0.36                                                                        |
+| Morfologia krwi     | Neutrofile                            | **2,43**   | tys/µl    | 1.9 - 7                                                                            |
+| Morfologia krwi     | Limfocyty                             | **2,15**   | tys/µl    | 1.5 - 4.5                                                                          |
+| Morfologia krwi     | Monocyty                              | **0,6**    | tys/µl    | 0.1 - 0.9                                                                          |
+| Morfologia krwi     | Bazofile                              | **0,05**   | tys/µl    | 0 - 0.1                                                                            |
+| **Morfologia krwi** | **Eozynofile**                        | **0,38**   | tys/µl    | 0.05 - 0.5                                                                         |
+| Morfologia krwi     | Neutrofile                            | **43,1**   | %         | 45 - 70                                                                            |
+| Morfologia krwi     | Limfocyty                             | **38,3**   | %         | 25 - 45                                                                            |
+| **Morfologia krwi** | **Monocyty**                          | **10,7**   | %         | 2 - 9                                                                              |
+| **Morfologia krwi** | **Eozynofile**                        | **6,8**    | %         | 0 - 5                                                                              |
+| Morfologia krwi     | Bazofile                              | **0,9**    | %         | 0 - 1.1                                                                            |
+| Morfologia krwi     | Niedojrzałe granulocyty IG %          | **0,2**    | %         | 0 - 1                                                                              |
+| Morfologia krwi     | Niedojrzałe granulocyty IG il.        | **0,01**   | tys/µl    | 0 - 0.07                                                                           |
+| Morfologia krwi     | NRBC%                                 | **0**      | %         | 0 - 0.2                                                                            |
+| Morfologia krwi     | NRBC#                                 | **0**      | tys/µl    | 0 - 0.01                                                                           |
+| OB                  | OB                                    | **2**      | mm/h      | 0 - 15                                                                             |
+| Elektrolity (Na, K) | Sód                                   | **141,72** | mmol/l    | 136 - 145                                                                          |
+| Elektrolity (Na, K) | Potas                                 | **5,02**   | mmol/l    | 3.5 - 5.1                                                                          |
+| CRP, ilościowo      | CRP                                   | **< 1.00** | mg/l      | 0 - 5                                                                              |
+| **Giardia lamblia** | **P/c. p. Giardia lamblia w kl. IgM** | **7,60**   | U/ml      | <25 U/ml wynik negatywny<br>25-30 U/ml wynik graniczny<br>>30 U/ml wynik pozytywny |
+| **Giardia lamblia** | **P/c. p. Giardia lamblia w kl. IgG** | **14,66**  | U/ml      | <10 U/ml wynik negatywny<br>10-16 U/ml wynik graniczny<br>>16 U/ml wynik pozytywny |
