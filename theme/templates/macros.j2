@@ -7,10 +7,9 @@
                 {{ article.title }}
             </a>
         </h3>
-        <small class="meta-element">
-            {{ SVG_CALENDAR }} {{ article.locale_date }}
-        </small>
     </div>
+    <a href="{{ SITEURL }}/{{ article.url }}"
+>
     <p class="article-summary">
         {% if article.has_summary %}
         {{ article.summary }}
@@ -18,8 +17,14 @@
         {{ article.summary|striptags|truncate(200) }}
         {% endif %}
     </p>
+    </a>
     <div class="d-flex justify-content-between align-self-center align-items-center margin-y">
-        {{ tags_list(article) }}
+        <small class="meta-element">
+                    <div class="py-1">
+            {{ SVG_CALENDAR }} {{ article.locale_date }}
+        </div>
+            {{ tags_list(article) }}
+        </small>
         {{ read_more_button(article.url) }}
     </div>
     <hr class="post-line">
@@ -37,17 +42,8 @@
                 {{ article.title }}
             </a>
         </h3>
-<!--        <small>{{ SVG_CALENDAR }} {{ article.locale_date }}</small>-->
         {{ read_more_button(article.url) }}
     </div>
-
-    <!--    <p class="article-summary">-->
-    <!--        {% if article.has_summary %}-->
-    <!--        {{ article.summary }}-->
-    <!--        {% elif article.summary %}-->
-    <!--        {{ article.summary|striptags|truncate(200) }}-->
-    <!--        {% endif %}-->
-    <!--    </p>-->
     <hr class="post-line">
 </div>
 
@@ -55,7 +51,7 @@
 
 
 {% macro tags_list(article) %}
-<div class="tags meta-element">
+<div class="tags py-1">
     {% for t in article.tags %}
     <a href="{{ SITEURL }}/tag/{{ t }}/index.html"
        rel="bookmark"

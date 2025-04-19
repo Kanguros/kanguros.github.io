@@ -57,12 +57,12 @@
         {{ article.headline }}
     </h2>
     {% endif %}
-    <div class="d-flex justify-content-between align-self-center align-items-center">
-        <small class="meta-element">
+    <small class="d-flex justify-content-between align-self-center align-items-center meta-element">
+        <div class="py-1">
             {{ SVG_CALENDAR }} {{ article.locale_date }}
-        </small>
+        </div>
         {{ tags_list(article) }}
-    </div>
+    </small>
 </div>
 {% endblock header %}
 
