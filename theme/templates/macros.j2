@@ -18,14 +18,15 @@
         {% endif %}
     </p>
     </a>
-    <div class="d-flex justify-content-between align-self-center align-items-center margin-y">
-        <small class="meta-element">
-                    <div class="py-1">
-            {{ SVG_CALENDAR }} {{ article.locale_date }}
-        </div>
-            {{ tags_list(article) }}
+    <div class="d-flex align-self-center align-items-center margin-y" style="column-gap: 1rem;">
+        <small class="meta-element py-1">
+            {{ SVG_CALENDAR }} {{ article.locale_date }} 
         </small>
-        {{ read_more_button(article.url) }}
+                    <small class="meta-element py-1">
+
+        {{ tags_list(article) }}
+                </small>
+
     </div>
     <hr class="post-line">
 </div>

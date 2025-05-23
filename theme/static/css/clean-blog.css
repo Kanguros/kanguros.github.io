@@ -111,7 +111,7 @@ h2 {
 }
 
 h3 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
 }
 
 a {
@@ -279,8 +279,13 @@ pre code {
         font-size: 30px;
     }
 }
+.post-title {
+    width: 100%;
+}
 .post-title > a {
+    display: block;
     text-decoration: none;
+    width: 100%;
 }
 .post-preview {
     line-height: 15px;
@@ -290,10 +295,6 @@ pre code {
 .post-preview > a {
     color: #404040;
     text-decoration: none;
-}
-.post-preview > a:hover,
-.post-preview > a:focus {
-    text-decoration: underline;
 }
 
 .post-preview > a > .post-subtitle {
@@ -574,7 +575,7 @@ h1.big-title {
     }
 }
 .intro-header .big-heading {
-    margin: 1.4rem auto !important;
+    margin: 1.4rem auto 3rem !important;
 }
 .section-note {
     margin-top: 4.5rem;
