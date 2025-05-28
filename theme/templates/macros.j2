@@ -1,34 +1,26 @@
 {% macro main_post(article) %}
 
 <div class="post-preview">
-    <div class="d-flex justify-content-between align-self-center align-items-center margin-y">
-        <h3 class="post-title">
-            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
-                {{ article.title }}
-            </a>
-        </h3>
-    </div>
-    <a href="{{ SITEURL }}/{{ article.url }}"
->
-    <p class="article-summary">
+    <h3 class="post-title">
+        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
+            {{ article.title }}
+        </a>
+    </h3>
+    <p>
         {% if article.has_summary %}
         {{ article.summary }}
         {% elif article.summary %}
         {{ article.summary|striptags|truncate(200) }}
         {% endif %}
     </p>
-    </a>
-    <div class="d-flex align-self-center align-items-center margin-y" style="column-gap: 1rem;">
-        <small class="meta-element py-1">
-            {{ SVG_CALENDAR }} {{ article.locale_date }} 
-        </small>
-                    <small class="meta-element py-1">
-
-        {{ tags_list(article) }}
-                </small>
-
+    <div class="post-meta">
+        <div>
+            {{ article.locale_date }} • {{ tags_list(article) }}
+        </div>
+        <div>
+            <a href="{{ SITEURL }}/{{ article.url }}" title="Read more" aria-label="Read more">Read more →</a>
+        </div>
     </div>
-    <hr class="post-line">
 </div>
 
 {% endmacro %}
@@ -52,43 +44,34 @@
 
 
 {% macro tags_list(article) %}
-<div class="tags py-1">
-    {% for t in article.tags %}
-    <a href="{{ SITEURL }}/tag/{{ t }}/index.html"
-       rel="bookmark"
-       title="Posts with #{{ t }} tag"
-       aria-label="Posts with #{{ t }} tag"
-    >#{{ t }}</a>
-    {% endfor %}
-</div>
+<span class="tags">
+{% for t in article.tags %}
+<a href="{{ SITEURL }}/tag/{{ t }}/index.html" rel="bookmark" title="Posts with #{{ t }} tag"
+    aria-label="Posts with #{{ t }} tag">#{{ t }}</a>
+{% endfor %}
+</span>
 {% endmacro %}
 
 {% macro read_more_button(uri) %}
-<a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker btn-smaller nobr"
-   title="Read more"
-   aria-label="Read more"
->Read more
+<a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker btn-smaller nobr" title="Read more"
+    aria-label="Read more">Read more
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="auto" fill="currentColor" viewBox="0 0 16 16">
         <path fill-rule="evenodd"
-              d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8"/>
+            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
     </svg>
 </a>
 {% endmacro %}
 
 {% macro primary_button(uri, name, icon=False) %}
-<a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker btn-heading"
-   title="{{ name }}"
-   aria-label="{{ name }}"
->{{ name }}
+<a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker btn-heading" title="{{ name }}"
+    aria-label="{{ name }}">{{ name }}
 </a>
 {% endmacro %}
 
 
 {% macro secondary_button(uri, name, icon=False) %}
-<a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker btn-smaller nobr"
-   title="{{ name }}"
-   aria-label="{{ name }}"
->{{ name }}
+<a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker btn-smaller nobr" title="{{ name }}"
+    aria-label="{{ name }}">{{ name }}
     {% if icon %}
     <i class="bi bi-{{ icon }}"></i>
     {% endif %}

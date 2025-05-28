@@ -25,3 +25,25 @@ async function copyCode(block, button) {
         button.innerText = copyButtonLabel;
     }, 1000);
 }
+
+const icon = document.getElementById("toggle-icon");
+
+function setTheme(isDark) {
+    document.body.classList.toggle("dark", isDark);
+    icon.textContent = isDark ? "🌙" : "🌞";
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+}
+
+function toggleDarkMode() {
+    const isDark = !document.body.classList.contains("dark");
+    setTheme(isDark);
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+    ).matches;
+    const isDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+    setTheme(isDark);
+});

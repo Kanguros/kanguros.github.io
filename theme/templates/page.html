@@ -6,7 +6,11 @@
 {% endblock title %}
 
 {% block header %}
-    {{ page_header(page.title, page.url) }}
+        <h1 class="my-3">
+        <a href="{{ SITEURL }}/{{ page.url }}" rel="bookmark" title="{{ page.title }}" >
+            {{ page.title }}
+        </a>
+    </h1>
 {% endblock header %}
 
 {% block content %}

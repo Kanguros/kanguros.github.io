@@ -2,61 +2,20 @@
 {% extends "base.html" %}
 
 {% block header %}
-<div class="big-heading">
     {{ page.content }}
-    <!--    <div class="d-flex flex-wrap flex-lg-nowrap justify-content-evenly mt-5 mb-5">-->
-    <!--        <a href="{{ SITEURL }}/{{ ABOUT_URL }}"-->
-    <!--           class="btn btn-secondary btn-darker btn-heading"-->
-    <!--           title="About"-->
-    <!--           aria-label="About"-->
-    <!--        >{{ SVG_PERSON }} About-->
-    <!--        </a>-->
-    <!--        &lt;!&ndash;        <a href="{{ SITEURL }}/{{ POSTS_URL }}"&ndash;&gt;-->
-    <!--        &lt;!&ndash;           class="btn btn-secondary btn-darker btn-heading"&ndash;&gt;-->
-    <!--        &lt;!&ndash;           title="All posts"&ndash;&gt;-->
-    <!--        &lt;!&ndash;           aria-label="All posts"&ndash;&gt;-->
-    <!--        &lt;!&ndash;        >{{ SVG_POST }} Posts&ndash;&gt;-->
-    <!--        &lt;!&ndash;        </a>&ndash;&gt;-->
-    <!--        &lt;!&ndash;        <a href="{{ GIT_LINK }}"&ndash;&gt;-->
-    <!--        &lt;!&ndash;           class="btn btn-secondary btn-darker btn-heading"&ndash;&gt;-->
-    <!--        &lt;!&ndash;           title="My GitHub"&ndash;&gt;-->
-    <!--        &lt;!&ndash;           aria-label="My GitHub"&ndash;&gt;-->
-    <!--        &lt;!&ndash;        >{{ SVG_GITHUB }} GitHub&ndash;&gt;-->
-    <!--        &lt;!&ndash;        </a>&ndash;&gt;-->
-    <!--    </div>-->
-</div>
-
 {% endblock header %}
 
 {% block content %}
-<div class="d-flex justify-content-between align-self-center align-items-center margin-y">
-    <h2>
-        <a href="#latest-posts" class="toclink">Latest posts</a>
-    </h2>
-    <small>
-        <a href="{{ SITEURL }}/{{ POSTS_URL }}" class="btn btn-secondary btn-darker btn-smaller nobr"
-           title="All posts"
+<h2 class="section-title">
+    <span>Latest posts</span>
+    <a href="{{ SITEURL }}/{{ POSTS_URL }}"
+               title="All posts"
            aria-label="All posts"
-        >All posts {{ SVG_ARROW_RIGHT }}
-        </a>
-    </small>
-</div>
-
-<hr class="nav-line">
+           >All posts →</a>
+</h2>
 
 {% for article in articles[:INDEX_POSTS_COUNT] %}
 {{ main_post(article) }}
 {% endfor %}
-
-<!--<h2>Tags</h2>-->
-<!--<hr class="post-line">-->
-
-<!--{% for tag, articles in tags[:INDEX_TAGS_COUNT]|sort %}-->
-<!--<h3 class="btn btn-outline-secondary">-->
-<!--    <a href="{{ SITEURL }}/{{ tag.url }}" rel="bookmark" title="{{ tag }}">-->
-<!--        {{ tag }}-->
-<!--    </a>-->
-<!--</h3>-->
-<!--{% endfor %}-->
 
 {% endblock content %}

@@ -46,34 +46,30 @@
 {% endblock %}
 
 {% block header %}
-<div class="article-heading">
-    <h1>
-        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}"
-        >{{ article.title|striptags|breaking_spaces }}</a>
-    </h1>
+<h1>
+    <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+        title="{{ article.title|striptags }}">{{ article.title|striptags|breaking_spaces }}</a>
+</h1>
 
-    {% if article.headline %}
-    <h2 class="subheading">
-        {{ article.headline }}
-    </h2>
-    {% endif %}
-    <small class="d-flex justify-content-between align-self-center align-items-center meta-element">
-        <div class="py-1">
-            {{ SVG_CALENDAR }} {{ article.locale_date }}
-        </div>
-        {{ tags_list(article) }}
-    </small>
+{% if article.headline %}
+<h2 class="subheading">
+    {{ article.headline }}
+</h2>
+{% endif %}
+<div class="post-meta">
+    <div>
+        {{ article.locale_date }}
+    </div>
+    {{ tags_list(article) }}
 </div>
 {% endblock header %}
 
 {% block content %}
 <article>
-    {% if article.summary %}
+    {% if article.has_summary %}
     {{ article.summary }}
     {% endif %}
-    {{ article.content }}
+{{ article.content }}
 </article>
-
-<!--    {% include 'similar_posts.html' %}-->
 
 {% endblock content %}

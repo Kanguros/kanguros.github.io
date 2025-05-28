@@ -1,6 +1,6 @@
 {% if DEFAULT_PAGINATION and articles_paginator.num_pages > 1 %}
-<nav aria-label="...">
-    <ul class="pagination justify-content-evenly align-items-center pagination-bar">
+<div aria-label="Pagination">
+    <ul class="paging">
         {% if articles_page.has_previous() %}
         {% if articles_previous_page.url.endswith('index.html') %}
         {% set uri = POSTS_URL %}
@@ -9,7 +9,6 @@
         {% endif %}
         <li>
             <a href="{{ SITEURL }}/{{ uri }}"
-               class="btn btn-secondary btn-darker btn-smaller nobr"
                title="Previous posts page"
                aria-label="Previous posts page"
             >{{ SVG_ARROW_LEFT }} Prev
@@ -17,7 +16,7 @@
         </li>
         {% else %}
         <li>
-            <a class="btn btn-secondary btn-darker btn-smaller nobr disabled"
+            <a 
                title="Previous posts page"
                aria-label="Previous posts page"
                aria-disabled="true"
@@ -32,7 +31,6 @@
         {% if articles_page.has_next() %}
         <li>
             <a href="{{ SITEURL }}/{{ articles_next_page.url }}"
-               class="btn btn-secondary btn-darker btn-smaller nobr"
                title="Next posts page"
                aria-label="Next posts page"
             >Next {{ SVG_ARROW_RIGHT }}
@@ -40,7 +38,7 @@
         </li>
         {% else %}
         <li>
-            <a class="btn btn-secondary btn-darker btn-smaller nobr disabled"
+            <a 
                title="Next posts page"
                aria-label="Next posts page"
                aria-disabled="true"
@@ -49,6 +47,6 @@
         </li>
         {% endif %}
     </ul>
-</nav>
+</div>
 
 {% endif %}
