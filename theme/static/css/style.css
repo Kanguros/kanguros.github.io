@@ -41,7 +41,7 @@ header,
 footer {
     text-align: center;
     background-color: var(--color-panel-bg);
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--color-border);
 }
 
 footer {
@@ -64,7 +64,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 720px;
+    max-width: 690px;
     margin: 0 auto;
 }
 
@@ -87,10 +87,14 @@ nav a:hover {
 }
 
 a.nav-logo {
-    margin: 0 0.7rem;
+    margin: 0;
 }
 .nav-logo strong {
     font-weight: bold;
+}
+
+.toggle-icon {
+    margin: 0 0.5rem;
 }
 
 main {
@@ -104,7 +108,11 @@ h1 {
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
+}
+
+h3 {
+    font-size: 1.4rem;
 }
 
 h1,
@@ -141,7 +149,6 @@ h2.section-title a {
 }
 
 .post-title {
-    font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 0.25em;
 }
@@ -153,6 +160,10 @@ h2.section-title a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.post-meta .read-more {
+    font-weight: 700;
 }
 
 .tags a {
@@ -175,12 +186,6 @@ footer a {
 
 .footer-links a {
     margin: 0 0.5rem;
-}
-
-@media (max-width: 600px) {
-    h1 {
-        font-size: 1.5rem;
-    }
 }
 
 .paging {
