@@ -1,5 +1,8 @@
+* {
+    box-sizing: border-box;
+}
+
 :root {
-    --font-main: "Segoe UI", sans-serif;
     --color-bg: #fff;
     --color-panel-bg: #f8f8f8;
     --color-text: #474747;
@@ -27,16 +30,29 @@ body.dark {
     color: var(--color-text);
 }
 
-* {
-    box-sizing: border-box;
-}
-
 body {
-    margin: 0;
-    font-family: var(--font-main);
+    font-family: "Zilla Slab", serif;
+    font-size: 1rem;
     background: var(--color-bg);
     color: var(--color-text);
     line-height: 1.6;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lexend", Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+pre,
+code {
+    font-family: "Fira Code", "Fira Mono", "Consolas", monospace;
 }
 
 header,
@@ -95,6 +111,7 @@ a.nav-logo {
 a.nav-logo:hover {
     text-decoration: none;
 }
+
 .nav-logo strong {
     font-weight: bold;
 }
@@ -257,6 +274,7 @@ footer a {
     flex-direction: column;
     align-items: stretch;
 }
+
 div.highlight > button {
     font-size: 13px;
     align-self: flex-end;
@@ -266,13 +284,16 @@ div.highlight > button {
     border: 0;
     margin-bottom: -16px;
 }
+
 div.highlight > button:hover,
 div.highlight > button:focus {
     text-decoration: underline;
 }
+
 .wrap > pre {
     text-wrap: wrap;
 }
+
 code {
     color: var(--color-code-font);
     background-color: var(--color-code-background);
@@ -280,6 +301,7 @@ code {
     font-weight: 300;
     padding: 1px 2px;
 }
+
 pre {
     position: relative;
     font-size: 13px;
