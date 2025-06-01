@@ -15,7 +15,7 @@
     </p>
     <div class="post-meta">
         <div>
-            {{ article.locale_date }} • {{ tags_list(article) }}
+            <span>{{ article.locale_date }}</span>{{ tags_list(article) }}
         </div>
         <div>
             <a class="read-more" href="{{ SITEURL }}/{{ article.url }}" title="Read more about {{ article.title }}" aria-label="Read more about {{ article.title }}">Read more →</a>
@@ -35,7 +35,6 @@
                 {{ article.title }}
             </a>
         </h3>
-        {{ read_more_button(article.url) }}
     </div>
     <hr class="post-line">
 </div>
@@ -50,49 +49,4 @@
     aria-label="Posts with #{{ t }} tag">#{{ t }}</a>
 {% endfor %}
 </span>
-{% endmacro %}
-
-{% macro read_more_button(uri) %}
-<a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker btn-smaller nobr" title="Read more"
-    aria-label="Read more">Read more
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="auto" fill="currentColor" viewBox="0 0 16 16">
-        <path fill-rule="evenodd"
-            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8" />
-    </svg>
-</a>
-{% endmacro %}
-
-{% macro primary_button(uri, name, icon=False) %}
-<a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker btn-heading" title="{{ name }}"
-    aria-label="{{ name }}">{{ name }}
-</a>
-{% endmacro %}
-
-
-{% macro secondary_button(uri, name, icon=False) %}
-<a href="{{ SITEURL }}/{{ uri }}" class="btn btn-secondary btn-darker btn-smaller nobr" title="{{ name }}"
-    aria-label="{{ name }}">{{ name }}
-    {% if icon %}
-    <i class="bi bi-{{ icon }}"></i>
-    {% endif %}
-</a>
-{% endmacro %}
-
-
-{% macro page_header(head_text, url, meta_text="", with_hr=False) %}
-<div class="heading d-flex flex-wrap align-items-baseline justify-content-between">
-    <h1 class="my-3">
-        <a href="{{ SITEURL }}/{{ url }}" rel="bookmark" title="{{ head_text }}" class="me-5">
-            {{ head_text }}
-        </a>
-    </h1>
-    {% if meta_text != "" %}
-    <p class="heading-meta">
-        {{ meta_text }}
-    </p>
-    {% endif %}
-</div>
-{% if with_hr %}
-<hr class="nav-line">
-{% endif %}
 {% endmacro %}

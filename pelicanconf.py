@@ -47,9 +47,9 @@ TYPOGRIFY_IGNORE_TAGS = ["pre", "code", "svg", "img", "style"]
 
 DIRECT_TEMPLATES = [
     "index",
-    "archives",
+    # "archives",
     "tags",
-    "under_construction",
+    # "under_construction",
     "private",
     "error",
     # "posts"

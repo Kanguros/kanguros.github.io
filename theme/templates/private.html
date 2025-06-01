@@ -1,4 +1,4 @@
-{% from 'macros.j2' import private_post, page_header %}
+{% from 'macros.j2' import private_post %}
 {% extends "base.html" %}
 
 {% block title %}
@@ -6,11 +6,14 @@
 {% endblock %}
 
 {% block header %}
-{{ page_header("Private", DRAFTS_URL, "Private memos, meant to be shared with closed ones.", with_hr=False) }}
+<h1>
+    <a href="{{ SITEURL }}/{{ DRAFTS_URL }}" rel="bookmark"
+        title="Private memos, meant to be shared with closed ones.">Private</a>
+</h1>
+<p>Private memos, meant to be shared with closed ones.</p>
 {% endblock header %}
 
 {% block content %}
-<hr class="post-line">
 {% for article in drafts|sort(attribute="date", reverse=True) %}
 {{ private_post(article) }}
 {% endfor %}
