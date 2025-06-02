@@ -13,12 +13,12 @@
         {{ article.summary|striptags|truncate(200) }}
         {% endif %}
     </p>
-    <div class="post-meta">
-        <div>
+    <div class="post-footer">
+        <div class="post-meta">
             <span>{{ article.locale_date }}</span>{{ tags_list(article) }}
         </div>
         <div>
-            <a class="read-more" href="{{ SITEURL }}/{{ article.url }}" title="Read more about {{ article.title }}" aria-label="Read more about {{ article.title }}">Read more →</a>
+            <a class="button" href="{{ SITEURL }}/{{ article.url }}" title="Read more about {{ article.title }}" aria-label="Read more about {{ article.title }}">Read more →</a>
         </div>
     </div>
 </div>
