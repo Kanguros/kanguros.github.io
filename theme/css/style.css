@@ -3,13 +3,16 @@
 }
 
 :root {
+    --font-body: "Roboto", Arial, sans-serif;
+    --font-code: "Fira Code", "Fira Mono", "Consolas", monospace;
+    --font-header: "Lexend", Arial, sans-serif;
     --color-bg: #fff;
     --color-panel-bg: #f8f8f8;
     --color-text: #474747;
     --color-nav-text: var(--color-text);
     --color-muted: #767676;
-    --color-link: #3e3e3e;
-    --color-link-hover: #000000;
+    --color-link: #474747;
+    --color-link-hover: #151515;
     --color-border: #ddd;
     --color-logo-bg: #333;
     --color-logo-text: white;
@@ -31,8 +34,8 @@ body.dark {
 }
 
 body {
-    font-family: "Zilla Slab", serif;
-    font-size: 1rem;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
     background: var(--color-bg);
     color: var(--color-text);
     line-height: 1.6;
@@ -45,14 +48,14 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Lexend", Arial, sans-serif;
+    font-family: var(--font-header);
     font-weight: 700;
     letter-spacing: 0.01em;
 }
 
 pre,
 code {
-    font-family: "Fira Code", "Fira Mono", "Consolas", monospace;
+    font-family: var(--font-code);
 }
 
 header,
@@ -76,6 +79,14 @@ a {
 
 a:hover {
     color: var(--color-link-hover);
+}
+
+a.button {
+    color: var(--color-link);
+    font-size: 1rem;
+    font-weight: 300;
+    font-family: var(--font-header);
+    text-wrap-mode: nowrap;
 }
 
 nav {
@@ -126,8 +137,14 @@ main {
     padding: 1em;
 }
 
+.hero h1 {
+    font-size: 2.3rem;
+}
 .hero p {
     margin: 2rem auto;
+}
+.hero div.post-meta {
+    margin-bottom: 2rem;
 }
 
 h1 {
@@ -188,13 +205,16 @@ h2.section-title a {
     text-decoration: underline;
 }
 
-.post-meta {
-    font-size: 0.85rem;
-    color: var(--color-muted);
+.post-footer {
     margin-top: 0.5em;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.post-meta {
+    font-size: 0.85rem;
+    color: var(--color-muted);
 }
 
 .post-meta span {
@@ -219,12 +239,16 @@ footer {
 }
 
 footer a {
-    color: #666;
+    color: var(--color-nav-text);
     text-decoration: none;
 }
 
 .footer-links a {
     margin: 0 0.5rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
 }
 
 .paging {
@@ -276,13 +300,15 @@ footer a {
 }
 
 div.highlight > button {
-    font-size: 13px;
+    font-size: 0.8rem;
     align-self: flex-end;
     color: var(--color-code-font);
+    font-family: var(--font-code);
     background-color: var(--color-code-background);
     border-radius: 5px 5px 0px 0px;
     border: 0;
-    margin-bottom: -16px;
+    padding-bottom: 10px;
+    margin-bottom: -20px;
 }
 
 div.highlight > button:hover,
@@ -298,13 +324,13 @@ code {
     color: var(--color-code-font);
     background-color: var(--color-code-background);
     border-radius: 3px;
+    font-size: 0.8rem;
     font-weight: 300;
     padding: 1px 2px;
 }
 
 pre {
     position: relative;
-    font-size: 13px;
     padding: 10px !important;
     background-color: var(--color-code-background);
 }
@@ -313,9 +339,32 @@ pre code {
     background-color: transparent;
 }
 
-@media only screen and (min-width: 768px) {
-    pre {
-        font-size: 14px;
-        padding: 15px;
-    }
+pre {
+    display: block;
+    overflow-x: auto;
+    --scrollbar-thumb: #777779;
+    --scrollbar-track: #201f23;
+
+    /* Standard properties for Firefox */
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    scrollbar-width: auto;
+}
+
+/* Webkit properties for Chrome, Safari, Edge */
+pre::-webkit-scrollbar {
+    height: 12px;
+}
+
+pre::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+pre::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border: 2px solid var(--scrollbar-track);
+    border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    background-color: #999;
 }
