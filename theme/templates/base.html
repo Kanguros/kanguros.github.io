@@ -29,7 +29,6 @@
     {% endif %}
 
     {% if GOOGLE_ANALYTICS %}
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXZFNZYL4M"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -96,6 +95,6 @@
         <p>© Made by <a href="{{ SITEURL }}/{{ ABOUT_URL }}">Kamil Urbanek</a>, powered by <a
                 href="https://getpelican.com">Pelican</a></p>
     </footer>
-    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.js"></script>
+    <script async src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.js"></script>
 </body>
 </html>
