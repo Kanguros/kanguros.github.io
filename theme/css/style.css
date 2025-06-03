@@ -18,6 +18,9 @@
     --color-logo-text: white;
     --color-code-font: #ddd;
     --color-code-background: #2d2d2d;
+    --scrollbar-thumb: #777779;
+    --scrollbar-track: #201f23;
+    --scrollbar-hover: #999;
 }
 
 body.dark {
@@ -35,7 +38,7 @@ body.dark {
 
 body {
     font-family: var(--font-body);
-    font-size: 1.1rem;
+    font-size: 1rem;
     background: var(--color-bg);
     color: var(--color-text);
     line-height: 1.6;
@@ -137,6 +140,10 @@ main {
     padding: 1em;
 }
 
+.hero {
+    border-bottom: 1px solid var(--color-border);
+}
+
 .hero h1 {
     font-size: 2.3rem;
 }
@@ -144,7 +151,17 @@ main {
     margin: 2rem auto;
 }
 .hero div.post-meta {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+}
+
+.toc {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.toc ul {
+    list-style-type: circle;
+    padding-inline-start: 25px;
 }
 
 h1 {
@@ -157,12 +174,6 @@ h2 {
 
 h3 {
     font-size: 1.4rem;
-}
-
-h1,
-h2,
-h3 {
-    margin-top: 0;
 }
 
 h1 a,
@@ -329,23 +340,17 @@ code {
     padding: 1px 2px;
 }
 
-pre {
-    position: relative;
-    padding: 10px !important;
-    background-color: var(--color-code-background);
-}
-
 pre code {
     background-color: transparent;
 }
 
 pre {
+    line-height: 1.1;
     display: block;
     overflow-x: auto;
-    --scrollbar-thumb: #777779;
-    --scrollbar-track: #201f23;
-
-    /* Standard properties for Firefox */
+    position: relative;
+    padding: 15px 10px !important;
+    background-color: var(--color-code-background);
     scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
     scrollbar-width: auto;
 }
@@ -366,5 +371,27 @@ pre::-webkit-scrollbar-thumb {
 }
 
 pre::-webkit-scrollbar-thumb:hover {
-    background-color: #999;
+    background-color: var(--scrollbar-hover);
+}
+
+article table {
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
+    margin-bottom: 1.5rem;
+    border-collapse: collapse;
+}
+article table tr {
+    border-bottom: var(--color-border) solid 2px;
+}
+article table td,
+article table th {
+    padding: 2px 0.3rem;
+}
+
+article table td + td {
+    border-left-color: inherit;
+    border-left-style: solid;
+    border-left-width: 1px;
 }
