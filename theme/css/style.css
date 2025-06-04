@@ -80,7 +80,8 @@ a {
     color: var(--color-link);
 }
 
-a:hover {
+a:hover,
+a.button:hover {
     color: var(--color-link-hover);
 }
 
@@ -90,6 +91,19 @@ a.button {
     font-weight: 300;
     font-family: var(--font-header);
     text-wrap-mode: nowrap;
+    padding: 0.28em 0.95em;
+    background: none;
+    color: var(--fg);
+    font-weight: 700;
+    border: 1.5px solid var(--color-link);
+    border-radius: 0.35em;
+    text-decoration: none;
+    transition:
+        background 0.18s,
+        color 0.18s,
+        border 0.18s;
+    font-size: 1em;
+    letter-spacing: 0.01em;
 }
 
 nav {
@@ -104,6 +118,8 @@ nav a {
     text-decoration: none;
     color: var(--color-nav-text);
     margin: 0 0.5rem;
+    font-family: var(--font-header);
+    font-weight: 400;
 }
 
 nav a:hover {
@@ -130,8 +146,23 @@ a.nav-logo:hover {
     font-weight: bold;
 }
 
-nav.toggle-icon {
-    margin: 0 0.5rem;
+.toggle-icon {
+    font-size: 1.3em;
+    margin-left: 0.5rem;
+    margin-right: 0.2rem;
+    height: 1.45em;
+    width: 1.45em;
+    background-color: #3333332b;
+    color: var(--color-logo-text);
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.toggle-icon:hover {
+    background-color: var(--color-link-hover);
+    cursor: pointer;
 }
 
 main {
@@ -140,16 +171,22 @@ main {
     padding: 1em;
 }
 
-.hero {
-    border-bottom: 1px solid var(--color-border);
-}
-
 .hero h1 {
     font-size: 2.3rem;
+    margin-top: 0.5em;
+    margin-bottom: 0.7em;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    border-left: 5px solid var(--color-text);
+    padding-left: 0.4em;
+    background: none;
 }
+
 .hero p {
     margin: 2rem auto;
 }
+
 .hero div.post-meta {
     margin-bottom: 1rem;
 }
@@ -183,13 +220,21 @@ h3 a {
     color: var(--color-text);
 }
 
-h2.section-title {
+.section-title {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: baseline;
+
+    margin-bottom: 0.6em;
+}
+
+.section-title h2 {
     margin-top: 2em;
-    border-bottom: 2px solid var(--color-border);
-    padding-bottom: 0.3em;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    border-bottom: 1.2px solid var(--color-text);
+    padding-bottom: 0.08em;
+    display: inline-block;
 }
 
 h2.section-title a {
@@ -206,6 +251,7 @@ h2.section-title a {
 .post-title {
     font-weight: 600;
     margin-bottom: 0.25em;
+    margin-top: 0.5rem;
 }
 
 .post-title a {
@@ -246,7 +292,7 @@ footer {
     border-top: 1px solid var(--color-border);
     margin-top: 2em;
     font-size: 0.9rem;
-    color: var(--color-muted);
+    color: var(--color-nav-text);
 }
 
 footer a {
@@ -382,9 +428,11 @@ article table {
     margin-bottom: 1.5rem;
     border-collapse: collapse;
 }
+
 article table tr {
     border-bottom: var(--color-border) solid 2px;
 }
+
 article table td,
 article table th {
     padding: 2px 0.3rem;
