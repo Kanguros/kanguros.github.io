@@ -30,7 +30,7 @@ const icon = document.getElementById("toggle-icon");
 
 function setTheme(isDark) {
     document.body.classList.toggle("dark", isDark);
-    icon.textContent = isDark ? "🌙" : "🌞";
+    icon.textContent = isDark ? "☽" : "☀";
     localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 

@@ -2,18 +2,20 @@
 {% extends "base.html" %}
 
 {% block header %}
+<div class="greeting"></div>
     {{ page.content }}
 {% endblock header %}
 
 {% block content %}
-<h2 class="section-title">
-    <span>Latest posts</span>
+
+<div class="section-title">
+    <h2>Latest posts</h2>
     <a href="{{ SITEURL }}/{{ POSTS_URL }}"
                title="All posts"
            aria-label="All posts"
            class="button"
            >All posts →</a>
-</h2>
+</div>
 
 {% for article in articles[:INDEX_POSTS_COUNT] %}
 {{ main_post(article) }}

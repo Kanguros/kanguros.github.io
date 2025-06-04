@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ DEFAULT_LANG }}">
-
 <head>
     {% block head %}
     <meta charset="utf-8">
@@ -11,11 +10,13 @@
         {{ SITENAME }}
         {% endblock title %}
     </title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@500;700&family=Roboto:wght@400;700&family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;700&family=Roboto:wght@400;700&family=Fira+Code:wght@400;700&display=swap"
+        rel="stylesheet">
 
-<link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks.css">
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks.css">
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css">
     {% endblock head %}
 
@@ -39,25 +40,12 @@
     {% endif %}
 </head>
 
-{% if page %}
-{% set body_class = "page-" + page.slug %}
-{% elif article %}
-{% set body_class = "article-" + article.slug %}
-{% elif category %}
-{% set body_class = "category-" + category.slug %}
-{% elif tag %}
-{% set body_class = "tag-" + tag.slug %}
-{% else %}
-{% set body_class = "" %}
-{% endif %}
-
-<body class="{{ body_class }}">
+<body>
     <header>
         <nav>
             <div>
-                <a href="{{ SITEURL }}" title="{{ SITENAME }}" aria-label="{{ SITENAME }}"
-                class="nav-logo">
-                    <strong >K</strong>
+                <a href="{{ SITEURL }}" title="{{ SITENAME }}" aria-label="{{ SITENAME }}" class="nav-logo">
+                    <strong>K</strong>
                 </a>
             </div>
             <div>
@@ -65,15 +53,15 @@
                 {% set nav_url = SITEURL + "/" + link %}
                 <a href="{{ nav_url }}" title="{{ title }}" aria-label="{{ title }}">{{ title }}</a>
                 {% endfor %}
-                <span class="toggle-icon" id="toggle-icon" onclick="toggleDarkMode()">💡</span>
+                <span class="toggle-icon" id="toggle-icon" onclick="toggleDarkMode()">☀</span>
             </div>
         </nav>
     </header>
     <main>
         <div class="hero">
-        {% block header %}
-        {% endblock header %}
-</div>
+            {% block header %}
+            {% endblock header %}
+        </div>
         {% block content %}
         {% endblock content %}
     </main>
@@ -97,4 +85,5 @@
     </footer>
     <script async src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.js"></script>
 </body>
+
 </html>

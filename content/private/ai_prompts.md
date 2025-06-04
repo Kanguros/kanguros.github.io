@@ -1,8 +1,9 @@
-Title: AI prompts  
-Date: 2023-07-04
-Tags: ai, prompts  
-Category: Note  
-Summary: A list of useful prompts for AI generators.
+---
+title: AI prompts
+date: 2023-07-04
+category: Note
+summary: A list of useful prompts for AI generators.
+---
 
 [TOC]
 
