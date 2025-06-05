@@ -1,26 +1,20 @@
 {% macro main_post(article) %}
 
 <div class="post-preview">
-    <h3 class="post-title">
-        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
+    <a class="post-title" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
+        <h3 >
             {{ article.title }}
-        </a>
-    </h3>
+        </h3>
+    </a>
 
     {% if article.has_summary %}
     <p>{{ article.summary }}</p>
     {% elif article.summary %}
-    <p>{{ article.summary|striptags|truncate(100) }}</p>
+    <p>{{ article.summary|striptags|truncate(80) }}</p>
     {% endif %}
     <div class="post-footer">
         <div class="post-meta">
             <span>{{ article.locale_date }}</span>{{ tags_list(article) }}
-        </div>
-        <div>
-            <a class="button" 
-            href="{{ SITEURL }}/{{ article.url }}" 
-            title="Read more about {{ article.title|striptags }}"
-            aria-label="Read more about {{ article.title|striptags }}">Read more →</a>
         </div>
     </div>
 </div>
