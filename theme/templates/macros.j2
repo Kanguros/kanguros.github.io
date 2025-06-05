@@ -41,7 +41,7 @@
 {% macro tags_list(article) %}
 <span class="tags">
     {% for t in article.tags %}
-    <a href="{{ SITEURL }}/tag/{{ t }}/index.html" rel="bookmark" title="Posts with #{{ t }} tag"
+    <a class="tag" href="{{ SITEURL }}/tag/{{ t }}/index.html" rel="bookmark" title="Posts with #{{ t }} tag"
         aria-label="Posts with #{{ t }} tag">#{{ t }}</a>
     {% endfor %}
 </span>

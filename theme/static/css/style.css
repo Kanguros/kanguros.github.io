@@ -61,19 +61,40 @@ code {
     font-family: var(--font-code);
 }
 
-header,
 footer {
+    padding: 0.7rem;
     text-align: center;
     background-color: var(--color-panel-bg);
     border-bottom: 1px solid var(--color-border);
+    border-top: 1px solid var(--color-border);
+    margin-top: 2em;
+    font-size: 0.8rem;
+    color: var(--color-nav-text);
 }
 
-footer {
-    padding: 1rem;
+footer p a {
+    color: var(--color-nav-text);
+    text-decoration: none;
+}
+
+footer p a:hover {
+    text-decoration: underline;
+}
+
+.footer-links a {
+    margin: 0 0.5rem;
+}
+
+footer svg {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 header {
     padding: 0.8rem;
+    text-align: center;
+    background-color: var(--color-panel-bg);
+    border-bottom: 1px solid var(--color-border);
 }
 
 a {
@@ -120,10 +141,12 @@ nav a {
     margin: 0 0.5rem;
     font-family: var(--font-header);
     font-weight: 400;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
 }
 
 nav a:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-nav-text);
 }
 
 .nav-logo {
@@ -184,7 +207,7 @@ main {
 }
 
 .hero p {
-    margin: 2rem auto;
+    margin: 1rem auto;
 }
 
 .hero div.post-meta {
@@ -228,7 +251,7 @@ h3 a {
 }
 
 .section-title h2 {
-    margin-top: 2em;
+    margin-top: 1em;
     font-weight: 700;
     letter-spacing: 0.01em;
     border-bottom: 1.2px solid var(--color-text);
@@ -243,19 +266,20 @@ h3 a {
     margin-bottom: 1rem;
 }
 
-.post-title h3 {
-    font-weight: 600;
-    margin-bottom: 0.25em;
-    margin-top: 0.5rem;
-    display: inline-block;
-}
-
-a.post-title {
+.post-title {
     display: block;
     text-decoration: none;
 }
 
-a.post-title h3:hover {
+.post-title h3 {
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-top: 0;
+    display: inline-block;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+}
+
+.post-title:hover h3 {
     text-decoration: none;
     border-bottom: 1px solid var(--color-text);
 }
@@ -276,34 +300,25 @@ a.post-title h3:hover {
     margin-right: 0.5em;
 }
 
-.post-meta a {
-    margin-right: 0.5em;
+.tag {
+    background: var(--color-panel-bg);
+    color: var(--color-text);
+    font-weight: 400;
+    border-radius: 0.4em;
+    padding: 0.1em 0.3em;
+    margin-right: 0.05em;
+    margin-bottom: 0.05em;
     text-decoration: none;
-    color: var(--color-muted);
+    border: 1px solid var(--color-border);
+    transition:
+        background 0.18s,
+        color 0.18s;
 }
 
-.post-meta a:hover {
-    text-decoration: underline;
-}
-
-footer {
-    border-top: 1px solid var(--color-border);
-    margin-top: 2em;
-    font-size: 0.9rem;
-    color: var(--color-nav-text);
-}
-
-footer a {
-    color: var(--color-nav-text);
+.tag:hover {
     text-decoration: none;
-}
-
-.footer-links a {
-    margin: 0 0.5rem;
-}
-
-.footer-links a:hover {
-    text-decoration: underline;
+    background: var(--color-link);
+    color: var(--color-border);
 }
 
 .paging {
@@ -369,6 +384,7 @@ div.highlight > button {
 div.highlight > button:hover,
 div.highlight > button:focus {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .wrap > pre {

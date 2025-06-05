@@ -67,7 +67,7 @@
     </main>
 
     <footer>
-        <div class="footer-links">
+        <p class="footer-links">
             {% for title, link, icon in FOOTER_LINKS %}
             {% if not link %}
             {% set nav_url = SITEURL %}
@@ -76,9 +76,9 @@
             {% endif %}
             <a href="{{ nav_url }}" title="{{ title }}" aria-label="{{ title }}">{{ title }}</a>
             {% endfor %}
-        </div>
+        </p>
         <p>
-            <a href="{{ GIT_LINK }}" title="Github" aria-label="Github link">{{ SVG_GITHUB_BIGGER }}</a>
+            <a class="footer-icon" href="{{ GIT_LINK }}" title="Github" aria-label="Github link">{{ SVG_GITHUB_BIGGER }}</a>
         </p>
         <p>© Made by <a href="{{ SITEURL }}/{{ ABOUT_URL }}">Kamil Urbanek</a>, powered by <a
                 href="https://getpelican.com">Pelican</a></p>
