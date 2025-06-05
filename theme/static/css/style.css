@@ -101,20 +101,16 @@ a {
     color: var(--color-link);
 }
 
-a:hover,
-a.button:hover {
+a:hover {
     color: var(--color-link-hover);
 }
 
 a.button {
     color: var(--color-link);
-    font-size: 1rem;
-    font-weight: 300;
     font-family: var(--font-header);
     text-wrap-mode: nowrap;
     padding: 0.28em 0.95em;
     background: none;
-    color: var(--fg);
     font-weight: 700;
     border: 1.5px solid var(--color-link);
     border-radius: 0.35em;
@@ -125,6 +121,11 @@ a.button {
         border 0.18s;
     font-size: 1em;
     letter-spacing: 0.01em;
+}
+
+a.button:hover {
+    color: var(--color-panel-bg);
+    background: var(--color-text);
 }
 
 nav {
