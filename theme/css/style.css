@@ -3,7 +3,7 @@
 }
 
 :root {
-    --font-body: "Roboto", Arial, sans-serif;
+    --font-body: "Montserrat", Arial, sans-serif;
     --font-code: "Fira Code", "Fira Mono", "Consolas", monospace;
     --font-header: "Lexend", Arial, sans-serif;
     --color-bg: #fff;
@@ -202,7 +202,7 @@ main {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 h2 {
@@ -224,7 +224,6 @@ h3 a {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-
     margin-bottom: 0.6em;
 }
 
@@ -237,29 +236,28 @@ h3 a {
     display: inline-block;
 }
 
-h2.section-title a {
-    text-decoration: underline;
-    color: var(--color-link);
-}
-
 .post-preview {
-    padding: 1em 0;
-    border-bottom: 1px solid var(--color-border);
+    padding: 0.8em;
+    border: 1px solid var(--color-border);
+    border-radius: 0.35em;
     margin-bottom: 1rem;
 }
 
-.post-title {
+.post-title h3 {
     font-weight: 600;
     margin-bottom: 0.25em;
     margin-top: 0.5rem;
+    display: inline-block;
 }
 
-.post-title a {
+a.post-title {
     display: block;
+    text-decoration: none;
 }
 
-.post-title a:hover {
-    text-decoration: underline;
+a.post-title h3:hover {
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-text);
 }
 
 .post-footer {
