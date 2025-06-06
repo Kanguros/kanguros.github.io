@@ -26,11 +26,12 @@ async function copyCode(block, button) {
     }, 1000);
 }
 
-const icon = document.getElementById("toggle-icon");
-
 function setTheme(isDark) {
     document.body.classList.toggle("dark", isDark);
-    icon.textContent = isDark ? "☽" : "☀";
+    const icon = document.getElementById("toggle-icon");
+    if (icon) {
+        icon.textContent = isDark ? "☽" : "☀";
+    }
     localStorage.setItem("theme", isDark ? "dark" : "light");
 }
 

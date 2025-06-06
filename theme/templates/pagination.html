@@ -1,51 +1,40 @@
 {% if DEFAULT_PAGINATION and articles_paginator.num_pages > 1 %}
 <div aria-label="Pagination">
     <ul class="paging">
-        {% if articles_page.has_previous() %}
-        {% if articles_previous_page.url.endswith('index.html') %}
-        {% set uri = POSTS_URL %}
-        {% else %}
-        {% set uri = articles_previous_page.url %}
-        {% endif %}
         <li>
-            <a href="{{ SITEURL }}/{{ uri }}"
-               title="Previous posts page"
-               aria-label="Previous posts page"
-            >{{ SVG_ARROW_LEFT }} Prev
+            <a
+            {% if articles_page.has_previous() %}
+                {% if articles_previous_page.url.endswith('index.html') %}
+                {% set uri = POSTS_URL %}
+                {% else %}
+                {% set uri = articles_previous_page.url %}
+                {% endif %}
+                href="{{ SITEURL }}/{{ uri }}" 
+            {% else %}
+                aria-disabled="true"
+            {% endif %}
+            class="button" 
+            title="Previous posts page"
+            aria-label="Previous posts page"
+            >← Prev
             </a>
         </li>
-        {% else %}
-        <li>
-            <a 
-               title="Previous posts page"
-               aria-label="Previous posts page"
-               aria-disabled="true"
-            >{{ SVG_ARROW_LEFT }} Prev
-            </a>
-        </li>
-        {% endif %}
         <li>
             {{ articles_page.number }} of {{ articles_paginator.num_pages }}
         </li>
-
-        {% if articles_page.has_next() %}
-        <li>
-            <a href="{{ SITEURL }}/{{ articles_next_page.url }}"
-               title="Next posts page"
-               aria-label="Next posts page"
-            >Next {{ SVG_ARROW_RIGHT }}
-            </a>
-        </li>
-        {% else %}
         <li>
             <a 
-               title="Next posts page"
-               aria-label="Next posts page"
-               aria-disabled="true"
-            >Next {{ SVG_ARROW_RIGHT }}
+            {% if articles_page.has_next() %}
+                href="{{ SITEURL }}/{{ articles_next_page.url }}" 
+            {% else %}
+                aria-disabled="true"
+            {% endif %}
+            class="button" 
+            title="Next posts page"
+            aria-label="Next posts page"
+            >Next →
             </a>
         </li>
-        {% endif %}
     </ul>
 </div>
 

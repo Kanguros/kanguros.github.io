@@ -51,7 +51,7 @@
             <div>
                 {% for title, link, icon in NAV_LINKS if title != 'Index' %}
                 {% set nav_url = SITEURL + "/" + link %}
-                <a href="{{ nav_url }}" title="{{ title }}" aria-label="{{ title }}">{{ title }}</a>
+                <a class="link" href="{{ nav_url }}" title="{{ title }}" aria-label="{{ title }}">{{ title }}</a>
                 {% endfor %}
                 <span class="toggle-icon" id="toggle-icon" onclick="toggleDarkMode()">☀</span>
             </div>
@@ -74,13 +74,13 @@
             {% else %}
             {% set nav_url = SITEURL + "/" + link %}
             {% endif %}
-            <a href="{{ nav_url }}" title="{{ title }}" aria-label="{{ title }}">{{ title }}</a>
+            <a class="link" href="{{ nav_url }}" title="{{ title }}" aria-label="{{ title }}">{{ title }}</a>
             {% endfor %}
         </p>
         <p>
             <a class="footer-icon" href="{{ GIT_LINK }}" title="Github" aria-label="Github link">{{ SVG_GITHUB_BIGGER }}</a>
         </p>
-        <p>© Made by <a href="{{ SITEURL }}/{{ ABOUT_URL }}">Kamil Urbanek</a>, powered by <a
+        <p>© Made by <a class="link" href="{{ SITEURL }}/{{ ABOUT_URL }}">Kamil Urbanek</a>, powered by <a
                 href="https://getpelican.com">Pelican</a></p>
     </footer>
     <script async src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/clean-blog.js"></script>
