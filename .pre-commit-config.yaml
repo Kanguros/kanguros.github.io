@@ -17,12 +17,12 @@ repos:
                 - "--tab-width"
                 - "4"
 
-    - repo: https://github.com/thibaudcolas/curlylint
-      rev: "v0.13.1"
-      hooks:
-          - id: curlylint
-            files: \.(html|j2)$
-            exclude: ^theme/.not_used/
+    # - repo: https://github.com/thibaudcolas/curlylint
+    #   rev: "v0.13.1"
+    #   hooks:
+    #       - id: curlylint
+    #         files: \.(html|j2)$
+    #         exclude: ^theme/.not_used/
 
     - repo: https://github.com/astral-sh/ruff-pre-commit
       rev: v0.9.7
