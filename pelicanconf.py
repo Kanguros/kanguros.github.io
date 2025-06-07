@@ -147,7 +147,7 @@ MARKDOWN = {
             "permalink": "false",
             "anchorlink": "true",
             "toc_depth": 2,
-            "title": "Table of content"
+            "title": "Contents"
         },
         "pymdownx.progressbar": {},
         "pymdownx.blocks.tab": {},

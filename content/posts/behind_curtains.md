@@ -1,7 +1,9 @@
-Title: Behind curtains
-Date: 2023-06-15
-Category: Article
-Tags: webdev, pelican, markdown
+---
+title: Behind curtains
+date: 2023-06-15
+category: Article
+tags: webdev, pelican, markdown
+---
 
 I've still remember, how complicated was the process of creating _my own website_ 10 years ago. Starting from finding
 free or cheap server which would host my website too tremendous amount of technologies required to be used (HTML, CSS
