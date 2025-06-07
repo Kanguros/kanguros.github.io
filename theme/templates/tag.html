@@ -8,7 +8,7 @@
 {% set tag_meta = TAGS_DESCRIPTION[tag.name]|default("All posts with #" +  tag.name  + " tag.") %}
 <h1>
     <a href="{{ SITEURL }}/{{ tag.url }}" rel="bookmark"
-        title="{{ tag_meta|striptags }}">{{ tag.name }}</a>
+        title="{{ tag_meta|striptags }}">#{{ tag.name }}</a>
 </h1>
 <p>{{ tag_meta }}</p>
 {% endblock header %}

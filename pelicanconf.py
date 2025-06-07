@@ -10,13 +10,11 @@ AUTHOR = "Kamil Urbanek"
 DEFAULT_LANG = "en"
 DEFAULT_DATE_FORMAT = "%Y-%m-%d"
 THEME_STATIC_DIR = THEME = "theme"
-COLOR_SCHEME_CSS = "darkly.css"
 PATH = "content"
 OUTPUT_PATH = "_output/"
 # Plugins
 PLUGINS = [
     "yaml_metadata",
-    # "similar_posts",
     "neighbors",
     "pelican.plugins.jinja_filters",
     # "sitemap",  In publishconf.py
@@ -35,24 +33,15 @@ SIMILAR_POSTS_ENABLED = False
 SIMILAR_POSTS_MAX_COUNT = 3
 SIMILAR_POSTS_MIN_SCORE = 0.0001
 
-# # Plugin - minify
-# CSS_MIN = True
-# HTML_MIN = True
-# INLINE_CSS_MIN = True
-# INLINE_JS_MIN = False
-
 SUMMARY_END_SUFFIX = ""
 TYPOGRIFY = True
 TYPOGRIFY_IGNORE_TAGS = ["pre", "code", "svg", "img", "style"]
 
 DIRECT_TEMPLATES = [
     "index",
-    # "archives",
     "tags",
-    # "under_construction",
     "private",
     "error",
-    # "posts"
 ]
 
 DEFAULT_PAGINATION = 5
@@ -71,7 +60,6 @@ STATIC_PATHS = [
     "extra/.nojekyll",
     "extra/favicon.ico",
     "extra/robots.txt",
-    # "slides",
 ]
 FAVICON = "favicon.ico"
 EXTRA_PATH_METADATA = {
