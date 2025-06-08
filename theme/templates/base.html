@@ -18,6 +18,14 @@
 
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks.css">
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css">
+    {% if article %}
+       {% if article.styles %}
+            {% for style in article.styles %}
+            <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{style}}">
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+    
     {% endblock head %}
 
     {% block opengraph %}
