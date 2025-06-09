@@ -2,7 +2,7 @@
 
 <div class="post-preview">
     <a class="post-title" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
-        <h3 >
+        <h3>
             {{ article.title }}
         </h3>
     </a>
@@ -12,10 +12,9 @@
     {% elif article.summary %}
     <p>{{ article.summary|striptags|truncate(80) }}</p>
     {% endif %}
+    
     <div class="post-footer">
-        <div class="post-meta">
-            <span>{{ article.locale_date }}</span>{{ tags_list(article) }}
-        </div>
+        {{ post_meta(article) }}
     </div>
 </div>
 
@@ -25,14 +24,16 @@
 {% macro private_post(article) %}
 
 <div class="post-preview">
-    <div class="d-flex justify-content-between align-self-center align-items-center margin-y">
-        <h3 class="post-title" style="font-size: 1.4rem;">
-            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
-                {{ article.title }}
-            </a>
+    <a class="post-title" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
+        <h3>
+            {{ article.title }}
         </h3>
+    </a>
+    <div class="post-footer">
+        <div class="post-meta">
+            <span>{{ article.locale_date }}</span>{{ tags_list(article) }}
+        </div>
     </div>
-    <hr class="post-line">
 </div>
 
 {% endmacro %}
@@ -45,4 +46,16 @@
         aria-label="Posts with #{{ t }} tag">#{{ t }}</a>
     {% endfor %}
 </span>
+{% endmacro %}
+
+{% macro post_meta(article) %}
+<div class="post-meta">
+    <span>{{ article.locale_date }}</span>
+    {% for t in article.tags %}
+    <span>
+        <a class="tag" href="{{ SITEURL }}/tag/{{ t }}/index.html" rel="bookmark" title="Posts with #{{ t }} tag"
+            aria-label="Posts with #{{ t }} tag">#{{ t }}</a>
+    </span>
+    {% endfor %}
+</div>
 {% endmacro %}

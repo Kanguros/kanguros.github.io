@@ -138,7 +138,7 @@ MARKDOWN = {
             "title": "Contents"
         },
         "pymdownx.progressbar": {},
-        "pymdownx.blocks.tab": {},
+        "pymdownx.blocks.html": {},
         "pymdownx.snippets": {"check_paths": "true", "base_path": "."},
         "pymdownx.magiclink": {},
         "markdown_extension.inline_mermaid": {},

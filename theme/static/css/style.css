@@ -43,6 +43,9 @@ body {
     color: var(--color-text);
     line-height: 1.6;
     margin: 0;
+    transition:
+        background 0.3ms,
+        color 0.3ms;
 }
 
 h1,
@@ -179,18 +182,17 @@ nav a {
     font-size: 1.3em;
     margin-left: 0.5rem;
     margin-right: 0.2rem;
-    height: 1.45em;
-    width: 1.45em;
-    background-color: #3333332b;
-    color: var(--color-logo-text);
-    border-radius: 50%;
+    width: 1.5rem;
+    color: var(--color-nav-text);
     display: inline-block;
     text-align: center;
-    vertical-align: middle;
+    transition: border 0.18s;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
 }
 
 .toggle-icon:hover {
-    background-color: var(--color-link-hover);
+    border-bottom: 1px solid var(--color-nav-text);
     cursor: pointer;
 }
 

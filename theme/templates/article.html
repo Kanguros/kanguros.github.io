@@ -1,4 +1,4 @@
-{% from 'macros.j2' import tags_list %}
+{% from 'macros.j2' import post_meta %}
 {% extends "base.html" %}
 
 {% block title %}
@@ -43,11 +43,7 @@
     <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
         title="{{ article.title|striptags }}">{{ article.title|striptags|breaking_spaces }}</a>
 </h1>
-<div class="post-meta">
-        <div>
-            <span>{{ article.locale_date }}</span>{{ tags_list(article) }}
-        </div>
-    </div>
+{{ post_meta(article) }}
 {% endblock header %}
 
 {% block content %}
