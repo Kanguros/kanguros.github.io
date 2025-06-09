@@ -23,7 +23,7 @@
     --scrollbar-hover: #999;
 }
 
-body.dark {
+html.dark {
     --color-bg: #252525;
     --color-panel-bg: #1e1e1e;
     --color-nav-text: #fff;
@@ -73,7 +73,7 @@ code {
 footer {
     padding: 0.7rem;
     text-align: center;
-    margin-top: 2em;
+    margin-top: 4em;
     font-size: 0.8rem;
     font-family: var(--font-header);
     color: var(--color-nav-text);
@@ -202,6 +202,11 @@ main {
     padding: 1em;
 }
 
+.hero {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
 .hero h1 {
     font-size: 2.3rem;
     margin-top: 0.5em;
@@ -301,7 +306,7 @@ h3 a {
     padding: 0.8em;
     border: 1px solid var(--color-border);
     border-radius: 0.35em;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .post-title {
@@ -339,10 +344,10 @@ h3 a {
 }
 
 .tag {
-    background: var(--color-panel-bg);
-    color: var(--color-text);
+    background: rgba(0, 0, 0, 0);
+    color: var(--color-muted);
     font-weight: 400;
-    border-radius: 0.4em;
+    border-radius: 0.3em;
     padding: 0.1em 0.3em;
     margin-right: 0.05em;
     margin-bottom: 0.05em;

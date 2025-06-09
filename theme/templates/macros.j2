@@ -1,28 +1,23 @@
 {% macro main_post(article) %}
-
 <div class="post-preview">
     <a class="post-title" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
         <h3>
             {{ article.title }}
         </h3>
     </a>
-
     {% if article.has_summary %}
     <p>{{ article.summary }}</p>
     {% elif article.summary %}
     <p>{{ article.summary|striptags|truncate(80) }}</p>
     {% endif %}
-    
     <div class="post-footer">
         {{ post_meta(article) }}
     </div>
 </div>
-
 {% endmacro %}
 
 
 {% macro private_post(article) %}
-
 <div class="post-preview">
     <a class="post-title" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="{{ article.title|striptags }}">
         <h3>
@@ -35,7 +30,6 @@
         </div>
     </div>
 </div>
-
 {% endmacro %}
 
 
@@ -47,6 +41,7 @@
     {% endfor %}
 </span>
 {% endmacro %}
+
 
 {% macro post_meta(article) %}
 <div class="post-meta">

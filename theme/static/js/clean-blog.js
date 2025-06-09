@@ -24,7 +24,7 @@ async function copyCode(block, button) {
 }
 
 function setTheme(isDark) {
-    document.body.classList.toggle("dark", isDark);
+    document.documentElement.classList.toggle("dark", isDark);
     const icon = document.getElementById("toggle-icon");
     if (icon) {
         icon.textContent = isDark ? "☽" : "☀";
@@ -33,7 +33,7 @@ function setTheme(isDark) {
 }
 
 function toggleDarkMode() {
-    const isDark = !document.body.classList.contains("dark");
+    const isDark = !document.documentElement.classList.contains("dark");
     setTheme(isDark);
 }
 

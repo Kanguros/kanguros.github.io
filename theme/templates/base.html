@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ DEFAULT_LANG }}">
+
 <head>
     {% block head %}
     <meta charset="utf-8">
@@ -19,13 +20,13 @@
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks.css">
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css">
     {% if article %}
-       {% if article.styles %}
-            {% for style in article.styles %}
-            <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{style}}">
-            {% endfor %}
-        {% endif %}
+    {% if article.styles %}
+    {% for style in article.styles %}
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{style}}">
+    {% endfor %}
     {% endif %}
-    
+    {% endif %}
+
     {% endblock head %}
 
     {% block opengraph %}
@@ -37,6 +38,18 @@
     <link rel="icon" type="image/x-icon" href="/{{ FAVICON }}">
     {% endif %}
 
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem("theme");
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const isDark = savedTheme === "dark" || (!savedTheme && prefersDark);
+            if (isDark) {
+                document.documentElement.classList.add("dark");
+            } else {
+                document.documentElement.classList.remove("dark");
+            }
+        })();
+    </script>
     {% if GOOGLE_ANALYTICS %}
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JXZFNZYL4M"></script>
     <script>
@@ -86,7 +99,8 @@
             {% endfor %}
         </p>
         <p>
-            <a class="footer-icon" href="{{ GIT_LINK }}" title="Github" aria-label="Github link">{{ SVG_GITHUB_BIGGER }}</a>
+            <a class="footer-icon" href="{{ GIT_LINK }}" title="Github"
+                aria-label="Github link">{{ SVG_GITHUB_BIGGER }}</a>
         </p>
         <p>© Made by <a class="link" href="{{ SITEURL }}/{{ ABOUT_URL }}">Kamil Urbanek</a>, powered by <a
                 href="https://getpelican.com">Pelican</a></p>
