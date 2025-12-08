@@ -27,14 +27,12 @@ summary: Aktualne informacje o stanie zdrowia babci.
 | Pradaxa 110 mg                 | 1-0-1                      |
 | Gaviscon                       | 0-0-1 <br>zaraz przed snem |
 
-
 ### Zmiany
 
 | Zmiana   | Lek                            | Uwagi                                     |
 | -------- | ------------------------------ | ----------------------------------------- |
 | Usunięty | Carzap 16 mg                   |                                           |
 | Dodany   | Carzap HCT <br>16 mg / 12,5 mg | Żeby obniżyć cisnienie lekiem moczopędnym |
-
 
 ## 01.12.2025
 
@@ -56,7 +54,6 @@ summary: Aktualne informacje o stanie zdrowia babci.
 | Pradaxa 110 mg   | 1-0-1                      |
 | Gaviscon         | 0-0-1 <br>zaraz przed snem |
 
-
 ### Zmiany
 
 | Zmiana   | Lek            | Uwagi                      |
@@ -64,4 +61,3 @@ summary: Aktualne informacje o stanie zdrowia babci.
 | Usunięty | Gastrolit      | Za duzo potasu             |
 | Usunięty | Spironol 25 mg | Żeby oszczędzać sód        |
 | Usunięty | Lacipil 2 mg   | Powoduje za małe ciśnienie |
-
