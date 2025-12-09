@@ -470,8 +470,7 @@ pre::-webkit-scrollbar-thumb:hover {
 article table {
     width: 100%;
     overflow-x: auto;
-    display: block;
-    white-space: nowrap;
+    display: table;
     margin-bottom: 1.5rem;
     border-collapse: collapse;
 }
@@ -483,6 +482,7 @@ article table tr {
 article table td,
 article table th {
     padding: 2px 0.3rem;
+    white-space: nowrap; 
 }
 
 article table td + td {
