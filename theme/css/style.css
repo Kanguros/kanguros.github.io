@@ -467,11 +467,6 @@ pre::-webkit-scrollbar-thumb:hover {
     background-color: var(--scrollbar-hover);
 }
 
-article {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
 article table {
     width: 100%;
      max-width: 100%;
@@ -485,9 +480,16 @@ article table tr {
     border-bottom: var(--color-border) solid 2px;
 }
 
+article table thead,
+article table tbody {
+  display: table;
+  width: 100%;
+  table-layout: auto;
+}
+
 article table td,
 article table th {
-    padding: 2px 0.3rem;
+    padding: 0.3rem 0.5rem;
     white-space: nowrap; 
 }
 
