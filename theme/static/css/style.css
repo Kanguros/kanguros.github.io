@@ -367,16 +367,14 @@ h3 a {
 }
 
 .tags {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start; 
-  list-style: none;
-  padding: 0;
-  white-space: nowrap;
-flex-wrap: wrap;
-
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0;
+    white-space: nowrap;
+    flex-wrap: wrap;
 }
-
 
 .tags li {
     padding: 0.3rem;
@@ -486,7 +484,7 @@ pre::-webkit-scrollbar-thumb:hover {
 
 article table {
     width: 100%;
-     max-width: 100%;
+    max-width: 100%;
     overflow-x: auto;
     display: block;
     margin-bottom: 1.5rem;
@@ -499,15 +497,15 @@ article table tr {
 
 article table thead,
 article table tbody {
-  display: table;
-  width: 100%;
-  table-layout: auto;
+    display: table;
+    width: 100%;
+    table-layout: auto;
 }
 
 article table td,
 article table th {
     padding: 0.3rem 0.5rem;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 article table td + td {
