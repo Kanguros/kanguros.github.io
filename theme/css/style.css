@@ -21,6 +21,10 @@
     --scrollbar-thumb: #777779;
     --scrollbar-track: #201f23;
     --scrollbar-hover: #999;
+    /* Paging (disabled link) colors */
+    --color-paging-disabled-text: #999;
+    --color-paging-disabled-border: #eee;
+    --color-paging-disabled-bg: #f9f9f9;
 }
 
 html.dark {
@@ -34,6 +38,8 @@ html.dark {
     --color-border: #444;
     background: var(--color-bg);
     color: var(--color-text);
+    --color-paging-disabled-text: #444;
+    --color-paging-disabled-border: #444;
 }
 
 body {
@@ -223,12 +229,8 @@ main {
     margin: 1rem auto;
 }
 
-.hero div.post-meta {
-    margin-bottom: 1rem;
-}
-
 .toc {
-    margin: 1.5rem 0;
+    margin: 0.9rem 0;
     padding: 0.7rem 1rem;
     background: var(--color-panel-bg);
     border-radius: 8px;
@@ -364,6 +366,20 @@ h3 a {
     color: var(--color-border);
 }
 
+.tags {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0;
+    white-space: nowrap;
+    flex-wrap: wrap;
+}
+
+.tags li {
+    padding: 0.3rem;
+}
+
 .paging {
     list-style: none;
     display: flex;
@@ -386,9 +402,8 @@ h3 a {
 
 .paging a[aria-disabled="true"] {
     pointer-events: none;
-    color: #999;
-    border-color: #eee;
-    background-color: #f9f9f9;
+    color: var(--color-paging-disabled-text);
+    border-color: var(--color-paging-disabled-border);
 }
 
 .paging li:nth-child(2) {
@@ -469,7 +484,7 @@ pre::-webkit-scrollbar-thumb:hover {
 
 article table {
     width: 100%;
-     max-width: 100%;
+    max-width: 100%;
     overflow-x: auto;
     display: block;
     margin-bottom: 1.5rem;
@@ -482,15 +497,15 @@ article table tr {
 
 article table thead,
 article table tbody {
-  display: table;
-  width: 100%;
-  table-layout: auto;
+    display: table;
+    width: 100%;
+    table-layout: auto;
 }
 
 article table td,
 article table th {
     padding: 0.3rem 0.5rem;
-    white-space: nowrap; 
+    white-space: nowrap;
 }
 
 article table td + td {
