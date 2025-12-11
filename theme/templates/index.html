@@ -5,6 +5,16 @@
 Posts - {{ SITENAME }}
 {% endblock %}
 
+{% block header %}
+<h1>
+    <a href="{{ SITEURL }}/{{ POSTS_URL }}"
+               title="Posts"
+           aria-label="Posts"
+           >Posts</a>
+</h1>
+<p>All posts</p>
+{% endblock header %}
+
 {% block content %}
 
 {% for article in articles_page.object_list %}

@@ -14,14 +14,14 @@ Tags - {{ SITENAME }}
 
 {% block content %}
 <div class="d-flex flex-wrap justify-content-center mt-2">
-    <div class="tags meta-element">
+    <ul class="tags meta-element">
         {% for tag, articles in tags|sort %}
-        <h3 class="btn btn-outline-secondary">
-            <a href="{{ SITEURL }}/{{ tag.url }}" rel="bookmark" title="{{ tag }}">
+        <li>
+            <a href="{{ SITEURL }}/{{ tag.url }}" rel="bookmark" title="{{ tag }}" class="tag">
                 {{ tag }} ({{ articles|count }})
             </a>
-        </h3>
+        </li>
         {% endfor %}
-    </div>
+    </ul>
 </div>
 {% endblock content %}
