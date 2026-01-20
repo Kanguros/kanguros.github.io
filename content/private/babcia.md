@@ -11,21 +11,21 @@ summary: Aktualne informacje o stanie zdrowia babci.
 
 ### Leki
 
-| Lek                            | Kiedy                      |
-| ------------------------------ | -------------------------- |
-| Euthyrox N 75 µg               | 1-0-0 <br>na czczo         |
-| IPP 40 mg                      | 1-0-0 <br>przed śniadaniem |
-| Geriavit                       | 1-0-0                      |
-| Atrox 20 mg                    | 0-0-1                      |
-| Siofor 500 mg                  | 1-1-0                      |
-| Carzap HCT <br>16 mg / 12,5 mg | 1-0-0                      |
-| Digoxin 100 µg                 | 1-0-0                      |
-| Asentra 50 mg                  | 1-0-0                      |
-| Memantine                      | 1-0-0                      |
-| Feroplex                       | 0-1-0                      |
-| MagneB6                        | 1-1-1                      |
-| Pradaxa 110 mg                 | 1-0-1                      |
-| Gaviscon                       | 0-0-1 <br>zaraz przed snem |
+| Lek                            | Kiedy                                     |
+| ------------------------------ | ----------------------------------------- |
+| Euthyrox N 75 µg               | 1-0-0 pon-pt<br>1/2-0-0 sb-nd<br>na czczo |
+| IPP 40 mg                      | 1-0-0 <br>przed śniadaniem                |
+| Geriavit                       | 1-0-0                                     |
+| Atrox 20 mg                    | 0-0-1                                     |
+| Siofor 500 mg                  | 1-1-0                                     |
+| Carzap HCT <br>16 mg / 12,5 mg | 1-0-0                                     |
+| Digoxin 100 µg                 | 1-0-0                                     |
+| Asentra 50 mg                  | 1-0-0                                     |
+| Memantine                      | 1-0-0                                     |
+| Feroplex                       | 0-1-0                                     |
+| MagneB6                        | 1-1-1                                     |
+| Pradaxa 110 mg                 | 1-0-1                                     |
+| Gaviscon                       | 0-0-1 <br>zaraz przed snem                |
 
 ### Zmiany
 

@@ -141,6 +141,7 @@ MARKDOWN = {
         "pymdownx.blocks.html": {},
         "pymdownx.snippets": {"check_paths": "true", "base_path": "."},
         "pymdownx.magiclink": {},
+        "pymdownx.smartsymbols": {"arrows": False},
         "markdown_extension.inline_mermaid": {},
     },
     "output_format": "html5",
