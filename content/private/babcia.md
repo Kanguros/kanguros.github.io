@@ -9,6 +9,18 @@ summary: Aktualne informacje o stanie zdrowia babci.
 
 ## 13.02.2026
 
+### Leki (o porach dnia)
+
+| Kiedy | Leki |
+| :--- | :--- |
+| **Po wstaniu** | Euthyrox 75 µg (1 tab. pon-pt / 1/2 tab. sob-ndz) |
+| **Przed śniadaniem** | IPP 40 mg |
+| **Po śniadaniu** | Kandesar 16 mg <br>Cavinton Forte 10 mg <br>Pradaxa 110 mg <br>Siofor 500 mg <br>Feroplex <br>Digoxin 100 µg (pon-pt) <br>Asentra 50 mg <br>Magne B6 <br>Geriavit <br>Memantine 10 mg <br>Litorsal |
+| **Po obiedzie** | Cavinton Forte 10 mg<br>Kaldyum <br>Siofor 500 mg <br>Spironol 25 mg (1/2 tab.) |
+| **Po kolacji** | Cavinton Forte 10 mg <br>Lercan 10 mg (1/2 tab.) <br>Pradaxa 110 mg <br>Siofor 500 mg <br>Feroplex <br>Atrox 20 mg <br>Magne B6 <br>Peritol 4 mg (1/2 tab.) <br>Litorsal |
+| **Przed snem** | Gaviscon |
+
+
 ### Leki
 
 | Lek | Kiedy |
@@ -16,7 +28,6 @@ summary: Aktualne informacje o stanie zdrowia babci.
 | Kandesar 16 mg | 1-0-0 |
 | Cavinton Forte 10 mg | 1-1-1 |
 | Lercan 10 mg | 0-0-1/2 |
-| Siofor 25 mg | 0-1-0 |
 | Pradaxa 110 mg | 1-0-1 |
 | Kaldyum | 0-1-0 |
 | Siofor 500 mg | 1-1-1 |
