@@ -1,0 +1,18 @@
+[
+  {
+    "icon": "search",
+    "text": "Find all blog posts related to Python testing frameworks"
+  },
+  {
+    "icon": "file-plus",
+    "text": "Draft an outline for a new blog post about Azure command-line tools"
+  },
+  {
+    "icon": "globe",
+    "text": "Research best practices for building Python CLI applications and suggest a new post idea"
+  },
+  {
+    "icon": "folder-tree",
+    "text": "Suggest internal links between blog posts in content/posts to enhance vault navigability"
+  }
+]
