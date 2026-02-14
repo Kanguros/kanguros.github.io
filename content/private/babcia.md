@@ -15,12 +15,16 @@ summary: Aktualne informacje o stanie zdrowia babci.
 | :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Po wstaniu**       | Euthyrox 75 µg<br>- 1 tab. pon-pt<br>- 1/2 tab. sob-ndz                                                                                                                                                                   |
 | **Przed śniadaniem** | IPP 40 mg                                                                                                                                                                                                                 |
-| **Po śniadaniu**     | Kandesar 16 mg <br>Cavinton Forte 10 mg <br>Pradaxa 110 mg <br>Siofor 500 mg<br>Digoxin 100 µg (pon-pt) <br>Asentra 50 mg <br>Magne B6 <br>Geriavit <br>Memantine 10 mg <br>Litorsal (tab. musujaca)<br>Feroplex (fiolka) |
+| **Po śniadaniu**     | Kandesar 16 mg <br>Cavinton Forte 10 mg <br>Pradaxa 110 mg <br>Siofor 500 mg<br>Digoxin 100 µg (pon-pt) <br>Magne B6 <br>Geriavit <br>Asentra 50 mg <br>Memantine 10 mg |
+| **Między śniadaniem <br>a obiadem** | Feroplex (fiolka)<br>Litorsal (tab. musujaca) |
 | **Po obiedzie**      | Cavinton Forte 10 mg<br>Kaldyum <br>Siofor 500 mg <br>Spironol 25 mg (1/2 tab.)                                                                                                                                           |
-| **Po kolacji**       | Cavinton Forte 10 mg <br>Lercan 10 mg (1/2 tab.) <br>Pradaxa 110 mg <br>Siofor 500 mg<br>Atrox 20 mg <br>Magne B6 <br>Peritol 4 mg (1/2 tab.)<br>Feroplex (fiolka)<br>Litorsal (tab. musujaca)                            |
-| **Przed snem**       | Gaviscon                                                                                                                                                                                                                  |
+| **Między obiadem <br>a kolacją** | Feroplex (fiolka)<br>Litorsal (tab. musujaca) |
+| **Po kolacji**       | Cavinton Forte 10 mg <br>Lercan 10 mg (1/2 tab.) <br>Pradaxa 110 mg <br>Siofor 500 mg<br>Atrox 20 mg <br>Magne B6 <br>Peritol 4 mg (1/2 tab.)                            |
+| **Przed snem**       | Gaviscon (łyżka stołowa)                                                                                                                                                                                                                |
 
 ### Leki
+
+Te same leki co wyżej ale w standardowej notacji.
 
 | Lek | Kiedy |
 | :--- | :--- |
