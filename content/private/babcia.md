@@ -20,7 +20,6 @@ summary: Aktualne informacje o stanie zdrowia babci.
 | **Po kolacji**       | Cavinton Forte 10 mg <br>Lercan 10 mg (1/2 tab.) <br>Pradaxa 110 mg <br>Siofor 500 mg<br>Atrox 20 mg <br>Magne B6 <br>Peritol 4 mg (1/2 tab.)<br>Feroplex (fiolka)<br>Litorsal (tab. musujaca)                            |
 | **Przed snem**       | Gaviscon                                                                                                                                                                                                                  |
 
-
 ### Leki
 
 | Lek | Kiedy |
@@ -31,7 +30,7 @@ summary: Aktualne informacje o stanie zdrowia babci.
 | Pradaxa 110 mg | 1-0-1 |
 | Kaldyum | 0-1-0 |
 | Siofor 500 mg | 1-1-1 |
-| Euthyrox 75 µg | 1-0-0 (pon-pt) <br> 1/2-0-0 (sob-ndz) <br> na czczo|
+| Euthyrox 75 µg | 1-0-0 (pon-pt) <br>1/2-0-0 (sob-ndz) <br> na czczo|
 | Feroplex | 1-0-1 |
 | IPP 40 mg | 1-0-0 |
 | Atrox 20 mg | 0-0-1 |
@@ -44,6 +43,24 @@ summary: Aktualne informacje o stanie zdrowia babci.
 | Memantine 10 mg | 1-0-0 |
 | Gaviscon | 0-0-1 |
 | Litorsal | 1-0-1 <br> (2x dziennie) |
+
+### Zmiany
+
+| Zmiana | Lek | Uwagi |
+| :--- | :--- | :--- |
+| **Dodany** | Kandesar 16 mg | Zastąpił Carzap HCT; dawkowanie 1-0-0 |
+| **Dodany** | Cavinton Forte 10 mg | Nowy lek; dawkowanie 1-1-1 |
+| **Dodany** | Lercan 10 mg | Nowy lek; dawkowanie 0-0-1/2 |
+| **Dodany** | Kaldyum | Nowy lek; dawkowanie 0-1-0 |
+| **Dodany** | Spironol 25 mg | Nowy lek; dawkowanie 0-1/2-0 |
+| **Dodany** | Litorsal | Nowy suplement; 2x dziennie (1-0-1) |
+| **Usunięty** | Carzap HCT 16 mg / 12,5 mg | Brak na nowej liście |
+| **Zmiana dawkowania** | Siofor 500 mg | Zwiększono z 1-1-0 na **1-1-1** |
+| **Zmiana dawkowania** | Feroplex | Zwiększono z 0-1-0 na **1-0-1** |
+| **Zmiana dawkowania** | Magne B6 | Zmniejszono z 1-1-1 na **1-0-1** |
+| **Zmiana dawkowania** | Euthyrox 75 µg | Dawka 1/2 tab. w weekendy (sob-ndz) |
+| **Zmiana dawkowania** | Digoxin 100 µg | Ograniczono stosowanie do dni pon-pt |
+
 
 ## 08.12.2025
 
