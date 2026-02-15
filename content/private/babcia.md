@@ -11,16 +11,16 @@ summary: Aktualne informacje o stanie zdrowia babci.
 
 ### Leki (o porach dnia)
 
-| Kiedy                | Leki                                                                                                                                                                                                                      |
-| :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Po <br>wstaniu**       | Euthyrox 75 µg<br>- 1 tab. pon-pt<br>- 1/2 tab. sob-ndz                                                                                                                                                                   |
-| **Przed <br>śniadaniem** | IPP 40 mg                                                                                                                                                                                                                 |
-| **Po <br>śniadaniu**     | Kandesar 16 mg <br>Cavinton Forte 10 mg <br>Pradaxa 110 mg <br>Siofor 500 mg<br>Digoxin 100 µg (pon-pt) <br>Magne B6 <br>Geriavit <br>Asentra 50 mg <br>Memantine 10 mg |
-| **Między <br>śniadaniem <br>a obiadem** | Feroplex (fiolka)<br>Litorsal (tab. musujaca) |
-| **Po <br>obiedzie**      | Cavinton Forte 10 mg<br>Kaldyum <br>Siofor 500 mg <br>Spironol 25 mg (1/2 tab.)                                                                                                                                           |
-| **Między <br>obiadem <br>a kolacją** | Feroplex (fiolka)<br>Litorsal (tab. musujaca) |
-| **Po <br>kolacji**       | Cavinton Forte 10 mg <br>Lercan 10 mg (1/2 tab.) <br>Pradaxa 110 mg <br>Siofor 500 mg<br>Atrox 20 mg <br>Magne B6 <br>Peritol 4 mg (1/2 tab.)                            |
-| **Przed <br>snem**       | Gaviscon (łyżka stołowa)                                                                                                                                                                                                                |
+| Kiedy                                   | Leki                                                                                                                                                                                               |
+| :-------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Po <br>wstaniu**                      | Euthyrox 75 µg<br>- 1 tab. pon-pt<br>- 1/2 tab. sob-ndz                                                                                                                                            |
+| **Przed <br>śniadaniem**                | IPP 40 mg                                                                                                                                                                                          |
+| **Po <br>śniadaniu**                    | 1. Kandesar 16 mg <br>2. Cavinton Forte 10 mg <br>3. Pradaxa 110 mg <br>4. Siofor 500 mg<br>5. Digoxin 100 µg (pon-pt) <br>6. Magne B6 <br>7. Geriavit <br>8. Asentra 50 mg <br>9. Memantine 10 mg |
+| **Między <br>śniadaniem <br>a obiadem** | Feroplex (fiolka)<br>Litorsal (tab. musujaca)                                                                                                                                                      |
+| **Po <br>obiedzie**                     | Cavinton Forte 10 mg<br>Kaldyum <br>Siofor 500 mg <br>Spironol 25 mg (1/2 tab.)                                                                                                                    |
+| **Między <br>obiadem <br>a kolacją**    | Feroplex (fiolka)<br>Litorsal (tab. musujaca)                                                                                                                                                      |
+| **Po <br>kolacji**                      | Cavinton Forte 10 mg <br>Lercan 10 mg (1/2 tab.) <br>Pradaxa 110 mg <br>Siofor 500 mg<br>Atrox 20 mg <br>Magne B6 <br>Peritol 4 mg (1/2 tab.)                                                      |
+| **Przed <br>snem**                      | Gaviscon (łyżka stołowa)                                                                                                                                                                           |
 
 ### Leki
 
@@ -65,6 +65,32 @@ Te same leki co wyżej ale w standardowej notacji.
 | **Zmiana dawkowania** | Euthyrox 75 µg | Dawka 1/2 tab. w weekendy (sob-ndz) |
 | **Zmiana dawkowania** | Digoxin 100 µg | Ograniczono stosowanie do dni pon-pt |
 
+## 18.01.2025
+
+### Leki
+
+| Lek                            | Kiedy                      |
+| ------------------------------ | -------------------------- |
+| Euthyrox N 75 µg               | 1-0-0 <br>na czczo         |
+| IPP 40 mg                      | 1-0-0 <br>przed śniadaniem |
+| Geriavit                       | 1-0-0                      |
+| Atrox 20 mg                    | 0-0-1                      |
+| Siofor 500 mg                  | 1-1-0                      |
+| Carzap HCT <br>16 mg / 12,5 mg | 1-0-0                      |
+| Digoxin 100 µg                 | 1-0-0                      |
+| Asentra 50 mg                  | 1-0-0                      |
+| Memantine                      | 1-0-0                      |
+| Feroplex                       | 0-1-0                      |
+| MagneB6                        | 1-1-1                      |
+| Pradaxa 110 mg                 | 1-0-1                      |
+| Peritol 4 mg | 0-0-1/2 |
+| Gaviscon                       | 0-0-1 <br>zaraz przed snem |
+
+### Zmiany
+
+| Zmiana   | Lek                            | Uwagi                                     |
+| -------- | ------------------------------ | ----------------------------------------- |
+| **Dodany** | Peritol 4 mg                |       Wieczorem 1/2 zeby nie powodowac senności w ciągu dnia.                                    |
 
 ## 08.12.2025
 
@@ -90,8 +116,8 @@ Te same leki co wyżej ale w standardowej notacji.
 
 | Zmiana   | Lek                            | Uwagi                                     |
 | -------- | ------------------------------ | ----------------------------------------- |
-| Usunięty | Carzap 16 mg                   |                                           |
-| Dodany   | Carzap HCT <br>16 mg / 12,5 mg | Żeby obniżyć cisnienie lekiem moczopędnym |
+| **Usunięty** | Carzap 16 mg                   |                                           |
+| **Dodany**   | Carzap HCT <br>16 mg / 12,5 mg | Żeby obniżyć cisnienie lekiem moczopędnym |
 
 ## 01.12.2025
 
