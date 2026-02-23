@@ -7,7 +7,57 @@ summary: Aktualne informacje o stanie zdrowia babci.
 
 [TOC]
 
-## 21.02.2026
+## 23.02.2026
+
+Leczenie zmodyfikowane przez lekarza z uwagi na za niskie ciśnienia. 
+
+### Leki (o porach dnia)
+
+| Kiedy                                   | Leki                                                                                                                                                                                               |
+| :-------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Po <br>wstaniu** | Euthyrox 75 µg<br>- 1 tab. pon-pt<br>- 1/2 tab. sob-ndz                                                                                                                                            |
+| **Przed <br>śniadaniem** | IPP 40 mg                                                                                                                                                                                          |
+| **Po <br>śniadaniu** | 1. Kandesar 16 mg (1/2 tab.) <br>2. Cavinton Forte 10 mg <br>3. Pradaxa 110 mg <br>4. Siofor 500 mg<br>5. Digoxin 100 µg (pon-pt) <br>6. Magne B6 <br>7. Geriavit <br>8. Asentra 50 mg <br>9. Memantine 10 mg |
+| **Między <br>śniadaniem <br>a obiadem** | Gastrolit                                                                                                                                                                                          |
+| **Po <br>obiedzie** | 1. Cavinton Forte 10 mg<br>2. Siofor 500 mg <br>3. Spironol 25 mg (1/2 tab.)                                                                                                                       |
+| **Między <br>obiadem <br>a kolacją** | 1. Feroplex (fiolka)<br>2. Gastrolit                                                                                                                                                               |
+| **Po <br>kolacji** | 1. Cavinton Forte 10 mg <br>2. Pradaxa 110 mg <br>3. Siofor 500 mg<br>4. Atrox 20 mg <br>5. Magne B6 <br>6. Peritol 4 mg (1/2 tab.) <br>7. Famogast                                                 |
+| **Przed <br>snem** | Gaviscon (łyżka stołowa)                                                                                                                                                                           |
+
+### Leki
+
+Te same leki co wyżej ale w standardowej notacji.
+
+| Lek | Kiedy |
+| :--- | :--- |
+| Kandesar 16 mg | 1/2-0-0 |
+| Cavinton Forte 10 mg | 1-1-1 |
+| Pradaxa 110 mg | 1-0-1 |
+| Siofor 500 mg | 1-1-1 |
+| Euthyrox 75 µg | 1-0-0 (pon-pt) <br>1/2-0-0 (sob-ndz) <br> na czczo|
+| Feroplex | 0-1-0 |
+| IPP 40 mg | 1-0-0 |
+| Atrox 20 mg | 0-0-1 |
+| Digoxin 100 µg | 1-0-0 (pon-pt) |
+| Asentra 50 mg | 1-0-0 |
+| Magne B6 | 1-0-1 |
+| Spironol 25 mg | 0-1/2-0 |
+| Geriavit | 1-0-0 |
+| Peritol 4 mg | 0-0-1/2 |
+| Memantine 10 mg | 1-0-0 |
+| Gaviscon | 0-0-1 |
+| Famogast | 0-0-1 |
+| Gastrolit | 1-0-1 |
+
+### Zmiany
+
+| Zmiana | Lek | Uwagi |
+| :--- | :--- | :--- |
+| **Usunięty** | Lercan 10 mg | Całkowite usunięcie leku z dawkowania wieczornego |
+| **Zmiana dawkowania** | Kandesar 16 mg | Zmniejszenie dawki porannej do 1/2 tabletki (1/2-0-0) |
+| **Usunięty** | Kaldyum | Usunięty całkowicie z uwagi na wysokie poziomy potasu |
+
+## 16.02.2026
 
 ### Leki (o porach dnia)
 
@@ -17,7 +67,7 @@ summary: Aktualne informacje o stanie zdrowia babci.
 | **Przed <br>śniadaniem** | IPP 40 mg                                                                                                                                                                                          |
 | **Po <br>śniadaniu** | 1. Kandesar 16 mg <br>2. Cavinton Forte 10 mg <br>3. Pradaxa 110 mg <br>4. Siofor 500 mg<br>5. Digoxin 100 µg (pon-pt) <br>6. Magne B6 <br>7. Geriavit <br>8. Asentra 50 mg <br>9. Memantine 10 mg |
 | **Między <br>śniadaniem <br>a obiadem** | Gastrolit                                                                                                                                                                                          |
-| **Po <br>obiedzie** | 1. Cavinton Forte 10 mg<br>2. Siofor 500 mg <br>3. Spironol 25 mg (1/2 tab.)                                                                                                                       |
+| **Po <br>obiedzie** | 1. Cavinton Forte 10 mg<br>2. Kaldyum<br>3. Siofor 500 mg <br>4. Spironol 25 mg (1/2 tab.)                                                                                                                       |
 | **Między <br>obiadem <br>a kolacją** | 1. Feroplex (fiolka)<br>2. Gastrolit                                                                                                                                                               |
 | **Po <br>kolacji** | 1. Cavinton Forte 10 mg <br>2. Lercan 10 mg (1/2 tab.) <br>3. Pradaxa 110 mg <br>4. Siofor 500 mg<br>5. Atrox 20 mg <br>6. Magne B6 <br>7. Peritol 4 mg (1/2 tab.) <br>8. Famogast                |
 | **Przed <br>snem** | Gaviscon (łyżka stołowa)                                                                                                                                                                           |
@@ -32,6 +82,7 @@ Te same leki co wyżej ale w standardowej notacji.
 | Cavinton Forte 10 mg | 1-1-1 |
 | Lercan 10 mg | 0-0-1/2 |
 | Pradaxa 110 mg | 1-0-1 |
+| Kaldyum | 0-1-0 |
 | Siofor 500 mg | 1-1-1 |
 | Euthyrox 75 µg | 1-0-0 (pon-pt) <br>1/2-0-0 (sob-ndz) <br> na czczo|
 | Feroplex | 0-1-0 |
@@ -54,7 +105,6 @@ Te same leki co wyżej ale w standardowej notacji.
 | :--- | :--- | :--- |
 | **Zmiana dawkowania** | Feroplex | Zmiana na 0-1-0; podawany tylko między obiadem a kolacją, usunięto dawkę poranną |
 | **Dodany** | Famogast | Dawkowanie 0-0-1; dodany do listy leków wieczornych |
-| **Usunięty** | Kaldyum | Usunięty całkowicie z uwagi na wysokie poziomy potasu |
 | **Zamiana** | Gastrolit | Zastąpił Litorsal z uwagi na lepszy smak |
 
 
