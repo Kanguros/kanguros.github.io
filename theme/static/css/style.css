@@ -540,6 +540,8 @@ article table td + td {
     h2 {
         page-break-before: always;
         break-before: page;
+        margin-top: 0.2rem;
+        margin-bottom: 0.3rem;
     }
 
     h2:first-of-type {
@@ -548,15 +550,22 @@ article table td + td {
     }
 
     h3 {
-        margin-bottom: 0;
-        margin-top: 20px;
         font-size: 18px;
-        text-decoration: underline;
+        margin-top: 0.4rem;
+        margin-bottom: 0.4rem;
+        page-break-before: always;
+        break-before: page;
     }
 
     h4 {
         font-size: 16px;
         margin: 0.3rem auto 0.3rem;
+    }
+
+    h2,
+    h3,
+    h4 {
+        text-decoration: none;
     }
 
     p,
@@ -565,7 +574,7 @@ article table td + td {
     }
 
     p {
-        margin-top: 0.2rem;
+        margin-top: 0.1rem;
     }
 
     ul {
@@ -573,5 +582,11 @@ article table td + td {
         padding-left: 18px;
         margin-top: 0;
         margin-bottom: 0;
+    }
+
+    article table td,
+    article table th {
+        padding: 0.2rem 0.5rem;
+        white-space: normal;
     }
 }
