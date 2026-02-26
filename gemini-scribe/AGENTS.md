@@ -11,9 +11,9 @@ This Obsidian vault appears to serve as a hybrid personal knowledge base and con
 The vault is primarily organized by content type and its intended audience (public vs. private).
 
 - The `content/` folder is central, housing:
-  - `pages/` for static website content (e.g., `resume`, `about`).
-  - `posts/` for blog articles, mainly focused on technical topics like Python, Azure, and command-line tools.
-  - `private/` for personal notes, including health, diet, AI prompts, and sensitive information.
+    - `pages/` for static website content (e.g., `resume`, `about`).
+    - `posts/` for blog articles, mainly focused on technical topics like Python, Azure, and command-line tools.
+    - `private/` for personal notes, including health, diet, AI prompts, and sensitive information.
 - Other top-level folders include `code/` for code snippets or projects, `markdown_extension/` for custom markdown features, and `theme/` which contains web theme assets.
 
 The clear separation into `pages`, `posts`, and `private` indicates a strong distinction between public-facing content, blog articles, and personal knowledge. This suggests a publishing workflow integrated with personal knowledge management.
