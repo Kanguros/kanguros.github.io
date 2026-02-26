@@ -513,3 +513,80 @@ article table td + td {
     border-left-style: solid;
     border-left-width: 1px;
 }
+
+@media print {
+    header,
+    footer,
+    .hero,
+    .toc {
+        display: none;
+    }
+
+    h2,
+    h3,
+    h4,
+    ul,
+    p {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    a.toclink {
+        color: inherit;
+        text-decoration: none;
+        pointer-events: none;
+    }
+
+    h2 {
+        page-break-before: always;
+        break-before: page;
+        margin-top: 0.2rem;
+        margin-bottom: 0.3rem;
+    }
+
+    h2:first-of-type {
+        page-break-before: auto;
+        break-before: auto;
+    }
+
+    h3 {
+        font-size: 18px;
+        margin-top: 0.4rem;
+        margin-bottom: 0.4rem;
+        page-break-before: always;
+        break-before: page;
+    }
+
+    h4 {
+        font-size: 16px;
+        margin: 0.3rem auto 0.3rem;
+    }
+
+    h2,
+    h3,
+    h4 {
+        text-decoration: none;
+    }
+
+    p,
+    li {
+        font-size: 14px;
+    }
+
+    p {
+        margin-top: 0.1rem;
+    }
+
+    ul {
+        list-style-type: disc;
+        padding-left: 18px;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    article table td,
+    article table th {
+        padding: 0.2rem 0.5rem;
+        white-space: normal;
+    }
+}
