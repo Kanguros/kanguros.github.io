@@ -17,11 +17,11 @@ Leczenie zmodyfikowane przez lekarza z uwagi na za niskie ciśnienia.
 | :-------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Po <br>wstaniu** | Euthyrox 75 µg<br>- 1 tab. pon-pt<br>- 1/2 tab. sob-ndz                                                                                                                                            |
 | **Przed <br>śniadaniem** | IPP 40 mg                                                                                                                                                                                          |
-| **Po <br>śniadaniu** | 1. Kandesar 16 mg (1/2 tab.) <br>2. Cavinton Forte 10 mg <br>3. Pradaxa 110 mg <br>4. Siofor 500 mg<br>5. Digoxin 100 µg (pon-pt) <br>6. Magne B6 <br>7. Geriavit <br>8. Asentra 50 mg <br>9. Memantine 10 mg |
+| **Po <br>śniadaniu** | 1. Kandesar 16 mg (1/2 tab.) <br>2. Cavinton Forte 10 mg <br>3. Pradaxa 110 mg <br>4. Siofor 500 mg<br>5. Digoxin 100 µg (pon-pt) <br>6. Magne B6 <br>7. Geriavit <br>8. Asentra 50 mg <br>9. Memantine 10 mg<br>10. Preductal MR|
 | **Między <br>śniadaniem <br>a obiadem** | Gastrolit                                                                                                                                                                                          |
 | **Po <br>obiedzie** | 1. Cavinton Forte 10 mg<br>2. Siofor 500 mg <br>3. Spironol 25 mg (1/2 tab.)                                                                                                                       |
 | **Między <br>obiadem <br>a kolacją** | 1. Feroplex (fiolka)<br>2. Gastrolit                                                                                                                                                               |
-| **Po <br>kolacji** | 1. Cavinton Forte 10 mg <br>2. Pradaxa 110 mg <br>3. Siofor 500 mg<br>4. Atrox 20 mg <br>5. Magne B6 <br>6. Peritol 4 mg (1/2 tab.) <br>7. Famogast                                                 |
+| **Po <br>kolacji** | 1. Cavinton Forte 10 mg <br>2. Pradaxa 110 mg <br>3. Siofor 500 mg<br>4. Atrox 20 mg <br>5. Magne B6 <br>6. Peritol 4 mg (1/2 tab.) <br>7. Famogast<br>8. Preductal MR                                              |
 | **Przed <br>snem** | Gaviscon (łyżka stołowa)                                                                                                                                                                           |
 
 ### Leki
@@ -48,6 +48,7 @@ Te same leki co wyżej ale w standardowej notacji.
 | Gaviscon | 0-0-1 |
 | Famogast | 0-0-1 |
 | Gastrolit | 1-0-1 |
+| Preductal MR | 1-0-1 |
 
 ### Zmiany
 
@@ -56,6 +57,7 @@ Te same leki co wyżej ale w standardowej notacji.
 | **Usunięty** | Lercan 10 mg | Całkowite usunięcie leku z dawkowania wieczornego |
 | **Zmiana dawkowania** | Kandesar 16 mg | Zmniejszenie dawki porannej do 1/2 tabletki (1/2-0-0) |
 | **Usunięty** | Kaldyum | Usunięty całkowicie z uwagi na wysokie poziomy potasu |
+| **Dodany** | Preductal MR | Na wzmocnienie serca, 1-0-1 |
 
 ## 16.02.2026
 
