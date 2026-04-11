@@ -7,6 +7,99 @@ summary: Aktualne informacje o stanie zdrowia babci.
 
 [TOC]
 
+## 11.04.2026
+
+Leczenie zmodyfikowane z uwagi na pogarszające się wyniki morfologii, wysoki poziom potasu oraz mocznika.
+
+### Leki (o porach dnia)
+
+| Kiedy                | Leki                                                                                                                                                                                               |
+| :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Po wstaniu** | Euthyrox 75 µg<br>- 1 tab. pon-pt<br>- 1/2 tab. sob-ndz                                                                                                                                            |
+| **Przed śniadaniem** | IPP 40 mg                                                                                                                                                                                          |
+| **Po śniadaniu** | 1. Cavinton Forte 10 mg <br>2. Pradaxa 110 mg <br>3. Siofor 500 mg<br>4. Digoxin 100 µg (pon-pt) <br>5. Magne B6 <br>6. Geriavit <br>7. Asentra 50 mg <br>8. Memantine 10 mg<br>9. Preductal MR    |
+| **Po obiedzie** | 1. Cavinton Forte 10 mg <br>2. Siofor 500 mg <br>3. Peritol 4 mg (1/2 tab.) <br>4. Dicopeg (2 saszetki)                                                                                            |
+| **Po kolacji** | 1. Cavinton Forte 10 mg <br>2. Siofor 500 mg<br>3. Atrox 20 mg <br>4. Magne B6 <br>5. Peritol 4 mg (1/2 tab.) <br>6. Famogast<br>7. Preductal MR                                                   |
+
+### Leki
+
+Te same leki co wyżej ale w standardowej notacji.
+
+| Lek                  | Kiedy                                              |
+| :------------------- | :------------------------------------------------- |
+| Cavinton Forte 10 mg | 1-1-1                                              |
+| Pradaxa 110 mg       | 1-0-0                                              |
+| Siofor 500 mg        | 1-1-1                                              |
+| Euthyrox 75 µg       | 1-0-0 (pon-pt) <br>1/2-0-0 (sob-ndz) <br> na czczo |
+| IPP 40 mg            | 1-0-0                                              |
+| Atrox 20 mg          | 0-0-1                                              |
+| Digoxin 100 µg       | 1-0-0 (pon-pt)                                     |
+| Asentra 50 mg        | 1-0-0                                              |
+| Magne B6             | 1-0-1                                              |
+| Geriavit             | 1-0-0                                              |
+| Peritol 4 mg         | 0-1/2-1/2                                          |
+| Memantine 10 mg      | 1-0-0                                              |
+| Famogast             | 0-0-1                                              |
+| Preductal MR         | 1-0-1                                              |
+| Dicopeg              | 0-2-0                                              |
+
+### Zmiany
+
+| Zmiana                | Lek            | Uwagi                                                                 |
+| :-------------------- | :------------- | :-------------------------------------------------------------------- |
+| **Usunięty** | Kandesar 16 mg | Całkowite odstawienie leku (wcześniej 1/2 tab. w południe)            |
+| **Usunięty** | Spironol 25 mg | Całkowite odstawienie leku z uwagi na wysoki potas                    |
+| **Zmiana dawkowania** | Pradaxa 110 mg | Usunięto dawkę wieczorną; stosować tylko rano (1-0-0)                 |
+
+## 25.03.2026
+
+Leczenie zmodyfikowane przez lekarza.
+
+### Leki (o porach dnia)
+
+| Kiedy                | Leki                                                                                                                                                                                               |
+| :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Po wstaniu** | Euthyrox 75 µg<br>- 1 tab. pon-pt<br>- 1/2 tab. sob-ndz                                                                                                                                            |
+| **Przed śniadaniem** | IPP 40 mg                                                                                                                                                                                          |
+| **Po śniadaniu** | 1. Cavinton Forte 10 mg <br>2. Pradaxa 110 mg <br>3. Siofor 500 mg<br>4. Digoxin 100 µg (pon-pt) <br>5. Magne B6 <br>6. Geriavit <br>7. Asentra 50 mg <br>8. Memantine 10 mg<br>9. Preductal MR    |
+| **Po obiedzie** | 1. Kandesar 16 mg (1/2 tab.) <br>2. Cavinton Forte 10 mg <br>3. Siofor 500 mg <br>4. Spironol 25 mg (1/2 tab.) <br>5. Peritol 4 mg (1/2 tab.) <br>6. Dicopeg (2 saszetki) |
+| **Po kolacji** | 1. Cavinton Forte 10 mg <br>2. Pradaxa 110 mg <br>3. Siofor 500 mg<br>4. Atrox 20 mg <br>5. Magne B6 <br>6. Peritol 4 mg (1/2 tab.) <br>7. Famogast<br>8. Preductal MR                             |
+
+### Leki
+
+Te same leki co wyżej ale w standardowej notacji.
+
+| Lek                  | Kiedy                                              |
+| :------------------- | :------------------------------------------------- |
+| Kandesar 16 mg       | 0-1/2-0                                            |
+| Cavinton Forte 10 mg | 1-1-1                                              |
+| Pradaxa 110 mg       | 1-0-1                                              |
+| Siofor 500 mg        | 1-1-1                                              |
+| Euthyrox 75 µg       | 1-0-0 (pon-pt) <br>1/2-0-0 (sob-ndz) <br> na czczo |
+| IPP 40 mg            | 1-0-0                                              |
+| Atrox 20 mg          | 0-0-1                                              |
+| Digoxin 100 µg       | 1-0-0 (pon-pt)                                     |
+| Asentra 50 mg        | 1-0-0                                              |
+| Magne B6             | 1-0-1                                              |
+| Spironol 25 mg       | 0-1/2-0                                            |
+| Geriavit             | 1-0-0                                              |
+| Peritol 4 mg         | 0-1/2-1/2                                          |
+| Memantine 10 mg      | 1-0-0                                              |
+| Famogast             | 0-0-1                                              |
+| Preductal MR         | 1-0-1                                              |
+| Dicopeg              | 0-2-0                                              |
+
+### Zmiany
+
+| Zmiana                | Lek            | Uwagi                                                                 |
+| :-------------------- | :------------- | :-------------------------------------------------------------------- |
+| **Zmiana dawkowania** | Kandesar 16 mg | Przeniesiono poranną dawkę (1/2 tab.) na południe                     |
+| **Dodano / Zmiana** | Peritol 4 mg   | Dodano dawkę 1/2 tab. w południe na apetyt (łącznie 0-1/2-1/2)        |
+| **Dodany** | Dicopeg        | 2 saszetki przyjmowane po południu                                    |
+| **Usunięty** | Gaviscon       | Odstawiony z uwagi na stosowanie leku Famogast                        |
+| **Usunięty** | Feroplex       | Odstawiony z uwagi na zbyt duże zaparcia                              |
+| **Usunięty** | Gastrolit      | Odstawiony z uwagi na wysoki poziom potasu                            |
+
 ## 23.02.2026
 
 Leczenie zmodyfikowane przez lekarza z uwagi na za niskie ciśnienia.
