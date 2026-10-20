@@ -7,6 +7,39 @@ summary: Aktualne informacje o stanie zdrowia babci.
 
 [TOC]
 
+## 01.07.2026
+
+### Leki (o porach dnia)
+
+| Kiedy                | Leki                                                                                                                                                                                               |
+| :------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Po wstaniu** | Euthyrox 75 µg<br>- 1 tab. pon-pt<br>- 1/2 tab. sob-ndz                                                                                                                                            |
+| **Przed śniadaniem** | IPP 40 mg                                                                                                                                                                                          |
+| **Po śniadaniu** | 1. Cavinton Forte 10 mg <br>2. Pradaxa 110 mg <br>3. Siofor 500 mg<br>4. Digoxin 100 µg (pon-pt) <br>5. Magne B6 <br>6. Geriavit <br>7. Asentra 100 mg <br>8. Memantine 10 mg + 5 mg                       |
+| **Po obiedzie** | 1. Cavinton Forte 10 mg <br>2. Siofor 500 mg <br>3. Lacipil 2 mg (1/2 tab.) <br>4. Dicopeg 1 saszetka (doraźnie) |
+| **Po kolacji** | 1. Cavinton Forte 10 mg <br>2. Siofor 500 mg<br>3. Atrox 20 mg <br>4. Magne B6 <br>5. Famogast                                                                                                     |
+
+### Leki
+
+Te same leki co wyżej ale w standardowej notacji.
+
+| Lek                  | Kiedy                                              |
+| :------------------- | :------------------------------------------------- |
+| Cavinton Forte 10 mg | 1-1-1                                              |
+| Pradaxa 110 mg       | 1-0-0                                              |
+| Siofor 500 mg        | 1-1-1                                              |
+| Euthyrox 75 µg       | 1-0-0 (pon-pt) <br>1/2-0-0 (sob-ndz) <br> na czczo |
+| IPP 40 mg            | 1-0-0                                              |
+| Atrox 20 mg          | 0-0-1                                              |
+| Digoxin 100 µg       | 1-0-0 (pon-pt)                                     |
+| Asentra 100 mg        | 1-0-0                                              |
+| Magne B6             | 1-0-1                                              |
+| Geriavit             | 1-0-0                                              |
+| Memantine 10 mg     | 1 1/2-0-0                                              |
+| Famogast             | 0-0-1                                              |
+| Dicopeg              | 0-1-0                                              |
+| Lacipil 2 mg         | 0-1/2-0     
+
 ## 20.04.2026
 
 ### Leki (o porach dnia)
